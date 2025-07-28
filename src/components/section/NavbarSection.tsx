@@ -27,7 +27,7 @@ function NavbarSection() {
     <div>
     <nav className=" fixed top-0 left-0 right-0 z-50 mt-10 lg:max-w-[1300px]  bg-transparent backdrop-blur-[10px] lg:w-[90%] mx-5 lg:mx-auto border-2 border-black rounded-full px-5 ">
       <div className=" mx-auto pl-4  py-3 flex justify-between items-center">
-        <div className="text-2xl font-bold text-gray-800 ">MySite</div>
+        <div className="text-2xl font-bold text-gray-800 ">My</div>
         <div className="lg:hidden">
          <SheetTrigger>
           <div className="text-black dark:text-white focus:outline-none">
