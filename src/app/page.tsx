@@ -1,10 +1,14 @@
-import React, { FC } from 'react'
+import { HeroSection, WhyChooseTetraCodeSection } from '@/components/section'
+import React from 'react'
 
 
 
 const Home = () => {
   return (
-    <h1>Home Page</h1>
+    <>
+      <HeroSection />
+      <WhyChooseTetraCodeSection />
+    </>
   )
 }
 
