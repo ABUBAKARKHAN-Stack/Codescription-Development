@@ -22,7 +22,12 @@ const SparklesPreview: FC<Props> = ({ mainHeading , subHeading }) => {
           particleColor="#A05FFF"
         />
       </div>
-      <SectionHeader mainHeading={mainHeading} subText={subHeading} />
+      <h1 className='lg:text-6xl md:text-5xl text-4xl text-wrap text-center  font-sigmar'>
+                          {mainHeading}
+                      </h1>             
+                      <p className='font-poppins mx-auto text-primary font-normal text-sm md:text-base max-w-[80%] leading-relaxed text-wrap text-center xl:text-xl mb-6'>
+                          {subHeading}
+                      </p>
     </div>
   );
 };

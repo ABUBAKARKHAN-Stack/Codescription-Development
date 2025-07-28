@@ -12,7 +12,7 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat",
         
       }}
-      className='min-h-screen w-full flex  justify-center items-center mask-b-from-40% to-100%'
+      className='min-h-screen w-full flex dark: justify-center items-center mask-b-from-40% to-100%'
     >
 
       <div>
