@@ -1,13 +1,15 @@
-import { NavbarSection } from '@/components/section'
-import React, { FC } from 'react'
+import { HeroSection, WhyChooseTetraCodeSection,NavbarSection } from '@/components/section'
+import React from 'react'
 
 
 
 const Home = () => {
   return (
-    <h1>Home Page
+    <div className='overflow-hidden bg-[#F3F8FF] '>
       <NavbarSection />
-    </h1>
+      <HeroSection />
+      <WhyChooseTetraCodeSection />
+    </div>
   )
 }
 
