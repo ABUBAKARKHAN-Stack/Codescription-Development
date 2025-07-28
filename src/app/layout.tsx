@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${sigmar.variable} bg-background antialiased`}
+        className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
         {children}
       </body>

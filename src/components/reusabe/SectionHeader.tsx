@@ -13,19 +13,21 @@ const SectionHeader: FC<Props> = ({
     animateOnce = false
 }) => {
     return (
-        <div className='flex flex-col gap-y-4 relative w-fit'>
+        <div className='flex w-full justify-center items-center flex-col gap-y-4 relative'>
             <BlurFade
                 direction="down" once={animateOnce} delay={0.25} inView
+                blur='20px'
             >
-                <h1 className='text-5xl font-sigmar'>
+                <h1 className='lg:text-6xl md:text-5xl text-4xl text-wrap text-center  font-sigmar'>
                     {mainHeading}
                 </h1>
             </BlurFade>
             <BlurFade
                 direction="down" once={animateOnce} delay={0.25 * 2} inView
+                blur='10px'
 
             >
-                <p className='font-poppins'>
+                <p className='font-poppins mx-auto text-primary font-normal text-sm md:text-base max-w-[90%] leading-relaxed text-wrap text-center xl:text-xl mb-6'>
                     {subText}
                 </p>
             </BlurFade>
