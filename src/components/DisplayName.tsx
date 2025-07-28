@@ -6,7 +6,7 @@ type props = {
 
 const DisplayName: FC<props> = ({ iamworkingwith }) => {
     return (
-        <div>Hello I am working with {iamworkingwith} </div>
+        <div>Hello I am workng with {iamworkingwith} </div>
     )
 }
 
