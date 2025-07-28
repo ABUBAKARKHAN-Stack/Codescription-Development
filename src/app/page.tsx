@@ -1,13 +1,10 @@
-import DisplayName from '@/components/DisplayName'
 import React, { FC } from 'react'
 
 
 
 const Home = () => {
   return (
-    <DisplayName
-    iamworkingwith={'abubakar'}
-    />
+    <h1>Home Page</h1>
   )
 }
 
