@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Sigmar } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "next-themes";
-import Provider from "@/components/Provider";
+import { ThemeProvider } from "@/components/providers";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -33,10 +32,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
-      <Provider>
-        {children}
-      </Provider>
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
-  </html>
-);
+    </html>
+  );
 }

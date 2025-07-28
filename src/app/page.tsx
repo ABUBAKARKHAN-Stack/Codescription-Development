@@ -1,6 +1,6 @@
 'use client'
-import { HeroSection, WhatWeDoSection, WhyChooseTetraCodeSection ,NavbarSection} from '@/components/section'
-import ThemeChanger from '@/components/ThemeChanger'
+import { HeroSection, WhatWeDoSection, WhyChooseTetraCodeSection, NavbarSection } from '@/components/section'
+import { ThemeChanger } from '@/components/reusabe/'
 import { Separator } from '@/components/ui/separator'
 import React from 'react'
 
