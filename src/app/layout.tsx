@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Sigmar } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import Provider from "@/components/Provider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -26,14 +27,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
-        <ThemeProvider defaultTheme="light" attribute='class' enableSystem>
-          {children}
-          </ThemeProvider>
+      <Provider>
+        {children}
+      </Provider>
       </body>
   </html>
 );

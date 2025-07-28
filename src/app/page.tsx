@@ -1,3 +1,4 @@
+'use client'
 import { HeroSection, WhatWeDoSection, WhyChooseTetraCodeSection ,NavbarSection} from '@/components/section'
 import ThemeChanger from '@/components/ThemeChanger'
 import { Separator } from '@/components/ui/separator'

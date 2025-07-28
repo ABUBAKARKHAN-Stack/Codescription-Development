@@ -1,8 +1,13 @@
+"use client"
+
 import React from 'react'
 import { SparklesPreview} from '../reusabe'
+import { Button } from '../ui/button'
 
 
 const HeroSection = () => {
+  
+  
   return (
     <div
       style={{

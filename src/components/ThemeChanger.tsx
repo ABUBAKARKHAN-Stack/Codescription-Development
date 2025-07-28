@@ -15,7 +15,7 @@ function ThemeChanger() {
         layout
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
         className={`absolute top-1 left-1 ${
-          theme === 'dark' ? 'translate-x-[75%]' : ''
+          resolvedTheme === 'dark' ? 'translate-x-[75%]' : ''
         } w-8 h-8 rounded-full bg-white dark:bg-zinc-900 backdrop-blur-sm shadow-md flex items-center justify-center`}
       >
         <AnimatePresence mode="wait">
