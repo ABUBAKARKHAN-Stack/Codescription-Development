@@ -7,7 +7,7 @@ type Props = {
 
 const ContainerLayout: FC<Props> = ({ children, className }) => {
   return (
-    <main className={`xl:max-w-6xl lg:max-w-5xl md:max-w-3xl sm:max-w-2xl max-w-full p-4 h-full w-full mx-auto ${className}`}>
+    <main className={`max-w-full xsm:max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[1100px] p-4 h-full w-full mx-auto ${className}`}>
       {children}
     </main>
   )

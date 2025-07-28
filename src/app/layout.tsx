@@ -25,12 +25,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
-        {children}
+          {children}
       </body>
     </html>
   );

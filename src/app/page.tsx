@@ -6,7 +6,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className='overflow-hidden bg-[#F3F8FF] '>
+    <div className='overflow-x-hidden'>
       <NavbarSection />
       <HeroSection />
       <Separator className='border-2 border-primary' />
