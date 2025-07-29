@@ -33,8 +33,8 @@ function NavbarSection() {
           <div className=" mx-auto py-3 px-2 flex justify-between items-center">
             <Image
               src={theme === 'light' ? '/assets/light-logo.png' : '/assets/dark-logo.png'}
-              width={175}
-              height={175}
+              width={155}
+              height={155}
               alt={theme === "light" ? 'Tetracode Logo Light' : "Tetracode Logo Dark"}
               className='mt-1'
             />
