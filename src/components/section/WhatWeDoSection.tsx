@@ -90,7 +90,7 @@ const WhatWeDoSection = () => {
                         >
                             {/* Overlay */}
                             <motion.div
-                                className="absolute inset-0 z-20 bg-black/20 backdrop-blur-sm rounded-xl"
+                                className="absolute inset-0 z-20 bg-white/20 dark:bg-black/20 backdrop-blur-sm rounded-xl"
                                 animate={{
                                     y: isCardHovered.id === id ? 0 : -350,
                                     backdropFilter: isCardHovered.id === id ? "blur(10px)" : "blur(0px)",
@@ -109,7 +109,7 @@ const WhatWeDoSection = () => {
                                     >
                                         <Link
                                             href={link}
-                                            className="p-2 w-28 h-28 transition-colors duration-200 bg-white text-black hover:bg-black hover:text-white rounded-full flex flex-col justify-center items-center"
+                                            className="p-2 w-28 h-28 transition-colors duration-200 bg-white text-black hover:bg-black shadow-md border-2 hover:text-white rounded-full flex flex-col justify-center items-center"
                                         >
                                             <Eye className="size-6" />
                                             <span className="text-xs font-medium block mt-1">View Details</span>
