@@ -2,12 +2,15 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
+import { useTheme } from 'next-themes';
 
 interface ParticleUserData {
   velocity: THREE.Vector3;
 }
 
 const TetraCode3D: React.FC = () => {
+  const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
   const mountRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -17,9 +20,47 @@ const TetraCode3D: React.FC = () => {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    // Get responsive scale factors based on current window size
+    const getScaleFactors = () => {
+      const width = window.innerWidth;
+      if (width < 768) {
+        // Mobile
+        return { 
+          textScale: 0.5, 
+          fontSize: 140, 
+          ringFontSize: 35, 
+          spacing: 0.5, 
+          radius: 3.0,
+          particleCount: 50
+        };
+      } else if (width < 1024) {
+        // Tablet
+        return { 
+          textScale: 0.7, 
+          fontSize: 150, 
+          ringFontSize: 40, 
+          spacing: 0.7, 
+          radius: 3.8,
+          particleCount: 75
+        };
+      } else {
+        // Desktop
+        return { 
+          textScale: 0.9, 
+          fontSize: 150, 
+          ringFontSize: 40, 
+          spacing: 0.8, 
+          radius: 4.5,
+          particleCount: 100
+        };
+      }
+    };
+
+    const scales = getScaleFactors();
+
     // Scene setup
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f0f23);
+    scene.background = null; // Transparent background
     sceneRef.current = scene;
 
     // Camera setup
@@ -31,38 +72,43 @@ const TetraCode3D: React.FC = () => {
     );
     camera.position.z = 8;
 
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    // Renderer setup with transparent background
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true, 
+      alpha: true,
+      premultipliedAlpha: false
+    });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0); // Fully transparent
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     rendererRef.current = renderer;
     mountRef.current.appendChild(renderer.domElement);
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+    // Reduced lighting to prevent background interference
+    const ambientLight = new THREE.AmbientLight(0x404040, 0.3);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(10, 10, 5);
     directionalLight.castShadow = true;
     directionalLight.shadow.mapSize.width = 2048;
     directionalLight.shadow.mapSize.height = 2048;
     scene.add(directionalLight);
 
-    const pointLight1 = new THREE.PointLight(0x6366f1, 2, 10);
+    const pointLight1 = new THREE.PointLight(0x6366f1, 1.5, 10);
     pointLight1.position.set(-5, 0, 3);
     scene.add(pointLight1);
 
-    const pointLight2 = new THREE.PointLight(0x8b5cf6, 2, 10);
+    const pointLight2 = new THREE.PointLight(0x8b5cf6, 1.5, 10);
     pointLight2.position.set(5, 0, 3);
     scene.add(pointLight2);
 
     // Create rotating text ring
     const createTextRing = (): THREE.Group => {
       const group = new THREE.Group();
-      const radius = 4.5;
+      const radius = scales.radius;
       const text = "✦ INNOVATING WEB SOLUTIONS ✦ POWERED BY TETRACODE ✦ CREATIVITY MEETS CODE ✦ ";
       
       // Create text sprites
@@ -75,11 +121,17 @@ const TetraCode3D: React.FC = () => {
           canvas.width = 80;
           canvas.height = 80;
           
+          // Clear canvas with transparent background
+          context.clearRect(0, 0, 80, 80);
+          
+          // Theme-based colors
+          const ringColor = isDarkMode ? 'oklch(0.65 0.22 295)' : 'oklch(0.65 0.22 295)';
+          
           // Add subtle glow to ring text
-          context.shadowColor = 'oklch(0.65 0.22 295)';
-          context.shadowBlur = 8;
-          context.fillStyle = 'oklch(0.65 0.22 295)';
-          context.font = 'bold 28px Arial';
+          context.shadowColor = ringColor;
+          context.shadowBlur = 3;
+          context.fillStyle = ringColor;
+          context.font = ` ${scales.ringFontSize}px poppins`;
           context.textAlign = 'center';
           context.textBaseline = 'middle';
           context.fillText(char, 40, 40);
@@ -96,7 +148,7 @@ const TetraCode3D: React.FC = () => {
           sprite.position.x = Math.cos(angle) * radius;
           sprite.position.y = Math.sin(angle) * radius;
           sprite.position.z = Math.sin(Date.now() * 0.001 + index) * 0.3;
-          sprite.scale.setScalar(0.35);
+          sprite.scale.setScalar(0.35 * scales.textScale);
           
           group.add(sprite);
         }
@@ -111,7 +163,7 @@ const TetraCode3D: React.FC = () => {
       
       // Create TetraCode text sprites
       const letters = "TETRACODE";
-      const spacing = 0.6;
+      const spacing = scales.spacing;
       const startX = -(letters.length - 1) * spacing / 2;
       
       letters.split('').forEach((letter, index) => {
@@ -122,21 +174,31 @@ const TetraCode3D: React.FC = () => {
         canvas.width = 140;
         canvas.height = 140;
         
-        // Create gradient
+        // Clear canvas with transparent background
+        context.clearRect(0, 0, 140, 140);
+        
+        // Theme-based gradient colors
         const gradient = context.createLinearGradient(0, 0, 0, 140);
-        gradient.addColorStop(0, '#ffffff');
-        gradient.addColorStop(0.5, 'oklch(0.75 0.18 295)');
-        gradient.addColorStop(1, 'oklch(0.65 0.22 295)');
+        if (isDarkMode) {
+          gradient.addColorStop(0, '#ffffff');
+          gradient.addColorStop(0.5, 'oklch(0.75 0.18 295)');
+          gradient.addColorStop(1, 'oklch(0.65 0.22 295)');
+        } else {
+          gradient.addColorStop(0, '#A05FFF');
+gradient.addColorStop(0.5, 'oklch(0.85 0.12 295)');
+gradient.addColorStop(1, 'oklch(0.92 0.08 295)');
+        }
         
         context.fillStyle = gradient;
-        context.font = 'bold 80px Arial';
+        context.font = ` ${scales.fontSize}px sigmar`;
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         context.fillText(letter, 70, 70);
         
-        // Add stronger glow effect
-        context.shadowColor = 'oklch(0.65 0.22 295)';
-        context.shadowBlur = 25;
+        // Add stronger glow effect with theme-based color
+        const glowColor = isDarkMode ? 'oklch(0.65 0.22 295)' : 'null';
+        context.shadowColor = glowColor;
+        context.shadowBlur = isDarkMode ? 15 : 0;
         context.fillText(letter, 70, 70);
         
         const texture = new THREE.CanvasTexture(canvas);
@@ -150,7 +212,7 @@ const TetraCode3D: React.FC = () => {
         sprite.position.x = startX + index * spacing;
         sprite.position.y = 0;
         sprite.position.z = 0.1;
-        sprite.scale.setScalar(0.9);
+        sprite.scale.setScalar(scales.textScale);
         
         group.add(sprite);
       });
@@ -163,7 +225,7 @@ const TetraCode3D: React.FC = () => {
       const particles = new THREE.Group();
       const particleGeometry = new THREE.SphereGeometry(0.02, 8, 6);
       
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < scales.particleCount; i++) {
         const material = new THREE.MeshBasicMaterial({
           color: new THREE.Color().setHSL(Math.random() * 0.1 + 0.6, 0.8, 0.6),
           transparent: true,
@@ -219,7 +281,8 @@ const TetraCode3D: React.FC = () => {
       
       // Add refined scale animation to letters
       centerLogo.children.forEach((sprite, index) => {
-        sprite.scale.setScalar(0.9 + Math.sin(time * 1.8 + index * 0.4) * 0.06);
+        const baseScale = scales.textScale;
+        sprite.scale.setScalar(baseScale + Math.sin(time * 1.8 + index * 0.4) * 0.06);
         sprite.position.z = 0.1 + Math.sin(time * 1.5 + index * 0.3) * 0.05;
       });
 
@@ -299,14 +362,14 @@ const TetraCode3D: React.FC = () => {
         }
       });
     };
-  }, []);
+  }, [isDarkMode, theme]);
 
   return (
-    <div className="w-full h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
+    <div className="w-full h-screen flex items-center justify-center relative overflow-hidden">
       {/* Loading indicator */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-900">
-          <div className="text-white text-xl font-semibold animate-pulse">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className={`text-xl font-semibold animate-pulse ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
             Loading 3D Experience...
           </div>
         </div>
@@ -318,22 +381,6 @@ const TetraCode3D: React.FC = () => {
         className="w-full h-full cursor-grab active:cursor-grabbing"
         style={{ touchAction: 'none' }}
       />
-      
-      {/* UI Overlay */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 tracking-wider">
-          TETRACODE
-        </h1>
-        <p className="text-lg text-purple-300 font-medium">
-          Innovating Web Solutions Through Creative Code
-        </p>
-      </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-10 left-10 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-      <div className="absolute top-20 right-20 w-1 h-1 bg-blue-400 rounded-full animate-pulse delay-300"></div>
-      <div className="absolute bottom-20 left-20 w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse delay-700"></div>
-      <div className="absolute bottom-32 right-16 w-1 h-1 bg-purple-500 rounded-full animate-pulse delay-1000"></div>
     </div>
   );
 };

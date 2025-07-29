@@ -24,7 +24,7 @@ function NavbarSection() {
     <Sheet open={open} onOpenChange={setOpen}>
 
       <div>
-        <nav className=" fixed top-0 max-w-full xsm:max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[1100px] left-0 right-0 z-50 mt-8 shadow-lg bg-transparent backdrop-blur-[15px]  mx-5 lg:mx-auto bord  rounded-full px-5 ">
+        <nav className=" fixed top-0  mx-10 lg:w-[95%] lg:max-w-[1100px] left-0 right-0 z-50 mt-8 shadow-lg bg-transparent backdrop-blur-[15px]  lg:mx-auto   rounded-full px-5 ">
           <div className="mx-auto py-3 px-2 flex justify-between items-center">
             <Logo
               width={155}
