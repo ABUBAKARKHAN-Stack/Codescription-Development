@@ -10,7 +10,9 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
 
     useEffect(() => {
-        const lenis = new Lenis();
+        const lenis = new Lenis({
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
         lenisRef.current = lenis;
         setLenisInstance(lenis);
 

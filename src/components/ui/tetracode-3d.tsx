@@ -62,7 +62,7 @@ const TetraCode3D: React.FC = () => {
     // Create rotating text ring
     const createTextRing = (): THREE.Group => {
       const group = new THREE.Group();
-      const radius = 4;
+      const radius = 4.5;
       const text = "✦ INNOVATING WEB SOLUTIONS ✦ POWERED BY TETRACODE ✦ CREATIVITY MEETS CODE ✦ ";
       
       // Create text sprites
@@ -72,24 +72,31 @@ const TetraCode3D: React.FC = () => {
           const context = canvas.getContext('2d');
           if (!context) return;
           
-          canvas.width = 64;
-          canvas.height = 64;
+          canvas.width = 80;
+          canvas.height = 80;
           
-          context.fillStyle = '#6366f1';
-          context.font = 'bold 24px Arial';
+          // Add subtle glow to ring text
+          context.shadowColor = 'oklch(0.65 0.22 295)';
+          context.shadowBlur = 8;
+          context.fillStyle = 'oklch(0.65 0.22 295)';
+          context.font = 'bold 28px Arial';
           context.textAlign = 'center';
           context.textBaseline = 'middle';
-          context.fillText(char, 32, 32);
+          context.fillText(char, 40, 40);
           
           const texture = new THREE.CanvasTexture(canvas);
-          const material = new THREE.SpriteMaterial({ map: texture, transparent: true });
+          const material = new THREE.SpriteMaterial({ 
+            map: texture, 
+            transparent: true,
+            alphaTest: 0.1
+          });
           const sprite = new THREE.Sprite(material);
           
           const angle = (index / text.length) * Math.PI * 2;
           sprite.position.x = Math.cos(angle) * radius;
           sprite.position.y = Math.sin(angle) * radius;
-          sprite.position.z = Math.sin(Date.now() * 0.001 + index) * 0.2;
-          sprite.scale.setScalar(0.3);
+          sprite.position.z = Math.sin(Date.now() * 0.001 + index) * 0.3;
+          sprite.scale.setScalar(0.35);
           
           group.add(sprite);
         }
@@ -112,24 +119,25 @@ const TetraCode3D: React.FC = () => {
         const context = canvas.getContext('2d');
         if (!context) return;
         
-        canvas.width = 128;
-        canvas.height = 128;
+        canvas.width = 140;
+        canvas.height = 140;
         
         // Create gradient
-        const gradient = context.createLinearGradient(0, 0, 0, 128);
+        const gradient = context.createLinearGradient(0, 0, 0, 140);
         gradient.addColorStop(0, '#ffffff');
-        gradient.addColorStop(1, '#a855f7');
+        gradient.addColorStop(0.5, 'oklch(0.75 0.18 295)');
+        gradient.addColorStop(1, 'oklch(0.65 0.22 295)');
         
         context.fillStyle = gradient;
-        context.font = 'bold 72px Arial';
+        context.font = 'bold 80px Arial';
         context.textAlign = 'center';
         context.textBaseline = 'middle';
-        context.fillText(letter, 64, 64);
+        context.fillText(letter, 70, 70);
         
-        // Add glow effect
-        context.shadowColor = '#6366f1';
-        context.shadowBlur = 20;
-        context.fillText(letter, 64, 64);
+        // Add stronger glow effect
+        context.shadowColor = 'oklch(0.65 0.22 295)';
+        context.shadowBlur = 25;
+        context.fillText(letter, 70, 70);
         
         const texture = new THREE.CanvasTexture(canvas);
         const material = new THREE.SpriteMaterial({ 
@@ -142,7 +150,7 @@ const TetraCode3D: React.FC = () => {
         sprite.position.x = startX + index * spacing;
         sprite.position.y = 0;
         sprite.position.z = 0.1;
-        sprite.scale.setScalar(0.8);
+        sprite.scale.setScalar(0.9);
         
         group.add(sprite);
       });
@@ -201,20 +209,21 @@ const TetraCode3D: React.FC = () => {
       frameRef.current = requestAnimationFrame(animate);
       time += 0.01;
 
-      // Rotate text ring
-      textRing.rotation.x = time * 0.3;
-      textRing.rotation.y = time * 0.2;
+      // Rotate text ring with smoother motion
+      textRing.rotation.x = time * 0.25;
+      textRing.rotation.y = time * 0.15;
 
-      // Animate center logo
-      centerLogo.rotation.y = Math.sin(time * 0.5) * 0.05;
-      centerLogo.position.y = Math.sin(time * 1.5) * 0.1;
+      // Animate center logo with refined motion
+      centerLogo.rotation.y = Math.sin(time * 0.4) * 0.08;
+      centerLogo.position.y = Math.sin(time * 1.2) * 0.12;
       
-      // Add slight scale animation to letters
+      // Add refined scale animation to letters
       centerLogo.children.forEach((sprite, index) => {
-        sprite.scale.setScalar(0.8 + Math.sin(time * 2 + index * 0.5) * 0.05);
+        sprite.scale.setScalar(0.9 + Math.sin(time * 1.8 + index * 0.4) * 0.06);
+        sprite.position.z = 0.1 + Math.sin(time * 1.5 + index * 0.3) * 0.05;
       });
 
-      // Animate particles
+      // Animate particles with improved motion
       particles.children.forEach((particle, index) => {
         const mesh = particle as THREE.Mesh;
         const userData = mesh.userData as ParticleUserData;
@@ -222,16 +231,17 @@ const TetraCode3D: React.FC = () => {
         particle.position.add(userData.velocity);
         
         // Reset particle position if it goes too far
-        if (particle.position.length() > 10) {
+        if (particle.position.length() > 12) {
           particle.position.set(
-            (Math.random() - 0.5) * 2,
-            (Math.random() - 0.5) * 2,
-            (Math.random() - 0.5) * 2
+            (Math.random() - 0.5) * 3,
+            (Math.random() - 0.5) * 3,
+            (Math.random() - 0.5) * 3
           );
         }
         
-        // Add floating motion
-        particle.position.y += Math.sin(time + index) * 0.002;
+        // Add enhanced floating motion
+        particle.position.y += Math.sin(time * 0.8 + index * 0.1) * 0.003;
+        particle.position.x += Math.cos(time * 0.6 + index * 0.15) * 0.001;
       });
 
       // Animate lights
