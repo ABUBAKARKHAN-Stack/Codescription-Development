@@ -20,7 +20,7 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat",
 
       }}
-      className='min-h-screen w-full h-full flex justify-center items-center mask-b-from-40% to-100%'
+      className='min-h-screen w-full h-full flex justify-center items-center relative z-30 mask-b-from-40% to-100%'
     >
       <AuroraBackgroundDemo/>
       <Sparkles />
