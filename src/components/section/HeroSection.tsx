@@ -13,18 +13,20 @@ const HeroSection = () => {
 
   return (
     <div
-      style={{
+
+      className='min-h-screen w-full h-full flex justify-center items-center mask-b-from-40% to-100%'
+    >
+      <div style={{
         backgroundImage: "url('/assets/herobg.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-
       }}
-      className='min-h-screen w-full h-full flex justify-center items-center mask-b-from-40% to-100%'
-    >
-      <AuroraBackgroundDemo/>
+      className='absolute z-40 inset-0  mask-b-from-40% to-100%'
+      ></div>
+      <AuroraBackgroundDemo />
       <Sparkles />
-      
+
       <div className='flex flex-col absolute z-50 mt-5  justify-center items-center gap-y-4'>
         <div className="space-y-3">
           <h1 className="flex justify-center items-center font-sigmar text-4xl md:text-5xl lg:text-6xl flex-wrap leading-tight text-center">
@@ -36,6 +38,7 @@ const HeroSection = () => {
                   "Faster Delivery",
                   "Scalable Code",
                 ]}
+                className='text-primary'
               />
             </span>
           </h1>
