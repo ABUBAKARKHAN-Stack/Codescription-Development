@@ -1,11 +1,15 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Sun, Moon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useMounted } from '@/hooks/useMounted'
 
 function ThemeChanger() {
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const mounted = useMounted()
+
+  if (!mounted) return null;
   return (
     <div
       className="w-16 h-10 rounded-full fixed z-50 bottom-20 shadow-[0px_0px_10px_#994AF2] border-1 border-primary/50 right-5 cursor-pointer bg-gradient-to-b to-primary/75 from-primary via-primary/75 p-1 flex items-center"

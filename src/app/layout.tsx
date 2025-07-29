@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
