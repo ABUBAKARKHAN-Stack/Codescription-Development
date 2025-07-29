@@ -8,20 +8,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Logo } from '../reusabe';
+import { navLinks } from '@/data/navItems';
 
 function NavbarSection() {
   const [open, setOpen] = useState(false);
 
 
-  const links = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact Us', href: '/contactus' },
-    { name: "Getting Started", href: "/", isbutton: true }
-  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -43,7 +35,7 @@ function NavbarSection() {
             </div>
 
             <ul className="hidden lg:flex space-x-6 text-black dark:text-white font-normal">
-              {links.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className={`transition ${link.isbutton ? 'bg-primary ml-20  text-white px-4 py-2 rounded-full' : 'hover:text-primary'} `}>
                     {link.name}
@@ -60,7 +52,7 @@ function NavbarSection() {
               className="lg:hidden px-4 pb-4 overflow-hidden outline-none"
             >
               <ul className="flex flex-col p-5 mt-10 text-black dark:text-white font-medium">
-                {links.map((link) => (
+                {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}

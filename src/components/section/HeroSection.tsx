@@ -22,7 +22,6 @@ const HeroSection = () => {
 
       <div>
         <SparklesPreview mainHeading='Smart Code. Real Impact' subHeading='We build modern, scalable, and efficient digital solutions tailored for your success.'  />
-        {/* <SectionHeader mainHeading='Smart Code. Real Impact' subText='We build modern, scalable, and efficient digital solutions tailored for your success.' /> */}
       </div>
     </div>
   )
