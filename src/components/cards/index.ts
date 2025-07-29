@@ -1,5 +1,7 @@
 import WhatWeDoCards from "./WhatWeDoCards";
+import WhyChooseTetraCodeCards from "./WhyChooseTetracodeCards";
 
 export {
-    WhatWeDoCards
+    WhatWeDoCards,
+    WhyChooseTetraCodeCards
 }

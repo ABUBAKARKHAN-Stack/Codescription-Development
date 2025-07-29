@@ -42,7 +42,7 @@ function NavbarSection() {
             <ul className="hidden lg:flex space-x-6 text-black dark:text-white font-normal">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className={`transition ${link.isbutton ? 'bg-primary ml-20  text-white px-4 py-2 rounded-full' : `hover:text-primary ${pathname === link.href && "text-primary brightness-150 font-medium"}`}  `}>
+                  <Link href={link.href} className={`transition ${link.isbutton ? 'bg-primary ml-20  text-white px-4 py-2 rounded-full' : `hover:text-primary ${pathname === link.href && "text-primary  font-medium"}`}  `}>
                     {link.name}
                   </Link>
                 </li>
