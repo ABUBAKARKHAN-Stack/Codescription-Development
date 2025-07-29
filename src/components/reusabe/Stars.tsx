@@ -1,7 +1,6 @@
 'use client';
 import React, { FC } from 'react';
 import { SparklesCore } from '../ui/sparkles';
-import SectionHeader from './SectionHeader';
 
 type Props = {
   mainHeading: string;
