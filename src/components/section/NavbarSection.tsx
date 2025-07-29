@@ -13,6 +13,7 @@ import { navLinks } from '@/data/navItems';
 function NavbarSection() {
   const [open, setOpen] = useState(false);
 
+  
 
 
   return (

@@ -4,11 +4,14 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { WordRotate } from '../magicui/word-rotate'
 import { Sparkles } from '../reusabe'
-import { AuroraBackground } from '../ui/aurora-background'
 import { AuroraBackgroundDemo } from './AuroraBg'
+import { ChevronDownCircle } from 'lucide-react'
+import { useScrollToSection } from '@/hooks/useScrollToSection'
 
 
 const HeroSection = () => {
+
+  const scrollToSection = useScrollToSection()
 
 
   return (
@@ -22,7 +25,7 @@ const HeroSection = () => {
         backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
       }}
-      className='absolute z-40 inset-0  mask-b-from-20% to-100%'
+        className='absolute z-40 inset-0  mask-b-from-20% to-100%'
       ></div>
       <AuroraBackgroundDemo />
       <Sparkles />
@@ -64,6 +67,11 @@ const HeroSection = () => {
 
         </div>
       </div>
+      <button
+        onClick={() => scrollToSection('#what-we-do')}
+        className='absolute  bottom-14 z-40'>
+        <ChevronDownCircle className=' size-10 animate-bounce transition-all duration-200 ease-linear hover:scale-110 cursor-pointer hover:brightness-150  stroke-1' />
+      </button>
     </div>
   )
 }
