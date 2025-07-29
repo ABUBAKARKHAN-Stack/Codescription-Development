@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import { Poppins, Sigmar } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers";
+import {  ThemeProvider } from "@/components/providers";
+import { LenisProvider } from "@/context/LenisContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -32,9 +34,11 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${sigmar.variable} font-poppins bg-background antialiased`}
       >
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <LenisProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </LenisProvider>
       </body>
     </html>
   );

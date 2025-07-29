@@ -11,7 +11,7 @@ const Sparkles: FC = () => {
           background="transparent"
           minSize={0.6}
           maxSize={2}
-          particleDensity={100}
+          particleDensity={50}
           className="w-full h-full"
           particleColor="#A05FFF"
         />

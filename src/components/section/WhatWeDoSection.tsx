@@ -38,7 +38,9 @@ const WhatWeDoSection = () => {
     };
 
     return (
-        <main className="w-full h-full py-16 md:py-24">
+        <main
+        id="what-we-do"
+        className="w-full h-full py-16 md:py-24">
             <ContainerLayout>
                 <SectionHeader
                     mainHeading={whatWeDoSectionHeader.mainHeading}
