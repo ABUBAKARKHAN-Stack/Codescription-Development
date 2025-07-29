@@ -53,10 +53,12 @@ function NavbarSection() {
             </ul>
           </div>
 
-          <SheetContent  >
+          <SheetContent 
+          className='bg-transparent backdrop-blur-xl'
+          >
             <div
               className="lg:hidden px-4 pb-4 overflow-hidden outline-none"
-            >
+            > 
               <ul className="flex flex-col p-5 mt-10 text-black dark:text-white font-medium">
                 {links.map((link) => (
                   <li key={link.name}>
