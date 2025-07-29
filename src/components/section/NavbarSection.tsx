@@ -8,9 +8,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 function NavbarSection() {
   const [open, setOpen] = useState(false);
+
+  const {theme} = useTheme()
 
   const links = [
     { name: 'Home', href: '/' },
@@ -29,7 +32,7 @@ function NavbarSection() {
         <nav className=" fixed top-0 left-0 right-0 z-50 mt-10 lg:max-w-[1300px]  bg-transparent backdrop-blur-[10px] lg:w-[90%] mx-5 lg:mx-auto border-2  rounded-full px-5 ">
           <div className=" mx-auto pl-4  py-3 flex justify-between items-center">
             <Image
-              src='/assets/light-logo.png'
+              src={theme === 'light' ? '/assets/light-logo.png' : '/assets/dark-logo.png'}
               width={100}
               height={100}
               alt='logo light'

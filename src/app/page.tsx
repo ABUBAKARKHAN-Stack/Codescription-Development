@@ -12,7 +12,7 @@ const Home = () => {
       <NavbarSection />
       <ThemeChanger />
       <HeroSection />
-      <Separator className='border-2 border-primary' />
+      {/* <Separator className='border-2 border-primary' /> */}
       <WhatWeDoSection />
       <Separator className='border-2 border-primary' />
       <WhyChooseTetraCodeSection />

@@ -16,7 +16,7 @@ const SparklesPreview: FC<Props> = ({ mainHeading , subHeading }) => {
           id="tsparticlesfullpage"
           background="transparent"
           minSize={0.6}
-          maxSize={1.4}
+          maxSize={2}
           particleDensity={100}
           className="w-full h-full"
           particleColor="#A05FFF"
