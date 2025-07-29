@@ -1,15 +1,36 @@
-"use client"
-import React, { useState } from 'react'
-import ContainerLayout from '../layout/ContainerLayout'
-import { SectionHeader } from '../reusabe'
-import { Code, Eye, Layers3, LayoutTemplate, Paintbrush, ServerCog, ShoppingCart, Smartphone } from 'lucide-react'
-import { motion } from 'motion/react'
-import Link from 'next/link'
-import { Separator } from '../ui/separator'
-import { BlurFade } from '../magicui/blur-fade'
+"use client";
+
+import React, { useRef, useState } from "react";
+import ContainerLayout from "../layout/ContainerLayout";
+import { SectionHeader } from "../reusabe";
+import {
+    Eye,
+    Layers3,
+    LayoutTemplate,
+    Paintbrush,
+    ServerCog,
+    ShoppingCart,
+    Smartphone,
+} from "lucide-react";
+import { motion, useInView, Variants } from "framer-motion";
+import Link from "next/link";
+import { Separator } from "../ui/separator";
+
+const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    visible: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            delay: i * 0.1,
+            duration: 0.5,
+            ease: "easeOut",
+        },
+    }),
+};
 
 const WhatWeDoSection = () => {
-
     const whatWeDoData = [
         {
             id: 1,
@@ -61,55 +82,57 @@ const WhatWeDoSection = () => {
         },
     ];
 
-    const [isCardHovered, setIsCardHovered] = useState({
-        id: 0,
-    })
+    const cardsRef = useRef(null);
+    const isInView = useInView(cardsRef, { once: false, margin: "-50px" });
+
+    const [isCardHovered, setIsCardHovered] = useState({ id: 0 });
 
     const handleCardHover = (id: number) => {
-        setIsCardHovered(() => ({
-            id,
-        }))
-    }
+        setIsCardHovered({ id });
+    };
 
     return (
-        <main className=' w-full h-full py-16 md:py-24'>
+        <main className="w-full h-full py-16 md:py-24">
             <ContainerLayout>
                 <SectionHeader
-                    mainHeading='Areas of Expertise'
-                    subText='We offer end-to-end services to help you grow fast and scale smarter.'
+                    mainHeading="Areas of Expertise"
+                    subText="We offer end-to-end services to help you grow fast and scale smarter."
                     animateOnce={true}
                 />
 
-                <section className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 w-full'>
-                    {whatWeDoData.map(({ id, title, description, icon: Icon, link }) => (
-                        <div
+                <section
+                    ref={cardsRef}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10 w-full"
+                >
+                    {whatWeDoData.map(({ id, title, description, icon: Icon, link }, index) => (
+                        <motion.div
                             key={id}
-                            className="relative group border rounded-xl h-80 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex flex-col justify-between"
+                            custom={index}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            variants={cardVariants}
+                            className="relative group hover:cursor-pointer border rounded-xl h-80 overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 px-6 py-8 flex flex-col justify-between"
                             onMouseEnter={() => handleCardHover(id)}
                             onMouseLeave={() => setIsCardHovered({ id: 0 })}
                         >
-                            {/* Overlay */}
+                            {/* Hover Overlay */}
                             <motion.div
                                 className="absolute inset-0 z-20 bg-white/20 dark:bg-black/20 backdrop-blur-sm rounded-xl"
                                 animate={{
                                     y: isCardHovered.id === id ? 0 : -350,
                                     backdropFilter: isCardHovered.id === id ? "blur(10px)" : "blur(0px)",
                                 }}
-                                transition={{
-                                    type: "tween",
-                                    ease: "linear",
-                                    duration: 0.2,
-                                }}
+                                transition={{ duration: 0.2, ease: "easeInOut" }}
                             >
-                                <div className="size-full flex justify-center items-center">
+                                <div className="w-full h-full flex justify-center items-center">
                                     <motion.div
                                         initial={{ scale: 0 }}
                                         animate={{ scale: isCardHovered.id === id ? 1 : 0 }}
-                                        transition={{ duration: 0.2, delay: 0.2, ease: "easeInOut" }}
+                                        transition={{ duration: 0.2, delay: 0.2 }}
                                     >
                                         <Link
                                             href={link}
-                                            className="p-2 w-28 h-28 transition-colors duration-200 bg-white text-black hover:bg-black shadow-md border-2 hover:text-white rounded-full flex flex-col justify-center items-center"
+                                            className="p-2 w-28 h-28 bg-white text-black hover:bg-black hover:text-white border-2 shadow-md rounded-full flex flex-col justify-center items-center transition-colors duration-200"
                                         >
                                             <Eye className="size-6" />
                                             <span className="text-xs font-medium block mt-1">View Details</span>
@@ -130,17 +153,14 @@ const WhatWeDoSection = () => {
                                     <h3 className="text-lg font-semibold leading-tight">{title}</h3>
                                     <Separator className="!w-20 mt-1 rounded-full border-2 border-accent" />
                                 </div>
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {description}
-                                </p>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
                             </div>
-                        </div>
-
+                        </motion.div>
                     ))}
                 </section>
             </ContainerLayout>
         </main>
-    )
-}
+    );
+};
 
-export default WhatWeDoSection
+export default WhatWeDoSection;

@@ -7,13 +7,11 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
+import { Logo } from '../reusabe';
 
 function NavbarSection() {
   const [open, setOpen] = useState(false);
 
-  const { theme } = useTheme()
 
   const links = [
     { name: 'Home', href: '/' },
@@ -22,7 +20,7 @@ function NavbarSection() {
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact Us', href: '/contactus' },
-    {name: "Getting Started", href: "/", isbutton: true}
+    { name: "Getting Started", href: "/", isbutton: true }
   ];
 
   return (
@@ -30,12 +28,10 @@ function NavbarSection() {
 
       <div>
         <nav className=" fixed top-0 max-w-full xsm:max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[1100px] left-0 right-0 z-50 mt-10 bg-transparent backdrop-blur-[10px]  mx-5 lg:mx-auto border-2  rounded-full px-5 ">
-          <div className=" mx-auto py-3 px-2 flex justify-between items-center">
-            <Image
-              src={theme === 'light' ? '/assets/light-logo.png' : '/assets/dark-logo.png'}
+          <div className="mx-auto py-3 px-2 flex justify-between items-center">
+            <Logo
               width={155}
               height={155}
-              alt={theme === "light" ? 'Tetracode Logo Light' : "Tetracode Logo Dark"}
               className='mt-1'
             />
             <div className="lg:hidden">
