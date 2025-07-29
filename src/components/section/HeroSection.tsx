@@ -29,7 +29,7 @@ const HeroSection = () => {
 
       <div className='flex flex-col absolute z-50 mt-5  justify-center items-center gap-y-4'>
         <div className="space-y-3">
-          <h1 className="flex justify-center items-center font-sigmar text-4xl md:text-5xl lg:text-6xl flex-wrap leading-tight text-center">
+          {/* <h1 className="flex justify-center items-center font-sigmar text-4xl md:text-5xl lg:text-6xl flex-wrap leading-tight text-center">
             We Deliver&nbsp;
             <span className="inline-block min-w-[12ch] text-center">
               <WordRotate
@@ -41,11 +41,11 @@ const HeroSection = () => {
                 className='text-primary'
               />
             </span>
-          </h1>
+          </h1> */}
 
-          <p className="font-poppins mx-auto text-primary font-normal text-sm md:text-base max-w-[80%] leading-relaxed text-wrap text-center xl:text-xl mb-6">
+          {/* <p className="font-poppins mx-auto text-primary font-normal text-sm md:text-base max-w-[80%] leading-relaxed text-wrap text-center xl:text-xl mb-6">
             We build modern, scalable, and efficient digital solutions tailored for your success.
-          </p>
+          </p> */}
         </div>
 
         <div className="flex  flex-col xsm:flex-row gap-x-10 gap-y-3">
