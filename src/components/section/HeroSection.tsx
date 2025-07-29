@@ -1,13 +1,10 @@
 "use client"
 
 import React from 'react'
-import { Button } from '../ui/button'
-import { WordRotate } from '../magicui/word-rotate'
 import { Sparkles } from '../reusabe'
 import { AuroraBackgroundDemo } from './AuroraBg'
 import { ChevronDownCircle } from 'lucide-react'
 import { useScrollToSection } from '@/hooks/useScrollToSection'
-import {motion} from 'motion/react'
 import TetraCode3D from '../ui/tetracode-3d'
 
 

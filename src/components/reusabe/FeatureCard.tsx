@@ -1,7 +1,7 @@
 "use client"
 
-import React, { FC, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { FC, RefObject, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { Eye } from 'lucide-react'
 import { Separator } from '../ui/separator'
@@ -13,7 +13,8 @@ type FeatureCardProps = {
     icon: React.ElementType
     link?: string
     showOverlay?: boolean
-    index?: number
+    index?: number;
+    cardsContainerRef: RefObject<Element | null>
 }
 
 const FeatureCard: FC<FeatureCardProps> = ({
@@ -23,9 +24,16 @@ const FeatureCard: FC<FeatureCardProps> = ({
     icon: Icon,
     link = "#",
     showOverlay = true,
-    index = 0
+    index = 0,
+    cardsContainerRef
 }) => {
     const [isHovered, setIsHovered] = useState(false)
+
+     const isInView = useInView(cardsContainerRef, {
+            once: true,
+            margin: "-100px",
+            amount: 0.2
+        });
 
     return (
         <motion.div
@@ -38,12 +46,12 @@ const FeatureCard: FC<FeatureCardProps> = ({
                 transition: { type: "spring", stiffness: 300, damping: 20 }
             }}
             initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: 15 }}
-            animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 }: "hidden"}
             transition={{
                 type: "spring",
                 stiffness: 100,
                 damping: 20,
-                duration: 0.8,
+                duration: 2,
                 delay: index * 0.15
             }}
         >
