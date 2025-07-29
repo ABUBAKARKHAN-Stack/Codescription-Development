@@ -3,7 +3,7 @@
 import { useMounted } from '@/hooks/useMounted';
 import { useTheme } from 'next-themes'
 import Image from 'next/image';
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
 type Props = {
     width?: number;

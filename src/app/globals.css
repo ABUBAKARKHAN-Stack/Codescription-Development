@@ -47,6 +47,8 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-poppins: var(--font-poppins);
   --font-sigmar: var(--font-sigmar);
+  --breakpoint-xsm: 550px;
+  
 }
 
 :root {
@@ -153,5 +155,21 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
   }
 }

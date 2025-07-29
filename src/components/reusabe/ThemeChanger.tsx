@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useTheme } from 'next-themes'
 import { Sun, Moon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -18,7 +18,7 @@ function ThemeChanger() {
       <motion.button
         layout
         transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-        className={`absolute top-1 left-1 ${resolvedTheme === 'dark' ? 'translate-x-[75%]' : ''
+        className={`absolute  ${resolvedTheme === 'dark' ? 'translate-x-[75%]' : ''
           } w-8 h-8 rounded-full cursor-pointer bg-primary-foreground backdrop-blur-sm shadow-md flex items-center justify-center`}
       >
         <AnimatePresence mode="wait">

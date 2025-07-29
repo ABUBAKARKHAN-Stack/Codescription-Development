@@ -8,9 +8,6 @@ const navLinks = [
     { name: "Getting Started", href: "/", isbutton: true }
 ];
 
-const navLogos = [
-    
-]
 
 export {
 navLinks

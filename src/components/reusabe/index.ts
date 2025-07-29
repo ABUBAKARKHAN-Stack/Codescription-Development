@@ -1,11 +1,11 @@
 import SectionHeader from "./SectionHeader";
-import SparklesPreview from "./Stars";
+import Sparkles from "./Sparkles";
 import ThemeChanger from "./ThemeChanger";
 import Logo from "./Logo";
 
 export {
     SectionHeader,
-    SparklesPreview,
+    Sparkles,
     ThemeChanger,
     Logo
 }
