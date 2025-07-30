@@ -5,13 +5,9 @@ import React, { FC, RefObject } from 'react'
 import { FeatureCard } from '../reusabe'
 
 
-type Props = {
-    cardsContainerRef: RefObject<Element | null>
-}
 
-const WhyChooseTetraCodeCards: FC<Props> = ({
-    cardsContainerRef
-}) => {
+
+const WhyChooseTetraCodeCards= () => {
    
     return (
         <>
@@ -24,7 +20,6 @@ const WhyChooseTetraCodeCards: FC<Props> = ({
                         title={title}
                         id={id}
                         showOverlay={false}
-                        cardsContainerRef={cardsContainerRef}
                         index={i}
                     />
                 ))

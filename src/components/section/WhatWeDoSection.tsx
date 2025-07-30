@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import ContainerLayout from "../layout/ContainerLayout";
 import { SectionHeader } from "../reusabe";
 import { whatWeDoSectionHeader } from "@/data/whatwedo.data";
@@ -10,7 +10,6 @@ import { WhatWeDoCards } from "../cards";
 
 const WhatWeDoSection = () => {
 
-    const cardsContainerRef = useRef(null);
 
 
     return (
@@ -25,12 +24,9 @@ const WhatWeDoSection = () => {
                 />
 
                 <section
-                    ref={cardsContainerRef}
                     className=" mt-10 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                    <WhatWeDoCards
-                        cardsContainerRef={cardsContainerRef}
-                    />
+                    <WhatWeDoCards />
                 </section>
             </ContainerLayout>
         </main>

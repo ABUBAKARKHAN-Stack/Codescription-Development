@@ -1,7 +1,7 @@
 "use client"
 
-import React, { FC, RefObject, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import React, { FC, useRef, useState } from 'react'
+import { AnimatePresence, motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { Eye } from 'lucide-react'
 import { Separator } from '../ui/separator'
@@ -14,7 +14,6 @@ type FeatureCardProps = {
     link?: string
     showOverlay?: boolean
     index?: number;
-    cardsContainerRef: RefObject<Element | null>
 }
 
 const FeatureCard: FC<FeatureCardProps> = ({
@@ -25,91 +24,113 @@ const FeatureCard: FC<FeatureCardProps> = ({
     link = "#",
     showOverlay = true,
     index = 0,
-    cardsContainerRef
 }) => {
     const [isHovered, setIsHovered] = useState(false)
 
-     const isInView = useInView(cardsContainerRef, {
-            once: true,
-            margin: "-100px",
-            amount: 0.2
-        });
+    const cardRef = useRef(null)
+
+    const isInView = useInView(cardRef, {
+        once: true,
+        margin: "-100px",
+    });
 
     return (
         <motion.div
-            className="relative group hover:cursor-pointer rounded-md h-80 overflow-hidden bg-card transition-all duration-300 px-6 py-8 flex flex-col justify-between
-            before:absolute before:inset-0 before:rounded-md before:p-[1px] before:bg-gradient-to-br before:from-[#8B5FBF] before:via-[#A855F7] before:to-[#9333EA] before:animate-pulse after:absolute after:inset-[1px] after:rounded-md after:bg-card after:z-[1] shadow-[0_0_10px_rgba(139,95,191,0.4),0_0_15px_rgba(168,85,247,0.3),0_0_20px_rgba(147,51,234,0.2)] hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(139,95,191,0.6),0_0_30px_rgba(168,85,247,0.4),0_0_40px_rgba(147,51,234,0.3)]"
+            className="relative group hover:cursor-pointer rounded-md h-80 overflow-hidden bg-card px-6 py-8 flex flex-col justify-between
+            before:absolute before:inset-0 before:rounded-md before:p-[1px] before:bg-gradient-to-br before:from-[#8B5FBF] before:via-[#A855F7] before:to-[#9333EA] before:animate-pulse after:absolute after:inset-[1px] after:rounded-md after:bg-card after:z-[1]"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            whileHover={{
-                y: -5,
-                transition: { type: "spring", stiffness: 300, damping: 20 }
+            ref={cardRef}
+            initial={{
+                opacity: 0,
+                y: 40,
+                scale: 0.95,
+                rotateX: 10
             }}
-            initial={{ opacity: 0, y: 60, scale: 0.9, rotateX: 15 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 }: "hidden"}
+            animate={isInView ? {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotateX: 0
+            } : {}}
+            whileHover={{
+                y: -8,
+                scale: 1.02,
+                boxShadow: [
+                    "0 0 10px rgba(139,95,191,0.4), 0 0 15px rgba(168,85,247,0.3), 0 0 20px rgba(147,51,234,0.2)",
+                    "0 0 20px rgba(139,95,191,0.6), 0 0 30px rgba(168,85,247,0.4), 0 0 40px rgba(147,51,234,0.3)"
+                ]
+            }}
             transition={{
                 type: "spring",
-                stiffness: 100,
-                damping: 20,
-                duration: 2,
-                delay: index * 0.15
+                stiffness: 120,
+                damping: 25,
+                mass: 0.8,
+                delay: index * 0.1
+            }}
+            style={{
+                boxShadow: "0 0 10px rgba(139,95,191,0.4), 0 0 15px rgba(168,85,247,0.3), 0 0 20px rgba(147,51,234,0.2)"
             }}
         >
-            {/* Overlay */}
-            {showOverlay && (
-                <motion.div
-                    className="absolute inset-0 z-20 bg-white/20 dark:bg-black/20 backdrop-blur-sm rounded-md"
-                    initial={{ y: -350, opacity: 0 }}
-                    animate={{
-                        y: isHovered ? 0 : -350,
-                        opacity: isHovered ? 1 : 0,
-                        backdropFilter: isHovered ? "blur(10px)" : "blur(0px)"
-                    }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                        duration: 0.3
-                    }}
-                >
-                    <div className="w-full h-full flex justify-center items-center">
-                        <motion.div
-                            initial={{ scale: 0, rotate: -180, opacity: 0 }}
-                            animate={{
-                                scale: isHovered ? 1 : 0,
-                                rotate: isHovered ? 0 : -180,
-                                opacity: isHovered ? 1 : 0
-                            }}
-                            transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 25,
-                                delay: 0.1
-                            }}
-                        >
-                            <Link
-                                href={link}
-                                className="w-28 h-28 bg-[#9333EA] text-white hover:bg-[#8B5FBF] hover:text-white shadow-md rounded-full flex flex-col justify-center items-center transition-all duration-200
-                                hover:shadow-[0_0_15px_rgba(139,95,191,0.8)] hover:ring-2 hover:ring-[#8B5FBF]/30"
+            <AnimatePresence>
+                {/* Overlay */}
+                {showOverlay && (
+                    <motion.div
+                        key={"overlay"}
+                        className="absolute inset-0 z-20 bg-white/20 dark:bg-black/20 backdrop-blur-sm rounded-md"
+                        initial={{ y: -350, opacity: 0 }}
+                        animate={{
+                            y: isHovered ? 0 : -350,
+                            opacity: isHovered ? 1 : 0,
+                            backdropFilter: isHovered ? "blur(10px)" : "blur(0px)"
+                        }}
+                        exit={{ y: -350, opacity: 0 }}
+                        transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 30,
+                            duration: 0.3
+                        }}
+                    >
+                        <div className="w-full h-full flex justify-center items-center">
+                            <motion.div
+                                initial={{ scale: 0, rotate: -180, opacity: 0 }}
+                                animate={{
+                                    scale: isHovered ? 1 : 0,
+                                    rotate: isHovered ? 0 : -180,
+                                    opacity: isHovered ? 1 : 0
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 400,
+                                    damping: 25,
+                                    delay: 0.1
+                                }}
                             >
-                                <Eye className="size-6" />
-                                <span className="text-xs font-medium block mt-1">View Details</span>
-                            </Link>
-                        </motion.div>
-                    </div>
-                </motion.div>
-            )}
+                                <Link
+                                    href={link}
+                                    className="w-28 h-28 bg-[#9333EA] text-white hover:bg-[#8B5FBF] hover:text-white shadow-md rounded-full flex flex-col justify-center items-center transition-colors duration-200
+                            hover:shadow-[0_0_15px_rgba(139,95,191,0.8)] hover:ring-2 hover:ring-[#8B5FBF]/30"
+                                >
+                                    <Eye className="size-6" />
+                                    <span className="text-xs font-medium block mt-1">View Details</span>
+                                </Link>
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Icon */}
             <motion.div
                 className="flex items-center justify-center relative w-14 h-14 mb-4 z-[2]"
-                initial={{ scale: 0, rotate: 180 }}
-                animate={{ scale: 1, rotate: 0 }}
+                initial={{ scale: 0, rotate: 180, opacity: 0 }}
+                animate={{ scale: 1, rotate: 0, opacity: 1 }}
                 transition={{
                     type: "spring",
                     stiffness: 200,
-                    damping: 15,
-                    delay: index * 0.1 + 0.5
+                    damping: 20,
+                    delay: index * 0.1 + 0.3
                 }}
             >
                 <div className="absolute inset-0 bg-[#A855F7] rounded-full shadow-[0_0_20px_rgba(168,85,247,0.6)] animate-pulse" />
@@ -119,11 +140,11 @@ const FeatureCard: FC<FeatureCardProps> = ({
             {/* Content */}
             <motion.div
                 className="flex flex-col gap-3 z-[2]"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                    delay: index * 0.1 + 0.7,
-                    duration: 0.5,
+                    delay: index * 0.1 + 0.4,
+                    duration: 0.4,
                     ease: "easeOut"
                 }}
             >

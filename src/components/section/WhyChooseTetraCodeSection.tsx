@@ -1,13 +1,12 @@
 "use client"
 
-import React, { useRef } from 'react'
+import React from 'react'
 import { SectionHeader } from '../reusabe'
 import ContainerLayout from '../layout/ContainerLayout'
 import { WhyChooseTetraCodeCards } from '../cards'
 import { whyChooseSectionHeader } from '@/data/whychoose.data'
 
 const WhyChooseTetraCodeSection = () => {
-    const cardsContainerRef = useRef(null);
 
     return (
         <main
@@ -19,12 +18,9 @@ const WhyChooseTetraCodeSection = () => {
                     animateOnce={true}
                 />
                 <section
-                    ref={cardsContainerRef}
                     className=" mt-10 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                    <WhyChooseTetraCodeCards
-                        cardsContainerRef={cardsContainerRef}
-                    />
+                    <WhyChooseTetraCodeCards />
                 </section>
             </ContainerLayout>
         </main>

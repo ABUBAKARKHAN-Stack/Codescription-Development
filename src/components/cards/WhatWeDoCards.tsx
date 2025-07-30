@@ -4,13 +4,8 @@ import { whatWeDoData } from '@/data/whatwedo.data'
 import React, { FC, RefObject } from 'react'
 import { FeatureCard } from '../reusabe';
 
-type Props = {
-    cardsContainerRef: RefObject<Element | null>
-}
 
-const WhatWeDoCards: FC<Props> = ({
-    cardsContainerRef
-}) => {
+const WhatWeDoCards = () => {
 
     return (
         <>
@@ -19,7 +14,6 @@ const WhatWeDoCards: FC<Props> = ({
                     <FeatureCard
                         key={id}
                         icon={icon}
-                        cardsContainerRef={cardsContainerRef}
                         showOverlay={true}
                         description={description}
                         title={title}
