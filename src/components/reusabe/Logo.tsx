@@ -12,8 +12,8 @@ type Props = {
 }
 
 const Logo: FC<Props> = ({
-    width = 155,
-    height = 155,
+    width = 250,
+    height = 250,
     className
 }) => {
     const { resolvedTheme } = useTheme();
@@ -23,7 +23,7 @@ const Logo: FC<Props> = ({
 
     return (
         <Image
-            src={resolvedTheme === "light" ? "/assets/light-logo.png" : '/assets/dark-logo.png'}
+            src={resolvedTheme === "light" ? "/assets/logo-light.png" : '/assets/logo-dark.png'}
             width={width}
             height={height}
             alt={resolvedTheme === "dark" ? "Tetracode Logo Dark" : "Tetracode Logo Light"}

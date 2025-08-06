@@ -3,6 +3,7 @@ import { HeroSection, WhatWeDoSection, WhyChooseTetraCodeSection, NavbarSection 
 import { ThemeChanger } from '@/components/reusabe/'
 import { Separator } from '@/components/ui/separator'
 import React from 'react'
+import OurWorkSection from '@/components/section/OurWorkSection'
 
 
 
@@ -12,10 +13,11 @@ const Home = () => {
       <NavbarSection />
       <ThemeChanger />
       <HeroSection />
-      {/* <Separator className='border-2 border-primary' /> */}
       <WhatWeDoSection />
       <Separator className='border-2 border-primary' />
       <WhyChooseTetraCodeSection />
+      <Separator className='border-2 border-primary' />
+      <OurWorkSection />
     </div>
   )
 }

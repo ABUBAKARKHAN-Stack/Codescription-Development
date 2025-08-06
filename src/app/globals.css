@@ -47,6 +47,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-poppins: var(--font-poppins);
   --font-sigmar: var(--font-sigmar);
+  --font-playfair-display: var(--font-playfair-display);
   --breakpoint-xsm: 550px;
   --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
   @keyframes background-position-spin {

@@ -18,7 +18,7 @@ const SectionHeader: FC<Props> = ({
                 direction="down" once={animateOnce} delay={0.25} inView
                 blur='20px'
             >
-                <h1 className='lg:text-6xl md:text-5xl text-4xl text-wrap text-center  font-sigmar'>
+                <h1 className='lg:text-6xl md:text-5xl text-4xl tracking text-wrap text-center font-sans font-bold'>
                     {mainHeading}
                 </h1>
             </BlurFade>
