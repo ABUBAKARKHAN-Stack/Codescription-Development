@@ -4,8 +4,7 @@ import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { ChevronDown } from "lucide-react";
-
+import countries from "@/data/globe.json";
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: ThreeElements["mesh"] & {
@@ -19,14 +18,6 @@ extend({ ThreeGlobe: ThreeGlobe });
 const RING_PROPAGATION_SPEED = 3;
 const aspect = 1.2;
 const cameraZ = 300;
-
-// Mock countries data structure
-const countries = {
-  features: [
-    // This would normally contain GeoJSON features for country polygons
-    // For demo purposes, we'll let the globe render without country data
-  ]
-};
 
 type Position = {
   order: number;
@@ -78,13 +69,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   const defaultProps = {
     pointSize: 1,
-    atmosphereColor: "#9E68FE",
+    atmosphereColor: "#ffffff",
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(158,104,254,0.3)",
-    globeColor: "#1a0d2e",
-    emissive: "#9E68FE",
-    emissiveIntensity: 0.2,
+    polygonColor: "rgba(255,255,255,0.7)",
+    globeColor: "#1d072e",
+    emissive: "#000000",
+    emissiveIntensity: 0.1,
     shininess: 0.9,
     arcTime: 2000,
     arcLength: 0.9,
@@ -112,16 +103,16 @@ export function Globe({ globeConfig, data }: WorldProps) {
       emissiveIntensity: number;
       shininess: number;
     };
-    globeMaterial.color = new Color(defaultProps.globeColor);
-    globeMaterial.emissive = new Color(defaultProps.emissive);
-    globeMaterial.emissiveIntensity = defaultProps.emissiveIntensity;
-    globeMaterial.shininess = defaultProps.shininess;
+    globeMaterial.color = new Color(globeConfig.globeColor);
+    globeMaterial.emissive = new Color(globeConfig.emissive);
+    globeMaterial.emissiveIntensity = globeConfig.emissiveIntensity || 0.1;
+    globeMaterial.shininess = globeConfig.shininess || 0.9;
   }, [
     isInitialized,
-    defaultProps.globeColor,
-    defaultProps.emissive,
-    defaultProps.emissiveIntensity,
-    defaultProps.shininess,
+    globeConfig.globeColor,
+    globeConfig.emissive,
+    globeConfig.emissiveIntensity,
+    globeConfig.shininess,
   ]);
 
   // Build data when globe is initialized or when data changes
@@ -132,6 +123,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     let points = [];
     for (let i = 0; i < arcs.length; i++) {
       const arc = arcs[i];
+      const rgb = hexToRgb(arc.color) as { r: number; g: number; b: number };
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
@@ -190,7 +182,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .ringsData([])
-      .ringColor(() => defaultProps.atmosphereColor)
+      .ringColor(() => defaultProps.polygonColor)
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
@@ -212,7 +204,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
   // Handle rings animation with cleanup
   useEffect(() => {
-    if (!globeRef.current || !isInitialized || !data.length) return;
+    if (!globeRef.current || !isInitialized || !data) return;
 
     const interval = setInterval(() => {
       if (!globeRef.current) return;
@@ -248,8 +240,8 @@ export function WebGLRendererConfig() {
   useEffect(() => {
     gl.setPixelRatio(window.devicePixelRatio);
     gl.setSize(size.width, size.height);
-    gl.setClearColor(0x000000, 0);
-  }, [gl, size]);
+    gl.setClearColor(0xffaaff, 0);
+  }, []);
 
   return null;
 }
@@ -257,14 +249,9 @@ export function WebGLRendererConfig() {
 export function World(props: WorldProps) {
   const { globeConfig } = props;
   const scene = new Scene();
-  scene.fog = new Fog(0x000000, 400, 2000);
-  
+  scene.fog = new Fog(0xffffff, 400, 2000);
   return (
-    <Canvas 
-      scene={scene} 
-      camera={new PerspectiveCamera(50, aspect, 180, 1800)}
-      style={{ background: 'transparent' }}
-    >
+    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
       <WebGLRendererConfig />
       <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
       <directionalLight
@@ -286,7 +273,7 @@ export function World(props: WorldProps) {
         enableZoom={false}
         minDistance={cameraZ}
         maxDistance={cameraZ}
-        autoRotateSpeed={0.8}
+        autoRotateSpeed={1}
         autoRotate={true}
         minPolarAngle={Math.PI / 3.5}
         maxPolarAngle={Math.PI - Math.PI / 3}
@@ -295,150 +282,28 @@ export function World(props: WorldProps) {
   );
 }
 
+export function hexToRgb(hex: string) {
+  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+  hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+    return r + r + g + g + b + b;
+  });
+
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16),
+      }
+    : null;
+}
+
 export function genRandomNumbers(min: number, max: number, count: number) {
   const arr = [];
   while (arr.length < count) {
     const r = Math.floor(Math.random() * (max - min)) + min;
     if (arr.indexOf(r) === -1) arr.push(r);
   }
+
   return arr;
 }
-
-// TetraCode Hero Section Component
-const TetraCodeHero = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const globeConfig = {
-    pointSize: 4,
-    globeColor: "#1a0d2e",
-    showAtmosphere: true,
-    atmosphereColor: "#9E68FE",
-    atmosphereAltitude: 0.15,
-    emissive: "#9E68FE",
-    emissiveIntensity: 0.3,
-    shininess: 0.9,
-    polygonColor: "rgba(158,104,254,0.2)",
-    ambientLight: "#9E68FE",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#9E68FE",
-    arcTime: 1000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    initialPosition: { lat: 22.3193, lng: 114.1694 },
-    autoRotate: true,
-    autoRotateSpeed: 0.5,
-  };
-
-  // Sample connection data for the globe
-  const sampleArcs = [
-    {
-      order: 1,
-      startLat: 40.7128,
-      startLng: -74.0060,
-      endLat: 51.5074,
-      endLng: -0.1278,
-      arcAlt: 0.3,
-      color: "#9E68FE",
-    },
-    {
-      order: 2,
-      startLat: 35.6762,
-      startLng: 139.6503,
-      endLat: 37.7749,
-      endLng: -122.4194,
-      arcAlt: 0.4,
-      color: "#7C3AED",
-    },
-    {
-      order: 3,
-      startLat: -33.8688,
-      startLng: 151.2093,
-      endLat: 1.3521,
-      endLng: 103.8198,
-      arcAlt: 0.3,
-      color: "#A855F7",
-    },
-    {
-      order: 4,
-      startLat: 52.5200,
-      startLng: 13.4050,
-      endLat: 28.6139,
-      endLng: 77.2090,
-      arcAlt: 0.35,
-      color: "#9E68FE",
-    },
-  ];
-
-  return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
-      {/* Animated background particles */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(158,104,254,0.1),transparent_50%)]"></div>
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-purple-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col items-start justify-center min-h-screen px-8 md:px-16 lg:px-24">
-        <div className="max-w-2xl">
-          {/* Main heading */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent mb-6">
-            TetraCode
-          </h1>
-          
-          {/* Subtext */}
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-12 max-w-xl">
-            Crafting innovative digital solutions that transform ideas into powerful, scalable applications. 
-            Where creativity meets cutting-edge technology.
-          </p>
-
-          {/* CTA Button */}
-          <button 
-            onClick={() => scrollToSection('#what-we-do')}
-            className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:from-purple-500 hover:to-purple-600 hover:scale-105 shadow-lg hover:shadow-purple-500/25"
-          >
-            Explore Our Work
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-          </button>
-        </div>
-      </div>
-
-      {/* Globe positioned in bottom right */}
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 pointer-events-none">
-        <div className="relative w-full h-full">
-          <World data={sampleArcs} globeConfig={globeConfig} />
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <button
-        onClick={() => scrollToSection('#what-we-do')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group"
-      >
-        <div className="flex flex-col items-center text-purple-300 hover:text-white transition-colors duration-300">
-          <span className="text-sm mb-2 opacity-75 group-hover:opacity-100">Scroll to explore</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </div>
-      </button>
-    </div>
-  );
-};
-
-export default TetraCodeHero;
