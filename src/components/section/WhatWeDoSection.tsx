@@ -10,8 +10,6 @@ import { WhatWeDoCards } from "../cards";
 
 const WhatWeDoSection = () => {
 
-
-
     return (
         <main
             id="what-we-do"
@@ -24,7 +22,7 @@ const WhatWeDoSection = () => {
                 />
 
                 <section
-                    className=" mt-10 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                    className="mt-10 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                     <WhatWeDoCards />
                 </section>

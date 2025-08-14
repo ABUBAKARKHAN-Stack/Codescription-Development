@@ -423,14 +423,14 @@ const TetraCodeHero = () => {
       {/* Globe positioned in bottom right */}
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 pointer-events-none">
         <div className="relative w-full h-full">
-          <World data={sampleArcs} globeConfig={globeConfig} />
+          <World data={sampleArcs}  globeConfig={globeConfig} />
         </div>
       </div>
 
       {/* Scroll indicator */}
       <button
         onClick={() => scrollToSection('#what-we-do')}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 group"
+        className="absolute cursor-pointer bottom-8 left-1/2 transform -translate-x-1/2 z-20 group"
       >
         <div className="flex flex-col items-center text-purple-300 hover:text-white transition-colors duration-300">
           <span className="text-sm mb-2 opacity-75 group-hover:opacity-100">Scroll to explore</span>
