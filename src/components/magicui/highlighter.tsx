@@ -64,9 +64,12 @@ export function Highlighter({
         multiline,
       });
 
-      const timer = setTimeout(() => {
-        annotation.show();
-      }, delay * 1000 + duration * 1000);
+      const timer = setTimeout(
+        () => {
+          annotation.show();
+        },
+        delay * 1000 + duration * 1000,
+      );
 
       return () => {
         clearTimeout(timer);

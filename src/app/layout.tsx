@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/context/LenisContext";
+import LenisMotionRAFSync from "@/components/LenisMotionRAFSync";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -33,7 +34,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} font-poppins bg-background antialiased`}
       >
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <LenisMotionRAFSync />
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

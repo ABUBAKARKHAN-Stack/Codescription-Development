@@ -73,11 +73,11 @@ const ProjectCard: FC<Props> = ({
       animate={
         isInView
           ? {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotateX: 0,
-          }
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              rotateX: 0,
+            }
           : {}
       }
       whileHover={{
@@ -100,6 +100,7 @@ const ProjectCard: FC<Props> = ({
         boxShadow:
           "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
       }}
+      layout={false}
     >
       {/* Starfield Background */}
       <div className="absolute inset-0 z-0">
@@ -251,7 +252,7 @@ const ProjectCard: FC<Props> = ({
               )}
               <Link
                 href={link}
-                className="group/btn flex h-14 w-14 items-center justify-center rounded-2xl border border-[oklch(0.75_0.1_290)]/40 bg-gradient-to-br from-[oklch(0.75_0.1_290)] to-[oklch(0.8_0.08_300)] text-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:shadow-[oklch(0.75_0.1_290)]/50"
+                className="group/btn flex h-14 w-14 items-center justify-center rounded-2xl border border-black/90 bg-gradient-to-br from-white/90 to-white/85 text-black shadow-xl transition-all duration-300 hover:border-[oklch(0.65_0.22_295)]/50 hover:shadow-2xl hover:shadow-[oklch(0.65_0.22_295)]/30"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Eye className="size-6 transition-transform duration-300 group-hover/btn:scale-110" />

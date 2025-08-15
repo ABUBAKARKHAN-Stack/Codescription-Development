@@ -15,14 +15,14 @@ const SectionHeader: FC<Props> = ({
 }) => {
   return (
     <div className="relative flex w-full flex-col items-center justify-center gap-y-4">
-
       <Highlighter
         delay={0.25}
         action="highlight"
         animationDuration={1000}
         once
-        className="tracking text-center font-montserrat text-4xl font-bold text-wrap md:text-5xl lg:text-6xl">
-        <span className="p-2 inline-block">{mainHeading}</span>
+        className="tracking font-montserrat text-center text-4xl font-bold text-wrap md:text-5xl lg:text-6xl"
+      >
+        <span className="inline-block p-2">{mainHeading}</span>
       </Highlighter>
       <BlurFade
         direction="down"

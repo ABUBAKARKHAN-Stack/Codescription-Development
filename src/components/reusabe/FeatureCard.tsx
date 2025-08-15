@@ -1,10 +1,11 @@
 "use client";
 
-import React, { FC, useRef, useState } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView, useAnimationFrame } from "motion/react";
 import Link from "next/link";
-import { Eye, LucideIcon } from "lucide-react";
+import { Eye, LucideIcon, Search } from "lucide-react";
 import Image from "next/image";
+import { useLenis } from "@/context/LenisContext";
 
 type FeatureCardProps = {
   id: number;
@@ -53,11 +54,11 @@ const FeatureCard: FC<FeatureCardProps> = ({
       animate={
         isInView
           ? {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              rotateX: 0,
-            }
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: 0,
+          }
           : {}
       }
       whileHover={{
@@ -80,6 +81,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
         boxShadow:
           "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
       }}
+      layout={false}
     >
       {/* Starfield Background */}
       <div className="absolute inset-0 z-0">
@@ -155,11 +157,11 @@ const FeatureCard: FC<FeatureCardProps> = ({
                   animate={
                     isHovered
                       ? {
-                          y: [0, -25, 0],
-                          x: [0, Math.random() * 30 - 15, 0],
-                          opacity: [0.7, 1, 0.7],
-                          scale: [1, 1.3, 1],
-                        }
+                        y: [0, -25, 0],
+                        x: [0, Math.random() * 30 - 15, 0],
+                        opacity: [0.7, 1, 0.7],
+                        scale: [1, 1.3, 1],
+                      }
                       : {}
                   }
                   transition={{
@@ -264,11 +266,11 @@ const FeatureCard: FC<FeatureCardProps> = ({
                       ease: "easeInOut",
                     }}
                   >
-                    <Eye className="relative z-10 mb-2 size-6 drop-shadow-lg" />
+                    <Search className="relative z-10 mb-2 size-6 drop-shadow-lg" />
                   </motion.div>
 
                   <span className="relative z-10 text-xs font-bold drop-shadow-md transition-colors group-hover/btn:text-[oklch(0.95_0.01_0)]">
-                    Explore
+                    Explore More
                   </span>
 
                   {/* Button purple glow effect */}
@@ -302,10 +304,10 @@ const FeatureCard: FC<FeatureCardProps> = ({
                   animate={
                     isHovered
                       ? {
-                          scale: [0, 1, 0],
-                          opacity: [0, 1, 0],
-                          rotate: [0, 180, 360],
-                        }
+                        scale: [0, 1, 0],
+                        opacity: [0, 1, 0],
+                        rotate: [0, 180, 360],
+                      }
                       : {}
                   }
                   transition={{
@@ -329,9 +331,9 @@ const FeatureCard: FC<FeatureCardProps> = ({
                   animate={
                     isHovered
                       ? {
-                          scale: [0, 1.2, 0],
-                          opacity: [0, 0.8, 0],
-                        }
+                        scale: [0, 1.2, 0],
+                        opacity: [0, 0.8, 0],
+                      }
                       : {}
                   }
                   transition={{
