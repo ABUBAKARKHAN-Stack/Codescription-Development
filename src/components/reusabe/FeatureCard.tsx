@@ -45,22 +45,22 @@ const FeatureCard: FC<FeatureCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       ref={cardRef}
-      initial={{
-        opacity: 0,
-        y: 50,
-        scale: 0.9,
-        rotateX: 15,
-      }}
-      animate={
-        isInView
-          ? {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            rotateX: 0,
-          }
-          : {}
-      }
+      // initial={{
+      //   opacity: 0,
+      //   y: 50,
+      //   scale: 0.9,
+      //   rotateX: 15,
+      // }}
+      // animate={
+      //   isInView
+      //     ? {
+      //       opacity: 1,
+      //       y: 0,
+      //       scale: 1,
+      //       rotateX: 0,
+      //     }
+      //     : {}
+      // }
       whileHover={{
         y: -12,
         scale: 1.03,
