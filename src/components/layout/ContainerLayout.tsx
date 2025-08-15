@@ -1,16 +1,18 @@
-import React, { FC, ReactNode } from 'react'
+import React, { FC, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
-  className?: string
-}
+  className?: string;
+};
 
 const ContainerLayout: FC<Props> = ({ children, className }) => {
   return (
-    <main className={`max-w-full xsm:max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-[1100px] p-4 h-full w-full mx-auto ${className}`}>
+    <main
+      className={`xsm:max-w-xl mx-auto h-full w-full max-w-full p-4 sm:max-w-2xl md:max-w-3xl lg:max-w-[1100px] ${className}`}
+    >
       {children}
     </main>
-  )
-}
+  );
+};
 
-export default ContainerLayout
+export default ContainerLayout;

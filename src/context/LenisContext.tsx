@@ -6,31 +6,31 @@ import Lenis from "@studio-freight/lenis";
 const LenisContext = createContext<Lenis | null>(null);
 
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
-    const lenisRef = useRef<Lenis | null>(null);
-    const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
+  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
 
-    useEffect(() => {
-        const lenis = new Lenis({
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-        lenisRef.current = lenis;
-        setLenisInstance(lenis);
+  useEffect(() => {
+    const lenis = new Lenis({
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    lenisRef.current = lenis;
+    setLenisInstance(lenis);
 
-        const raf = (time: number) => {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        };
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
 
-        requestAnimationFrame(raf);
+    requestAnimationFrame(raf);
 
-        return () => lenis.destroy();
-    }, []);
+    return () => lenis.destroy();
+  }, []);
 
-    return (
-        <LenisContext.Provider value={lenisInstance}>
-            {children}
-        </LenisContext.Provider>
-    );
+  return (
+    <LenisContext.Provider value={lenisInstance}>
+      {children}
+    </LenisContext.Provider>
+  );
 };
 
 export const useLenis = () => useContext(LenisContext);

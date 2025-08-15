@@ -1,30 +1,26 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { SectionHeader } from '../reusabe'
-import ContainerLayout from '../layout/ContainerLayout'
-import { WhyChooseTetraCodeCards } from '../cards'
-import { whyChooseSectionHeader } from '@/data/whychoose.data'
+import React from "react";
+import { SectionHeader } from "../reusabe";
+import ContainerLayout from "../layout/ContainerLayout";
+import { WhyChooseTetraCodeCards } from "../cards";
+import { whyChooseSectionHeader } from "@/data/whychoose.data";
 
 const WhyChooseTetraCodeSection = () => {
+  return (
+    <main className="h-full w-full py-16 md:py-24">
+      <ContainerLayout>
+        <SectionHeader
+          mainHeading={whyChooseSectionHeader.mainHeading}
+          subText={whyChooseSectionHeader.subText}
+          animateOnce={true}
+        />
+        <section className="mt-10 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <WhyChooseTetraCodeCards />
+        </section>
+      </ContainerLayout>
+    </main>
+  );
+};
 
-    return (
-        <main
-            className="w-full h-full py-16 md:py-24">
-            <ContainerLayout>
-                <SectionHeader
-                    mainHeading={whyChooseSectionHeader.mainHeading}
-                    subText={whyChooseSectionHeader.subText}
-                    animateOnce={true}
-                />
-                <section
-                    className=" mt-10 w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-                >
-                    <WhyChooseTetraCodeCards />
-                </section>
-            </ContainerLayout>
-        </main>
-    )
-}
-
-export default WhyChooseTetraCodeSection
+export default WhyChooseTetraCodeSection;

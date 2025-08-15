@@ -1,38 +1,42 @@
-import React, { FC } from 'react'
-import { BlurFade } from '../magicui/blur-fade';
+import React, { FC } from "react";
+import { BlurFade } from "../magicui/blur-fade";
+import { Highlighter } from "../magicui/highlighter";
 
 type Props = {
-    mainHeading: string;
-    subText: string;
-    animateOnce?: boolean
-}
+  mainHeading: string;
+  subText: string;
+  animateOnce?: boolean;
+};
 
 const SectionHeader: FC<Props> = ({
-    mainHeading,
-    subText,
-    animateOnce = false
+  mainHeading,
+  subText,
+  animateOnce = false,
 }) => {
-    return (
-        <div className='flex w-full justify-center items-center flex-col gap-y-4 relative'>
-            <BlurFade
-                direction="down" once={animateOnce} delay={0.25} inView
-                blur='20px'
-            >
-                <h1 className='lg:text-6xl md:text-5xl text-4xl tracking text-wrap text-center font-sans font-bold'>
-                    {mainHeading}
-                </h1>
-            </BlurFade>
-            <BlurFade
-                direction="down" once={animateOnce} delay={0.25 * 2} inView
-                blur='10px'
+  return (
+    <div className="relative flex w-full flex-col items-center justify-center gap-y-4">
 
-            >
-                <p className='font-poppins mx-auto text-primary font-normal text-sm md:text-base max-w-[90%] leading-relaxed text-wrap text-center xl:text-xl mb-6'>
-                    {subText}
-                </p>
-            </BlurFade>
-        </div>
-    )
-}
+      <Highlighter
+        delay={0.25}
+        action="highlight"
+        animationDuration={1000}
+        once
+        className="tracking text-center font-montserrat text-4xl font-bold text-wrap md:text-5xl lg:text-6xl">
+        <span className="p-2 inline-block">{mainHeading}</span>
+      </Highlighter>
+      <BlurFade
+        direction="down"
+        once={animateOnce}
+        delay={0.25 * 2}
+        inView
+        blur="10px"
+      >
+        <p className="font-poppins text-primary mx-auto mb-6 max-w-[80%] text-center text-sm leading-relaxed font-normal text-wrap md:text-base xl:text-xl">
+          {subText}
+        </p>
+      </BlurFade>
+    </div>
+  );
+};
 
-export default SectionHeader
+export default SectionHeader;

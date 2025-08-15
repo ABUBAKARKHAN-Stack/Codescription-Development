@@ -1,11 +1,6 @@
 import SectionHeader from "./SectionHeader";
-import Sparkles from "./Sparkles";
 import Logo from "./Logo";
 import FeatureCard from "./FeatureCard";
+import ProjectCard from "./ProjectCard";
 
-export {
-    SectionHeader,
-    Sparkles,
-    Logo,
-    FeatureCard
-}
+export { SectionHeader, Logo, FeatureCard, ProjectCard };

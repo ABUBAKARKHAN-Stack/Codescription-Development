@@ -1,35 +1,23 @@
-"use client"
-
-import { useMounted } from '@/hooks/useMounted';
-import { useTheme } from 'next-themes'
-import Image from 'next/image';
-import React, { FC } from 'react'
+"use client";
+import Image from "next/image";
+import React, { FC } from "react";
 
 type Props = {
-    width?: number;
-    height?: number;
-    className?: string
-}
+  width?: number;
+  height?: number;
+  className?: string;
+};
 
-const Logo: FC<Props> = ({
-    width = 250,
-    height = 250,
-    className
-}) => {
-    const { resolvedTheme } = useTheme();
-    const mounted = useMounted()
+const Logo: FC<Props> = ({ width = 250, height = 250, className }) => {
+  return (
+    <Image
+      src={"/assets/logo.png"}
+      width={width}
+      height={height}
+      alt={"Tetracode Logo"}
+      className={`${className}`}
+    />
+  );
+};
 
-    if(!mounted) return null;
-
-    return (
-        <Image
-            src={resolvedTheme === "light" ? "/assets/logo-light.png" : '/assets/logo-dark.png'}
-            width={width}
-            height={height}
-            alt={resolvedTheme === "dark" ? "Tetracode Logo Dark" : "Tetracode Logo Light"}
-            className={`${className}`}
-        />
-    )
-}
-
-export default Logo
+export default Logo;
