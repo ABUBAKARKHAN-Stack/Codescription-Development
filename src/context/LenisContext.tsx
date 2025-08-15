@@ -1,27 +1,24 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 
 const LenisContext = createContext<Lenis | null>(null);
 
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
-  const lenisRef = useRef<Lenis | null>(null);
   const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
 
   useEffect(() => {
     const lenis = new Lenis({
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.2,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      duration: 1.05,
     });
-    lenisRef.current = lenis;
+   
+
     setLenisInstance(lenis);
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-
-    requestAnimationFrame(raf);
 
     return () => lenis.destroy();
   }, []);

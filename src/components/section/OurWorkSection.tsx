@@ -29,4 +29,4 @@ const OurWorkSection = () => {
   );
 };
 
-export default OurWorkSection
+export default OurWorkSection;

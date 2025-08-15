@@ -9,7 +9,7 @@ export const useScrollToSection = () => {
       lenis.scrollTo(section, {
         offset: 0,
         duration: 1.5,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t) => 1 - Math.pow(1 - t, 3),
       });
     }
   };
