@@ -63,8 +63,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
     atmosphereColor: "#ffffff",
     showAtmosphere: true,
     atmosphereAltitude: 0.1,
-    polygonColor: "rgba(255,255,255,0.7)",
-    globeColor: "#1d072e",
+    // polygonColor: "rgba(255,255,255,0.7)",
+    polygonColor: "#ff0000", 
+    globeColor: "#7d4edb",
     emissive: "#000000",
     emissiveIntensity: 0.1,
     shininess: 0.9,
@@ -83,6 +84,36 @@ export function Globe({ globeConfig, data }: WorldProps) {
       setIsInitialized(true);
     }
   }, []);
+
+  //changing geometry
+useEffect(() => {
+  if (!isInitialized || !groupRef.current) return;
+
+  const updateScale = () => {
+    const container = document.querySelector("#globe-container") as HTMLElement;
+    if (!container) return;
+
+    const isMobile = window.innerWidth < 1024;
+
+    if (isMobile) {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      const aspectRatio = width / height;
+
+      // X & Z scaled equally → no tilt
+      (groupRef.current as any).scale.set(aspectRatio, 0.5, aspectRatio);
+    } else {
+      // Desktop → perfect sphere
+      (groupRef.current as any).scale.set(1, 1, 1);
+    }
+  };
+
+  updateScale(); // run immediately
+  window.addEventListener("resize", updateScale);
+  return () => window.removeEventListener("resize", updateScale);
+}, [isInitialized]);
+
+
 
   // Build material when globe is initialized or when relevant props change
   useEffect(() => {
@@ -105,6 +136,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     globeConfig.emissiveIntensity,
     globeConfig.shininess,
   ]);
+  
 
   // Build data when globe is initialized or when data changes
   useEffect(() => {
@@ -262,6 +294,7 @@ export function World(props: WorldProps) {
       <OrbitControls
         enablePan={false}
         enableZoom={false}
+        enableRotate={false} // to stop interaction with globe
         minDistance={cameraZ}
         maxDistance={cameraZ}
         autoRotateSpeed={1}
