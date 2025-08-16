@@ -4,6 +4,7 @@ import {
     WhatWeDoSection,
     WhyChooseTetraCodeSection,
     NavbarSection,
+    TestimonialSection
 } from "@/components/section";
 import OurWorkSection from "@/components/section/OurWorkSection";
 import { SpaceSeparator } from '../ui/space-theme-separator';
@@ -19,6 +20,7 @@ const LandingPage = () => {
             <SpaceSeparator starCount={20} height="h-6" />
             <OurWorkSection />
             <SpaceSeparator starCount={20} height="h-6" />
+            <TestimonialSection />
         </>
     )
 }
