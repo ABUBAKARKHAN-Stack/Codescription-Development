@@ -2,7 +2,7 @@ import HeroSection from "./HeroSection";
 import NavbarSection from "./NavbarSection";
 import WhatWeDoSection from "./WhatWeDoSection";
 import WhyChooseTetraCodeSection from "./WhyChooseTetraCodeSection";
-import TestimonialsSection from "./testimonialsSection";
+import TestimonialsSection from "./TestimonialsSection";
 
 export {
   HeroSection,

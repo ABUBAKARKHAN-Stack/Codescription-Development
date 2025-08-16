@@ -3,16 +3,16 @@
 import React from "react";
 import ContainerLayout from "../layout/ContainerLayout";
 import { SectionHeader } from "../reusabe";
-import { testimonialSection } from "@/data/testimonials.data";
-import TestimonialCards from "@/components/cards/testimonialCards";
+import { testimonialSectionHeader } from "@/data/testimonials.data";
+import TestimonialCards from "@/components/cards/TestimonialCards";
 
 const TestimonialsSection = () => {
   return (
     <main id="what-we-do" className="h-full w-full py-16 md:py-24">
       <ContainerLayout>
         <SectionHeader
-          mainHeading={testimonialSection.mainHeading}
-          subText={testimonialSection.subText}
+          mainHeading={testimonialSectionHeader.mainHeading}
+          subText={testimonialSectionHeader.subText}
           animateOnce={true}
         />
 

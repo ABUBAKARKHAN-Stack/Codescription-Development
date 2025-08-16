@@ -49,10 +49,10 @@ const testimonials = [
   },
 ];
 
-const testimonialSection = {
+const testimonialSectionHeader = {
   mainHeading: "What People Say",
   subText: "Your trust, their words – see what people say about us.",
 };
 
-export { testimonials, testimonialSection };
+export { testimonials, testimonialSectionHeader };
 

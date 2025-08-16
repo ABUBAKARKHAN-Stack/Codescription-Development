@@ -2,5 +2,6 @@ import SectionHeader from "./SectionHeader";
 import Logo from "./Logo";
 import FeatureCard from "./FeatureCard/FeatureCard";
 import ProjectCard from "./ProjectCard/ProjectCard";
+import TestimonialCard from "./TestimonialCard";
 
-export { SectionHeader, Logo, FeatureCard, ProjectCard };
+export { SectionHeader, Logo, FeatureCard, ProjectCard, TestimonialCard };
