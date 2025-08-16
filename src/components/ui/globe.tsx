@@ -63,10 +63,10 @@
       atmosphereColor: "#ffffff",
       showAtmosphere: true,
       atmosphereAltitude: 0.1,
-      // polygonColor: "rgba(255,255,255,0.7)",
-      polygonColor: "#ff0000", 
-      globeColor: "#7d4edb",
-      emissive: "#000000",
+      polygonColor: "rgba(255,255,255,0.7)",
+      // polygonColor: "#ff0000", 
+      // globeColor: "#410c6e",
+      emissive: "#ffff",
       emissiveIntensity: 0.1,
       shininess: 0.9,
       arcTime: 2000,
@@ -269,42 +269,44 @@
     return null;
   }
 
-  export function World(props: WorldProps) {
-    const { globeConfig } = props;
-    const scene = new Scene();
-    scene.fog = new Fog(0xffffff, 400, 2000);
-    return (
-      <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
-        <WebGLRendererConfig />
-        <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-        <directionalLight
-          color={globeConfig.directionalLeftLight}
-          position={new Vector3(-400, 100, 400)}
-        />
-        <directionalLight
-          color={globeConfig.directionalTopLight}
-          position={new Vector3(-200, 500, 200)}
-        />
-        <pointLight
-          color={globeConfig.pointLight}
-          position={new Vector3(-200, 500, 200)}
-          intensity={0.8}
-        />
-        <Globe {...props} />
-        <OrbitControls
-          enablePan={false}
-          enableZoom={false}
-          enableRotate={false} // to stop interaction with globe
-          minDistance={cameraZ}
-          maxDistance={cameraZ}
-          autoRotateSpeed={1}
-          autoRotate={true}
-          minPolarAngle={Math.PI / 3.5}
-          maxPolarAngle={Math.PI - Math.PI / 3}
-        />
-      </Canvas>
-    );
-  }
+export function World(props: WorldProps) {
+  const { globeConfig } = props;
+  const scene = new Scene();
+  scene.fog = new Fog(0xffffff, 400, 2000);
+  return (
+    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+      <WebGLRendererConfig />
+      <ambientLight color={globeConfig.ambientLight} intensity={0.3} /> {/* Reduced intensity */}
+      <directionalLight
+        color={globeConfig.directionalLeftLight}
+        position={new Vector3(-400, 100, 400)}
+        intensity={0.5}
+      />
+      <directionalLight
+        color={globeConfig.directionalTopLight}
+        position={new Vector3(-200, 500, 200)}
+        intensity={0.5} 
+      />
+      <pointLight
+        color={globeConfig.pointLight}
+        position={new Vector3(-200, 500, 200)}
+        intensity={0.3} 
+      />
+      <Globe {...props} />
+      <OrbitControls
+        enablePan={false}
+        enableZoom={false}
+        enableRotate={false}
+        minDistance={cameraZ}
+        maxDistance={cameraZ}
+        autoRotateSpeed={1}
+        autoRotate={true}
+        minPolarAngle={Math.PI / 3.5}
+        maxPolarAngle={Math.PI - Math.PI / 3}
+      />
+    </Canvas>
+  );
+}
 
   export function hexToRgb(hex: string) {
     var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;

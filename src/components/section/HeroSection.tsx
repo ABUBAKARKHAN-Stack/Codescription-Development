@@ -3,25 +3,26 @@ import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Position } from "@/types/main.types";
 import { ChevronDown } from "lucide-react";
 import dynamic from "next/dynamic";
+import ContainerLayout from "../layout/ContainerLayout";
 const Globe = dynamic(() => import("../ui/globe").then((m) => m.World), {
   ssr: false,
 });
 
 const Hero = () => {
-  const globeConfig = {
+ const globeConfig = {
   pointSize: 4,
-  globeColor: "#7d4edb",
+  globeColor: "#c28ef4", // Dark purple
   showAtmosphere: false,
-  atmosphereColor: "rgba(0,0,0,0)", // transparent
+  atmosphereColor: "rgba(0,0,0,0)",
   atmosphereAltitude: 0.1,
-  emissive: "#7d4edb",
-  emissiveIntensity: 0.1,
-  shininess: 0.9,
-  polygonColor: "rgba(255,255,255,0.7)",
-  ambientLight: "#fffff",
-  directionalLeftLight: "#ffffff",
-  directionalTopLight: "#ffffff",
-  pointLight: "#ffffff",
+  emissive: "#c28ef4", // Same as globeColor for consistent color
+  emissiveIntensity: 0.2, // Add some self-illumination
+  shininess: 0.3, // Reduce shininess to make reflections less intense
+  polygonColor: "rgba(255,255,255,1)", // More subtle polygon highlights
+  ambientLight: "#c28ef4", // Match ambient light color
+  directionalLeftLight: "#ffffff", // Purple tinted lights
+  directionalTopLight: "#ffffff", // Purple tinted lights
+  pointLight: "#ffffff", // Purple tinted point light
   arcTime: 1000,
   arcLength: 0.9,
   rings: 1,
@@ -38,21 +39,24 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
+      {/* <ContainerLayout> */}
+
+
       {/* Animated background particles */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(158,104,254,0.1),transparent_50%)]"></div>
         {[...Array(50)].map((_, i) => (
           <div
-            key={i}
-            className="absolute h-1 w-1 animate-pulse rounded-full bg-purple-400"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
+          key={i}
+          className="absolute h-1 w-1 animate-pulse rounded-full bg-purple-400"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
               animationDuration: `${2 + Math.random() * 3}s`,
             }}
-          />
-        ))}
+            />
+          ))}
       </div>
 
       {/* Main content */}
@@ -97,6 +101,7 @@ const Hero = () => {
           <ChevronDown className="h-6 w-6 animate-bounce" />
         </div>
       </button>
+        {/* </ContainerLayout> */}
     </div>
   );
 };
