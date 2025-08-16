@@ -4,6 +4,8 @@ import "./globals.css";
 import { LenisProvider } from "@/context/LenisContext";
 import LenisMotionRAFSync from "@/components/LenisMotionRAFSync";
 import Footer from "@/components/layout/Footer";
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -38,6 +40,8 @@ export default function RootLayout({
         <LenisProvider>
           <LenisMotionRAFSync />
           {children}
+          <Analytics />
+          <SpeedInsights />
         </LenisProvider>
         <Footer />
       </body>
