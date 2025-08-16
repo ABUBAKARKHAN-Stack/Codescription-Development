@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useRef, useState } from "react";
-import { AnimatePresence, motion, useInView } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { Star } from "lucide-react";
 
 
