@@ -61,7 +61,7 @@
   --popover: var(--card);
   --popover-foreground: var(--foreground);
 
-  --brand: oklch(0.65 0.22 295);
+  --brand: #9E68FE;
   --brand-foreground: oklch(0.12 0.01 280);
 
   --primary: var(--brand);
@@ -69,7 +69,7 @@
 
   --secondary: oklch(0.2 0.015 280);
   --secondary-foreground: oklch(0.95 0.01 0);
-
+  --globe-color: #510a8b;
   --muted: oklch(0.18 0.01 280);
   --muted-foreground: oklch(0.7 0.01 280);
 
@@ -105,14 +105,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-html,
-body {
-  scroll-behavior: auto !important;
-  /* Let Lenis handle smoothness */
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
 }
