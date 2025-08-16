@@ -9,6 +9,7 @@ const LandingPageDynamic = dynamic(() => import("@/components/pages/LandingPage"
 })
 
 const Home = () => {
+  
   return (
     <LandingPageDynamic />
   );

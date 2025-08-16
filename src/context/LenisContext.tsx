@@ -1,32 +1,32 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
-import Lenis from "@studio-freight/lenis";
+import { createContext, useEffect, useRef } from "react";
+import { ReactLenis, type LenisRef } from "lenis/react";
+import { frame, cancelFrame } from "motion/react";
 
-const LenisContext = createContext<Lenis | null>(null);
+
+const LenisContext = createContext<null>(null);
 
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
-  const [lenisInstance, setLenisInstance] = useState<Lenis | null>(null);
+  const lenisRef = useRef<LenisRef>(null);
+
 
   useEffect(() => {
-    const lenis = new Lenis({
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.2,
-      easing: (t) => 1 - Math.pow(1 - t, 3),
-      duration: 1.05,
-    });
-   
-    setLenisInstance(lenis);
+    const update = (data: { timestamp: number }) => {
+      lenisRef.current?.lenis?.raf(data.timestamp);
+    };
 
-    return () => lenis.destroy();
+    frame.update(update, true);
+    return () => cancelFrame(update);
   }, []);
 
+
   return (
-    <LenisContext.Provider value={lenisInstance}>
-      {children}
+    <LenisContext.Provider value={null}>
+      <ReactLenis root ref={lenisRef}>
+        {children}
+      </ReactLenis>
     </LenisContext.Provider>
   );
 };
 
-export const useLenis = () => useContext(LenisContext);

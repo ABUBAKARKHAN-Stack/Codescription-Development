@@ -57,10 +57,13 @@ const whatWeDoData = [
     link: "/services/devops-automation",
   },
 ];
+
 const whatWeDoSectionHeader = {
   mainHeading: "Areas of Expertise",
-  subText:
-    "We offer end-to-end services to help you grow fast and scale smarter.",
+  subText: "We offer end-to-end services to help you grow fast and scale smarter.",
 };
 
-export { whatWeDoData, whatWeDoSectionHeader };
+export {
+  whatWeDoData,
+  whatWeDoSectionHeader
+};
