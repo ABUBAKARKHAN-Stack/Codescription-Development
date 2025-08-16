@@ -15,9 +15,9 @@ const LandingPage = () => {
      <NavbarSection />
       <HeroSection />
       <WhatWeDoSection />
-      <SpaceSeparator starCount={100} height="h-7" />
+      <SpaceSeparator starCount={20} height="h-6" />
       <WhyChooseTetraCodeSection />
-      <SpaceSeparator starCount={100} height="h-7"  />
+      <SpaceSeparator starCount={20} height="h-6"  />
       <OurWorkSection />
      </>
     )

@@ -95,6 +95,8 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
+  --gradient-pos: 20%;
+
 }
 
 @layer base {

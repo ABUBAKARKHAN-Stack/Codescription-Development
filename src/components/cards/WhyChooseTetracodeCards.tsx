@@ -1,7 +1,7 @@
 "use client";
 
 import { whyChooseData } from "@/data/whychoose.data";
-import React, { FC, RefObject } from "react";
+import React from "react";
 import { FeatureCard } from "../reusabe";
 
 const WhyChooseTetraCodeCards = () => {

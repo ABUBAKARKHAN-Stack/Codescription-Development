@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React from "react";
 import { ProjectCard } from "../reusabe";
 import { ShoppingCart } from "lucide-react";
 

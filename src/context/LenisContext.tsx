@@ -17,7 +17,6 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
       duration: 1.05,
     });
    
-
     setLenisInstance(lenis);
 
     return () => lenis.destroy();
