@@ -1,37 +1,13 @@
 "use client";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
-import { Position } from "@/types/main.types";
 import { ChevronDown } from "lucide-react";
-import dynamic from "next/dynamic";
-const Globe = dynamic(() => import("../ui/globe").then((m) => m.World), {
-  ssr: false,
-});
+import { Globe } from "@/components/magicui/globe";
+
 
 const Hero = () => {
-  const globeConfig = {
-    pointSize: 4,
-    globeColor: "#7d4edb",
-    showAtmosphere: true,
-    atmosphereColor: "blue",
-    atmosphereAltitude: 0.1,
-    emissive: "#7d4edb",
-    emissiveIntensity: 0.1,
-    shininess: 0.9,
-    polygonColor: "rgba(255,255,255,0.7)",
-    ambientLight: "#38bdf8",
-    directionalLeftLight: "#ffffff",
-    directionalTopLight: "#ffffff",
-    pointLight: "#ffffff",
-    arcTime: 1000,
-    arcLength: 0.9,
-    rings: 1,
-    maxRings: 3,
-    initialPosition: { lat: 22.3193, lng: 114.1694 },
-    autoRotate: true,
-    autoRotateSpeed: 0.5,
-  };
 
-  const sampleArcs: Position[] = [];
+
+
 
   const { scrollToSection } = useScrollToSection();
 
@@ -55,7 +31,7 @@ const Hero = () => {
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 flex min-h-screen flex-col items-start justify-center px-8 md:px-16 lg:px-14">
+      <div className="relative z-10 flex min-h-screen flex-col items-start justify-center px-8 md:px-16 lg:px-14 xl:px-20">
         <div className="mx-auto w-fit max-w-3xl text-center lg:mx-0 lg:text-left">
           {/* Main heading */}
           <h1 className="mb-6 bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-5xl font-bold text-transparent md:text-7xl lg:text-[90px] xl:text-[110px] 2xl:text-[120px]">
@@ -79,8 +55,8 @@ const Hero = () => {
           </button>
         </div>
 
-        <div className="absolute -bottom-40 left-1/2 z-10 h-[400px] w-[300px] -translate-x-1/2 md:-bottom-60 md:h-[500px] md:w-[800px] lg:-right-[30rem] lg:-bottom-52 lg:h-[1000px] lg:w-[800px] lg:-translate-0 xl:-right-[120rem] 2xl:-right-[90rem] 2xl:-bottom-[25rem] 2xl:h-[1200px] 2xl:w-[1000px]">
-          <Globe data={sampleArcs} globeConfig={globeConfig} />
+        <div id="globe-container" className="absolute -bottom-40 left-1/2 z-10 h-[400px] w-full -translate-x-1/2 md:-bottom-60 md:h-[500px] md:w-[800px] lg:-right-[30rem] lg:-bottom-52 lg:h-[1000px] lg:w-[800px] lg:-translate-0 xl:-right-[120rem] 2xl:-right-[90rem] 2xl:-bottom-[25rem] 2xl:h-[1200px] 2xl:w-[1000px]">
+          <Globe  />
         </div>
       </div>
 
