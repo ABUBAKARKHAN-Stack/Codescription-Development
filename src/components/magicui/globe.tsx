@@ -10,64 +10,35 @@ const MOVEMENT_DAMPING = 1400;
 const AUTO_ROTATION_SPEED = 0.003; // Reduced from 0.005
 const PERFORMANCE_CHECK_INTERVAL = 2000; // Check FPS every 2 seconds
 
+type PerformanceLevel = 'low';
+
+interface PerformanceConfig {
+  mapSamples: number;
+  devicePixelRatio: number;
+  width: number;
+  height: number;
+  markers: Array<{ location: [number, number]; size: number }>;
+  autoRotationSpeed: number;
+}
+
 // Detect device performance capabilities
-const getDevicePerformance = (): 'low' | 'medium' | 'high' => {
-  // Check device memory
-  const deviceMemory = (navigator as any).deviceMemory;
-  if (deviceMemory && deviceMemory < 4) return 'low';
-  
-  // Check hardware concurrency (CPU cores)
-  if (navigator.hardwareConcurrency <= 4) return 'low';
-  
-  // Check if mobile device
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  if (isMobile) return 'medium';
-  
-  return 'high';
+const getDevicePerformance = (): PerformanceLevel => {
+  return 'low'
+
 };
 
 // Performance-based configurations with custom width support
-const getPerformanceConfig = (performanceLevel: 'low' | 'medium' | 'high', customWidth?: number) => {
-  const baseConfigs = {
+const getPerformanceConfig = (performanceLevel: PerformanceLevel, customWidth?: number): PerformanceConfig => {
+
+  const baseConfigs: Record<PerformanceLevel, PerformanceConfig> = {
     low: {
       mapSamples: 16000,
       devicePixelRatio: 1,
       width: customWidth || 400,
       height: customWidth || 400,
-      markers: [], // Remove markers on low-end devices
+      markers: [],
       autoRotationSpeed: 0.002,
-    },
-    medium: {
-      mapSamples: 50000,
-      devicePixelRatio: Math.min(window.devicePixelRatio, 1.2),
-      width: customWidth || 600,
-      height: customWidth || 600,
-      markers: [
-        { location: [14.5995, 120.9842], size: 0.01 },
-        { location: [19.076, 72.8777], size: 0.01 },
-        { location: [23.8103, 90.4125], size: 0.01 },
-      ],
-      autoRotationSpeed: 0.003,
-    },
-    high: {
-      mapSamples: 100000,
-      devicePixelRatio: Math.min(window.devicePixelRatio, 1.5),
-      width: customWidth || 800,
-      height: customWidth || 800,
-      markers: [
-        { location: [14.5995, 120.9842], size: 0.015 },
-        { location: [19.076, 72.8777], size: 0.015 },
-        { location: [23.8103, 90.4125], size: 0.015 },
-        { location: [30.0444, 31.2357], size: 0.015 },
-        { location: [39.9042, 116.4074], size: 0.015 },
-        { location: [-23.5505, -46.6333], size: 0.015 },
-        { location: [19.4326, -99.1332], size: 0.015 },
-        { location: [40.7128, -74.006], size: 0.015 },
-        { location: [34.6937, 135.5022], size: 0.015 },
-        { location: [41.0082, 28.9784], size: 0.015 },
-      ],
-      autoRotationSpeed: 0.005,
-    },
+    }
   };
 
   return baseConfigs[performanceLevel];
@@ -84,30 +55,33 @@ const BASE_GLOBE_CONFIG: Omit<COBEOptions, 'width' | 'height' | 'onRender' | 'ma
   glowColor: [70 / 255, 14 / 255, 116 / 255],
 };
 
+interface GlobeProps {
+  className?: string;
+  config?: Partial<COBEOptions>;
+  width?: number;
+}
+
 export function Globe({
   className,
   config = {},
   width: customWidth,
-}: {
-  className?: string;
-  config?: Partial<COBEOptions>;
-  width?: number;
-}) {
+}: GlobeProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isActive, setIsActive] = useState(true);
-  const [performanceLevel, setPerformanceLevel] = useState<'low' | 'medium' | 'high'>('high');
-  
-  let phi = 0;
-  let width = 0;
-  let frameCount = 0;
-  let lastFPSCheck = performance.now();
-  
+  const [performanceLevel, setPerformanceLevel] = useState<PerformanceLevel>('low');
+
+  // Use refs for mutable values that don't trigger re-renders
+  const phiRef = useRef(0);
+  const widthRef = useRef(0);
+  const frameCountRef = useRef(0);
+  const lastFPSCheckRef = useRef(performance.now());
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
-  const globeRef = useRef<any>(null);
-  const animationFrameRef = useRef<number>();
+  const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null);
+  const animationFrameRef = useRef<number | null>(null);
 
   const r = useMotionValue(0);
   const rs = useSpring(r, {
@@ -129,7 +103,7 @@ export function Globe({
         // Pause globe when not visible
         setIsActive(entry.isIntersecting);
       },
-      { 
+      {
         threshold: 0.1,
         rootMargin: '50px' // Start loading slightly before visible
       }
@@ -144,20 +118,15 @@ export function Globe({
 
   // Performance monitoring
   const checkPerformance = useCallback(() => {
-    frameCount++;
+    frameCountRef.current++;
     const currentTime = performance.now();
-    
-    if (currentTime - lastFPSCheck >= PERFORMANCE_CHECK_INTERVAL) {
-      const fps = (frameCount / (currentTime - lastFPSCheck)) * 1000;
-      frameCount = 0;
-      lastFPSCheck = currentTime;
-      
-      // Adjust performance level based on FPS
-      if (fps < 20 && performanceLevel !== 'low') {
-        setPerformanceLevel('low');
-      } else if (fps < 35 && performanceLevel === 'high') {
-        setPerformanceLevel('medium');
-      }
+
+    if (currentTime - lastFPSCheckRef.current >= PERFORMANCE_CHECK_INTERVAL) {
+      const fps = (frameCountRef.current / (currentTime - lastFPSCheckRef.current)) * 1000;
+      frameCountRef.current = 0;
+      lastFPSCheckRef.current = currentTime;
+
+      setPerformanceLevel('low');
     }
   }, [performanceLevel]);
 
@@ -179,7 +148,7 @@ export function Globe({
   // Throttled resize handler
   const handleResize = useCallback(() => {
     if (canvasRef.current && isVisible) {
-      width = canvasRef.current.offsetWidth;
+      widthRef.current = canvasRef.current.offsetWidth;
     }
   }, [isVisible]);
 
@@ -187,7 +156,9 @@ export function Globe({
     if (!isVisible) return;
 
     const onResize = () => {
-      clearTimeout(animationFrameRef.current);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
       animationFrameRef.current = requestAnimationFrame(handleResize);
     };
 
@@ -216,16 +187,16 @@ export function Globe({
       onRender: (state) => {
         // Performance monitoring
         checkPerformance();
-        
+
         // Only update if active
         if (!isActive) return;
-        
+
         // Auto rotation only when not interacting
         if (!pointerInteracting.current) {
-          phi += perfConfig.autoRotationSpeed;
+          phiRef.current += perfConfig.autoRotationSpeed;
         }
-        
-        state.phi = phi + rs.get();
+
+        state.phi = phiRef.current + rs.get();
         state.width = perfConfig.width;
         state.height = perfConfig.height;
       },
@@ -267,7 +238,7 @@ export function Globe({
           "relative mx-auto aspect-[1/1] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-full",
           className,
         )}
-        style={{ 
+        style={{
           width: customWidth || getPerformanceConfig(performanceLevel, customWidth).width,
           height: customWidth || getPerformanceConfig(performanceLevel, customWidth).height,
           background: 'radial-gradient(circle, rgba(70,14,116,0.1) 0%, rgba(70,14,116,0.05) 100%)'
@@ -306,7 +277,7 @@ export function Globe({
           isActive && e.touches[0] && updateMovement(e.touches[0].clientX)
         }
       />
-      
+
       {/* Performance indicator for development */}
       {process.env.NODE_ENV === 'development' && (
         <div className="absolute top-2 right-2 text-xs bg-black/50 text-white px-2 py-1 rounded">
