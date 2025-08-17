@@ -19,7 +19,7 @@ function NavbarSection() {
           <nav className="bg-transparent h-18 rounded-full px-3 xsm:px-6 shadow-lg backdrop-blur-[15px]">
             <div className="flex h-full items-center justify-between">
               {/* Logo Section */}
-              <div className="flex h-28 xsm:h-32 w-auto items-center">
+              <div className="flex h-28 xsm:h-32 w-auto items-center ">
                 <Logo className="size-full" />
               </div>
 
