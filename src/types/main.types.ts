@@ -8,4 +8,15 @@ type Position = {
   color: string;
 };
 
-export { type Position };
+enum TechStackTabs {
+  FRONTEND = "frontend",
+  BACKEND = "backend",
+  DATABASES = "databases",
+  MOBILE = "moble",
+  DEVOPSANDTOOLS="devopsandtools"
+}
+
+export {
+   type Position,
+   TechStackTabs
+   };

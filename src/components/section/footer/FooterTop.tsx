@@ -16,8 +16,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import React from "react";
-import { Logo } from "@/components/reusabe";
 import Image from "next/image";
+import { footerData } from "@/data/footer.data";
 
 const RenderFooterLinks = ({
   heading,
@@ -54,45 +54,7 @@ const FooterTop = () => {
     },
   });
 
-  const servicesLinks = [
-    {
-      name: "Web Development",
-      link: "/services/web-development",
-    },
-    {
-      name: "App Development",
-      link: "/services/app-development",
-    },
-    {
-      name: "Full Stack Development",
-      link: "/services/full-stack-development",
-    },
-    {
-      name: "E-Commerce Solutions",
-      link: "/services/e-commerce",
-    },
-    {
-      name: "UI/UX Design",
-      link: "/services/ui-ux-design",
-    },
-    {
-      name: "DevOps & Automation",
-      link: "/services/devops-automation",
-    },
-  ];
-  const companyLinks = [
-    { name: "About Us", link: "/about" },
-    { name: "Our Team", link: "/team" },
-    { name: "Services", link: "/services" },
-    { name: "Portfolio", link: "/portfolio" },
-    { name: "Blog", link: "/blog" },
-  ];
 
-  const contactLink = [
-    { name: "Contact Us", link: "/contact" },
-    { name: "tetracode@gmail.com", link: "mailto:tetracode@gmail.com" },
-    { name: "+92 3123456789", link: "tel:+923123456789" },
-  ];
 
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
     console.log(data);
@@ -161,13 +123,13 @@ const FooterTop = () => {
       </div>
 
       {/* === Services Links === */}
-      <RenderFooterLinks heading="Services" links={servicesLinks} />
+      <RenderFooterLinks heading="Services" links={footerData.servicesLinks} />
 
       {/* === Company Links === */}
-      <RenderFooterLinks heading="Company" links={companyLinks} />
+      <RenderFooterLinks heading="Company" links={footerData.companyLinks} />
 
       {/* === Support Links === */}
-      <RenderFooterLinks heading="Contact" links={contactLink} />
+      <RenderFooterLinks heading="Contact" links={footerData.contactLink} />
     </section>
   );
 };

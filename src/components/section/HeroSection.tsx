@@ -7,7 +7,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { Icon } from "lucide-react";
-import { planet } from "@lucide/lab";
+import { planet, } from "@lucide/lab";
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
