@@ -8,8 +8,11 @@ import { WhatWeDoCards } from "../cards";
 
 const WhatWeDoSection = () => {
   return (
-    <main id="what-we-do" className="h-full w-full py-16 md:py-24">
+    <main id="what-we-do" className="h-full w-full py-16 md:py-24 bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900
+">
+      
       <ContainerLayout>
+        
         <SectionHeader
           mainHeading={whatWeDoSectionHeader.mainHeading}
           animateOnce={true}

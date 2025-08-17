@@ -36,11 +36,11 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} font-poppins bg-background antialiased`}
       >
-        <LenisProvider>
+        {/* <LenisProvider> */}
           {children}
           <Analytics />
           <SpeedInsights />
-        </LenisProvider>
+        {/* </LenisProvider> */}
         <Footer />
       </body>
     </html>
