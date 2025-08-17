@@ -17,7 +17,6 @@ const TestimonialSection = () => {
 
         <SectionHeader
           mainHeading={testimonialSectionHeader.mainHeading}
-          subText={testimonialSectionHeader.subText}
           animateOnce={true}
         />
 

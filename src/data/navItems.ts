@@ -5,7 +5,6 @@ const navLinks = [
   { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
   { name: "Contact Us", href: "/contactus" },
-  { name: "Getting Started", href: "/", isbutton: true },
 ];
 
 export { navLinks };

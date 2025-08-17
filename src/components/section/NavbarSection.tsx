@@ -12,19 +12,20 @@ function NavbarSection() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+
   return (
-    <div className="fixed top-0 right-0 left-0 z-50 mt-2 w-full">
-      <ContainerLayout>
+    <div className="fixed top-0 right-0 left-0 w-full z-50 mt-2">
+      <ContainerLayout className="lg:px-10">
         <Sheet open={open} onOpenChange={setOpen}>
           <nav className="xsm:px-6 h-18 rounded-full bg-transparent px-3 shadow-lg backdrop-blur-[15px]">
             <div className="flex h-full items-center justify-between">
               {/* Logo Section */}
-              <div className="xsm:h-32 flex h-28 w-auto items-center">
+              <div className="flex h-20 md:h-24 w-auto items-center ">
                 <Logo className="size-full" />
               </div>
 
               {/* Mobile Menu Toggle */}
-              <div className="xl:hidden">
+              <div className="lg:hidden">
                 <SheetTrigger>
                   <div className="text-white focus:outline-none">
                     {open ? (
@@ -37,30 +38,30 @@ function NavbarSection() {
               </div>
 
               {/* Desktop Navigation */}
-              <ul className="hidden items-center space-x-6 font-normal text-white xl:flex">
+              <ul className="hidden items-center space-x-3 xl:space-x-6 font-normal text-white lg:flex">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className={`transition ${
-                        link.isbutton
-                          ? "bg-primary ml-20 rounded-full px-4 py-2 text-white"
-                          : `hover:text-primary ${
-                              pathname === link.href &&
-                              "text-primary font-medium"
-                            }`
-                      }`}
+                      className={`transition hover:text-primary ${
+                              pathname === link.href && "text-primary font-medium"
+                            }`}
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
+            <button className="bg-primary hidden lg:block rounded-full px-4 py-2 text-white">Getting Started</button>
             </div>
+
 
             {/* Mobile Navigation Sheet */}
             <SheetContent className="bg-transparent backdrop-blur-xl">
               <div className="overflow-hidden px-4 pb-4 outline-none lg:hidden">
+                <div className="flex items-center mt-5 ">
+                <Logo className="h-20 w-auto" />
+              </div>
                 <ul className="mt-10 flex flex-col p-5 font-medium text-white">
                   {navLinks.map((link) => (
                     <li key={link.name}>

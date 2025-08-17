@@ -12,7 +12,6 @@ const WhatWeDoSection = () => {
       <ContainerLayout>
         <SectionHeader
           mainHeading={whatWeDoSectionHeader.mainHeading}
-          subText={whatWeDoSectionHeader.subText}
           animateOnce={true}
         />
 

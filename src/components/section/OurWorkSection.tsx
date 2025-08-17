@@ -2,8 +2,6 @@ import React from "react";
 import ContainerLayout from "../layout/ContainerLayout";
 import { ourWorkSectionHeader } from "@/data/ourwork.data";
 import { SectionHeader } from "../reusabe";
-import { Button } from "../ui/button";
-import { ChevronRight } from "lucide-react";
 import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
 import { OurWorkCards } from "../cards";
 
@@ -13,7 +11,6 @@ const OurWorkSection = () => {
       <ContainerLayout>
         <SectionHeader
           mainHeading={ourWorkSectionHeader.mainHeading}
-          subText={ourWorkSectionHeader.subText}
           animateOnce={true}
         />
         <section className="mt-10 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

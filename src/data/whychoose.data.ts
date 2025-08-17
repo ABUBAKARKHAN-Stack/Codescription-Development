@@ -47,8 +47,6 @@ const whyChooseData = [
 
 const whyChooseSectionHeader = {
   mainHeading: "Why Our Clients Trust Us",
-  subText:
-    "Our code is clean, our communication is clear, and our delivery is fast.",
 };
 
 export { whyChooseData, whyChooseSectionHeader };
