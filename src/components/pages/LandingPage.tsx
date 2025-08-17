@@ -8,18 +8,17 @@ import {
 } from "@/components/section";
 import OurWorkSection from "@/components/section/OurWorkSection";
 import { SpaceSeparator } from "../ui/space-theme-separator";
+import AboutUs from "../section/AboutUs";
 
 const LandingPage = () => {
   return (
     <>
       <NavbarSection />
       <HeroSection />
+      <AboutUs />
       <WhatWeDoSection />
-      {/* <SpaceSeparator starCount={20} height="h-6" /> */}
       <WhyChooseTetraCodeSection />
-      {/* <SpaceSeparator starCount={20} height="h-6" /> */}
       <OurWorkSection />
-      {/* <SpaceSeparator starCount={20} height="h-6" /> */}
       <TestimonialSection />
     </>
   );
