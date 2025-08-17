@@ -51,7 +51,4 @@ const whyChooseSectionHeader = {
     "Our code is clean, our communication is clear, and our delivery is fast.",
 };
 
-export {
-  whyChooseData,
-  whyChooseSectionHeader
-};
+export { whyChooseData, whyChooseSectionHeader };

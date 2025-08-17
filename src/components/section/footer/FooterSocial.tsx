@@ -1,20 +1,33 @@
-import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
+import { FacebookIcon, GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const FooterSocial = () => {
-  const socailLinks = [
+  const socialLinks = [
     {
-      icon: <FacebookIcon className="size-6 text-white" />,
+      icon: <LinkedinIcon className="size-5 text-foreground" />,
       link: "#",
+      label: "LinkedIn"
     },
     {
-      icon: <InstagramIcon className="size-6 text-white" />,
+      icon: <GithubIcon className="size-5 text-foreground" />,
       link: "#",
+      label: "GitHub"
     },
     {
-      icon: <TwitterIcon className="size-6 text-white" />,
+      icon: <TwitterIcon className="size-5 text-foreground" />,
       link: "#",
+      label: "Twitter"
+    },
+    {
+      icon: <FacebookIcon className="size-5 text-foreground" />,
+      link: "#",
+      label: "Facebook"
+    },
+    {
+      icon: <InstagramIcon className="size-5 text-foreground" />,
+      link: "#",
+      label: "Instagram"
     },
   ];
 
@@ -22,17 +35,17 @@ const FooterSocial = () => {
     <section className="space-y-4" aria-labelledby="social-heading">
       <h2
         id="social-heading"
-        className="text-center text-3xl font-bold tracking-wide text-gray-950 dark:text-white"
+        className="text-center text-2xl font-bold tracking-wide text-foreground"
       >
-        Follow Us
+        Connect With Us
       </h2>
-      <div className="flex items-center justify-center gap-x-5">
-        {socailLinks.map(({ icon, link }, i) => (
+      <div className="flex items-center justify-center gap-x-4">
+        {socialLinks.map(({ icon, link, label }, i) => (
           <Link
             href={link}
             key={i}
-            aria-label={`ShopNex social link ${i + 1}`}
-            className="shadow-20px rounded-full bg-cyan-500 p-2.5 shadow-cyan-400 transition-all duration-200 ease-linear hover:-translate-y-1 hover:scale-110 hover:transform hover:bg-cyan-600/90 hover:shadow-cyan-600 dark:bg-orange-500 dark:shadow-orange-400 dark:hover:bg-orange-600/90 dark:hover:shadow-orange-600"
+            aria-label={`${label} profile`}
+            className="rounded-full bg-card border border-border p-3 transition-all duration-300 ease-in-out hover:bg-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/25"
           >
             {icon}
           </Link>
@@ -41,5 +54,4 @@ const FooterSocial = () => {
     </section>
   );
 };
-
 export default FooterSocial;

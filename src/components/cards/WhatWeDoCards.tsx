@@ -4,7 +4,6 @@ import { whatWeDoData } from "@/data/whatwedo.data";
 import React from "react";
 import { FeatureCard } from "../reusabe";
 
-
 const WhatWeDoCards = () => {
   return (
     <>

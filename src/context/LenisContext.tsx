@@ -4,12 +4,10 @@ import { createContext, useEffect, useRef } from "react";
 import { ReactLenis, type LenisRef } from "lenis/react";
 import { frame, cancelFrame } from "motion/react";
 
-
 const LenisContext = createContext<null>(null);
 
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   const lenisRef = useRef<LenisRef>(null);
-
 
   useEffect(() => {
     const update = (data: { timestamp: number }) => {
@@ -20,7 +18,6 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     return () => cancelFrame(update);
   }, []);
 
-
   return (
     <LenisContext.Provider value={null}>
       <ReactLenis root ref={lenisRef}>
@@ -29,4 +26,3 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
     </LenisContext.Provider>
   );
 };
-

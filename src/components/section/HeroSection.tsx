@@ -6,7 +6,7 @@ import ContainerLayout from "../layout/ContainerLayout";
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
-  
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <ContainerLayout>
@@ -30,7 +30,6 @@ const Hero = () => {
         {/* Main content */}
         <div className="relative z-10 flex min-h-screen items-center">
           <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-            
             {/* Left side - Text content */}
             <div className="flex flex-col justify-center space-y-8">
               {/* Main heading */}
@@ -39,10 +38,10 @@ const Hero = () => {
               </h1>
 
               {/* Subtext */}
-              <p className="text-base leading-relaxed text-gray-300 md:text-lg lg:text-xl xl:text-xl max-w-lg">
+              <p className="max-w-lg text-base leading-relaxed text-gray-300 md:text-lg lg:text-xl xl:text-xl">
                 Crafting innovative digital solutions that transform ideas into
-                powerful, scalable applications. Where creativity meets cutting-edge
-                technology.
+                powerful, scalable applications. Where creativity meets
+                cutting-edge technology.
               </p>
 
               {/* CTA Button */}
@@ -58,11 +57,11 @@ const Hero = () => {
             </div>
 
             {/* Right side - Globe */}
-            <div className="flex items-center justify-center lg:justify-end relative">
+            <div className="relative flex items-center justify-center lg:justify-end">
               <div className="relative h-[400px] w-[400px] md:h-[500px] md:w-[500px] lg:h-[600px] lg:w-[600px]">
                 {/* Globe container with explicit positioning */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Globe 
+                  <Globe
                     width={600}
                     config={{
                       dark: 0,
@@ -84,12 +83,12 @@ const Hero = () => {
                         { location: [41.0082, 28.9784], size: 0.015 },
                       ],
                     }}
-                    className="w-full h-full"
+                    className="h-full w-full"
                   />
                 </div>
-                
+
                 {/* Glow effect behind globe */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl -z-10"></div>
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl"></div>
               </div>
             </div>
           </div>

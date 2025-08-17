@@ -12,29 +12,38 @@ type StarProps = {
 
 const Star = memo(({ x, y, size = 1, delay = 0 }: StarProps) => {
   const glowSize = useMemo(() => size * 2.5, [size]);
-  
-  const starStyle = useMemo(() => ({
-    left: x,
-    top: y,
-    width: size,
-    height: size,
-    background: "white",
-    boxShadow: `0 0 ${glowSize}px ${glowSize / 2}px rgba(255, 255, 255, 0.2)`,
-  }), [x, y, size, glowSize]);
 
-  const animationProps = useMemo(() => ({
-    opacity: [0, 0.8, 0],
-    x: [0, size * 2, 0],
-    y: [0, size * 0.5, 0],
-  }), [size]);
+  const starStyle = useMemo(
+    () => ({
+      left: x,
+      top: y,
+      width: size,
+      height: size,
+      background: "white",
+      boxShadow: `0 0 ${glowSize}px ${glowSize / 2}px rgba(255, 255, 255, 0.2)`,
+    }),
+    [x, y, size, glowSize],
+  );
 
-  const transitionProps = useMemo(() => ({
-    duration: 10 + Math.random() * 8,
-    repeat: Infinity,
-    repeatType: "mirror" as const,
-    delay,
-    ease: "easeInOut" as const,
-  }), [delay]);
+  const animationProps = useMemo(
+    () => ({
+      opacity: [0, 0.8, 0],
+      x: [0, size * 2, 0],
+      y: [0, size * 0.5, 0],
+    }),
+    [size],
+  );
+
+  const transitionProps = useMemo(
+    () => ({
+      duration: 10 + Math.random() * 8,
+      repeat: Infinity,
+      repeatType: "mirror" as const,
+      delay,
+      ease: "easeInOut" as const,
+    }),
+    [delay],
+  );
 
   return (
     <motion.span
@@ -50,20 +59,29 @@ const Star = memo(({ x, y, size = 1, delay = 0 }: StarProps) => {
 Star.displayName = "Star";
 
 const ShootingStar = memo(() => {
-  const transitionProps = useMemo(() => ({
-    duration: 3.2,
-    repeat: Infinity,
-    repeatDelay: 8 + Math.random() * 10,
-    ease: [0.4, 0, 0.2, 1] as const,
-  }), []);
+  const transitionProps = useMemo(
+    () => ({
+      duration: 3.2,
+      repeat: Infinity,
+      repeatDelay: 8 + Math.random() * 10,
+      ease: [0.4, 0, 0.2, 1] as const,
+    }),
+    [],
+  );
 
-  const trailStyle = useMemo(() => ({
-    filter: "blur(0.5px)",
-  }), []);
+  const trailStyle = useMemo(
+    () => ({
+      filter: "blur(0.5px)",
+    }),
+    [],
+  );
 
-  const headStyle = useMemo(() => ({
-    boxShadow: "0 0 4px 2px rgba(255, 255, 255, 0.5)",
-  }), []);
+  const headStyle = useMemo(
+    () => ({
+      boxShadow: "0 0 4px 2px rgba(255, 255, 255, 0.5)",
+    }),
+    [],
+  );
 
   return (
     <motion.div
@@ -106,92 +124,106 @@ type SpaceSeparatorProps = {
   gradientTo?: string;
 };
 
-export const SpaceSeparator = memo(({
-  height = "h-8",
-  starCount = 50,
-  starSize = 1.2,
-  shootingStars = true,
-  className = "",
-  gradientFrom = "var(--brand)",
-  gradientTo = "var(--brand-foreground)",
-}: SpaceSeparatorProps) => {
-  const [stars, setStars] = useState<StarProps[]>([]);
-  const [fgStars, setFgStars] = useState<StarProps[]>([]);
+export const SpaceSeparator = memo(
+  ({
+    height = "h-8",
+    starCount = 50,
+    starSize = 1.2,
+    shootingStars = true,
+    className = "",
+    gradientFrom = "var(--brand)",
+    gradientTo = "var(--brand-foreground)",
+  }: SpaceSeparatorProps) => {
+    const [stars, setStars] = useState<StarProps[]>([]);
+    const [fgStars, setFgStars] = useState<StarProps[]>([]);
 
-  const generateStars = useCallback(() => {
-    const bg = Array.from({ length: Math.floor(starCount * 0.7) }).map(() => ({
-      x: `${Math.random() * 100}%`,
-      y: `${Math.random() * 100}%`,
-      size: Math.random() * starSize * 0.5,
-      delay: Math.random() * 5,
-    }));
+    const generateStars = useCallback(() => {
+      const bg = Array.from({ length: Math.floor(starCount * 0.7) }).map(
+        () => ({
+          x: `${Math.random() * 100}%`,
+          y: `${Math.random() * 100}%`,
+          size: Math.random() * starSize * 0.5,
+          delay: Math.random() * 5,
+        }),
+      );
 
-    const fg = Array.from({ length: Math.floor(starCount * 0.3) }).map(() => ({
-      x: `${Math.random() * 100}%`,
-      y: `${Math.random() * 100}%`,
-      size: Math.random() * starSize + 0.8,
-      delay: Math.random() * 3,
-    }));
+      const fg = Array.from({ length: Math.floor(starCount * 0.3) }).map(
+        () => ({
+          x: `${Math.random() * 100}%`,
+          y: `${Math.random() * 100}%`,
+          size: Math.random() * starSize + 0.8,
+          delay: Math.random() * 3,
+        }),
+      );
 
-    setStars(bg);
-    setFgStars(fg);
-  }, [starCount, starSize]);
+      setStars(bg);
+      setFgStars(fg);
+    }, [starCount, starSize]);
 
-  useEffect(() => {
-    generateStars();
-  }, [generateStars]);
+    useEffect(() => {
+      generateStars();
+    }, [generateStars]);
 
-  const containerClassName = useMemo(() => 
-    `relative w-full overflow-hidden ${className}`,
-    [className]
-  );
+    const containerClassName = useMemo(
+      () => `relative w-full overflow-hidden ${className}`,
+      [className],
+    );
 
-  const heightClassName = useMemo(() => 
-    `relative ${height} overflow-hidden`,
-    [height]
-  );
+    const heightClassName = useMemo(
+      () => `relative ${height} overflow-hidden`,
+      [height],
+    );
 
-  const backgroundStyle = useMemo(() => ({
-    background: `linear-gradient(to bottom, ${gradientFrom}, ${gradientTo})`,
-  }), [gradientFrom, gradientTo]);
+    const backgroundStyle = useMemo(
+      () => ({
+        background: `linear-gradient(to bottom, ${gradientFrom}, ${gradientTo})`,
+      }),
+      [gradientFrom, gradientTo],
+    );
 
-  const cosmicDustStyle = useMemo(() => ({
-    backgroundImage: `radial-gradient(circle at center, white 0.5px, transparent 1px)`,
-    backgroundSize: "20px 20px",
-  }), []);
+    const cosmicDustStyle = useMemo(
+      () => ({
+        backgroundImage: `radial-gradient(circle at center, white 0.5px, transparent 1px)`,
+        backgroundSize: "20px 20px",
+      }),
+      [],
+    );
 
-  const cosmicDustTransition = useMemo(() => ({
-    duration: 120,
-    repeat: Infinity,
-    ease: "linear" as const,
-  }), []);
+    const cosmicDustTransition = useMemo(
+      () => ({
+        duration: 120,
+        repeat: Infinity,
+        ease: "linear" as const,
+      }),
+      [],
+    );
 
-  return (
-    <div className={containerClassName}>
-      <div className={heightClassName} style={backgroundStyle}>
+    return (
+      <div className={containerClassName}>
+        <div className={heightClassName} style={backgroundStyle}>
+          {/* Starfield */}
+          <div className="absolute inset-0">
+            {stars.map((props, i) => (
+              <Star key={`bg-${i}`} {...props} />
+            ))}
+            {fgStars.map((props, i) => (
+              <Star key={`fg-${i}`} {...props} />
+            ))}
+            {shootingStars && <ShootingStar />}
+          </div>
 
-        {/* Starfield */}
-        <div className="absolute inset-0">
-          {stars.map((props, i) => (
-            <Star key={`bg-${i}`} {...props} />
-          ))}
-          {fgStars.map((props, i) => (
-            <Star key={`fg-${i}`} {...props} />
-          ))}
-          {shootingStars && <ShootingStar />}
+          {/* Cosmic dust */}
+          <motion.div
+            className="absolute inset-0 opacity-10"
+            initial={{ backgroundPosition: "0% 0%" }}
+            animate={{ backgroundPosition: "100% 50%" }}
+            transition={cosmicDustTransition}
+            style={cosmicDustStyle}
+          />
         </div>
-
-        {/* Cosmic dust */}
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          initial={{ backgroundPosition: "0% 0%" }}
-          animate={{ backgroundPosition: "100% 50%" }}
-          transition={cosmicDustTransition}
-          style={cosmicDustStyle}
-        />
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 SpaceSeparator.displayName = "SpaceSeparator";

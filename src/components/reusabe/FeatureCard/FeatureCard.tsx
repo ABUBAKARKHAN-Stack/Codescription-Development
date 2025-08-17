@@ -57,11 +57,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, scale: 1 }
-          : {}
-      }
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       whileHover={{
         y: -12,
         scale: 1.02,
@@ -77,7 +73,8 @@ const FeatureCard: FC<FeatureCardProps> = ({
         delay: index * 0.1,
       }}
       style={{
-        boxShadow: "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
+        boxShadow:
+          "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
         willChange: "transform, opacity",
       }}
     >
@@ -129,18 +126,22 @@ const FeatureCard: FC<FeatureCardProps> = ({
       </AnimatePresence>
 
       <SpaceIcon Icon={Icon} index={index} shouldAnimate={shouldAnimate} />
-      <CardContent 
-        title={title} 
-        description={description} 
-        index={index} 
-        shouldAnimate={shouldAnimate} 
-        isInView={isInView} 
+      <CardContent
+        title={title}
+        description={description}
+        index={index}
+        shouldAnimate={shouldAnimate}
+        isInView={isInView}
       />
 
       <style jsx>{`
         @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
       `}</style>
     </motion.div>

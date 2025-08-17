@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +15,8 @@ import { SendHorizonalIcon } from "lucide-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import React from "react";
+
 
 const RenderFooterLinks = ({
   heading,
@@ -26,13 +28,17 @@ const RenderFooterLinks = ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="space-y-1">
-        <h2 className="text-xl font-semibold text-gray-950 dark:text-white">
+        <h2 className="text-xl font-semibold text-foreground">
           {heading}
         </h2>
       </div>
-      <div className="flex flex-col gap-y-2 text-sm text-gray-900 dark:text-gray-300">
+      <div className="flex flex-col gap-y-2 text-sm">
         {links.map(({ name, link }, i) => (
-          <Link key={i} href={link}>
+          <Link
+            key={i}
+            href={link}
+            className="text-muted-foreground hover:text-primary transition-colors duration-200"
+          >
             {name}
           </Link>
         ))}
@@ -49,20 +55,54 @@ const FooterTop = () => {
     },
   });
 
-  const accountLinks = [
-    { name: "My Account", link: "/me" },
-    { name: "Dashboard", link: "/dashboard" },
-    { name: "Cart", link: "/cart" },
-    { name: "Wishlist", link: "/wishlist" },
-    { name: "Track Your Order", link: "/track-order" },
-  ].filter(Boolean);
+  const servicesLinks = [
+    {
 
-  const quickLinks = [
-    { name: "Products", link: "/products" },
-    { name: "FAQS", link: "/faqs" },
-    { name: "About", link: "/about" },
+      name: "Web Development",
+      link: "/services/web-development",
+    },
+    {
+
+      name: "App Development",
+      link: "/services/app-development",
+    },
+    {
+
+      name: "Full Stack Development",
+      link: "/services/full-stack-development",
+    },
+    {
+
+      name: "E-Commerce Solutions",
+      link: "/services/e-commerce",
+    },
+    {
+
+      name: "UI/UX Design",
+      link: "/services/ui-ux-design",
+    },
+    {
+
+      name: "DevOps & Automation",
+      link: "/services/devops-automation",
+    },
+  ];;
+  ;
+
+  const companyLinks = [
+    { name: "About Us", link: "/about" },
+    { name: "Our Team", link: "/team" },
+    { name: "Careers", link: "/careers" },
+    { name: "Portfolio", link: "/portfolio" },
+    { name: "Blog", link: "/blog" },
+  ];
+
+  const supportLinks = [
     { name: "Contact", link: "/contact" },
+    { name: "Support Center", link: "/support" },
+    { name: "Documentation", link: "/docs" },
     { name: "Privacy Policy", link: "/privacy-policy" },
+    { name: "Terms of Service", link: "/terms" },
   ];
 
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
@@ -76,20 +116,20 @@ const FooterTop = () => {
     >
       {/* === Newsletter Subscription === */}
       <div
-        className="flex flex-col gap-y-4"
+        className="flex flex-col gap-y-4 max-w-sm"
         aria-labelledby="newsletter-heading"
       >
         <div className="space-y-1">
           <h2
             id="newsletter-heading"
-            className="text-xl font-semibold text-gray-950 dark:text-white"
+            className="text-xl font-semibold text-foreground"
           >
-            Newsletter
+            Stay Updated
           </h2>
         </div>
         <div className="flex flex-col gap-y-2">
-          <p className="text-sm text-gray-900 dark:text-gray-300">
-            Subscribe for updates, offers & product tips.
+          <p className="text-sm text-muted-foreground">
+            Get the latest tech insights, industry news, and exclusive updates from our software house.
           </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="z-50">
@@ -113,9 +153,9 @@ const FooterTop = () => {
                 <Button
                   type="submit"
                   variant={"ghost"}
-                  className="absolute top-5.5 -right-0.5 size-9 -translate-x-1/2 -translate-y-1/2 transform rounded-full"
+                  className="absolute top-1/2 right-2 -translate-y-1/2 size-8 rounded-full hover:bg-primary/20 hover:text-primary"
                 >
-                  <SendHorizonalIcon className="size-5.5" />
+                  <SendHorizonalIcon className="size-4" />
                 </Button>
               </div>
             </form>
@@ -123,38 +163,16 @@ const FooterTop = () => {
         </div>
       </div>
 
-      {/* === Support Info === */}
-      <div className="flex flex-col gap-y-4" aria-labelledby="support-heading">
-        <div className="space-y-1">
-          <h2
-            id="support-heading"
-            className="text-xl font-semibold text-gray-950 dark:text-white"
-          >
-            Support
-          </h2>
-        </div>
-        <div className="flex flex-col gap-y-2 text-sm text-gray-900 dark:text-gray-300">
-          <a
-            href="mailto:shopnex.support@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Email ShopNex Support"
-          >
-            shopnex.support@gmail.com
-          </a>
-          <Link href="/support" aria-label="Visit help and support page">
-            Help & Support
-          </Link>
-        </div>
-      </div>
+      {/* === Services Links === */}
+      <RenderFooterLinks heading="Services" links={servicesLinks} />
 
-      {/* === Account Links === */}
-      <RenderFooterLinks heading="Account" links={accountLinks} />
+      {/* === Company Links === */}
+      <RenderFooterLinks heading="Company" links={companyLinks} />
 
-      {/* === Quick Links === */}
-      <RenderFooterLinks heading="Quick Links" links={quickLinks} />
+      {/* === Support Links === */}
+      <RenderFooterLinks heading="Support" links={supportLinks} />
     </section>
   );
 };
 
-export default FooterTop;
+export default FooterTop

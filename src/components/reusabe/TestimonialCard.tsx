@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
-import { Star } from "lucide-react";
-
+import { Diamond, Star } from "lucide-react";
 
 type TestimonialCardProps = {
   id: number;
@@ -47,54 +46,98 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
 
   return (
     <motion.div
-      className={`group relative rounded-xl ${width ?? "w-full"} ${
-        height ?? "h-64"
-      } flex flex-col justify-between overflow-hidden bg-[oklch(0.12_0.01_280)]/95 px-6 py-6 backdrop-blur-sm before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-[oklch(0.75_0.1_290)] before:via-[oklch(0.65_0.22_295)] before:to-[oklch(0.8_0.08_300)] before:p-[1px] after:absolute after:inset-[1px] after:z-[1] after:rounded-xl after:bg-[oklch(0.16_0.015_280)]/98`}
+      className={`group relative rounded-2xl ${width ?? "w-full"} ${height ?? "h-64"
+        } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] shadow-2xl backdrop-blur-xl`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      whileHover={{
-        y: -10,
-        scale: 1.02,
-      }}
+      initial={{ opacity: 0, }}
+      animate={isInView ? { opacity: 1 } : {}}
       transition={{
-        type: "spring",
-        stiffness: 150,
-        damping: 25,
-        delay: index * 0.1,
+        ease: "linear"
       }}
       style={{
-        boxShadow:
-          "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
+        background: `
+          linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.1) 0%, 
+            rgba(255, 255, 255, 0.05) 50%, 
+            rgba(255, 255, 255, 0.02) 100%
+          )
+        `,
+        boxShadow: `
+          0 8px 32px rgba(0, 0, 0, 0.3),
+          0 0 0 1px rgba(255, 255, 255, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.05)
+        `,
         willChange: "transform, opacity",
       }}
     >
-      
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/[0.15] via-transparent to-transparent opacity-60" />
+
+      <motion.div
+        className="absolute inset-0 rounded-2xl"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          background: `
+            radial-gradient(circle at 50% 50%, 
+              rgba(255, 255, 255, 0.15) 0%, 
+              rgba(255, 255, 255, 0.08) 40%, 
+              rgba(255, 255, 255, 0.03) 70%, 
+              transparent 100%
+            )
+          `,
+          filter: "blur(1px)",
+          zIndex: -1,
+        }}
+      />
+
       {/* Content */}
-      <div className="relative z-30 flex flex-col gap-3">
+      <div className="relative z-10 flex h-full flex-col gap-3 p-6">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-white">{username}</h3>
-          <span className="text-xs text-gray-400">
-            {date} • {time}
+          <h3 className="text-lg font-semibold text-white/90 drop-shadow-sm">
+            {username}
+          </h3>
+          <span className="rounded-full flex gap-x-1 items-center justify-center border border-white/[0.12] bg-white/[0.08] px-2 py-1 text-xs text-white/60 backdrop-blur-sm">
+            {date}<Diamond className="size-2 fill-white/60 stroke-transparent" />{time}
           </span>
         </div>
 
-        <p className="text-gray-200 text-sm leading-relaxed">{feedback}</p>
+        <div className="flex flex-1 flex-col justify-between">
+          <p className="text-sm leading-relaxed text-white/80 drop-shadow-sm">
+            {feedback}
+          </p>
 
-        <div className="flex gap-1 mt-2">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              size={18}
-              className={
-                i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-500"
-              }
-            />
-          ))}
+          <div className="mt-4 flex gap-1">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ scale: 0, rotate: -180 }}
+                animate={shouldAnimate ? { scale: 1, rotate: 0 } : {}}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20,
+                  delay: index * 0.1 + i * 0.05,
+                }}
+              >
+                <Star
+                  size={18}
+                  className={
+                    i < rating
+                      ? "fill-yellow-400 text-yellow-400 drop-shadow-[0_0_4px_rgba(250,204,21,0.4)] filter"
+                      : "text-white/30"
+                  }
+                />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-8 bg-gradient-to-t from-black/20 to-transparent" />
     </motion.div>
   );
 };

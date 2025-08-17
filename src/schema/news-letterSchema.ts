@@ -6,5 +6,4 @@ const newsLetterSchema = z.object({
   }),
 });
 
-
 export { newsLetterSchema };

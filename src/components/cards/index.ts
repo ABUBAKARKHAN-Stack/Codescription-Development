@@ -4,8 +4,8 @@ import OurWorkCards from "./OurWorkCards";
 import TestimonialCards from "./TestimonialCards";
 
 export {
-    WhatWeDoCards,
-    WhyChooseTetraCodeCards,
-    OurWorkCards,
-    TestimonialCards
+  WhatWeDoCards,
+  WhyChooseTetraCodeCards,
+  OurWorkCards,
+  TestimonialCards,
 };

@@ -10,7 +10,7 @@ const MOVEMENT_DAMPING = 1400;
 const AUTO_ROTATION_SPEED = 0.003; // Reduced from 0.005
 const PERFORMANCE_CHECK_INTERVAL = 2000; // Check FPS every 2 seconds
 
-type PerformanceLevel = 'low';
+type PerformanceLevel = "low";
 
 interface PerformanceConfig {
   mapSamples: number;
@@ -23,13 +23,14 @@ interface PerformanceConfig {
 
 // Detect device performance capabilities
 const getDevicePerformance = (): PerformanceLevel => {
-  return 'low'
-
+  return "low";
 };
 
 // Performance-based configurations with custom width support
-const getPerformanceConfig = (performanceLevel: PerformanceLevel, customWidth?: number): PerformanceConfig => {
-
+const getPerformanceConfig = (
+  performanceLevel: PerformanceLevel,
+  customWidth?: number,
+): PerformanceConfig => {
   const baseConfigs: Record<PerformanceLevel, PerformanceConfig> = {
     low: {
       mapSamples: 16000,
@@ -38,13 +39,21 @@ const getPerformanceConfig = (performanceLevel: PerformanceLevel, customWidth?: 
       height: customWidth || 400,
       markers: [],
       autoRotationSpeed: 0.002,
-    }
+    },
   };
 
   return baseConfigs[performanceLevel];
 };
 
-const BASE_GLOBE_CONFIG: Omit<COBEOptions, 'width' | 'height' | 'onRender' | 'mapSamples' | 'devicePixelRatio' | 'markers'> = {
+const BASE_GLOBE_CONFIG: Omit<
+  COBEOptions,
+  | "width"
+  | "height"
+  | "onRender"
+  | "mapSamples"
+  | "devicePixelRatio"
+  | "markers"
+> = {
   phi: 0,
   theta: 0.3,
   dark: 0,
@@ -68,7 +77,8 @@ export function Globe({
 }: GlobeProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isActive, setIsActive] = useState(true);
-  const [performanceLevel, setPerformanceLevel] = useState<PerformanceLevel>('low');
+  const [performanceLevel, setPerformanceLevel] =
+    useState<PerformanceLevel>("low");
 
   // Use refs for mutable values that don't trigger re-renders
   const phiRef = useRef(0);
@@ -105,8 +115,8 @@ export function Globe({
       },
       {
         threshold: 0.1,
-        rootMargin: '50px' // Start loading slightly before visible
-      }
+        rootMargin: "50px", // Start loading slightly before visible
+      },
     );
 
     if (containerRef.current) {
@@ -122,11 +132,13 @@ export function Globe({
     const currentTime = performance.now();
 
     if (currentTime - lastFPSCheckRef.current >= PERFORMANCE_CHECK_INTERVAL) {
-      const fps = (frameCountRef.current / (currentTime - lastFPSCheckRef.current)) * 1000;
+      const fps =
+        (frameCountRef.current / (currentTime - lastFPSCheckRef.current)) *
+        1000;
       frameCountRef.current = 0;
       lastFPSCheckRef.current = currentTime;
 
-      setPerformanceLevel('low');
+      setPerformanceLevel("low");
     }
   }, [performanceLevel]);
 
@@ -137,13 +149,16 @@ export function Globe({
     }
   }, []);
 
-  const updateMovement = useCallback((clientX: number) => {
-    if (pointerInteracting.current !== null) {
-      const delta = clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
-      r.set(r.get() + delta / MOVEMENT_DAMPING);
-    }
-  }, [r]);
+  const updateMovement = useCallback(
+    (clientX: number) => {
+      if (pointerInteracting.current !== null) {
+        const delta = clientX - pointerInteracting.current;
+        pointerInteractionMovement.current = delta;
+        r.set(r.get() + delta / MOVEMENT_DAMPING);
+      }
+    },
+    [r],
+  );
 
   // Throttled resize handler
   const handleResize = useCallback(() => {
@@ -217,7 +232,15 @@ export function Globe({
       clearTimeout(fadeTimeout);
       globeRef.current = null;
     };
-  }, [isVisible, performanceLevel, rs, config, isActive, checkPerformance, customWidth]);
+  }, [
+    isVisible,
+    performanceLevel,
+    rs,
+    config,
+    isActive,
+    checkPerformance,
+    customWidth,
+  ]);
 
   // Pause/resume based on page visibility
   useEffect(() => {
@@ -225,8 +248,9 @@ export function Globe({
       setIsActive(!document.hidden && isVisible);
     };
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () =>
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [isVisible]);
 
   // Render placeholder when not visible
@@ -235,13 +259,18 @@ export function Globe({
       <div
         ref={containerRef}
         className={cn(
-          "relative mx-auto aspect-[1/1] bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-full",
+          "relative mx-auto aspect-[1/1] rounded-full bg-gradient-to-br from-purple-900/20 to-blue-900/20",
           className,
         )}
         style={{
-          width: customWidth || getPerformanceConfig(performanceLevel, customWidth).width,
-          height: customWidth || getPerformanceConfig(performanceLevel, customWidth).height,
-          background: 'radial-gradient(circle, rgba(70,14,116,0.1) 0%, rgba(70,14,116,0.05) 100%)'
+          width:
+            customWidth ||
+            getPerformanceConfig(performanceLevel, customWidth).width,
+          height:
+            customWidth ||
+            getPerformanceConfig(performanceLevel, customWidth).height,
+          background:
+            "radial-gradient(circle, rgba(70,14,116,0.1) 0%, rgba(70,14,116,0.05) 100%)",
         }}
       />
     );
@@ -250,19 +279,20 @@ export function Globe({
   return (
     <div
       ref={containerRef}
-      className={cn(
-        "relative mx-auto aspect-[1/1]",
-        className,
-      )}
+      className={cn("relative mx-auto aspect-[1/1]", className)}
       style={{
-        width: customWidth || getPerformanceConfig(performanceLevel, customWidth).width,
-        height: customWidth || getPerformanceConfig(performanceLevel, customWidth).height,
+        width:
+          customWidth ||
+          getPerformanceConfig(performanceLevel, customWidth).width,
+        height:
+          customWidth ||
+          getPerformanceConfig(performanceLevel, customWidth).height,
       }}
     >
       <canvas
         className={cn(
           "size-full opacity-0 transition-opacity duration-500 [contain:layout_paint_size]",
-          !isActive && "pointer-events-none"
+          !isActive && "pointer-events-none",
         )}
         ref={canvasRef}
         onPointerDown={(e) => {
@@ -279,8 +309,8 @@ export function Globe({
       />
 
       {/* Performance indicator for development */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="absolute top-2 right-2 text-xs bg-black/50 text-white px-2 py-1 rounded">
+      {process.env.NODE_ENV === "development" && (
+        <div className="absolute top-2 right-2 rounded bg-black/50 px-2 py-1 text-xs text-white">
           {performanceLevel}
         </div>
       )}

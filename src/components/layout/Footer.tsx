@@ -1,34 +1,31 @@
 import ContainerLayout from "./ContainerLayout";
 import {
-    FooterCopyRight,
-    FooterSocial,
-    FooterTop,
+  FooterCopyRight,
+  FooterSocial,
+  FooterTop,
 } from "@/components/section/footer";
 
-import React from 'react'
+import React from "react";
 import { Separator } from "../ui/separator";
 
 const Footer = () => {
-    return (
-        <footer>
-            <ContainerLayout>
+  return (
+    <footer className="border-t-2 py-12">
+      <ContainerLayout className="space-y-6">
+        {/* === Main Footer Section === */}
+        <FooterTop />
 
-                {/* === Main Footer Section === */}
-                <FooterTop />
+        {/* === Social Media Section === */}
+        <FooterSocial />
 
-                {/* === Social Media Section === */}
-                <FooterSocial />
+        {/* === Separator === */}
+        <Separator />
 
-                {/* === Separator === */}
-                <Separator />
+        {/* === Copyright Section === */}
+        <FooterCopyRight />
+      </ContainerLayout>
+    </footer>
+  );
+};
 
-
-                {/* === Copyright Section === */}
-                <FooterCopyRight />
-                
-            </ContainerLayout>
-        </footer>
-    )
-}
-
-export default Footer
+export default Footer;

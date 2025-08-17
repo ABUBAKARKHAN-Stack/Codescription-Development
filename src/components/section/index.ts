@@ -11,5 +11,5 @@ export {
   WhyChooseTetraCodeSection,
   NavbarSection,
   OurWorkSection,
-  TestimonialSection
+  TestimonialSection,
 };

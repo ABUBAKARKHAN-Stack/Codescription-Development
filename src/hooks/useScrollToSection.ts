@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useLenis } from "lenis/react";
 import { useCallback } from "react";
 
@@ -13,31 +12,42 @@ interface ScrollOptions {
 }
 
 export const useScrollToSection = () => {
-  const  lenis  = useLenis();
+  const lenis = useLenis();
 
   const scrollToSection = useCallback(
     (selector: string, options: ScrollOptions = {}) => {
       const {
         offset = 0,
         duration = 1.5,
-        easing = (t) => 1 - Math.pow(1 - t, 3), 
+        easing = (t) => 1 - Math.pow(1 - t, 3),
         onComplete,
         onStart,
       } = options;
 
       let target: HTMLElement | null = null;
-      
-      if (selector.startsWith('#') || selector.startsWith('.') || selector.includes('[')) {
+
+      if (
+        selector.startsWith("#") ||
+        selector.startsWith(".") ||
+        selector.includes("[")
+      ) {
         target = document.querySelector(selector) as HTMLElement | null;
       } else {
         target = document.getElementById(selector);
       }
 
-      console.log('Scrolling to:', selector, 'Found element:', target, 'Lenis:', lenis);
+      console.log(
+        "Scrolling to:",
+        selector,
+        "Found element:",
+        target,
+        "Lenis:",
+        lenis,
+      );
 
       if (target && lenis) {
         onStart?.();
-        
+
         lenis.scrollTo(target, {
           offset,
           duration,
@@ -48,14 +58,14 @@ export const useScrollToSection = () => {
         console.warn(`Element not found for selector: ${selector}`);
       }
     },
-    [lenis]
+    [lenis],
   );
 
   const scrollToTop = useCallback(
-    (options: Omit<ScrollOptions, 'offset'> = {}) => {
+    (options: Omit<ScrollOptions, "offset"> = {}) => {
       if (lenis) {
         const { duration = 1.2, easing, onComplete, onStart } = options;
-        
+
         onStart?.();
         lenis.scrollTo(0, {
           duration,
@@ -64,14 +74,14 @@ export const useScrollToSection = () => {
         });
       }
     },
-    [lenis]
+    [lenis],
   );
 
   const scrollToBottom = useCallback(
-    (options: Omit<ScrollOptions, 'offset'> = {}) => {
+    (options: Omit<ScrollOptions, "offset"> = {}) => {
       if (lenis) {
         const { duration = 1.5, easing, onComplete, onStart } = options;
-        
+
         onStart?.();
         lenis.scrollTo(document.body.scrollHeight, {
           duration,
@@ -80,14 +90,14 @@ export const useScrollToSection = () => {
         });
       }
     },
-    [lenis]
+    [lenis],
   );
 
   const scrollBy = useCallback(
-    (distance: number, options: Omit<ScrollOptions, 'offset'> = {}) => {
+    (distance: number, options: Omit<ScrollOptions, "offset"> = {}) => {
       if (lenis) {
         const { duration = 1, easing, onComplete, onStart } = options;
-        
+
         onStart?.();
         const currentScroll = lenis.scroll;
         lenis.scrollTo(currentScroll + distance, {
@@ -97,7 +107,7 @@ export const useScrollToSection = () => {
         });
       }
     },
-    [lenis]
+    [lenis],
   );
 
   return {

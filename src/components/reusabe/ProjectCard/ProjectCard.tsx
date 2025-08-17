@@ -54,9 +54,6 @@ const ProjectCard: FC<Props> = ({
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
   const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
-
-  
-
   return (
     <motion.div
       className={`group relative cursor-pointer rounded-xl ${width ?? "w-full"} ${height ?? "h-[400px]"} flex flex-col overflow-hidden bg-[oklch(0.12_0.01_280)]/95 backdrop-blur-sm before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-[oklch(0.65_0.22_295)] before:via-[oklch(0.75_0.1_280)] before:to-[oklch(0.8_0.08_300)] before:p-[1px] after:absolute after:inset-[1px] after:z-[1] after:rounded-xl after:bg-[oklch(0.16_0.015_280)]/98`}
@@ -64,11 +61,7 @@ const ProjectCard: FC<Props> = ({
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
       initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, scale: 1 }
-          : {}
-      }
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       whileHover={{
         y: -12,
         scale: 1.03,
@@ -86,12 +79,12 @@ const ProjectCard: FC<Props> = ({
         delay: index * 0.15,
       }}
       style={{
-        boxShadow: "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
+        boxShadow:
+          "0 8px 25px rgba(168,85,247,0.15), 0 3px 10px rgba(0,0,0,0.3)",
         willChange: "transform, opacity",
       }}
       layout={false}
     >
-
       <ProjectImage
         projectImage={projectImage}
         title={title}
