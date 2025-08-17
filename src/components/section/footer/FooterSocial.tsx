@@ -1,33 +1,39 @@
-import { FacebookIcon, GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import {
+  FacebookIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const FooterSocial = () => {
   const socialLinks = [
     {
-      icon: <LinkedinIcon className="size-5 text-foreground" />,
+      icon: <LinkedinIcon className="text-foreground size-5" />,
       link: "#",
-      label: "LinkedIn"
+      label: "LinkedIn",
     },
     {
-      icon: <GithubIcon className="size-5 text-foreground" />,
+      icon: <GithubIcon className="text-foreground size-5" />,
       link: "#",
-      label: "GitHub"
+      label: "GitHub",
     },
     {
-      icon: <TwitterIcon className="size-5 text-foreground" />,
+      icon: <TwitterIcon className="text-foreground size-5" />,
       link: "#",
-      label: "Twitter"
+      label: "Twitter",
     },
     {
-      icon: <FacebookIcon className="size-5 text-foreground" />,
+      icon: <FacebookIcon className="text-foreground size-5" />,
       link: "#",
-      label: "Facebook"
+      label: "Facebook",
     },
     {
-      icon: <InstagramIcon className="size-5 text-foreground" />,
+      icon: <InstagramIcon className="text-foreground size-5" />,
       link: "#",
-      label: "Instagram"
+      label: "Instagram",
     },
   ];
 
@@ -35,7 +41,7 @@ const FooterSocial = () => {
     <section className="space-y-4" aria-labelledby="social-heading">
       <h2
         id="social-heading"
-        className="text-center text-2xl font-bold tracking-wide text-foreground"
+        className="text-foreground text-center text-2xl font-bold tracking-wide"
       >
         Connect With Us
       </h2>
@@ -45,7 +51,7 @@ const FooterSocial = () => {
             href={link}
             key={i}
             aria-label={`${label} profile`}
-            className="rounded-full bg-card border border-border p-3 transition-all duration-300 ease-in-out hover:bg-primary hover:scale-110 hover:shadow-lg hover:shadow-primary/25"
+            className="border-border hover: hover:shadow-primary/25 rounded-full border bg-gradient-to-r from-purple-600 to-purple-700 p-3 transition-all duration-200 ease-linear hover:-translate-y-1.5 hover:scale-120 hover:from-purple-500 hover:to-purple-600 hover:shadow-lg"
           >
             {icon}
           </Link>

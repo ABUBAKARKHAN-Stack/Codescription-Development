@@ -16,7 +16,7 @@ type FeatureCardProps = {
   height?: string;
 };
 
-const  WhyTetraCard: FC<FeatureCardProps> = ({
+const WhyTetraCard: FC<FeatureCardProps> = ({
   id,
   title,
   description,
@@ -26,40 +26,39 @@ const  WhyTetraCard: FC<FeatureCardProps> = ({
   height,
   width,
 }) => {
- const [isHovered, setIsHovered] = useState(false);
-   const [shouldAnimate, setShouldAnimate] = useState(false);
-   const cardRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const cardRef = useRef(null);
 
   const isInView = useInView(cardRef, {
     once: true,
     margin: "-100px",
   });
 
- 
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
-   const handleMouseLeave = useCallback(() => setIsHovered(false), []);
- 
-   React.useEffect(() => {
-     if (isInView) {
-       const timer = setTimeout(() => setShouldAnimate(true), index * 50);
-       return () => clearTimeout(timer);
-     }
-   }, [isInView, index]);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+
+  React.useEffect(() => {
+    if (isInView) {
+      const timer = setTimeout(() => setShouldAnimate(true), index * 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, index]);
 
   return (
     <div
-      className={`group relative rounded-xl p-4 border-r-2`}
-       onMouseEnter={handleMouseEnter}
+      className={`group relative rounded-xl border-r-2 p-4`}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
     >
       <SpaceIcon Icon={Icon} index={index} shouldAnimate={shouldAnimate} />
-      <CardContent 
-        title={title} 
-        description={description} 
-        index={index} 
-        shouldAnimate={shouldAnimate} 
-        isInView={isInView} 
+      <CardContent
+        title={title}
+        description={description}
+        index={index}
+        shouldAnimate={shouldAnimate}
+        isInView={isInView}
       />
     </div>
   );

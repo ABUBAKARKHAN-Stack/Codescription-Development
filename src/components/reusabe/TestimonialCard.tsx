@@ -46,15 +46,16 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
 
   return (
     <motion.div
-      className={`group relative rounded-2xl ${width ?? "w-full"} ${height ?? "h-64"
-        } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] shadow-2xl backdrop-blur-xl`}
+      className={`group relative rounded-2xl ${width ?? "w-full"} ${
+        height ?? "h-64"
+      } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] shadow-2xl backdrop-blur-xl`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
-      initial={{ opacity: 0, }}
+      initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{
-        ease: "linear"
+        ease: "linear",
       }}
       style={{
         background: `
@@ -100,8 +101,10 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
           <h3 className="text-lg font-semibold text-white/90 drop-shadow-sm">
             {username}
           </h3>
-          <span className="rounded-full flex gap-x-1 items-center justify-center border border-white/[0.12] bg-white/[0.08] px-2 py-1 text-xs text-white/60 backdrop-blur-sm">
-            {date}<Diamond className="size-2 fill-white/60 stroke-transparent" />{time}
+          <span className="flex items-center justify-center gap-x-1 rounded-full border border-white/[0.12] bg-white/[0.08] px-2 py-1 text-xs text-white/60 backdrop-blur-sm">
+            {date}
+            <Diamond className="size-2 fill-white/60 stroke-transparent" />
+            {time}
           </span>
         </div>
 

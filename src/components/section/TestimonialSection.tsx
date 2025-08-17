@@ -14,13 +14,12 @@ const TestimonialSection = () => {
   return (
     <main id="what-we-do" className="h-full w-full py-16 md:py-24">
       <ContainerLayout>
-
         <SectionHeader
           mainHeading={testimonialSectionHeader.mainHeading}
           animateOnce={true}
         />
 
-        <section className="xsm:mask-x-from-60% xsm:mask-y-from-100% xsm:max-h-full xsm:overflow-y-visible mt-10 h-full max-h-100 overflow-y-hidden mask-y-from-80% mask-x-from-100%">
+        <section className="xsm:mask-y-from-100% xsm:max-h-full xsm:overflow-y-visible xsm:mask-x-from-60% mt-10 h-full max-h-100 overflow-y-hidden mask-y-from-80% mask-x-from-100%">
           <Marquee
             className="flex w-full [--duration:20s]"
             pauseOnHover

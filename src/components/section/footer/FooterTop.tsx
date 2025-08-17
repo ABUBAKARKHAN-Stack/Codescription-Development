@@ -16,7 +16,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import React from "react";
-
+import { Logo } from "@/components/reusabe";
+import Image from "next/image";
 
 const RenderFooterLinks = ({
   heading,
@@ -28,9 +29,7 @@ const RenderFooterLinks = ({
   return (
     <div className="flex flex-col gap-y-4">
       <div className="space-y-1">
-        <h2 className="text-xl font-semibold text-foreground">
-          {heading}
-        </h2>
+        <h2 className="text-foreground text-xl font-semibold">{heading}</h2>
       </div>
       <div className="flex flex-col gap-y-2 text-sm">
         {links.map(({ name, link }, i) => (
@@ -57,52 +56,42 @@ const FooterTop = () => {
 
   const servicesLinks = [
     {
-
       name: "Web Development",
       link: "/services/web-development",
     },
     {
-
       name: "App Development",
       link: "/services/app-development",
     },
     {
-
       name: "Full Stack Development",
       link: "/services/full-stack-development",
     },
     {
-
       name: "E-Commerce Solutions",
       link: "/services/e-commerce",
     },
     {
-
       name: "UI/UX Design",
       link: "/services/ui-ux-design",
     },
     {
-
       name: "DevOps & Automation",
       link: "/services/devops-automation",
     },
-  ];;
-  ;
-
+  ];
   const companyLinks = [
     { name: "About Us", link: "/about" },
     { name: "Our Team", link: "/team" },
-    { name: "Careers", link: "/careers" },
+    { name: "Services", link: "/services" },
     { name: "Portfolio", link: "/portfolio" },
     { name: "Blog", link: "/blog" },
   ];
 
-  const supportLinks = [
-    { name: "Contact", link: "/contact" },
-    { name: "Support Center", link: "/support" },
-    { name: "Documentation", link: "/docs" },
-    { name: "Privacy Policy", link: "/privacy-policy" },
-    { name: "Terms of Service", link: "/terms" },
+  const contactLink = [
+    { name: "Contact Us", link: "/contact" },
+    { name: "tetracode@gmail.com", link: "mailto:tetracode@gmail.com" },
+    { name: "+92 3123456789", link: "tel:+923123456789" },
   ];
 
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
@@ -116,29 +105,37 @@ const FooterTop = () => {
     >
       {/* === Newsletter Subscription === */}
       <div
-        className="flex flex-col gap-y-4 max-w-sm"
+        className="flex max-w-sm flex-col gap-y-4"
         aria-labelledby="newsletter-heading"
       >
-        <div className="space-y-1">
+        <div className="flex gap-2 space-y-1">
+          <Image
+            src="/assets/favicon.png"
+            alt="Tetracode - Icon"
+            className="size-[45px] object-contain min-[380px]:size-[25px]"
+            width={45}
+            height={45}
+          />
           <h2
             id="newsletter-heading"
-            className="text-xl font-semibold text-foreground"
+            className="text-foreground text-xl font-semibold"
           >
-            Stay Updated
+            Stay Updated with Tetracode
           </h2>
         </div>
         <div className="flex flex-col gap-y-2">
-          <p className="text-sm text-muted-foreground">
-            Get the latest tech insights, industry news, and exclusive updates from our software house.
+          <p className="text-muted-foreground text-sm">
+            Get the latest tech insights, industry news, and exclusive updates
+            from our software house.
           </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="z-50">
-              <div className="relative">
-                <FormField
-                  name="news-letter"
-                  control={form.control}
-                  render={({ field }) => (
-                    <FormItem>
+              <FormField
+                name="news-letter"
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <div className="relative">
                       <FormControl>
                         <Input
                           {...field}
@@ -146,18 +143,18 @@ const FooterTop = () => {
                           aria-label="Enter your email for newsletter"
                         />
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button
-                  type="submit"
-                  variant={"ghost"}
-                  className="absolute top-1/2 right-2 -translate-y-1/2 size-8 rounded-full hover:bg-primary/20 hover:text-primary"
-                >
-                  <SendHorizonalIcon className="size-4" />
-                </Button>
-              </div>
+                      <Button
+                        type="submit"
+                        variant={"ghost"}
+                        className="hover:bg-primary/20 hover:text-primary absolute top-1/2 right-2 size-8 -translate-y-1/2 rounded-full hover:cursor-pointer"
+                      >
+                        <SendHorizonalIcon className="size-4" />
+                      </Button>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </form>
           </Form>
         </div>
@@ -170,9 +167,9 @@ const FooterTop = () => {
       <RenderFooterLinks heading="Company" links={companyLinks} />
 
       {/* === Support Links === */}
-      <RenderFooterLinks heading="Support" links={supportLinks} />
+      <RenderFooterLinks heading="Contact" links={contactLink} />
     </section>
   );
 };
 
-export default FooterTop
+export default FooterTop;

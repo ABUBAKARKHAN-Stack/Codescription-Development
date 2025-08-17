@@ -6,14 +6,14 @@ import ContainerLayout from "../layout/ContainerLayout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
-import { Icon } from 'lucide-react';
-import { planet } from '@lucide/lab';
+import { Icon } from "lucide-react";
+import { planet } from "@lucide/lab";
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
-  const isMobile = useMediaQuery("(max-width:640px)")
-  const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))")
-  
+  const isMobile = useMediaQuery("(max-width:640px)");
+  const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <ContainerLayout>
@@ -39,43 +39,44 @@ const Hero = () => {
         <div className="relative z-10 flex min-h-screen items-center">
           <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
             {/* Left side - Text content */}
-            <div className="flex flex-col justify-center items-center lg:items-baseline space-y-8">
+            <div className="flex flex-col items-center justify-center space-y-8 lg:items-baseline">
               {/* Main heading */}
-           <motion.h1
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      className="relative text-5xl md:text-6xl lg:text-[65px] xl:text-[80px]  font-bold uppercase tracking-wide text-center lg:text-left"
-    >
-      <motion.span
-        animate={{
-          textShadow: [
-            "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #9333ea",
-            "0 0 20px #9333ea, 0 0 40px #a855f7, 0 0 60px #7e22ce",
-            "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #9333ea",
-          ],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatType: "mirror",
-        }}
-        className="text-white"
-      >
-        Exploring Infinite Possibilities
-      </motion.span>
-    </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="relative text-center text-5xl font-bold tracking-wide uppercase md:text-6xl lg:text-left lg:text-[65px] xl:text-[80px]"
+              >
+                <motion.span
+                  animate={{
+                    textShadow: [
+                      "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #9333ea",
+                      "0 0 20px #9333ea, 0 0 40px #a855f7, 0 0 60px #7e22ce",
+                      "0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #9333ea",
+                    ],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "mirror",
+                  }}
+                  className="text-white"
+                >
+                  Exploring Infinite Possibilities
+                </motion.span>
+              </motion.h1>
 
               {/* Subtext */}
-              <p className="text-base leading-relaxed text-white md:text-lg  xl:text-xl max-w-lg text-center lg:text-left">
-                From the smallest atom to the vast universe — <br /> we craft limitless solutions.
+              <p className="max-w-lg text-center text-base leading-relaxed text-white md:text-lg lg:text-left xl:text-xl">
+                From the smallest atom to the vast universe — <br /> we craft
+                limitless solutions.
               </p>
 
               {/* CTA Button */}
               <div>
                 <button
                   onClick={() => scrollToSection("#what-we-do")}
-                  className="group flex items-center gap-2 relative rounded-full bg-gradient-to-r from-purple-600 to-purple-700 px-8 py-4 text-sm md:text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-purple-500 hover:to-purple-600 hover:shadow-purple-500/25"
+                  className="group relative flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-purple-700 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-purple-500 hover:to-purple-600 hover:shadow-purple-500/25 md:text-lg"
                 >
                   Explore Our Universe <Icon iconNode={planet} />
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-20"></div>
@@ -84,12 +85,12 @@ const Hero = () => {
             </div>
 
             {/* Right side - Globe */}
-            <div className="flex  absolute -bottom-52 md:-bottom-64 left-1/2 -translate-x-1/2 lg:relative lg:bottom-0 lg:left-0 lg:-translate-0  items-center justify-center lg:justify-end ">
-              <div className=" h-[400px] w-[400px] md:h-[500px] md:w-[500px] lg:h-[700px] lg:w-[700px]">
+            <div className="absolute -bottom-52 left-1/2 flex -translate-x-1/2 items-center justify-center md:-bottom-64 lg:relative lg:bottom-0 lg:left-0 lg:-translate-0 lg:justify-end">
+              <div className="h-[400px] w-[400px] md:h-[500px] md:w-[500px] lg:h-[700px] lg:w-[700px]">
                 {/* Globe container with explicit positioning */}
-                <div className="lg:absolute lg:ml-20 lg:inset-0 flex items-center justify-center">
-                  <Globe 
-                    width={isMobile ? 400 : isLg ? 450 : 550 }
+                <div className="flex items-center justify-center lg:absolute lg:inset-0 lg:ml-20">
+                  <Globe
+                    width={isMobile ? 400 : isLg ? 450 : 550}
                     config={{
                       dark: 0,
                       diffuse: 0.4,

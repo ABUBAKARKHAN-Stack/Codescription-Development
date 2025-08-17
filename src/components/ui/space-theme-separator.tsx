@@ -59,12 +59,15 @@ const Star = memo(({ x, y, size = 1, delay = 0 }: StarProps) => {
 Star.displayName = "Star";
 
 const ShootingStar = memo(() => {
-  const transitionProps = useMemo(() => ({
-    duration: 3.2,
-    repeat: Infinity,
-    repeatDelay: 2,
-    ease: [0.4, 0, 0.2, 1] as const,
-  }), []);
+  const transitionProps = useMemo(
+    () => ({
+      duration: 3.2,
+      repeat: Infinity,
+      repeatDelay: 2,
+      ease: [0.4, 0, 0.2, 1] as const,
+    }),
+    [],
+  );
 
   const trailStyle = useMemo(
     () => ({
@@ -122,18 +125,19 @@ type SpaceSeparatorProps = {
   gradientCenter?: string;
 };
 
-export const SpaceSeparator = memo(({
-  height = "h-2",
-  starCount = 50,
-  starSize = 1.2,
-  shootingStars = true,
-  className = "",
-  gradientFrom = "var(--brand)",
-  gradientTo = "var(--brand-foreground)",
-  gradientCenter = "#8b5cf6", // Purple center
-}: SpaceSeparatorProps) => {
-  const [stars, setStars] = useState<StarProps[]>([]);
-  const [fgStars, setFgStars] = useState<StarProps[]>([]);
+export const SpaceSeparator = memo(
+  ({
+    height = "h-2",
+    starCount = 50,
+    starSize = 1.2,
+    shootingStars = true,
+    className = "",
+    gradientFrom = "var(--brand)",
+    gradientTo = "var(--brand-foreground)",
+    gradientCenter = "#8b5cf6", // Purple center
+  }: SpaceSeparatorProps) => {
+    const [stars, setStars] = useState<StarProps[]>([]);
+    const [fgStars, setFgStars] = useState<StarProps[]>([]);
 
     const generateStars = useCallback(() => {
       const bg = Array.from({ length: Math.floor(starCount * 0.7) }).map(
@@ -172,9 +176,12 @@ export const SpaceSeparator = memo(({
       [height],
     );
 
-  const backgroundStyle = useMemo(() => ({
-    background: `linear-gradient(to bottom, transparent 0%, ${gradientCenter} 50%, transparent 100%)`,
-  }), [gradientCenter]);
+    const backgroundStyle = useMemo(
+      () => ({
+        background: `linear-gradient(to bottom, transparent 0%, ${gradientCenter} 50%, transparent 100%)`,
+      }),
+      [gradientCenter],
+    );
 
     const cosmicDustStyle = useMemo(
       () => ({

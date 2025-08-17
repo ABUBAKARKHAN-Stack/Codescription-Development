@@ -101,7 +101,7 @@ export function Highlighter({
     >
       <span
         ref={elementRef}
-        className={cn("relative bg-transparent ", className)}
+        className={cn("relative bg-transparent", className)}
       >
         {children}
       </span>

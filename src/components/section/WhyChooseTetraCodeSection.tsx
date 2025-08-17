@@ -14,7 +14,7 @@ const WhyChooseTetraCodeSection = () => {
           mainHeading={whyChooseSectionHeader.mainHeading}
           animateOnce={true}
         />
-        <section className="mt-10 grid w-full grid-cols-1 gap-14  sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mt-10 grid w-full grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3">
           <WhyChooseTetraCodeCards />
         </section>
       </ContainerLayout>
