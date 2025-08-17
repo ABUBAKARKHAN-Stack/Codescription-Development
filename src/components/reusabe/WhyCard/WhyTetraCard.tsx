@@ -14,6 +14,7 @@ type FeatureCardProps = {
   index?: number;
   width?: string;
   height?: string;
+  //  isLast?: boolean;
 };
 
 const WhyTetraCard: FC<FeatureCardProps> = ({
@@ -25,6 +26,7 @@ const WhyTetraCard: FC<FeatureCardProps> = ({
   index = 0,
   height,
   width,
+  //  isLast = false,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
@@ -47,7 +49,7 @@ const WhyTetraCard: FC<FeatureCardProps> = ({
 
   return (
     <div
-      className={`group relative rounded-xl border-r-2 p-4`}
+      className={`group relative rounded-xl   p-4`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
@@ -60,6 +62,7 @@ const WhyTetraCard: FC<FeatureCardProps> = ({
         shouldAnimate={shouldAnimate}
         isInView={isInView}
       />
+   
     </div>
   );
 };
