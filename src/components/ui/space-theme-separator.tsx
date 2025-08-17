@@ -53,7 +53,7 @@ const ShootingStar = memo(() => {
   const transitionProps = useMemo(() => ({
     duration: 3.2,
     repeat: Infinity,
-    repeatDelay: 8 + Math.random() * 10,
+    repeatDelay: 2,
     ease: [0.4, 0, 0.2, 1] as const,
   }), []);
 
@@ -104,16 +104,18 @@ type SpaceSeparatorProps = {
   className?: string;
   gradientFrom?: string;
   gradientTo?: string;
+  gradientCenter?: string;
 };
 
 export const SpaceSeparator = memo(({
-  height = "h-8",
+  height = "h-2",
   starCount = 50,
   starSize = 1.2,
   shootingStars = true,
   className = "",
   gradientFrom = "var(--brand)",
   gradientTo = "var(--brand-foreground)",
+  gradientCenter = "#8b5cf6", // Purple center
 }: SpaceSeparatorProps) => {
   const [stars, setStars] = useState<StarProps[]>([]);
   const [fgStars, setFgStars] = useState<StarProps[]>([]);
@@ -152,8 +154,8 @@ export const SpaceSeparator = memo(({
   );
 
   const backgroundStyle = useMemo(() => ({
-    background: `linear-gradient(to bottom, ${gradientFrom}, ${gradientTo})`,
-  }), [gradientFrom, gradientTo]);
+    background: `linear-gradient(to bottom, transparent 0%, ${gradientCenter} 50%, transparent 100%)`,
+  }), [gradientCenter]);
 
   const cosmicDustStyle = useMemo(() => ({
     backgroundImage: `radial-gradient(circle at center, white 0.5px, transparent 1px)`,
