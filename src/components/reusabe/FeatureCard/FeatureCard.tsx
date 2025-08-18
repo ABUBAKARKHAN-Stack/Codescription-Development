@@ -52,7 +52,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
 
   return (
     <motion.div
-      className={`group relative rounded-xl hover:cursor-pointer ${width ?? "w-full"} ${height ?? "h-80"} flex flex-col justify-between overflow-hidden bg-[oklch(0.12_0.01_280)]/95 px-6 py-8 backdrop-blur-sm before:absolute before:inset-0 before:animate-pulse before:rounded-xl before:bg-gradient-to-br before:from-[oklch(0.75_0.1_290)] before:via-[oklch(0.65_0.22_295)] before:to-[oklch(0.8_0.08_300)] before:p-[1px] after:absolute after:inset-[1px] after:z-[1] after:rounded-xl after:bg-[oklch(0.16_0.015_280)]/98`}
+      className={`group relative rounded-xl hover:cursor-pointer ${width ?? "w-full"} ${height ?? "h-80"} flex flex-col justify-between overflow-hidden border border-white/10 bg-slate-800/40 px-6 py-8 backdrop-blur-md before:absolute before:inset-0 before:animate-pulse before:rounded-xl before:bg-gradient-to-br before:from-slate-900 before:via-purple-900 before:to-slate-900 before:p-[1px] after:absolute after:inset-[1px] after:z-[1] after:rounded-xl after:bg-slate-900/40 after:backdrop-blur-sm`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}

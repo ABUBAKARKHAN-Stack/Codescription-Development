@@ -27,7 +27,6 @@ const LandingPage = () => {
       <ContactSection />
       <SpaceSeparator />
       <Footer />
-
     </>
   );
 };

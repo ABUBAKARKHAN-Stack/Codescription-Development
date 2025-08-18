@@ -6,7 +6,6 @@ import TestimonialCard from "./TestimonialCard";
 import TechStackCard from "./TechStackCard/TechStackCard";
 import WhyTetraCard from "./WhyCard/WhyTetraCard";
 
-
 export {
   SectionHeader,
   Logo,
@@ -14,5 +13,5 @@ export {
   ProjectCard,
   TestimonialCard,
   TechStackCard,
-  WhyTetraCard
+  WhyTetraCard,
 };

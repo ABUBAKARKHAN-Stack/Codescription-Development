@@ -11,7 +11,7 @@ import planet from "../../../public/assets/imgs/planet.png";
 
 export default function AboutUs() {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24 overflow-hidden">
+    <main className="h-full w-full overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
       <ContainerLayout>
         <div className="mx-auto grid items-center gap-12 lg:grid-cols-2">
           {/* Left Content */}

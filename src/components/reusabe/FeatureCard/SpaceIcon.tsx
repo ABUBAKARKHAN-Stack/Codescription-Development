@@ -47,7 +47,7 @@ export const SpaceIcon: React.FC<SpaceIconProps> = React.memo(
         animate={shouldAnimate ? { scale: 1 } : {}}
         transition={{ delay: index * 0.1 + 0.5 }}
       >
-        <Icon className="relative z-10 size-7 stroke-[1.5] text-white drop-shadow-[0_0_8px_oklch(0.75_0.1_290)]" />
+        <Icon className="relative z-10 size-7 stroke-[1.5] text-white drop-shadow-[0_0_6px_black]" />
       </motion.div>
     </motion.div>
   ),
