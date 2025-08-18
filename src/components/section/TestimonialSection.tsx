@@ -12,7 +12,10 @@ const TestimonialSection = () => {
   const isXSM = useMediaQuery("(width >= 550px)");
 
   return (
-    <main id="what-we-do" className="h-full w-full py-16 md:py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <main
+      id="what-we-do"
+      className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24"
+    >
       <ContainerLayout>
         <SectionHeader
           mainHeading={testimonialSectionHeader.mainHeading}
