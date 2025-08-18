@@ -48,7 +48,7 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
     <motion.div
       className={`group relative rounded-2xl ${width ?? "w-full"} ${
         height ?? "h-64"
-      } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] shadow-2xl backdrop-blur-xl`}
+      } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] `}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
@@ -64,12 +64,6 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
             rgba(255, 255, 255, 0.05) 50%, 
             rgba(255, 255, 255, 0.02) 100%
           )
-        `,
-        boxShadow: `
-          0 8px 32px rgba(0, 0, 0, 0.3),
-          0 0 0 1px rgba(255, 255, 255, 0.1),
-          inset 0 1px 0 rgba(255, 255, 255, 0.2),
-          inset 0 -1px 0 rgba(255, 255, 255, 0.05)
         `,
         willChange: "transform, opacity",
       }}
