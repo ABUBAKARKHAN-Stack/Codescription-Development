@@ -7,7 +7,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { Icon } from "lucide-react";
-import { planet } from "@lucide/lab";
+import { planet, } from "@lucide/lab";
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
@@ -88,16 +88,16 @@ const Hero = () => {
             <div className="absolute -bottom-52 left-1/2 flex -translate-x-1/2 items-center justify-center md:-bottom-64 lg:relative lg:bottom-0 lg:left-0 lg:-translate-0 lg:justify-end">
               <div className="h-[400px] w-[400px] md:h-[500px] md:w-[500px] lg:h-[700px] lg:w-[700px]">
                 {/* Globe container with explicit positioning */}
-                <div className="flex items-center justify-center lg:absolute lg:inset-0 lg:ml-20">
+                <div className="flex items-center justify-center bg-transparent lg:absolute lg:inset-0 lg:ml-20">
                   <Globe
                     width={isMobile ? 400 : isLg ? 450 : 550}
                     config={{
-                      dark: 0,
-                      diffuse: 0.4,
-                      mapBrightness: 0.6,
+                      dark: -1,
+                      diffuse: 0.1,
+                      mapBrightness: 1.0,
                       baseColor: [70 / 255, 14 / 255, 116 / 255],
                       markerColor: [0.8, 0.8, 0.8],
-                      glowColor: [70 / 255, 14 / 255, 116 / 255],
+                      glowColor: [0.8, 0.8, 0.8],
                       markers: [
                         { location: [14.5995, 120.9842], size: 0.015 },
                         { location: [19.076, 72.8777], size: 0.015 },
@@ -111,14 +111,17 @@ const Hero = () => {
                         { location: [41.0082, 28.9784], size: 0.015 },
                       ],
                     }}
-                    className="h-full w-full"
+                    className="h-full bg-transparent w-full"
                   />
                 </div>
 
                 {/* Glow effect behind globe */}
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl"></div>
+                <div className="absolute inset-0 lg:ml-20 -z-10 rounded-full bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl"></div>
               </div>
             </div>
+
+
+
           </div>
         </div>
 
