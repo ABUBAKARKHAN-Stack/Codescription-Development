@@ -11,7 +11,7 @@ import { Textarea } from "../ui/textarea";
 
 const ContactSection = () => {
   return (
-    <section className="h-full w-full bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 px-6 py-16 text-white md:py-24">
+    <section className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 px-6 py-16 text-white md:py-24">
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
           {/* Left content */}
