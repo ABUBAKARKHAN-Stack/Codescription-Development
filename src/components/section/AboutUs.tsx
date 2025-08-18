@@ -2,18 +2,16 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Nebula from "../ui/NebulaSvg";
 import ContainerLayout from "../layout/ContainerLayout";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Icon } from "lucide-react";
-// import { planet } from "@lucide/lab";
 import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "../reusabe";
 import planet from "../../../public/assets/imgs/planet.png";
 
 export default function AboutUs() {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
+    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24 overflow-hidden">
       <ContainerLayout>
         <div className="mx-auto grid items-center gap-12 lg:grid-cols-2">
           {/* Left Content */}
