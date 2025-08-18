@@ -14,7 +14,7 @@ const TechStackSection = () => {
   );
 
   return (
-    <main className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 md:py-24">
+    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
       <ContainerLayout>
         <SectionHeader
           mainHeading={techStackSectionHeader.mainHeading}

@@ -9,18 +9,19 @@ const LenisContext = createContext<null>(null);
 export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   const lenisRef = useRef<LenisRef>(null);
 
-  useEffect(() => {
-    const update = (data: { timestamp: number }) => {
-      lenisRef.current?.lenis?.raf(data.timestamp);
-    };
+  // useEffect(() => {
+  //   const update = (data: { timestamp: number }) => {
+  //     lenisRef.current?.lenis?.raf(data.timestamp);
+  //   };
 
-    frame.update(update, true);
-    return () => cancelFrame(update);
-  }, []);
-
+  //   frame.update(update, true);
+  //   return () => cancelFrame(update);
+  // }, []);
+  
+// options={{ autoRaf: false }}
   return (
     <LenisContext.Provider value={null}>
-      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} >
+      <ReactLenis root  ref={lenisRef} >
         {children}
       </ReactLenis>
     </LenisContext.Provider>

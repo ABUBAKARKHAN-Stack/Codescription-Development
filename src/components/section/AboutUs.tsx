@@ -11,9 +11,9 @@ import planet from "../../../public/assets/imgs/planet.png";
 
 export default function AboutUs() {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24 overflow-hidden">
+    <main className="h-full w-full bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16 md:py-24 overflow-hidden">
       <ContainerLayout>
-        <div className="mx-auto grid items-center gap-12 lg:grid-cols-2">
+        <div className="mx-auto flex lg:grid items-center gap-12 lg:grid-cols-2">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -25,6 +25,19 @@ export default function AboutUs() {
               mainHeading={AboutUsSectionHeader.mainHeading}
               animateOnce={true}
             />
+
+            <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9 }}
+            className="lg:hidden mx-auto w-fit "
+          >
+            <Image
+              src={planet}
+              className="drop-shadow-[0_0_20px_rgba(168,85,247,1)]"
+              alt="planet image"
+            />
+          </motion.div>
 
             <p className="mt-6 text-lg leading-relaxed md:text-xl">
               At [Your Startup Name], we don’t just build products — we ignite
@@ -54,6 +67,7 @@ export default function AboutUs() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
+            className="hidden lg:block"
           >
             <Image
               src={planet}
