@@ -13,10 +13,7 @@ enum TechStackTabs {
   BACKEND = "backend",
   DATABASES = "databases",
   MOBILE = "moble",
-  DEVOPSANDTOOLS="devopsandtools"
+  DEVOPSANDTOOLS = "devopsandtools",
 }
 
-export {
-   type Position,
-   TechStackTabs
-   };
+export { type Position, TechStackTabs };

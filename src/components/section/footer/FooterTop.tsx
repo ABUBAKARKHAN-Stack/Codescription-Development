@@ -54,8 +54,6 @@ const FooterTop = () => {
     },
   });
 
-
-
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
     console.log(data);
   };

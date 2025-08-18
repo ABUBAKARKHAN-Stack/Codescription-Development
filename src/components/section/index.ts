@@ -13,5 +13,5 @@ export {
   NavbarSection,
   OurWorkSection,
   TestimonialSection,
-  TechStackSection
+  TechStackSection,
 };

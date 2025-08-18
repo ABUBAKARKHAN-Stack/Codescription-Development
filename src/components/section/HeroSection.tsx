@@ -7,7 +7,7 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { Icon } from "lucide-react";
-import { planet, } from "@lucide/lab";
+import { planet } from "@lucide/lab";
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
@@ -15,7 +15,7 @@ const Hero = () => {
   const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 ">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <ContainerLayout>
         {/* Animated background particles */}
         <div className="absolute inset-0">
@@ -114,9 +114,6 @@ const Hero = () => {
                     className="h-full w-full"
                   />
                 </div>
-
-                {/* Glow effect behind globe */}
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl"></div>
               </div>
             </div>
           </div>

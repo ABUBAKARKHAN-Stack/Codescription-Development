@@ -49,7 +49,7 @@ const WhyTetraCard: FC<FeatureCardProps> = ({
 
   return (
     <div
-      className={`group relative rounded-xl   p-4`}
+      className={`group relative rounded-xl p-4`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}
@@ -62,7 +62,6 @@ const WhyTetraCard: FC<FeatureCardProps> = ({
         shouldAnimate={shouldAnimate}
         isInView={isInView}
       />
-   
     </div>
   );
 };

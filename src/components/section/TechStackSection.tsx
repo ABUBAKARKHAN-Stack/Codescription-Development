@@ -1,55 +1,41 @@
-import React, { useState } from 'react'
-import ContainerLayout from '../layout/ContainerLayout'
-import { SectionHeader } from '../reusabe'
-import {
-    techStackSectionHeader,
-    techStackData
-} from '@/data/techstack.data'
-import { TechStackTabs } from '@/types/main.types'
-import { Button } from '../ui/button'
+"use client";
+
+import React, { useState } from "react";
+import ContainerLayout from "../layout/ContainerLayout";
+import { SectionHeader } from "../reusabe";
+import { techStackSectionHeader, techStackData } from "@/data/techstack.data";
+import { TechStackTabs } from "@/types/main.types";
+import { TechStackCards } from "../cards";
+import StarButton from "../ui/star-button";
 
 const TechStackSection = () => {
-    const [activeTab, setActiveTab] = useState<TechStackTabs>(TechStackTabs.FRONTEND);
-    const frontendTechs = techStackData.filter(({ label }) => label === TechStackTabs.FRONTEND);
-    const backendTechs = techStackData.filter(({ label }) => label === TechStackTabs.BACKEND);
-    const databasesTech = techStackData.filter(({ label }) => label === TechStackTabs.DATABASES);
-    const mobileTech = techStackData.filter(({ label }) => label === TechStackTabs.MOBILE);
-    const devopsandtoolsTechs = techStackData.filter(({ label }) => label === TechStackTabs.DEVOPSANDTOOLS);
+  const [activeTab, setActiveTab] = useState<TechStackTabs>(
+    TechStackTabs.FRONTEND,
+  );
 
+  return (
+    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
+      <ContainerLayout>
+        <SectionHeader
+          mainHeading={techStackSectionHeader.mainHeading}
+          animateOnce={true}
+        />
+        <section className="mt-10 w-full space-y-10">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {techStackData.map(({ category, label }) => (
+              <StarButton
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                label={label}
+                category={category}
+              />
+            ))}
+          </div>
+          <TechStackCards activeTab={activeTab} />
+        </section>
+      </ContainerLayout>
+    </main>
+  );
+};
 
-
-    return (
-        <main className="h-full w-full py-16 md:py-24">
-            <ContainerLayout>
-                <SectionHeader
-                    mainHeading={techStackSectionHeader.mainHeading}
-                    animateOnce={true}
-                />
-                <section className="mt-10 w-full">
-
-                    {/* Tech Stacks Tabs */}
-                    <div className="flex gap-x-4 justify-center items-center">
-                        {
-                            techStackData.map(({
-                                category,
-                                label
-                            }) => (
-                                <Button
-                                    variant={label === activeTab ? "default" : "secondary"}
-                                    size={label === activeTab ? "lg" : "default"}
-                                    className='rounded-full cursor-pointer'
-                                    onClick={() => setActiveTab(label)}
-                                >
-                                    {category}
-                                </Button>
-                            ))
-                        }
-                    </div>
-
-                </section>
-            </ContainerLayout>
-        </main>
-    )
-}
-
-export default TechStackSection
+export default TechStackSection;
