@@ -307,7 +307,6 @@ export function Globe({
           isActive && e.touches[0] && updateMovement(e.touches[0].clientX)
         }
       />
-
     </div>
   );
 }

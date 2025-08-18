@@ -48,7 +48,7 @@ const TestimonialCard: FC<TestimonialCardProps> = ({
     <motion.div
       className={`group relative rounded-2xl ${width ?? "w-full"} ${
         height ?? "h-64"
-      } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08] `}
+      } xsm:w-92 flex w-full flex-col justify-between overflow-hidden border border-white/[0.12] bg-white/[0.08]`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       ref={cardRef}

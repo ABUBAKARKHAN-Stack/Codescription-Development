@@ -5,38 +5,44 @@ import { ContactSectionHeader } from "@/data/contact.data";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { SectionHeader } from "../reusabe";
 import ContainerLayout from "../layout/ContainerLayout";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 const ContactSection = () => {
   return (
-    <section className="h-full w-full md:py-24 bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 text-white py-16 px-6">
+    <section className="h-full w-full bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 px-6 py-16 text-white md:py-24">
       <ContainerLayout>
-        <div className=" mx-auto lg:flex lg:justify-between grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
           {/* Left content */}
           <div>
             <SectionHeader
               mainHeading={ContactSectionHeader.mainHeading}
               animateOnce={true}
             />
-            <p className="text-slate-300 my-8 max-w-[400px] mx-auto text-center lg:text-left ">
-              We’d love to hear from you. Whether you have a question, feedback, or
-              just want to say hello, feel free to reach out.
+            <p className="mx-auto my-8 max-w-[400px] text-center text-slate-300 lg:text-left">
+              We’d love to hear from you. Whether you have a question, feedback,
+              or just want to say hello, feel free to reach out.
             </p>
 
-            <div className="space-y-4 flex flex-col items-center lg:items-baseline ">
+            <div className="flex flex-col items-center space-y-4 lg:items-baseline">
               <div className="flex items-center gap-3">
-                <Mail className="w-6 h-6 text-purple-400" />
-                <a href="mailto:contact@yourstartup.com" className="hover:underline">
+                <Mail className="h-6 w-6 text-purple-400" />
+                <a
+                  href="mailto:contact@yourstartup.com"
+                  className="hover:underline"
+                >
                   contact@yourstartup.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="w-6 h-6 text-purple-400" />
+                <Phone className="h-6 w-6 text-purple-400" />
                 <a href="tel:+1234567890" className="hover:underline">
                   +1 (234) 567-890
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <MapPin className="w-6 h-6 text-purple-400" />
+                <MapPin className="h-6 w-6 text-purple-400" />
                 <span>123 Space Street, Galaxy City</span>
               </div>
             </div>
@@ -44,55 +50,55 @@ const ContactSection = () => {
 
           {/* Right content: Contact Form */}
           <div>
-            <form className="backdrop-blur-3xl p-8 lg:w-[500px] rounded-2xl shadow-2xl space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-1">
-                  Name
-                </label>
-                <input
+            <form className="space-y-6 rounded-2xl p-8 shadow-2xl backdrop-blur-3xl lg:w-[500px]">
+              <div className="space-y-2">
+                {/* <label htmlFor="name" className="block text-sm font-medium mb-1"> */}
+                <Label htmlFor="name">Name</Label>
+                {/* </label> */}
+                <Input
                   type="text"
                   id="name"
                   placeholder="Your Name"
-                  className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="border-brand border-2"
                 />
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                {/* </label> */}
+                <Input
+                  type="text"
                   id="email"
-                  placeholder="you@example.com"
-                  className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  placeholder="Your Email"
+                  className="border-brand border-2"
                 />
               </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-1">
+              <div className="space-y-2">
+                <Label
+                  htmlFor="message"
+                  className="mb-1 block text-sm font-medium"
+                >
                   Message
-                </label>
-                <textarea
+                </Label>
+                <Textarea
                   id="message"
                   rows={4}
                   placeholder="Write your message..."
-                  className="w-full px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="border-brand border-2"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 px-6 rounded-lg bg-purple-600 hover:bg-purple-700 transition font-semibold"
+                className="w-full rounded-lg bg-purple-600 px-6 py-3 font-semibold transition hover:bg-purple-700"
               >
                 Send Message
               </button>
             </form>
           </div>
         </div>
-
       </ContainerLayout>
-
     </section>
   );
 };

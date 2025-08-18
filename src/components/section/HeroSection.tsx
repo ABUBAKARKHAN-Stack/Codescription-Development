@@ -111,17 +111,14 @@ const Hero = () => {
                         { location: [41.0082, 28.9784], size: 0.015 },
                       ],
                     }}
-                    className="h-full bg-transparent w-full"
+                    className="h-full w-full bg-transparent"
                   />
                 </div>
 
                 {/* Glow effect behind globe */}
-                <div className="absolute inset-0 lg:ml-20 -z-10 rounded-full bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl"></div>
+                <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-purple-500/20 via-purple-600/30 to-purple-500/20 blur-3xl lg:ml-20"></div>
               </div>
             </div>
-
-
-
           </div>
         </div>
 

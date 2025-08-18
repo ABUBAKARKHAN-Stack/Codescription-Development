@@ -8,9 +8,8 @@ const WhyChooseTetraCodeCards = () => {
   return (
     <>
       {whyChooseData.map(({ description, icon, id, title }, i) => (
-        <div className="flex">
+        <div key={id} className="flex">
           <WhyTetraCard
-            key={id}
             icon={icon}
             description={description}
             title={title}
