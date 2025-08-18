@@ -42,10 +42,10 @@ export const CardContent: React.FC<CardContentProps> = React.memo(
         />
       </div>
       <motion.p
-      // className="text-sm leading-relaxed text-[oklch(0.7_0.01_280)]"
-      // initial={{ opacity: 0, y: 10 }}
-      // animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
-      // transition={{ delay: index * 0.1 + 0.9 }}
+        className="text-sm leading-relaxed text-[oklch(0.7_0.01_280)]"
+        // initial={{ opacity: 0, y: 10 }}
+        // animate={shouldAnimate ? { opacity: 1, y: 0 } : {}}
+        // transition={{ delay: index * 0.1 + 0.9 }}
       >
         {description}
       </motion.p>

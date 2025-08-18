@@ -308,12 +308,6 @@ export function Globe({
         }
       />
 
-      {/* Performance indicator for development */}
-      {process.env.NODE_ENV === "development" && (
-        <div className="absolute top-2 right-2 rounded bg-black/50 px-2 py-1 text-xs text-white">
-          {performanceLevel}
-        </div>
-      )}
     </div>
   );
 }
