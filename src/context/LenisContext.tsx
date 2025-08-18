@@ -21,11 +21,7 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
 // options={{ autoRaf: false }}
   return (
     <LenisContext.Provider value={null}>
-<<<<<<< HEAD
-      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
-=======
       <ReactLenis root  ref={lenisRef} >
->>>>>>> 55e96e73b90899bb83d469ec3b2b8aa3d2c050ce
         {children}
       </ReactLenis>
     </LenisContext.Provider>
