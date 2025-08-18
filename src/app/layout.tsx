@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/context/LenisContext";
-import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -36,12 +35,11 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} font-poppins bg-background antialiased`}
       >
-        {/* <LenisProvider> */}
+        <LenisProvider>
         {children}
         <Analytics />
         <SpeedInsights />
-        {/* </LenisProvider> */}
-        <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

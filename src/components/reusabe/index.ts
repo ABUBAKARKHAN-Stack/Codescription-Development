@@ -4,6 +4,8 @@ import FeatureCard from "./FeatureCard/FeatureCard";
 import ProjectCard from "./ProjectCard/ProjectCard";
 import TestimonialCard from "./TestimonialCard";
 import TechStackCard from "./TechStackCard/TechStackCard";
+import WhyTetraCard from "./WhyCard/WhyTetraCard";
+
 
 export {
   SectionHeader,
@@ -12,4 +14,5 @@ export {
   ProjectCard,
   TestimonialCard,
   TechStackCard,
+  WhyTetraCard
 };

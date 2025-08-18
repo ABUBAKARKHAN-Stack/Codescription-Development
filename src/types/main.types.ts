@@ -12,7 +12,7 @@ enum TechStackTabs {
   FRONTEND = "frontend",
   BACKEND = "backend",
   DATABASES = "databases",
-  MOBILE = "moble",
+  MOBILE = "mobile",
   DEVOPSANDTOOLS = "devopsandtools",
 }
 

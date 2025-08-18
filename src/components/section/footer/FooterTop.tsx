@@ -80,7 +80,7 @@ const FooterTop = () => {
             id="newsletter-heading"
             className="text-foreground text-xl font-semibold"
           >
-            Stay Updated with Tetracode
+            Stay Updated with <span className="font-extrabold">[site name]</span>
           </h2>
         </div>
         <div className="flex flex-col gap-y-2">

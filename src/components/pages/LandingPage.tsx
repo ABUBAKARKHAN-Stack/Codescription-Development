@@ -11,6 +11,7 @@ import OurWorkSection from "@/components/section/OurWorkSection";
 import { SpaceSeparator } from "../ui/space-theme-separator";
 import AboutUs from "../section/AboutUs";
 import ContactSection from "../section/Contact";
+import Footer from "../layout/Footer";
 
 const LandingPage = () => {
   return (
@@ -25,6 +26,8 @@ const LandingPage = () => {
       <TechStackSection />
       <ContactSection />
       <SpaceSeparator />
+      <Footer />
+
     </>
   );
 };

@@ -2,7 +2,7 @@
 
 import { whyChooseData } from "@/data/whychoose.data";
 import React from "react";
-import WhyTetraCard from "../reusabe/WhyCard/WhyTetraCard";
+import { WhyTetraCard } from "../reusabe";
 
 const WhyChooseTetraCodeCards = () => {
   return (

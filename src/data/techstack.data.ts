@@ -34,6 +34,7 @@ import {
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
 import { MdOutlineArchitecture } from "react-icons/md";
+import { Network } from "lucide-react";
 
 export const techStackData = [
   {
@@ -69,7 +70,7 @@ export const techStackData = [
       { name: "FastAPI", icon: SiFastapi },
       { name: "PHP", icon: SiPhp },
       { name: "Laravel", icon: SiLaravel },
-      { name: "Microservices", icon: MdOutlineArchitecture },
+      { name: "Microservices", icon: Network },
     ],
   },
   {
