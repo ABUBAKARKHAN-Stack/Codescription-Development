@@ -14,7 +14,7 @@ const SectionHeader: FC<Props> = ({ mainHeading, animateOnce = false }) => {
         action="highlight"
         animationDuration={1000}
         once
-        className="tracking font-montserrat text-center text-4xl font-bold text-wrap md:text-5xl lg:text-6xl"
+        className="font-orbitron text-center text-4xl font-bold text-wrap md:text-5xl lg:text-6xl"
       >
         <span className="inline-block p-2">{mainHeading}</span>
       </Highlighter>

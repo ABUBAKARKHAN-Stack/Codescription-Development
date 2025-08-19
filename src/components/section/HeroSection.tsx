@@ -1,13 +1,18 @@
 "use client";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { ChevronDown } from "lucide-react";
-import { Globe } from "@/components/magicui/globe";
 import ContainerLayout from "../layout/ContainerLayout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { Icon } from "lucide-react";
 import { planet } from "@lucide/lab";
+import dynamic from "next/dynamic";
+
+const Globe = dynamic(() => import("@/components/magicui/globe"), {
+  ssr: false,
+  loading: () => <h1>Loading Globe...</h1>,
+});
 
 const Hero = () => {
   const { scrollToSection } = useScrollToSection();
@@ -44,8 +49,8 @@ const Hero = () => {
               <motion.h1
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="relative text-center text-5xl font-bold tracking-wide uppercase md:text-6xl lg:text-left lg:text-[65px] xl:text-[80px]"
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="font-audiowide relative text-center text-3xl font-bold tracking-wide uppercase min-[320px]:text-4xl min-[450px]:text-5xl md:text-6xl lg:text-left xl:text-[65px]"
               >
                 <motion.span
                   animate={{
@@ -67,7 +72,7 @@ const Hero = () => {
               </motion.h1>
 
               {/* Subtext */}
-              <p className="max-w-lg text-center text-base leading-relaxed text-white md:text-lg lg:text-left xl:text-xl">
+              <p className="max-w-lg text-center text-sm leading-relaxed text-white min-[350px]:text-base md:text-lg lg:text-left xl:text-xl">
                 From the smallest atom to the vast universe — <br /> we craft
                 limitless solutions.
               </p>

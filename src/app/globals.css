@@ -44,7 +44,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --font-poppins: var(--font-poppins);
-  --font-montserrat: var(--font-montserrat);
+  --font-audiowide: var(--font-audiowide);
+  --font-orbitron: var(--font-orbitron);
   --breakpoint-xsm: 550px;
   --animate-custom-pulse: pulse var(--duration) infinite;
   --animate-marquee: marquee var(--duration) infinite linear;
@@ -85,7 +86,7 @@
   --popover-foreground: var(--foreground);
 
   --brand: #9e68fe;
-  --brand-foreground: oklch(0.12 0.01 280);
+  --brand-foreground: oklch(100% 0.00011 271.152);
 
   --primary: var(--brand);
   --primary-foreground: var(--brand-foreground);

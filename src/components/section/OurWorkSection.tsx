@@ -7,7 +7,7 @@ import { OurWorkCards } from "../cards";
 
 const OurWorkSection = () => {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
+    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
       <ContainerLayout>
         <SectionHeader
           mainHeading={ourWorkSectionHeader.mainHeading}
@@ -16,7 +16,7 @@ const OurWorkSection = () => {
         <section className="mt-10 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <OurWorkCards />
           <div className="col-span-full mx-auto">
-            <InteractiveHoverButton className="font-sigmar w-fit px-6 py-3 tracking-wider shadow-[0_0_10px_rgba(139,95,191,0.4),_0_0_15px_rgba(168,85,247,0.3),_0_0_20px_rgba(147,51,234,0.2)]">
+            <InteractiveHoverButton className="font-orbitron w-fit border-none bg-transparent px-6 py-3 font-bold tracking-wider shadow-[0_0_10px_rgba(139,95,191,0.4),_0_0_15px_rgba(168,85,247,0.3),_0_0_20px_rgba(147,51,234,0.2)]">
               View Portfolio
             </InteractiveHoverButton>
           </div>

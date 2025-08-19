@@ -70,7 +70,7 @@ interface GlobeProps {
   width?: number;
 }
 
-export function Globe({
+export default function Globe({
   className,
   config = {},
   width: customWidth,

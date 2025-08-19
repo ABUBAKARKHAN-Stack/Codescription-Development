@@ -1,18 +1,36 @@
 "use client";
 
 import React from "react";
-import dynamic from "next/dynamic";
-
-const LandingPageDynamic = dynamic(
-  () => import("@/components/pages/LandingPage"),
-  {
-    ssr: false,
-    loading: () => <h1>Loading....</h1>,
-  },
-);
+import {
+  HeroSection,
+  WhatWeDoSection,
+  WhyChooseTetraCodeSection,
+  NavbarSection,
+  TestimonialSection,
+  TechStackSection,
+  OurWorkSection,
+  AboutUsSection,
+  ContactSection,
+} from "@/components/section";
+import { SpaceSeparator } from "@/components/ui/space-theme-separator";
+import Footer from "@/components/layout/Footer";
 
 const Home = () => {
-  return <LandingPageDynamic />;
+  return (
+    <>
+      <NavbarSection />
+      <HeroSection />
+      <AboutUsSection />
+      <WhatWeDoSection />
+      <WhyChooseTetraCodeSection />
+      <OurWorkSection />
+      <TestimonialSection />
+      <TechStackSection />
+      <ContactSection />
+      <SpaceSeparator />
+      <Footer />
+    </>
+  );
 };
 
 export default Home;

@@ -18,13 +18,13 @@ const TechStackCard: FC<Props> = ({ name, Icon }) => {
   return (
     <motion.div
       layout
-      className="relative flex size-30 flex-col items-center justify-center gap-y-4 overflow-hidden rounded-full shadow-[0_0_1px_rgba(255,255,255,0.5)] backdrop-blur-3xl"
+      className="relative flex size-22 flex-col items-center justify-center gap-y-4 overflow-hidden rounded-full shadow-[0_0_1px_rgba(255,255,255,0.5)] backdrop-blur-3xl sm:size-26 md:size-30"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Default state */}
-      <Icon className="relative z-10 text-3xl" />
-      <span className="relative z-10 text-center text-xs text-wrap">
+      <Icon className="relative z-10 text-2xl sm:text-3xl" />
+      <span className="relative z-10 max-w-[75%] text-center text-xs text-wrap md:text-xs">
         {name}
       </span>
 
@@ -42,8 +42,8 @@ const TechStackCard: FC<Props> = ({ name, Icon }) => {
         transition={{ duration: 0.2, delay: isHovered ? 0.1 : 0 }}
         className="absolute inset-0 z-20 flex flex-col-reverse items-center justify-center gap-y-4 rounded-full text-black"
       >
-        <Icon className="text-3xl" />
-        <span className="text-center text-xs font-medium text-wrap">
+        <Icon className="relative z-10 text-2xl sm:text-3xl" />
+        <span className="relative z-10 max-w-[75%] text-center text-xs text-wrap md:text-xs">
           {name}
         </span>
       </motion.div>

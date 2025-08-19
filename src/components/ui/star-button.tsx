@@ -1,12 +1,14 @@
 import React, { Dispatch, FC, SetStateAction } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { TechStackTabs } from "@/types/main.types";
+import { cn } from "@/lib/utils";
 
 type Props = {
   label: TechStackTabs;
   setActiveTab: Dispatch<SetStateAction<TechStackTabs>>;
   activeTab: string;
   category: string;
+  className?: string;
 };
 
 const StarButton: FC<Props> = ({
@@ -14,15 +16,18 @@ const StarButton: FC<Props> = ({
   label,
   setActiveTab,
   category,
+  className,
 }) => {
   return (
     <motion.button
       key={label}
-      className={`relative w-fit cursor-pointer overflow-hidden rounded-full bg-gradient-to-r px-6 py-3 text-sm font-semibold text-white shadow-lg ${
+      className={cn(
+        "relative w-fit cursor-pointer overflow-hidden rounded-full bg-gradient-to-r font-semibold text-white shadow-lg",
         label === activeTab
           ? "from-purple-800 to-purple-900 shadow-purple-500/25"
-          : "from-purple-600 to-purple-700"
-      } `}
+          : "from-purple-600 to-purple-700",
+        className,
+      )}
       onClick={() => setActiveTab(label)}
       animate={{
         scale: label === activeTab ? 1.1 : 1,

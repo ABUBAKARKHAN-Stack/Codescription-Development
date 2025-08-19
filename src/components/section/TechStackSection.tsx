@@ -14,7 +14,7 @@ const TechStackSection = () => {
   );
 
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16 md:py-24">
+    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
       <ContainerLayout>
         <SectionHeader
           mainHeading={techStackSectionHeader.mainHeading}
@@ -29,6 +29,7 @@ const TechStackSection = () => {
                 setActiveTab={setActiveTab}
                 label={label}
                 category={category}
+                className="xsm:px-6 xsm:py-3 xsm:text-sm px-3 py-1.5 text-[10px] min-[350px]:px-4 min-[350px]:py-2 min-[350px]:text-xs"
               />
             ))}
           </div>

@@ -1,12 +1,19 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import { ArrowRightCircle, ChevronRight, Menu, X } from "lucide-react";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Logo } from "../reusabe";
 import { navLinks } from "@/data/navItems";
 import { usePathname } from "next/navigation";
 import ContainerLayout from "../layout/ContainerLayout";
+import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 function NavbarSection() {
   const [open, setOpen] = useState(false);
@@ -42,32 +49,40 @@ function NavbarSection() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className={`hover:text-primary transition ${
-                        pathname === link.href && "text-primary font-medium"
-                      }`}
+                      className={cn(
+                        "hover:text-primary transition",
+                        pathname === link.href && "text-primary font-medium",
+                      )}
                     >
                       {link.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <button className="bg-primary hidden rounded-full px-4 py-2 text-white lg:block">
-                Getting Started
-              </button>
+              <Button
+                className="group hidden cursor-pointer text-base duration-300 hover:scale-110 lg:inline-flex"
+                size={"lg"}
+              >
+                Get in Touch
+                <ChevronRight className="size-5 scale-90 stroke-[2.5px] transition-all duration-200 ease-in-out group-hover:scale-100 group-hover:rotate-180" />
+              </Button>
             </div>
 
             {/* Mobile Navigation Sheet */}
-            <SheetContent className="bg-transparent backdrop-blur-xl">
+            <SheetContent className="border-none bg-transparent backdrop-blur-xl">
               <div className="overflow-hidden px-4 pb-4 outline-none lg:hidden">
-                <div className="mt-5 flex items-center">
+                <SheetTitle className="mt-5 flex items-center">
                   <Logo className="h-20 w-auto" />
-                </div>
+                </SheetTitle>
                 <ul className="mt-10 flex flex-col p-5 font-medium text-white">
                   {navLinks.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="hover:text-primary block py-2 transition"
+                        className={cn(
+                          "hover:text-primary transition",
+                          pathname === link.href && "text-primary font-medium",
+                        )}
                         onClick={() => setOpen(false)}
                       >
                         {link.name}

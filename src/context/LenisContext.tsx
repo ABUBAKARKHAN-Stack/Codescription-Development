@@ -17,11 +17,11 @@ export const LenisProvider = ({ children }: { children: React.ReactNode }) => {
   //   frame.update(update, true);
   //   return () => cancelFrame(update);
   // }, []);
-  
-// options={{ autoRaf: false }}
+
+  // options={{ autoRaf: false }}
   return (
     <LenisContext.Provider value={null}>
-      <ReactLenis root  ref={lenisRef} >
+      <ReactLenis root ref={lenisRef}>
         {children}
       </ReactLenis>
     </LenisContext.Provider>

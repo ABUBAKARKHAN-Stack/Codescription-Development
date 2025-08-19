@@ -1,9 +1,13 @@
 "use client";
 
 import { techStackData } from "@/data/techstack.data";
-import React, { FC, useRef } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { AnimatePresence, useInView, motion } from "motion/react";
 import { TechStackCard } from "../reusabe";
+import { Button } from "../ui/button";
+import { ArrowDown } from "lucide-react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { number } from "zod";
 
 type Props = {
   activeTab: string;
@@ -16,6 +20,23 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
     once: true,
     margin: "-100px",
   });
+  const isXsm = useMediaQuery("(width >= 550px)");
+
+  const getDynamicCardsLimit = () => {
+    if (isXsm) return 13;
+    return 10;
+  };
+
+  const [cardsLimit, setCardsLimit] = useState<null | number>(null);
+
+  useEffect(() => {
+    setCardsLimit(getDynamicCardsLimit());
+  }, [isXsm]);
+
+  console.log(
+    (isXsm && techStackData.length >= 13) ||
+      (!isXsm && techStackData.length >= 10),
+  );
 
   return (
     <AnimatePresence mode="wait">
@@ -46,6 +67,13 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
               ))}
             </div>,
           ])}
+        {(isXsm && techStackData.length >= 13) ||
+          (!isXsm && techStackData.length >= 10 && (
+            <Button className="mt-4 flex cursor-pointer items-center gap-2 rounded-full px-6 py-3 shadow-md transition-all hover:shadow-lg">
+              <ArrowDown className="size-5" />
+              Load More
+            </Button>
+          ))}
       </motion.div>
     </AnimatePresence>
   );

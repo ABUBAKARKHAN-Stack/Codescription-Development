@@ -3,15 +3,13 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ContainerLayout from "../layout/ContainerLayout";
-import { useScrollToSection } from "@/hooks/useScrollToSection";
-import { Icon } from "lucide-react";
 import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "../reusabe";
 import planet from "../../../public/assets/imgs/planet.png";
 
-export default function AboutUs() {
+export default function AboutUsSection() {
   return (
-    <main className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16 md:py-24">
+    <main className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16">
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">
           {/* Left Content */}
@@ -29,13 +27,14 @@ export default function AboutUs() {
             <motion.div
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
+              transition={{ duration: 0.75 }}
               className="mx-auto w-fit lg:hidden"
             >
               <Image
                 src={planet}
                 className="drop-shadow-[0_0_20px_rgba(168,85,247,1)]"
                 alt="planet image"
+                priority
               />
             </motion.div>
 

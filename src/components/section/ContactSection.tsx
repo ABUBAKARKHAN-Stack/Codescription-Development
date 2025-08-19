@@ -1,4 +1,3 @@
-// components/ContactSection.tsx
 "use client";
 
 import { ContactSectionHeader } from "@/data/contact.data";
@@ -8,10 +7,11 @@ import ContainerLayout from "../layout/ContainerLayout";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
 
 const ContactSection = () => {
   return (
-    <section className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 px-6 py-16 text-white md:py-24">
+    <section className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white">
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
           {/* Left content */}
@@ -52,14 +52,12 @@ const ContactSection = () => {
           <div>
             <form className="space-y-6 rounded-2xl p-8 shadow-2xl backdrop-blur-3xl lg:w-[500px]">
               <div className="space-y-2">
-                {/* <label htmlFor="name" className="block text-sm font-medium mb-1"> */}
                 <Label htmlFor="name">Name</Label>
-                {/* </label> */}
                 <Input
                   type="text"
                   id="name"
                   placeholder="Your Name"
-                  className="border-brand border-2"
+                  className="border-brand/50 border-2"
                 />
               </div>
 
@@ -70,7 +68,7 @@ const ContactSection = () => {
                   type="text"
                   id="email"
                   placeholder="Your Email"
-                  className="border-brand border-2"
+                  className="border-brand/50 border-2"
                 />
               </div>
 
@@ -85,16 +83,13 @@ const ContactSection = () => {
                   id="message"
                   rows={4}
                   placeholder="Write your message..."
-                  className="border-brand border-2"
+                  className="border-brand/50 border-2"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-purple-600 px-6 py-3 font-semibold transition hover:bg-purple-700"
-              >
+              <Button type="submit" size={"lg"} className="w-full text-base">
                 Send Message
-              </button>
+              </Button>
             </form>
           </div>
         </div>
