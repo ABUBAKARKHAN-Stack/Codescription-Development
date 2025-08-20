@@ -7,7 +7,6 @@ import { TechStackCard } from "../reusabe";
 import { Button } from "../ui/button";
 import { ArrowDown } from "lucide-react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { number } from "zod";
 
 type Props = {
   activeTab: string;
@@ -33,10 +32,15 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
     setCardsLimit(getDynamicCardsLimit());
   }, [isXsm]);
 
-  console.log(
-    (isXsm && techStackData.length >= 13) ||
-      (!isXsm && techStackData.length >= 10),
-  );
+
+  const flatTechStackData = techStackData.filter(({ label }) => label === activeTab).flatMap(({ techs, subText }) => ({ techs, subText }))[0];
+
+  const {
+    techs,
+    subText
+  } = flatTechStackData;
+
+
 
   return (
     <AnimatePresence mode="wait">
@@ -49,31 +53,28 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className="flex flex-col flex-wrap items-center justify-center gap-4"
       >
-        {techStackData
-          .filter(({ label }) => label === activeTab)
-          .flatMap(({ techs, subText }) => [
-            <div
-              key="subText"
-              className="max-w-md text-center text-sm font-medium"
-            >
-              {subText}
-            </div>,
-            <div
-              key="techs"
-              className="mt-4 flex flex-wrap items-center justify-center gap-4"
-            >
-              {techs.map(({ icon: Icon, name }) => (
-                <TechStackCard key={name} Icon={Icon} name={name} />
-              ))}
-            </div>,
-          ])}
-        {(isXsm && techStackData.length >= 13) ||
-          (!isXsm && techStackData.length >= 10 && (
-            <Button className="mt-4 flex cursor-pointer items-center gap-2 rounded-full px-6 py-3 shadow-md transition-all hover:shadow-lg">
-              <ArrowDown className="size-5" />
-              Load More
-            </Button>
+
+        <div
+          key="subText"
+          className="max-w-md text-center text-sm font-medium">
+          {subText}
+        </div>
+        <div
+          key="techs"
+          className="mt-4 flex flex-wrap items-center justify-center gap-4">
+          {techs.slice(0, cardsLimit!).map(({ icon: Icon, name }) => (
+            <TechStackCard key={name} Icon={Icon} name={name} />
           ))}
+        </div>
+        {(cardsLimit !== null && cardsLimit < techs.length) && (
+          <Button
+            key="loadMoreCards"
+            onClick={() => setCardsLimit(prev => prev! + 5)}
+            className="mt-4 flex cursor-pointer items-center gap-2 rounded-full px-6 py-3 shadow-md transition-all hover:shadow-lg">
+            <ArrowDown className="size-5" />
+            Load More
+          </Button>
+        )}
       </motion.div>
     </AnimatePresence>
   );

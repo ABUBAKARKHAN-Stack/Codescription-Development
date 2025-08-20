@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Montserrat, Audiowide, Orbitron } from "next/font/google";
+import { Poppins, Audiowide, Orbitron } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/context/LenisContext";
 import { Analytics } from "@vercel/analytics/next";
@@ -50,15 +50,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-// const montserrat = Orbitron({
-//   variable: "--font-montserrat",
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700", "800", "900"],
-// });
-
-// const montserrat = Audiowide({
-//   variable: "--font-montserrat",
-//   subsets: ["latin"],
-//   weight: ["400"]
-// });

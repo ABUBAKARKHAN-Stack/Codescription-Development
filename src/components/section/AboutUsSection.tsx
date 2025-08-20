@@ -6,6 +6,7 @@ import ContainerLayout from "../layout/ContainerLayout";
 import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "../reusabe";
 import planet from "../../../public/assets/imgs/planet.png";
+import { Button } from "../ui/button";
 
 export default function AboutUsSection() {
   return (
@@ -53,13 +54,13 @@ export default function AboutUsSection() {
               destination — it’s the journey through the stars.
             </p>
 
-            <button
-              //   onClick={() => useScrollToSection("#what-we-do")}
-              className="group relative mx-auto mt-10 flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-purple-700 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-purple-500 hover:to-purple-600 hover:shadow-purple-500/25 md:text-lg lg:mx-0"
+            <Button
+             size={'lg'}
+             className="mt-10 rounded-full text-lg py-6.5"
             >
               Getting Started
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-20"></div>
-            </button>
+          
+            </Button>
           </motion.div>
 
           <motion.div

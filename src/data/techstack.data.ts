@@ -31,10 +31,10 @@ import {
   SiKubernetes,
   SiApachekafka,
   SiRedis,
+  SiShadcnui,
 } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
-import { MdOutlineArchitecture } from "react-icons/md";
-import { Network } from "lucide-react";
+import { Network, Package } from "lucide-react";
 
 export const techStackData = [
   {
@@ -53,13 +53,14 @@ export const techStackData = [
       { name: "Redux", icon: SiRedux },
       { name: "TanStack Query", icon: SiReactquery },
       { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "ShadCN", icon: SiShadcnui },
       { name: "Three.js", icon: SiThreedotjs },
       { name: "GSAP", icon: SiGreensock },
       { name: "Framer Motion", icon: SiFramer },
     ],
   },
   {
-    category: "Backend",
+    category: "Backend Development",
     label: TechStackTabs.BACKEND,
     subText:
       "The command center — powering galaxies of APIs, logic, and data flow behind the scenes.",
@@ -70,6 +71,7 @@ export const techStackData = [
       { name: "FastAPI", icon: SiFastapi },
       { name: "PHP", icon: SiPhp },
       { name: "Laravel", icon: SiLaravel },
+      { name: "Monolithic", icon: Package },
       { name: "Microservices", icon: Network },
     ],
   },
