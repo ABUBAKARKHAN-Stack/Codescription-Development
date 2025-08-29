@@ -8,18 +8,19 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import { sectionStyles } from "@/constants/style.constants";
 
 const ContactSection = () => {
   return (
-    <section className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white">
+    <section
+      className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white"
+      style={{ backgroundImage: sectionStyles.bg }}
+    >
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
           {/* Left content */}
           <div>
-            <SectionHeader
-              mainHeading={ContactSectionHeader.mainHeading}
-              animateOnce={true}
-            />
+            <SectionHeader mainHeading={ContactSectionHeader.mainHeading} />
             <p className="mx-auto my-8 max-w-[400px] text-center text-slate-300 lg:text-left">
               We’d love to hear from you. Whether you have a question, feedback,
               or just want to say hello, feel free to reach out.

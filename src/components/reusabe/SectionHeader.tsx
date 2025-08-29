@@ -3,12 +3,11 @@ import { Highlighter } from "../magicui/highlighter";
 
 type Props = {
   mainHeading: string;
-  animateOnce?: boolean;
 };
 
-const SectionHeader: FC<Props> = ({ mainHeading, animateOnce = false }) => {
+const SectionHeader: FC<Props> = ({ mainHeading }) => {
   return (
-    <div className="relative flex w-full flex-col items-center justify-center gap-y-4 lg:items-baseline">
+    <header className="relative flex w-full flex-col items-center justify-center gap-y-4 lg:items-baseline">
       <Highlighter
         delay={0.25}
         action="highlight"
@@ -18,7 +17,7 @@ const SectionHeader: FC<Props> = ({ mainHeading, animateOnce = false }) => {
       >
         <span className="inline-block p-2">{mainHeading}</span>
       </Highlighter>
-    </div>
+    </header>
   );
 };
 

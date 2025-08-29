@@ -21,9 +21,9 @@ const Hero = () => {
   const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
 
   return (
-    <div
+    <section
       className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
-      style={{backgroundImage: sectionStyles.bg}}
+      style={{ backgroundImage: sectionStyles.bg }}
     >
       <ContainerLayout>
         {/* Animated background particles */}
@@ -144,7 +144,7 @@ const Hero = () => {
           </div>
         </button>
       </ContainerLayout>
-    </div>
+    </section>
   );
 };
 

@@ -11,11 +11,10 @@ import { sectionStyles } from "@/constants/style.constants";
 
 export default function AboutUsSection() {
   return (
-    <main
-     className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-           style={{backgroundImage: sectionStyles.bg}}
-
-     >
+    <section
+      className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
+      style={{ backgroundImage: sectionStyles.bg }}
+    >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">
           {/* Left Content */}
@@ -25,10 +24,7 @@ export default function AboutUsSection() {
             transition={{ duration: 0.9 }}
             className="text-center lg:text-left"
           >
-            <SectionHeader
-              mainHeading={AboutUsSectionHeader.mainHeading}
-              animateOnce={true}
-            />
+            <SectionHeader mainHeading={AboutUsSectionHeader.mainHeading} />
 
             <motion.div
               initial={{ opacity: 0, x: 100 }}
@@ -78,6 +74,6 @@ export default function AboutUsSection() {
           </motion.div>
         </div>
       </ContainerLayout>
-    </main>
+    </section>
   );
 }

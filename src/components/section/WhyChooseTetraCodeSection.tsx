@@ -5,20 +5,21 @@ import { SectionHeader } from "../reusabe";
 import ContainerLayout from "../layout/ContainerLayout";
 import { WhyChooseTetraCodeCards } from "../cards";
 import { whyChooseSectionHeader } from "@/data/whychoose.data";
+import { sectionStyles } from "@/constants/style.constants";
 
 const WhyChooseTetraCodeSection = () => {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16">
+    <section
+      className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
+      style={{ backgroundImage: sectionStyles.bg }}
+    >
       <ContainerLayout>
-        <SectionHeader
-          mainHeading={whyChooseSectionHeader.mainHeading}
-          animateOnce={true}
-        />
+        <SectionHeader mainHeading={whyChooseSectionHeader.mainHeading} />
         <section className="mt-10 grid w-full grid-cols-1 gap-14 sm:grid-cols-2 lg:grid-cols-3">
           <WhyChooseTetraCodeCards />
         </section>
       </ContainerLayout>
-    </main>
+    </section>
   );
 };
 

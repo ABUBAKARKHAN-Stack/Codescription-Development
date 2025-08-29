@@ -4,15 +4,16 @@ import { ourWorkSectionHeader } from "@/data/ourwork.data";
 import { SectionHeader } from "../reusabe";
 import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
 import { OurWorkCards } from "../cards";
+import { sectionStyles } from "@/constants/style.constants";
 
 const OurWorkSection = () => {
   return (
-    <main className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
+    <section
+      className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
+      style={{ backgroundImage: sectionStyles.bg }}
+    >
       <ContainerLayout>
-        <SectionHeader
-          mainHeading={ourWorkSectionHeader.mainHeading}
-          animateOnce={true}
-        />
+        <SectionHeader mainHeading={ourWorkSectionHeader.mainHeading} />
         <section className="mt-10 grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <OurWorkCards />
           <div className="col-span-full mx-auto">
@@ -22,7 +23,7 @@ const OurWorkSection = () => {
           </div>
         </section>
       </ContainerLayout>
-    </main>
+    </section>
   );
 };
 
