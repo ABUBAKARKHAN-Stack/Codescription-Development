@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${audiowide.variable} ${orbitron.variable} font-poppins bg-background antialiased`}
+        className={`${poppins.variable} ${audiowide.variable} ${orbitron.variable} font-poppins bg-background h-full w-full min-w-screen overflow-x-hidden antialiased`}
       >
         {/* <LenisProvider> */}
         {children}

@@ -5,7 +5,6 @@ import {
   HeroSection,
   WhatWeDoSection,
   WhyChooseTetraCodeSection,
-  NavbarSection,
   TestimonialSection,
   TechStackSection,
   OurWorkSection,
@@ -13,12 +12,12 @@ import {
   ContactSection,
 } from "@/components/section";
 import { SpaceSeparator } from "@/components/ui/space-theme-separator";
-import Footer from "@/components/layout/Footer";
+import { Footer, Navbar } from "@/components/layout";
 
 const Home = () => {
   return (
     <>
-      <NavbarSection />
+      <Navbar />
       <HeroSection />
       <AboutUsSection />
       <WhatWeDoSection />

@@ -60,7 +60,7 @@ const BASE_GLOBE_CONFIG: Omit<
   diffuse: 0.4,
   mapBrightness: 0.4,
   baseColor: [70 / 255, 14 / 255, 116 / 255],
-  markerColor: [0.8, 0.8, 0.8],
+  markerColor: [255, 255, 255],
   glowColor: [70 / 255, 14 / 255, 116 / 255],
 };
 

@@ -32,15 +32,11 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
     setCardsLimit(getDynamicCardsLimit());
   }, [isXsm]);
 
+  const flatTechStackData = techStackData
+    .filter(({ label }) => label === activeTab)
+    .flatMap(({ techs, subText }) => ({ techs, subText }))[0];
 
-  const flatTechStackData = techStackData.filter(({ label }) => label === activeTab).flatMap(({ techs, subText }) => ({ techs, subText }))[0];
-
-  const {
-    techs,
-    subText
-  } = flatTechStackData;
-
-
+  const { techs, subText } = flatTechStackData;
 
   return (
     <AnimatePresence mode="wait">
@@ -53,24 +49,23 @@ const TechStackCards: FC<Props> = ({ activeTab }) => {
         transition={{ duration: 0.4, ease: "easeInOut" }}
         className="flex flex-col flex-wrap items-center justify-center gap-4"
       >
-
-        <div
-          key="subText"
-          className="max-w-md text-center text-sm font-medium">
+        <div key="subText" className="max-w-md text-center text-sm font-medium">
           {subText}
         </div>
         <div
           key="techs"
-          className="mt-4 flex flex-wrap items-center justify-center gap-4">
+          className="mt-4 flex flex-wrap items-center justify-center gap-4"
+        >
           {techs.slice(0, cardsLimit!).map(({ icon: Icon, name }) => (
             <TechStackCard key={name} Icon={Icon} name={name} />
           ))}
         </div>
-        {(cardsLimit !== null && cardsLimit < techs.length) && (
+        {cardsLimit !== null && cardsLimit < techs.length && (
           <Button
             key="loadMoreCards"
-            onClick={() => setCardsLimit(prev => prev! + 5)}
-            className="mt-4 flex cursor-pointer items-center gap-2 rounded-full px-6 py-3 shadow-md transition-all hover:shadow-lg">
+            onClick={() => setCardsLimit((prev) => prev! + 5)}
+            className="mt-4 flex cursor-pointer items-center gap-2 rounded-full px-6 py-3 shadow-md transition-all hover:shadow-lg"
+          >
             <ArrowDown className="size-5" />
             Load More
           </Button>

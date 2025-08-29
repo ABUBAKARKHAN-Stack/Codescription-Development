@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import ContainerLayout from "../layout/ContainerLayout";
 import { testimonialSectionHeader } from "@/data/testimonials.data";
 import { SectionHeader } from "../reusabe";
@@ -24,6 +24,7 @@ const TestimonialSection = () => {
 
         <section className="xsm:mask-y-from-100% xsm:max-h-full xsm:overflow-y-visible xsm:mask-x-from-60% mt-10 h-full max-h-100 overflow-y-hidden mask-y-from-80% mask-x-from-100%">
           <Marquee
+            // draggable
             className="flex w-full [--duration:20s]"
             pauseOnHover
             position={isXSM ? "horizontal" : "vertical"}

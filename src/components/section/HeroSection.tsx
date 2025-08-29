@@ -8,6 +8,7 @@ import ShootingStars from "../ui/shootingStars";
 import { Icon } from "lucide-react";
 import { planet } from "@lucide/lab";
 import dynamic from "next/dynamic";
+import { sectionStyles } from "@/constants/style.constants";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {
   ssr: false,
@@ -20,7 +21,10 @@ const Hero = () => {
   const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
+    <div
+      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
+      style={{backgroundImage: sectionStyles.bg}}
+    >
       <ContainerLayout>
         {/* Animated background particles */}
         <div className="absolute inset-0">

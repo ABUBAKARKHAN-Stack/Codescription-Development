@@ -7,10 +7,15 @@ import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "../reusabe";
 import planet from "../../../public/assets/imgs/planet.png";
 import { Button } from "../ui/button";
+import { sectionStyles } from "@/constants/style.constants";
 
 export default function AboutUsSection() {
   return (
-    <main className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16">
+    <main
+     className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
+           style={{backgroundImage: sectionStyles.bg}}
+
+     >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">
           {/* Left Content */}
@@ -54,12 +59,8 @@ export default function AboutUsSection() {
               destination — it’s the journey through the stars.
             </p>
 
-            <Button
-             size={'lg'}
-             className="mt-10 rounded-full text-lg py-6.5"
-            >
+            <Button size={"lg"} className="mt-10 rounded-full py-6.5 text-lg">
               Getting Started
-          
             </Button>
           </motion.div>
 
