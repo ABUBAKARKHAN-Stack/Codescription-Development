@@ -1,16 +1,16 @@
 import React from "react";
-import ContainerLayout from "../layout/ContainerLayout";
+import ContainerLayout from "@/components/layout/ContainerLayout";
 import { ourWorkSectionHeader } from "@/data/ourwork.data";
-import { SectionHeader } from "../reusabe";
-import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
-import { OurWorkCards } from "../cards";
-import { sectionStyles } from "@/constants/style.constants";
+import { SectionHeader } from "@/components/reusabe/server";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { OurWorkCards } from "@/components/cards";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const OurWorkSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={ourWorkSectionHeader.mainHeading} />

@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import ContainerLayout from "../layout/ContainerLayout";
-import { SectionHeader } from "../reusabe";
+import ContainerLayout from "@/components/layout/ContainerLayout";
+import { SectionHeader } from "@/components/reusabe/server";
 import { techStackSectionHeader, techStackData } from "@/data/techstack.data";
 import { TechStackTabs } from "@/types/main.types";
-import { TechStackCards } from "../cards";
-import StarButton from "../ui/star-button";
-import { sectionStyles } from "@/constants/style.constants";
+import { TechStackCards } from "@/components/cards";
+import StarButton from "@/components/ui/star-button";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const TechStackSection = () => {
   const [activeTab, setActiveTab] = useState<TechStackTabs>(
@@ -17,7 +17,7 @@ const TechStackSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={techStackSectionHeader.mainHeading} />

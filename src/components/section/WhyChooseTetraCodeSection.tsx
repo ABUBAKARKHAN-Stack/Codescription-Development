@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import { SectionHeader } from "../reusabe";
-import ContainerLayout from "../layout/ContainerLayout";
-import { WhyChooseTetraCodeCards } from "../cards";
+import { SectionHeader } from "@/components/reusabe/server";
+import ContainerLayout from "@/components/layout/ContainerLayout";
+import { WhyChooseTetraCodeCards } from "@/components/cards";
 import { whyChooseSectionHeader } from "@/data/whychoose.data";
-import { sectionStyles } from "@/constants/style.constants";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const WhyChooseTetraCodeSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={whyChooseSectionHeader.mainHeading} />

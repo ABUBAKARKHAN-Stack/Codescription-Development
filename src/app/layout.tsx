@@ -4,6 +4,7 @@ import "./globals.css";
 import { LenisProvider } from "@/context/LenisContext";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Footer, Navbar } from "@/components/layout";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -42,7 +43,9 @@ export default function RootLayout({
         className={`${poppins.variable} ${audiowide.variable} ${orbitron.variable} font-poppins bg-background h-full w-full min-w-screen overflow-x-hidden antialiased`}
       >
         {/* <LenisProvider> */}
+        <Navbar />
         {children}
+        <Footer />
         <Analytics />
         <SpeedInsights />
         {/* </LenisProvider> */}

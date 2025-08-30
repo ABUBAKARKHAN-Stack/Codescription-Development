@@ -2,18 +2,20 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ContainerLayout from "../layout/ContainerLayout";
+import ContainerLayout from "@/components/layout/ContainerLayout";
 import { AboutUsSectionHeader } from "@/data/about.data";
-import { SectionHeader } from "../reusabe";
+import { SectionHeader } from "@/components/reusabe/server";
 import planet from "../../../public/assets/imgs/planet.png";
-import { Button } from "../ui/button";
-import { sectionStyles } from "@/constants/style.constants";
+import { Button } from "@/components/ui/button";
+import { browserSupportStyles } from "@/constants/style.constants";
+
+import { Rocket } from "lucide-react";
 
 export default function AboutUsSection() {
   return (
     <section
       className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">
@@ -54,9 +56,11 @@ export default function AboutUsSection() {
               they’ve never reached before. For us, innovation isn’t just a
               destination — it’s the journey through the stars.
             </p>
-
-            <Button size={"lg"} className="mt-10 rounded-full py-6.5 text-lg">
-              Getting Started
+            <Button
+              size={"lg"}
+              className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
+            >
+              Getting Started <Rocket className="size-5" />
             </Button>
           </motion.div>
 

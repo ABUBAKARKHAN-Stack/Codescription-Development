@@ -1,19 +1,18 @@
-import { Logo } from "@/components/reusabe";
+import { Logo } from "@/components/reusabe/server";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/data/navItems";
 import { cn } from "@/lib/utils";
-import { ChevronRight, Menu, X } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
 import Link from "next/link";
 import React, { FC } from "react";
-import { TbMenu, TbMenu2, TbMenu4 } from "react-icons/tb";
+import { TbMenu4 } from "react-icons/tb";
 
 type Props = {
-  open: boolean;
   pathname: string;
 };
 
-const DesktopNav: FC<Props> = ({ open, pathname }) => {
+const DesktopNav: FC<Props> = ({ pathname }) => {
   return (
     <div className="flex h-full items-center justify-between">
       {/* Logo Section */}
@@ -24,7 +23,7 @@ const DesktopNav: FC<Props> = ({ open, pathname }) => {
       {/* Mobile Menu Toggle */}
 
       <SheetTrigger className='className="text-white focus:outline-none" flex h-full cursor-pointer items-center justify-center lg:hidden'>
-        {open ? <X className="size-7" /> : <TbMenu4 className="size-7" />}
+        <TbMenu4 className="size-7" />
       </SheetTrigger>
 
       {/* Desktop Navigation */}

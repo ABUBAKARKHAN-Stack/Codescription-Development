@@ -1,8 +1,6 @@
-"use client";
-
 import { testimonials } from "@/data/testimonials.data";
 import React from "react";
-import { TestimonialCard } from "@/components/reusabe";
+import { TestimonialCard } from "@/components/reusabe/client";
 
 const TestimonialCards = () => {
   return (

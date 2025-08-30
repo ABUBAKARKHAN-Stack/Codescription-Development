@@ -12,12 +12,10 @@ import {
   ContactSection,
 } from "@/components/section";
 import { SpaceSeparator } from "@/components/ui/space-theme-separator";
-import { Footer, Navbar } from "@/components/layout";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <AboutUsSection />
       <WhatWeDoSection />
@@ -27,7 +25,6 @@ const Home = () => {
       <TechStackSection />
       <ContactSection />
       <SpaceSeparator />
-      <Footer />
     </>
   );
 };

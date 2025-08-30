@@ -2,19 +2,21 @@
 
 import { ContactSectionHeader } from "@/data/contact.data";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { SectionHeader } from "../reusabe";
-import ContainerLayout from "../layout/ContainerLayout";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
-import { Button } from "../ui/button";
-import { sectionStyles } from "@/constants/style.constants";
+import { SectionHeader } from "@/components/reusabe/server";
+import ContainerLayout from "@/components/layout/ContainerLayout";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const ContactSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{
+        backgroundImage: browserSupportStyles.bg,
+      }}
     >
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">

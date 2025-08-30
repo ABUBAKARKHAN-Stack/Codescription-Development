@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import ContainerLayout from "../layout/ContainerLayout";
+import ContainerLayout from "@/components/layout/ContainerLayout";
 import { testimonialSectionHeader } from "@/data/testimonials.data";
-import { SectionHeader } from "../reusabe";
-import { TestimonialCards } from "../cards";
-import { Marquee } from "../magicui/marquee";
+import { SectionHeader } from "@/components/reusabe/server";
+import { TestimonialCards } from "@/components/cards";
+import { Marquee } from "@/components/magicui/marquee";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { sectionStyles } from "@/constants/style.constants";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const TestimonialSection = () => {
   const isXSM = useMediaQuery("(width >= 550px)");
@@ -16,7 +16,7 @@ const TestimonialSection = () => {
     <section
       id="what-we-do"
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={testimonialSectionHeader.mainHeading} />

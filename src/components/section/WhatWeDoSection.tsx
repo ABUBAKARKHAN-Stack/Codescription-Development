@@ -1,18 +1,18 @@
 "use client";
 
 import React from "react";
-import ContainerLayout from "../layout/ContainerLayout";
-import { SectionHeader } from "../reusabe";
+import ContainerLayout from "@/components/layout/ContainerLayout";
+import { SectionHeader } from "@/components/reusabe/server";
 import { whatWeDoSectionHeader } from "@/data/whatwedo.data";
-import { WhatWeDoCards } from "../cards";
-import { sectionStyles } from "@/constants/style.constants";
+import { WhatWeDoCards } from "@/components/cards";
+import { browserSupportStyles } from "@/constants/style.constants";
 
 const WhatWeDoSection = () => {
   return (
     <section
       id="what-we-do"
       className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={whatWeDoSectionHeader.mainHeading} />

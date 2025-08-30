@@ -5,10 +5,11 @@ import ContainerLayout from "../layout/ContainerLayout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
-import { Icon } from "lucide-react";
-import { planet } from "@lucide/lab";
+import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
-import { sectionStyles } from "@/constants/style.constants";
+import { browserSupportStyles } from "@/constants/style.constants";
+
+import { Button } from "../ui/button";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {
   ssr: false,
@@ -23,7 +24,7 @@ const Hero = () => {
   return (
     <section
       className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
-      style={{ backgroundImage: sectionStyles.bg }}
+      style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         {/* Animated background particles */}
@@ -82,15 +83,13 @@ const Hero = () => {
               </p>
 
               {/* CTA Button */}
-              <div>
-                <button
-                  onClick={() => scrollToSection("#what-we-do")}
-                  className="group relative flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-purple-700 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-purple-500 hover:to-purple-600 hover:shadow-purple-500/25 md:text-lg"
-                >
-                  Explore Our Universe <Icon iconNode={planet} />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-20"></div>
-                </button>
-              </div>
+              <Button
+                size={"lg"}
+                onClick={() => scrollToSection("#what-we-do")}
+                className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
+              >
+                Explore Our Universe <PiPlanet className="size-5" />
+              </Button>
             </div>
 
             {/* Right side - Globe */}

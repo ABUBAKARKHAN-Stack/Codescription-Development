@@ -4,7 +4,7 @@ import { Sheet } from "@/components/ui/sheet";
 
 import { usePathname } from "next/navigation";
 import ContainerLayout from "../layout/ContainerLayout";
-import { DesktopNav, MobileMenu } from "../section/Navbar";
+import { DesktopNav, MobileMenu } from "../section/navbar";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -16,7 +16,7 @@ function Navbar() {
         <Sheet open={open} onOpenChange={setOpen}>
           <nav className="xsm:px-6 h-18 rounded-full bg-transparent px-3 shadow-lg backdrop-blur-[15px]">
             {/* ================ Desktop Nav ===================== */}
-            <DesktopNav open={open} pathname={pathname} />
+            <DesktopNav pathname={pathname} />
 
             {/* Mobile Menu  */}
             <MobileMenu setOpen={setOpen} pathname={pathname} />

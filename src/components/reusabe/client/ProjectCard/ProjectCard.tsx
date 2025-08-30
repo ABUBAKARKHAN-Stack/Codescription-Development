@@ -1,3 +1,5 @@
+"use client";
+
 import React, { FC, useCallback, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { LucideIcon } from "lucide-react";

@@ -3,7 +3,7 @@
 import { techStackData } from "@/data/techstack.data";
 import React, { FC, useEffect, useRef, useState } from "react";
 import { AnimatePresence, useInView, motion } from "motion/react";
-import { TechStackCard } from "../reusabe";
+import { TechStackCard } from "../reusabe/client";
 import { Button } from "../ui/button";
 import { ArrowDown } from "lucide-react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
