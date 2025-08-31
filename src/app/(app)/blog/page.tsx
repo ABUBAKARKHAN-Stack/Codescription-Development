@@ -15,8 +15,6 @@ import { PortableText } from 'next-sanity'
 
 
 
-
-
 const Blog = async () => {
 
   const posts = await getPosts()
@@ -54,6 +52,7 @@ const Blog = async () => {
                 src={urlFor(post.author.source).url()}
                 width={50}
                 height={50}
+                alt='test'
                 className='rounded-full'
               />
 
