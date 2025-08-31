@@ -1,7 +1,7 @@
 import { ContainerLayout } from "@/components/layout";
 import { PageHeader } from "@/components/reusabe/server";
 import ShootingStars from "@/components/ui/shootingStars";
-import { browserSupportStyles } from "@/constants/style.constants";
+import { brandName, browserSupportStyles } from "@/constants/style.constants";
 import React, { FC } from "react";
 
 const HeroSection = () => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
       style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
-        <PageHeader pageHeading="About Codescription" />
+        <PageHeader pageHeading={`About ${brandName}`} />
         About PAGE
       </ContainerLayout>
     </section>

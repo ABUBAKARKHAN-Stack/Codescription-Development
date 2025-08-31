@@ -16,4 +16,12 @@ enum TechStackTabs {
   DEVOPSANDTOOLS = "devopsandtools",
 }
 
-export { type Position, TechStackTabs };
+type BlogPost = {
+  title:string;
+  slug:string;
+}
+
+export {
+  type Position,
+  TechStackTabs
+};

@@ -5,11 +5,10 @@ import Image from "next/image";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "@/components/reusabe/server";
-import planet from "../../../public/assets/imgs/planet.png";
+import planet from "public/assets/imgs/planet.webp";
 import { Button } from "@/components/ui/button";
-import { browserSupportStyles } from "@/constants/style.constants";
-
-import { Rocket } from "lucide-react";
+import { brandName, browserSupportStyles } from "@/constants/style.constants";
+import { PiRocket } from "react-icons/pi";
 
 export default function AboutUsSection() {
   return (
@@ -24,7 +23,7 @@ export default function AboutUsSection() {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left space-y-6"
           >
             <SectionHeader mainHeading={AboutUsSectionHeader.mainHeading} />
 
@@ -42,25 +41,26 @@ export default function AboutUsSection() {
               />
             </motion.div>
 
-            <p className="mt-6 text-lg leading-relaxed md:text-xl">
-              At [Your Startup Name], we don’t just build products — we ignite
+            <p className="text-base leading-relaxed md:text-lg">
+              At <span className="font-semibold">{brandName}</span>, we don’t just build products — we ignite
               galaxies of ideas. Every line of code, every design detail, and
               every interaction is crafted to feel like charting a new
               constellation.
             </p>
 
-            <p className="mt-4 text-lg leading-relaxed md:text-xl">
+            <p className="text-base leading-relaxed md:text-lg">
               We see the digital universe as ever-expanding, filled with
               opportunities waiting to be explored. That’s why we blend
               creativity, technology, and vision to launch brands into orbits
               they’ve never reached before. For us, innovation isn’t just a
               destination — it’s the journey through the stars.
             </p>
+
             <Button
               size={"lg"}
               className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
             >
-              Getting Started <Rocket className="size-5" />
+              Getting Started <PiRocket className="size-5" />
             </Button>
           </motion.div>
 
@@ -68,11 +68,13 @@ export default function AboutUsSection() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
-            className="hidden lg:block"
+            className="hidden lg:block relative "
           >
             <Image
               src={planet}
-              className="drop-shadow-[0_0_20px_rgba(168,85,247,1)]"
+              className="drop-shadow-[0_0_20px_rgba(168,85,247,1)] mx-auto"
+              width={500}
+              height={500}
               alt="planet image"
             />
           </motion.div>
