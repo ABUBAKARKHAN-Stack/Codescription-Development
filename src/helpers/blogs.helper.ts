@@ -6,7 +6,7 @@ async function getPosts() {
     title,
     "slug":slug.current,
     mainImage{
-    "_ref":asset._ref,
+    "source":asset._ref,
     alt
     },
     publishedAt,
@@ -17,12 +17,10 @@ async function getPosts() {
     bio
     },
     body
-    }`})
+    }`,
+  });
 
-  return data
+  return data;
 }
 
-
-export {
-  getPosts
-}
+export { getPosts };

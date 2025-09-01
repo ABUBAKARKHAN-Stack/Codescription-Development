@@ -1,3 +1,5 @@
+import { TypedObject } from "sanity";
+
 type Position = {
   order: number;
   startLat: number;
@@ -16,12 +18,21 @@ enum TechStackTabs {
   DEVOPSANDTOOLS = "devopsandtools",
 }
 
-type BlogPost = {
-  title:string;
-  slug:string;
+interface IBlog {
+  title: string;
+  slug: string;
+  publishedAt: Date;
+  mainImage: {
+    source: string;
+    alt: string;
+  };
+  body: TypedObject[];
+  author: {
+    bio: TypedObject[];
+    name: string;
+    slug: string;
+    source: string;
+  };
 }
 
-export {
-  type Position,
-  TechStackTabs
-};
+export { type Position, TechStackTabs, type IBlog };

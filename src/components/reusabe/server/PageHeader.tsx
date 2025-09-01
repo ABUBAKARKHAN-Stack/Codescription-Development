@@ -14,6 +14,7 @@ const PageHeader: FC<Props> = ({ pageHeading }) => {
         animationDuration={500}
         strokeWidth={2}
         once
+        padding={10}
         className="font-audiowide w-fit text-center text-4xl text-wrap md:text-5xl lg:text-6xl"
       >
         <span className="w-fit">{pageHeading}</span>

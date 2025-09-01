@@ -23,7 +23,7 @@ export default function AboutUsSection() {
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
-            className="text-center lg:text-left space-y-6"
+            className="space-y-6 text-center lg:text-left"
           >
             <SectionHeader mainHeading={AboutUsSectionHeader.mainHeading} />
 
@@ -42,10 +42,10 @@ export default function AboutUsSection() {
             </motion.div>
 
             <p className="text-base leading-relaxed md:text-lg">
-              At <span className="font-semibold">{brandName}</span>, we don’t just build products — we ignite
-              galaxies of ideas. Every line of code, every design detail, and
-              every interaction is crafted to feel like charting a new
-              constellation.
+              At <span className="font-semibold">{brandName}</span>, we don’t
+              just build products — we ignite galaxies of ideas. Every line of
+              code, every design detail, and every interaction is crafted to
+              feel like charting a new constellation.
             </p>
 
             <p className="text-base leading-relaxed md:text-lg">
@@ -68,11 +68,11 @@ export default function AboutUsSection() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
-            className="hidden lg:block relative "
+            className="relative hidden lg:block"
           >
             <Image
               src={planet}
-              className="drop-shadow-[0_0_20px_rgba(168,85,247,1)] mx-auto"
+              className="mx-auto drop-shadow-[0_0_20px_rgba(168,85,247,1)]"
               width={500}
               height={500}
               alt="planet image"

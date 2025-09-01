@@ -3,9 +3,6 @@ const browserSupportStyles = {
     linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to))`,
 };
 
-const brandName = "Codescription"
+const brandName = "Codescription";
 
-export { 
-    browserSupportStyles,
-    brandName
-};
+export { browserSupportStyles, brandName };

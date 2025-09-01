@@ -1,17 +1,18 @@
-import { Footer, Navbar } from '@/components/layout';
-import React from 'react'
+import { Footer, Navbar } from "@/components/layout";
+import React from "react";
 
 const layout = ({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) => {
-    return (<>
-        <Navbar />
-        {children}
-        <Footer />
+  return (
+    <>
+      <Navbar />
+      {children}
+      <Footer />
     </>
-    )
-}
+  );
+};
 
-export default layout
+export default layout;
