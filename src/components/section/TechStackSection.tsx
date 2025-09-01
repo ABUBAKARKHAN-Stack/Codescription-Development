@@ -17,7 +17,7 @@ const TechStackSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
-      style={{ backgroundImage: browserSupportStyles.bg }}
+      // style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={techStackSectionHeader.mainHeading} />

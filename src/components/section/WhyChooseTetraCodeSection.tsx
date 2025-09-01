@@ -11,7 +11,7 @@ const WhyChooseTetraCodeSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-      style={{ backgroundImage: browserSupportStyles.bg }}
+      // style={{ backgroundImage: browserSupportStyles.bg }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={whyChooseSectionHeader.mainHeading} />

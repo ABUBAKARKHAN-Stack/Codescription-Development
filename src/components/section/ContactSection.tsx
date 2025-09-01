@@ -14,9 +14,9 @@ const ContactSection = () => {
   return (
     <section
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white"
-      style={{
-        backgroundImage: browserSupportStyles.bg,
-      }}
+      // style={{
+      //   backgroundImage: browserSupportStyles.bg,
+      // }}
     >
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">

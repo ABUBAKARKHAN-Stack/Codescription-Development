@@ -1,8 +1,10 @@
+// type Bg = {
+// backgroundImage : BackgroundImage
+// }
 const browserSupportStyles = {
-  bg: `-webkit-linear-gradient(bottom right, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to)),
-    linear-gradient(to bottom right, var(--tw-gradient-from), var(--tw-gradient-via), var(--tw-gradient-to))`,
+ backgroundkit: ` -webkit-linear-gradient(135deg, var(--purple-950), var(--slate-900), var(--purple-900))`,
+ background: `linear-gradient(135deg, var(--purple-950), var(--slate-900), var(--purple-900))`
 };
-
 const brandName = "Codescription"
 
 export { 

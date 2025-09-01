@@ -24,7 +24,7 @@ const Hero = () => {
   return (
     <section
       className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
-      style={{ backgroundImage: browserSupportStyles.bg }}
+      // style={{ backgroundImage: browserSupportStyles.backgroundImage}}
     >
       <ContainerLayout>
         {/* Animated background particles */}
