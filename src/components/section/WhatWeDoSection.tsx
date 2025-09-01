@@ -11,8 +11,8 @@ const WhatWeDoSection = () => {
   return (
     <section
       id="what-we-do"
-      className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
-      style={{ backgroundImage: browserSupportStyles.bg }}
+      className="h-full w-full overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
+      // style={{ backgroundImage: browserSupportStyles.backgroundImage }}
     >
       <ContainerLayout>
         <SectionHeader mainHeading={whatWeDoSectionHeader.mainHeading} />

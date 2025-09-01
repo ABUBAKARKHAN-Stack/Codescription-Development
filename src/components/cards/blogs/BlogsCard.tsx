@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { IBlog } from "@/types/main.types";
 import { Calendar, User } from "lucide-react";
@@ -36,7 +36,8 @@ const BlogCard: FC<Props> = ({ post, index }) => {
   };
 
   return (
-    <motion.div className="relative h-full rounded-xl flex flex-col overflow-hidden bg-transparent   backdrop-blur-sm "
+    <motion.div
+      className="relative flex h-full flex-col overflow-hidden rounded-xl bg-transparent backdrop-blur-sm"
       whileHover={{
         y: -12,
         scale: 1.03,
@@ -59,7 +60,6 @@ const BlogCard: FC<Props> = ({ post, index }) => {
         willChange: "transform, opacity",
       }}
     >
-
       {/* Enhanced image section */}
       <div className="relative h-48 overflow-hidden rounded-t-xl">
         {mainImage?.source && (
@@ -88,15 +88,13 @@ const BlogCard: FC<Props> = ({ post, index }) => {
       {/* Enhanced content section */}
       <div className="relative flex h-[calc(100%-12rem)] flex-col p-7">
         {/* Title with improved typography */}
-        <h2 className="mb-4 line-clamp-2 text-muted text-xl leading-tight font-bold">
+        <h2 className="text-muted mb-4 line-clamp-2 text-xl leading-tight font-bold">
           {title}
         </h2>
 
         {/* Enhanced body preview */}
         <p className="mb-6 line-clamp-3 flex-1 text-sm leading-relaxed text-gray-300/90 transition-colors duration-300 group-hover:text-gray-200/90">
-          {body
-            ? getTextPreview(body)
-            : "Click to read the full article..."}
+          {body ? getTextPreview(body) : "Click to read the full article..."}
         </p>
 
         {/* Enhanced footer with better layout */}
@@ -128,12 +126,10 @@ const BlogCard: FC<Props> = ({ post, index }) => {
           <InteractiveHoverButton className="font-orbitron w-fit border-none bg-transparent px-6 py-3 font-bold tracking-wider shadow-[0px_0px_5px_rgba(0,0,0,0.25)]">
             Read Article
           </InteractiveHoverButton>
-
         </div>
-
       </div>
     </motion.div>
   );
 };
 
-export default BlogCard
+export default BlogCard;

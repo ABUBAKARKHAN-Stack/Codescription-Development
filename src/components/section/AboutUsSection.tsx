@@ -10,11 +10,12 @@ import { Button } from "@/components/ui/button";
 import { brandName, browserSupportStyles } from "@/constants/style.constants";
 import { PiRocket } from "react-icons/pi";
 
+// from-slate-950 via-purple-950 to-slate-900
 export default function AboutUsSection() {
   return (
     <section
-      className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
-      style={{ backgroundImage: browserSupportStyles.bg }}
+      className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16 md:py-24"
+      // style={{ backgroundImage: browserSupportStyles.backgroundkit }}
     >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">

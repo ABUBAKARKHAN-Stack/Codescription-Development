@@ -15,7 +15,7 @@ import { SpaceSeparator } from "@/components/ui/space-theme-separator";
 
 const Home = () => {
   return (
-    <>
+    <div className=" ">
       <HeroSection />
       <AboutUsSection />
       <WhatWeDoSection />
@@ -25,7 +25,7 @@ const Home = () => {
       <TechStackSection />
       <ContactSection />
       <SpaceSeparator />
-    </>
+    </div>
   );
 };
 
