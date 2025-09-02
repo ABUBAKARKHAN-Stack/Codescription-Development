@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { Sheet } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import ContainerLayout from "../layout/ContainerLayout";
-import { DesktopNav, MobileMenu } from "@/components/section/navbar";
+import DesktopNav  from "../section/navbar/DesktopNav";
+import  MobileMenu from "../section/navbar/MobileMenu";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
