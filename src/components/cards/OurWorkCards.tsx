@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectCard } from "../reusabe/client";
+import { ProjectCard } from "./card";
 import { ShoppingCart } from "lucide-react";
 
 const OurWorkCards = () => {

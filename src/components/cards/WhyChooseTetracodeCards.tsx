@@ -1,6 +1,6 @@
 import { whyChooseData } from "@/data/whychoose.data";
 import React from "react";
-import { WhyTetraCard } from "../reusabe/client";
+import { WhyTetraCard } from "./card";
 
 const WhyChooseTetraCodeCards = () => {
   return (

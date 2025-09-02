@@ -1,4 +1,4 @@
-import { PageHeader } from "@/components/reusabe/server";
+import { PageHeader } from "@/components/reusable";
 import { HeroSection } from "@/components/section/about";
 import React from "react";
 

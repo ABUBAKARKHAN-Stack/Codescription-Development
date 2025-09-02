@@ -2,7 +2,7 @@
 
 import { ContactSectionHeader } from "@/data/contact.data";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

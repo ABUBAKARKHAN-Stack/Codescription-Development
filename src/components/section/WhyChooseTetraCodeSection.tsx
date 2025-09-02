@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { WhyChooseTetraCodeCards } from "@/components/cards";
 import { whyChooseSectionHeader } from "@/data/whychoose.data";

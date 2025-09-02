@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ContainerLayout from "@/components/layout/ContainerLayout";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import { techStackSectionHeader, techStackData } from "@/data/techstack.data";
 import { TechStackTabs } from "@/types/main.types";
 import { TechStackCards } from "@/components/cards";

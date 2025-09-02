@@ -1,6 +1,6 @@
 import { testimonials } from "@/data/testimonials.data";
 import React from "react";
-import { TestimonialCard } from "@/components/reusabe/client";
+import { TestimonialCard } from "@/components/cards/card";
 
 const TestimonialCards = () => {
   return (

@@ -3,7 +3,7 @@
 import React from "react";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { testimonialSectionHeader } from "@/data/testimonials.data";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import { TestimonialCards } from "@/components/cards";
 import { Marquee } from "@/components/magicui/marquee";
 import { useMediaQuery } from "@/hooks/useMediaQuery";

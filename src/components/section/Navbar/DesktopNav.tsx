@@ -1,4 +1,4 @@
-import { Logo } from "@/components/reusabe/server";
+import { Logo } from "@/components/reusable";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/data/navItems";

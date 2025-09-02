@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Highlighter } from "../../magicui/highlighter";
+import { Highlighter } from "../magicui/highlighter";
 
 type Props = {
   mainHeading: string;

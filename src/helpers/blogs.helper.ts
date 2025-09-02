@@ -1,8 +1,8 @@
 import { sanityFetch } from "@/sanity/lib/live";
+import { draftMode } from "next/headers";
 
-async function getPosts() {
-  const { data } = await sanityFetch({
-    query: `*[_type == "post"] {
+
+const blogFilterFields = `{
     title,
     "slug":slug.current,
     mainImage{
@@ -17,10 +17,28 @@ async function getPosts() {
     bio
     },
     body
-    }`,
+    }`
+
+async function getPosts(preview = false) {
+  const isDraft = preview ? (await draftMode()).isEnabled : true
+  const { data } = await sanityFetch({
+    query: `*[_type == "post"] ${blogFilterFields}`,
+    perspective: isDraft ? "drafts" : "published"
   });
 
   return data;
 }
 
-export { getPosts };
+async function getPost(slug: string) {
+  const { data } = await sanityFetch({
+    query: `*[_type == "post" && slug.current == $slug][0] ${blogFilterFields}`,
+    params: { slug },
+  });
+
+  return data;
+}
+
+
+
+
+export { getPosts, getPost };

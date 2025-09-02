@@ -1,6 +1,6 @@
 import FeatureCard from "./FeatureCard/FeatureCard";
 import ProjectCard from "./ProjectCard/ProjectCard";
-import TestimonialCard from "./TestimonialCard";
+import TestimonialCard from "./TestimonialCard/TestimonialCard";
 import TechStackCard from "./TechStackCard/TechStackCard";
 import WhyTetraCard from "./WhyCard/WhyTetraCard";
 

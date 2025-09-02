@@ -1,6 +1,6 @@
 import { whatWeDoData } from "@/data/whatwedo.data";
 import React from "react";
-import { FeatureCard } from "../reusabe/client";
+import { FeatureCard } from "./card";
 
 const WhatWeDoCards = () => {
   return (

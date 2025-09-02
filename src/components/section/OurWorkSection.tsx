@@ -1,7 +1,7 @@
 import React from "react";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { ourWorkSectionHeader } from "@/data/ourwork.data";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { OurWorkCards } from "@/components/cards";
 import { browserSupportStyles } from "@/constants/style.constants";

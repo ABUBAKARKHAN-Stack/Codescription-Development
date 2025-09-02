@@ -1,4 +1,4 @@
-import { TypedObject } from "sanity";
+import { PortableTextChild, TypedObject } from "sanity";
 
 type Position = {
   order: number;
@@ -26,7 +26,7 @@ interface IBlog {
     source: string;
     alt: string;
   };
-  body: TypedObject[];
+  body: PortableTextChild[];
   author: {
     bio: TypedObject[];
     name: string;
@@ -35,4 +35,12 @@ interface IBlog {
   };
 }
 
-export { type Position, TechStackTabs, type IBlog };
+type PortableTextBlock = {
+  _key: string;
+  _type: "block" | string;
+  children?: PortableTextChild[];
+  markDefs?: { _key: string; _type: string }[];
+  style?: string;
+};
+
+export { type Position, TechStackTabs, type IBlog, type PortableTextBlock };

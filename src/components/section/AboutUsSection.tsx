@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { AboutUsSectionHeader } from "@/data/about.data";
-import { SectionHeader } from "@/components/reusabe/server";
+import { SectionHeader } from "@/components/reusable";
 import planet from "public/assets/imgs/planet.webp";
 import { Button } from "@/components/ui/button";
 import { brandName, browserSupportStyles } from "@/constants/style.constants";

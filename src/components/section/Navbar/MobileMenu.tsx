@@ -1,4 +1,4 @@
-import { Logo } from "@/components/reusabe/server";
+import { Logo } from "@/components/reusable";
 import {
   SheetContent,
   SheetDescription,
