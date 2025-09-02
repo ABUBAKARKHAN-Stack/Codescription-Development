@@ -1,30 +1,28 @@
 import { ContainerLayout } from "@/components/layout";
 import { PageHeader } from "@/components/reusable";
 import { browserSupportStyles } from "@/constants/style.constants";
-import React, { FC } from "react";
-import { getPosts } from "@/helpers/blogs.helper";
+import React from "react";
 
 import { SanityLive } from "@/sanity/lib/live";
-
-import BlogCard from "@/components/cards/card/blogs/BlogsCard";
-import { IBlog } from "@/types/main.types";
+import { BlogPostsSection } from "@/components/section";
+import BlogSearchFilterSection from "@/components/section/blog/BlogSearchFilterSection";
 
 const Blog = async () => {
-  const posts: IBlog[] = await getPosts();
 
   return (
     <div className="relative h-full min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
+      <SanityLive />
       <div className="relative z-10 py-20">
         <ContainerLayout>
-          <SanityLive />
-          <PageHeader pageHeading="Our Blogs" />
+          <PageHeader
+            pageHeading="Insights & Stories"
+            subText="Explore insights, tutorials, and stories from our team.  
+              Stay updated with the latest trends and guides."
+          />
 
-          {/* Enhanced grid with better responsive design */}
-          <section className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-          </section>
+          {/* <BlogSearchFilterSection /> */}
+
+          <BlogPostsSection />
         </ContainerLayout>
       </div>
     </div>
@@ -32,6 +30,3 @@ const Blog = async () => {
 };
 
 export default Blog;
-
-
-

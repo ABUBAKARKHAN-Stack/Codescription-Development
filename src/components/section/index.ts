@@ -6,6 +6,7 @@ import TestimonialSection from "./TestimonialSection";
 import TechStackSection from "./TechStackSection";
 import AboutUsSection from "./AboutUsSection";
 import ContactSection from "./ContactSection";
+import BlogPostsSection from "./blog/BlogPostsSection";
 
 export {
   HeroSection,
@@ -16,4 +17,5 @@ export {
   TechStackSection,
   ContactSection,
   AboutUsSection,
+  BlogPostsSection
 };

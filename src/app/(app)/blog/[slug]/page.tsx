@@ -6,12 +6,13 @@ import { IBlog } from "@/types/main.types";
 import React, { FC } from "react";
 
 export async function generateStaticParams() {
-  const posts: IBlog[] = await getPosts();
+  const posts = await getPosts();
 
-  return posts.map((post) => ({
-    slug: post.slug
+  return posts.map(({ slug }) => ({
+    slug
   }))
 }
+
 
 type Props = {
   params: Promise<{ slug: string }>;
