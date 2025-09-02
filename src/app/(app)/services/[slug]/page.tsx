@@ -3,6 +3,7 @@
   import { serviceDetails } from "@/data/servicesDetail.data";
   import { Card, CardContent } from "@/components/ui/card";
   import { CheckCircle2 } from "lucide-react";
+import { PageHeader } from "@/components/reusable";
 
 
   export async function generateStaticParams() {
@@ -27,7 +28,7 @@
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 text-white py-16 px-8 md:px-20">
           {/* <ContainerLayout ></ContainerLayout> */}
-          <div className="mx-auto w-fit py-24 ">
+          {/* <div className="mx-auto w-fit py-24 ">
             <div className="flex items-center justify-center gap-4">
               <Icon className="h-12 w-12 drop-shadow-lg" />
               <h1 className="font-audiowide text-4xl md:text-5xl font-extrabold tracking-tight">
@@ -37,7 +38,10 @@
             <p className="mt-6 text-lg md:text-xl text-center opacity-90 leading-relaxed max-w-3xl">
               {service.shortDescription}
             </p>
-          </div>
+          </div> */}
+          <PageHeader pageHeading={service.title}  subText={service.shortDescription} >
+              <Icon className="h-12 w-12 drop-shadow-lg" />
+            </PageHeader>
         </section>
 
         {/* Main Content */}
