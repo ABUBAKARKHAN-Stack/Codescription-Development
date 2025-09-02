@@ -17,7 +17,7 @@ function Navbar() {
             {/* ================ Desktop Nav ===================== */}
             <DesktopNav pathname={pathname} />
 
-            {/* Mobile Menu  */}
+            {/* ===================== Mobile Menu ===================== */}
             <MobileMenu setOpen={setOpen} pathname={pathname} />
           </nav>
         </Sheet>
