@@ -117,7 +117,7 @@ const BlogCard: FC<Props> = ({ post }) => {
           </div>
 
           {/* Perfectly aligned button */}
-          <Link  href={`/blog/${slug}`} className="ml-auto">
+          <Link href={`/blog/${slug}`} className="ml-auto">
             <InteractiveHoverButton className="font-orbitron border-none bg-transparent px-5 !py-2.25 text-sm font-bold tracking-wider shadow-[0px_0px_5px_rgba(0,0,0,0.25)] sm:px-6 sm:py-3 sm:text-base">
               Read Article
             </InteractiveHoverButton>

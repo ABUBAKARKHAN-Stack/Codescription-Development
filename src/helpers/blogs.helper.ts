@@ -2,7 +2,6 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { IBlog } from "@/types/main.types";
 import { draftMode } from "next/headers";
 
-
 const blogFilterFields = `{
     title,
     "slug":slug.current,
@@ -18,24 +17,24 @@ const blogFilterFields = `{
     bio
     },
     body
-    }`
+    }`;
 
 async function getPosts(preview = false) {
   try {
-    const isDraft = preview ? (await draftMode()).isEnabled : true
+    const isDraft = preview ? (await draftMode()).isEnabled : true;
     const { data } = await sanityFetch({
       query: `*[_type == "post"] ${blogFilterFields}`,
-      perspective: isDraft ? "drafts" : "published"
+      perspective: isDraft ? "drafts" : "published",
     });
 
     const posts = data as IBlog[];
 
-    if (posts.length === 0) []
+    if (posts.length === 0) [];
 
     return posts;
   } catch (error) {
     console.log("Sanity Error :: ", error);
-    throw error
+    throw error;
   }
 }
 
@@ -47,8 +46,5 @@ async function getPost(slug: string) {
 
   return data;
 }
-
-
-
 
 export { getPosts, getPost };

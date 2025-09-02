@@ -102,7 +102,7 @@ export function Highlighter({
       <span
         ref={elementRef}
         className={cn(
-          "relative inline-block  bg-transparent lg:block",
+          "relative inline-block bg-transparent lg:block",
           className,
         )}
       >

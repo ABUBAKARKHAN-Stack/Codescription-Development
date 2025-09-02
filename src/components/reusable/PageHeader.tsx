@@ -7,12 +7,12 @@ import React, { FC } from "react";
 type Props = {
   pageHeading: string;
   subText?: string;
-  children?: React.ReactNode
+  children?: React.ReactNode;
 };
 
 const PageHeader: FC<Props> = ({ pageHeading, subText, children }) => {
   return (
-    <header className="w-full flex flex-col gap-y-8  justify-center items-center py-24">
+    <header className="flex w-full flex-col items-center justify-center gap-y-8 py-24">
       <Highlighter
         action="underline"
         animationDuration={500}
@@ -20,23 +20,23 @@ const PageHeader: FC<Props> = ({ pageHeading, subText, children }) => {
         padding={5}
         className="font-audiowide w-fit text-center text-4xl text-wrap md:text-5xl lg:text-6xl"
       >
-        <div className="flex flex-col  items-center">{children}
+        <div className="flex flex-col items-center">
+          {children}
 
-        <span className="w-fit">{pageHeading}</span>
+          <span className="w-fit">{pageHeading}</span>
         </div>
       </Highlighter>
-      {
-        subText && <Highlighter
+      {subText && (
+        <Highlighter
           action="highlight"
-          delay={.75}
+          delay={0.75}
           animationDuration={500}
           once
-          className="font-audiowide w-fit max-w-[400px] text-center text-wrap text-base tracking-wider font-light "
+          className="font-audiowide w-fit max-w-[400px] text-center text-base font-light tracking-wider text-wrap"
         >
           <span className="w-fit">{subText}</span>
         </Highlighter>
-      }
-
+      )}
     </header>
   );
 };

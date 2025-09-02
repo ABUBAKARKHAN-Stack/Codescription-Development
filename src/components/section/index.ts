@@ -17,5 +17,5 @@ export {
   TechStackSection,
   ContactSection,
   AboutUsSection,
-  BlogPostsSection
+  BlogPostsSection,
 };
