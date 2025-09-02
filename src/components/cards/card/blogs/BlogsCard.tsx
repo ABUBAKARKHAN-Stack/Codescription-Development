@@ -80,7 +80,7 @@ const BlogCard: FC<Props> = ({ post }) => {
         {/* Content top section */}
         <div className="flex flex-col space-y-4">
           {/* Title with perfect typography scaling */}
-          <h2 className="line-clamp-2 text-xl leading-[1.3] font-bold tracking-tight text-white sm:text-2xl">
+          <h2 className="line-clamp-1 text-xl leading-[1.3] font-bold tracking-tight text-white sm:text-2xl">
             {title}
           </h2>
 
@@ -117,7 +117,7 @@ const BlogCard: FC<Props> = ({ post }) => {
           </div>
 
           {/* Perfectly aligned button */}
-          <Link href={`/blog/${slug}`} className="ml-auto">
+          <Link  href={`/blog/${slug}`} className="ml-auto">
             <InteractiveHoverButton className="font-orbitron border-none bg-transparent px-5 !py-2.25 text-sm font-bold tracking-wider shadow-[0px_0px_5px_rgba(0,0,0,0.25)] sm:px-6 sm:py-3 sm:text-base">
               Read Article
             </InteractiveHoverButton>

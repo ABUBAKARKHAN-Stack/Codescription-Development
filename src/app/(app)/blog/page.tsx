@@ -2,7 +2,6 @@ import { ContainerLayout } from "@/components/layout";
 import { PageHeader } from "@/components/reusable";
 import { browserSupportStyles } from "@/constants/style.constants";
 import React from "react";
-
 import { SanityLive } from "@/sanity/lib/live";
 import { BlogPostsSection } from "@/components/section";
 import BlogSearchFilterSection from "@/components/section/blog/BlogSearchFilterSection";

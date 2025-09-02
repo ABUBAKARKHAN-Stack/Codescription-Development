@@ -4,7 +4,7 @@ import { Sheet } from "@/components/ui/sheet";
 
 import { usePathname } from "next/navigation";
 import ContainerLayout from "../layout/ContainerLayout";
-import { DesktopNav, MobileMenu } from "../section/Navbar";
+import { DesktopNav, MobileMenu } from "../section/navbar";
 
 function Navbar() {
   const [open, setOpen] = useState(false);

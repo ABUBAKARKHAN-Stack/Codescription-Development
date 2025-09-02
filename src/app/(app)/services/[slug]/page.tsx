@@ -6,11 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 
 type ParamType = {
-  params: Promise<{slug:string}>;
+  params: Promise<{ slug: string }>;
 };
 
-export default async function ServiceDetailPage({ params }:ParamType) {
-  const {slug} = await params;
+export default async function ServiceDetailPage({ params }: ParamType) {
+  const { slug } = await params;
   const service = serviceDetails[slug as keyof typeof serviceDetails];
   if (!service) return notFound();
 
@@ -89,8 +89,14 @@ export default async function ServiceDetailPage({ params }:ParamType) {
               </button>
             </CardContent>
           </Card>
+
         </div>
       </section>
+
     </div>
-  );
+  )
 }
+
+
+
+
