@@ -10,7 +10,7 @@ import {
   OurWorkSection,
   AboutUsSection,
   ContactSection,
-} from "@/components/section/navbar";
+} from "@/components/section";
 import { SpaceSeparator } from "@/components/ui/space-theme-separator";
 
 const Home = () => {
