@@ -10,7 +10,7 @@ const BlogError: FC<ErrorProps> = ({ error, reset }) => {
       className="pt-20"
       error={error}
       reset={reset}
-      context="blogs"
+      context="blog"
       homeUrl="/"
     />
   );

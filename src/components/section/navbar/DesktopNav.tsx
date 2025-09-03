@@ -28,16 +28,16 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
 
       {/* Desktop Navigation */}
       <ul className="hidden items-center space-x-3 font-normal text-white lg:flex xl:space-x-6">
-        {navLinks.map((link) => (
-          <li key={link.name}>
+        {navLinks.map(({ href, icon, name }) => (
+          <li key={name}>
             <Link
-              href={link.href}
+              href={href}
               className={cn(
                 "hover:text-primary transition",
-                pathname === link.href && "text-primary font-medium",
+                pathname.startsWith(href) && "text-primary font-medium",
               )}
             >
-              {link.name}
+              {name}
             </Link>
           </li>
         ))}

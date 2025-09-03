@@ -28,10 +28,7 @@ async function getPosts(preview = false) {
     });
 
     const posts = data as IBlog[];
-
-    if (posts.length === 0) [];
-
-    return posts;
+    return posts || [];
   } catch (error) {
     console.log("Sanity Error :: ", error);
     throw error;
@@ -39,12 +36,19 @@ async function getPosts(preview = false) {
 }
 
 async function getPost(slug: string) {
-  const { data } = await sanityFetch({
-    query: `*[_type == "post" && slug.current == $slug][0] ${blogFilterFields}`,
-    params: { slug },
-  });
+  try {
+    const { data } = await sanityFetch({
+      query: `*[_type == "post" && slug.current == $slug][0] ${blogFilterFields}`,
+      params: { slug },
+    });
 
-  return data;
+    if (!data) return null;
+
+    return data as IBlog;
+  } catch (error) {
+    console.log("Sanity Error :: ", error);
+    throw error;
+  }
 }
 
 export { getPosts, getPost };

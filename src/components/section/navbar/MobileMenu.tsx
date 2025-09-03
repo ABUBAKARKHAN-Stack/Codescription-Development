@@ -35,7 +35,7 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
                 href={href}
                 className={cn(
                   "hover:text-primary flex items-center gap-3 transition",
-                  pathname === href && "text-primary font-medium",
+                  pathname.startsWith(href) && "text-primary font-medium",
                 )}
                 onClick={() => setOpen(false)}
               >

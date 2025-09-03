@@ -43,4 +43,15 @@ type PortableTextBlock = {
   style?: string;
 };
 
-export { type Position, TechStackTabs, type IBlog, type PortableTextBlock };
+type ErrorProps = {
+  error: Error & { digest?: string };
+  reset: () => void;
+};
+
+export {
+  type Position,
+  TechStackTabs,
+  type IBlog,
+  type PortableTextBlock,
+  type ErrorProps,
+};

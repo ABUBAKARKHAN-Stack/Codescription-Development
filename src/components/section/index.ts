@@ -15,5 +15,5 @@ export {
   TechStackSection,
   OurWorkSection,
   ContactSection,
-  AboutUsSection
+  AboutUsSection,
 };

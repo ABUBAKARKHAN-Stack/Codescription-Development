@@ -1,4 +1,7 @@
+import { ContainerLayout } from "@/components/layout";
+import { PageHeader } from "@/components/reusable";
 import { getPost, getPosts } from "@/helpers/blogs.helper";
+import { SanityLive } from "@/sanity/lib/live";
 import { IBlog } from "@/types/main.types";
 import React, { FC } from "react";
 
@@ -16,9 +19,19 @@ type Props = {
 
 const BlogDetailsPage: FC<Props> = async ({ params }) => {
   const { slug } = await params;
-  const post: IBlog = await getPost(slug);
+  const post = await getPost(slug);
 
-  return <div>{post.slug} Details Page</div>;
+  return (
+    <div className="relative h-full min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
+      <SanityLive />
+      <div className="relative z-10 py-20">
+        <ContainerLayout>
+          <PageHeader pageHeading={post?.title || "Blog Unavailable"} />
+          {post?.title}
+        </ContainerLayout>
+      </div>
+    </div>
+  );
 };
 
 export default BlogDetailsPage;
