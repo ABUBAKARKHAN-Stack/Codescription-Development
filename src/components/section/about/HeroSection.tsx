@@ -1,17 +1,14 @@
+"use client"
 import { ContainerLayout } from "@/components/layout";
-import { PageHeader } from "@/components/reusable";
-import ShootingStars from "@/components/ui/shootingStars";
-import { brandName, browserSupportStyles } from "@/constants/style.constants";
-import React, { FC } from "react";
+import React from "react";
 
 const HeroSection = () => {
   return (
     <section
-      className="relative h-full min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 py-24"
-      // style={{ backgroundImage: browserSupportStyles.background }}
-    >
+      className="">
+      
+
       <ContainerLayout>
-        <PageHeader pageHeading={`About ${brandName}`} />
         About PAGE
       </ContainerLayout>
     </section>

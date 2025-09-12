@@ -7,7 +7,8 @@ import { SectionHeader } from "@/components/reusable";
 import { TestimonialCards } from "@/components/cards";
 import { Marquee } from "@/components/magicui/marquee";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { browserSupportStyles } from "@/constants/style.constants";
+
+
 
 const TestimonialSection = () => {
   const isXSM = useMediaQuery("(width >= 550px)");

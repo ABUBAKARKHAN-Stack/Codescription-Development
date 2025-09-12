@@ -19,23 +19,26 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
   return (
     <SheetContent
       side="left"
-      className="border-none bg-transparent px-3 pb-5 backdrop-blur-xl"
+      className="border border-white/10 bg-gradient-to-r from-white/15 via-white/8 to-white/5 px-3 pb-5 backdrop-blur-xl"
     >
       <SheetHeader>
         <SheetTitle className="mt-5 flex items-center">
-          <Logo className="h-20 w-auto" />
+          <Logo
+            className="h-9 xsm:h-10 lg:h-12.5 w-auto"
+          />
         </SheetTitle>
         <SheetDescription />
       </SheetHeader>
-      <ul className="mt-10 flex flex-col space-y-3 px-3 py-5 font-medium text-white">
+      <ul className="mt-10 flex flex-col space-y-3 px-3 py-5 text-white">
         {navLinks.map(({ href, name, icon: Icon }) => {
+          const isActive = pathname === href || pathname.startsWith(href + "/");
           return (
             <li key={name}>
               <Link
                 href={href}
                 className={cn(
-                  "hover:text-primary flex items-center gap-3 transition",
-                  pathname.startsWith(href) && "text-primary font-medium",
+                  "hover:text-primary flex items-center gap-3 transition-colors",
+                  isActive && "text-primary font-medium",
                 )}
                 onClick={() => setOpen(false)}
               >

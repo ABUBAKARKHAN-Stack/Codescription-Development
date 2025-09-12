@@ -7,15 +7,13 @@ import { AboutUsSectionHeader } from "@/data/about.data";
 import { SectionHeader } from "@/components/reusable";
 import planet from "public/assets/imgs/planet.webp";
 import { Button } from "@/components/ui/button";
-import { brandName, browserSupportStyles } from "@/constants/style.constants";
 import { PiRocket } from "react-icons/pi";
+import { brandName } from "@/constants/brandname.constants";
 
-// from-slate-950 via-purple-950 to-slate-900
 export default function AboutUsSection() {
   return (
     <section
       className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16 md:py-24"
-      // style={{ backgroundImage: browserSupportStyles.backgroundkit }}
     >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">
@@ -56,6 +54,25 @@ export default function AboutUsSection() {
               they’ve never reached before. For us, innovation isn’t just a
               destination — it’s the journey through the stars.
             </p>
+
+
+            
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="rounded-lg bg-white/5 p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-purple-300">50+</div>
+                  <div className="text-sm text-gray-300">Projects Delivered</div>
+                </div>
+                <div className="rounded-lg bg-white/5 p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-purple-300">5+</div>
+                  <div className="text-sm text-gray-300">Years Experience</div>
+                </div>
+                <div className="rounded-lg bg-white/5 p-4 backdrop-blur-sm">
+                  <div className="text-2xl font-bold text-purple-300">24/7</div>
+                  <div className="text-sm text-gray-300">Support Available</div>
+                </div>
+              </div>
+            </div>
 
             <Button
               size={"lg"}

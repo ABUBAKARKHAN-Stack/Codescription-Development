@@ -11,9 +11,9 @@ function Navbar() {
 
   return (
     <div className="fixed top-0 right-0 left-0 z-50 mt-2 w-full">
-      <ContainerLayout className="lg:px-10">
+      <ContainerLayout>
         <Sheet open={open} onOpenChange={setOpen}>
-          <nav className="xsm:px-6 h-18 rounded-full bg-transparent px-3 shadow-lg backdrop-blur-[15px]">
+          <nav className="xsm:px-10 relative h-18 overflow-hidden rounded-full border border-white/10 bg-gradient-to-r from-white/15 via-white/8 to-white/5 px-4 shadow-[0px_0px_12px_rgba(0,0,0,0.1)] backdrop-blur-xl">
             {/* ================ Desktop Nav ===================== */}
             <DesktopNav pathname={pathname} />
 

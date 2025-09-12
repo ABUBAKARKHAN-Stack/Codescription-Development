@@ -21,7 +21,7 @@ const blogFilterFields = `{
 
 async function getPosts(preview = false) {
   try {
-    const isDraft = preview ? (await draftMode()).isEnabled : true;
+    const isDraft = preview && (await draftMode()).isEnabled;
     const { data } = await sanityFetch({
       query: `*[_type == "post"] ${blogFilterFields}`,
       perspective: isDraft ? "drafts" : "published",
@@ -35,11 +35,14 @@ async function getPosts(preview = false) {
   }
 }
 
-async function getPost(slug: string) {
+async function getPost(slug: string, preview = false) {
   try {
+    const isDraft = preview && (await draftMode()).isEnabled;
+
     const { data } = await sanityFetch({
       query: `*[_type == "post" && slug.current == $slug][0] ${blogFilterFields}`,
       params: { slug },
+      perspective: isDraft ? "drafts" : "published",
     });
 
     if (!data) return null;

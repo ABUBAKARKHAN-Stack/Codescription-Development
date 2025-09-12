@@ -5,7 +5,8 @@ import { SectionHeader } from "@/components/reusable";
 import ContainerLayout from "@/components/layout/ContainerLayout";
 import { WhyChooseTetraCodeCards } from "@/components/cards";
 import { whyChooseSectionHeader } from "@/data/whychoose.data";
-import { browserSupportStyles } from "@/constants/style.constants";
+
+
 
 const WhyChooseTetraCodeSection = () => {
   return (

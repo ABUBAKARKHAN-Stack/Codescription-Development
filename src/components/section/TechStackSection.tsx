@@ -7,7 +7,8 @@ import { techStackSectionHeader, techStackData } from "@/data/techstack.data";
 import { TechStackTabs } from "@/types/main.types";
 import { TechStackCards } from "@/components/cards";
 import StarButton from "@/components/ui/star-button";
-import { browserSupportStyles } from "@/constants/style.constants";
+
+
 
 const TechStackSection = () => {
   const [activeTab, setActiveTab] = useState<TechStackTabs>(

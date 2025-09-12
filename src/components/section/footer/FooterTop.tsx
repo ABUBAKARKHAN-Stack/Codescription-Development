@@ -18,6 +18,7 @@ import { z } from "zod";
 import React from "react";
 import Image from "next/image";
 import { footerData } from "@/data/footer.data";
+import { brandName } from "@/constants/brandname.constants";
 
 const RenderFooterLinks = ({
   heading,
@@ -70,8 +71,8 @@ const FooterTop = () => {
       >
         <div className="flex gap-2 space-y-1">
           <Image
-            src="/assets/favicon.png"
-            alt="Tetracode - Icon"
+            src="/assets/cs-fav.svg"
+            alt={`${brandName} - Favicon`}
             className="size-[45px] object-contain min-[380px]:size-[25px]"
             width={45}
             height={45}
@@ -81,7 +82,7 @@ const FooterTop = () => {
             className="text-foreground text-xl font-semibold"
           >
             Stay Updated with{" "}
-            <span className="font-extrabold">[site name]</span>
+            <span className="font-extrabold">{brandName}</span>
           </h2>
         </div>
         <div className="flex flex-col gap-y-2">
@@ -102,12 +103,13 @@ const FooterTop = () => {
                           {...field}
                           placeholder="Enter your email"
                           aria-label="Enter your email for newsletter"
+                          onBlur={() => form.clearErrors("news-letter")}
                         />
                       </FormControl>
                       <Button
                         type="submit"
                         variant={"ghost"}
-                        className="hover:bg-primary/20 hover:text-primary absolute top-1/2 right-2 size-8 -translate-y-1/2 rounded-full hover:cursor-pointer"
+                        className="absolute top-1/2 right-2 size-8 -translate-y-1/2 rounded-full hover:cursor-pointer"
                       >
                         <SendHorizonalIcon className="size-4" />
                       </Button>

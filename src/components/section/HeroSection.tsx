@@ -7,7 +7,8 @@ import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
-import { browserSupportStyles } from "@/constants/style.constants";
+
+
 
 import { Button } from "../ui/button";
 
@@ -24,7 +25,7 @@ const Hero = () => {
   return (
     <section
       className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
-      // style={{ backgroundImage: browserSupportStyles.backgroundImage}}
+
     >
       <ContainerLayout>
         {/* Animated background particles */}
