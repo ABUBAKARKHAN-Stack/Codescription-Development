@@ -23,9 +23,7 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
     >
       <SheetHeader>
         <SheetTitle className="mt-5 flex items-center">
-          <Logo
-            className="h-9 xsm:h-10 lg:h-12.5 w-auto"
-          />
+          <Logo className="xsm:h-10 h-9 w-auto lg:h-12.5" />
         </SheetTitle>
         <SheetDescription />
       </SheetHeader>

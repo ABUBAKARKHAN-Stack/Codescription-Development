@@ -8,8 +8,6 @@ import { TestimonialCards } from "@/components/cards";
 import { Marquee } from "@/components/magicui/marquee";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
-
-
 const TestimonialSection = () => {
   const isXSM = useMediaQuery("(width >= 550px)");
 

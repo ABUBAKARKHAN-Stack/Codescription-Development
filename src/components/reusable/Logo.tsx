@@ -14,20 +14,11 @@ const Logo: FC<Props> = ({
   width = 250,
   height = 250,
   className,
-  clickable = false
+  clickable = false,
 }) => {
   return (
     <>
-      {
-        !clickable && <Image
-          src={"/assets/cs-logo.png"}
-          width={width}
-          height={height}
-          alt={`${brandName} - Logo`}
-          className={`${className} drop-shadow-md drop-shadow-black`}
-        />
-      }
-      {clickable && <Link href={'/'}>
+      {!clickable && (
         <Image
           src={"/assets/cs-logo.png"}
           width={width}
@@ -35,7 +26,18 @@ const Logo: FC<Props> = ({
           alt={`${brandName} - Logo`}
           className={`${className} drop-shadow-md drop-shadow-black`}
         />
-      </Link>}
+      )}
+      {clickable && (
+        <Link href={"/"}>
+          <Image
+            src={"/assets/cs-logo.png"}
+            width={width}
+            height={height}
+            alt={`${brandName} - Logo`}
+            className={`${className} drop-shadow-md drop-shadow-black`}
+          />
+        </Link>
+      )}
     </>
   );
 };

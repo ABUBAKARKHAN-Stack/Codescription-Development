@@ -17,7 +17,6 @@ export default async function ServiceDetailPage({ params }: ParamType) {
 
   return (
     <div className="flex flex-col bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
-      
       <PageHeader
         pageHeading={service.title}
         subText={service.shortDescription}

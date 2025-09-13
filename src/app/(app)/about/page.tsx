@@ -1,7 +1,4 @@
-import {
-  AboutPageHeader,
-  HeroSection
-} from "@/components/section/about";
+import { AboutPageHeader, HeroSection } from "@/components/section/about";
 import React from "react";
 
 const About = () => {

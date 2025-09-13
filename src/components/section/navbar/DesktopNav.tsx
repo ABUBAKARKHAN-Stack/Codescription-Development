@@ -15,12 +15,8 @@ type Props = {
 const DesktopNav: FC<Props> = ({ pathname }) => {
   return (
     <div className="flex h-full items-center justify-between">
-
       {/* Logo Section */}
-      <Logo
-        className="h-9 xsm:h-10 lg:h-12.5 w-auto"
-        clickable
-      />
+      <Logo className="xsm:h-10 h-9 w-auto lg:h-12.5" clickable />
 
       {/* Mobile Menu Toggle */}
 
@@ -55,7 +51,7 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
         })}
       </ul>
       <Button
-        className="group shadow-[0px_0px_10px_rgba(0,0,0,0.2)] hidden cursor-pointer text-base duration-300 hover:scale-110 lg:inline-flex"
+        className="group hidden cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)] duration-300 hover:scale-110 lg:inline-flex"
         size={"lg"}
       >
         Get in Touch

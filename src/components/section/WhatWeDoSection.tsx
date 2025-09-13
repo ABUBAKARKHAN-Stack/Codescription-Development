@@ -6,8 +6,6 @@ import { SectionHeader } from "@/components/reusable";
 import { whatWeDoSectionHeader } from "@/data/whatwedo.data";
 import { WhatWeDoCards } from "@/components/cards";
 
-
-
 const WhatWeDoSection = () => {
   return (
     <section

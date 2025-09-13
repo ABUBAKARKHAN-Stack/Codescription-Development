@@ -1,12 +1,12 @@
-"use client"
-import { PageHeader } from '@/components/reusable'
-import { Button } from '@/components/ui/button'
+"use client";
+import { PageHeader } from "@/components/reusable";
+import { Button } from "@/components/ui/button";
 import { brandName } from "@/constants/brandname.constants";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Sparkles } from "lucide-react";
 
 const AboutPageHeader = () => {
-  const { scrollToSection } = useScrollToSection()
+  const { scrollToSection } = useScrollToSection();
 
   return (
     <PageHeader
@@ -16,12 +16,12 @@ const AboutPageHeader = () => {
       <Button
         size={"lg"}
         onClick={() => scrollToSection("#what-we-do")}
-        className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
+        className="font-orbitron rounded-full bg-white/5 !p-6 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25"
       >
         Explore Who We Are <Sparkles className="size-5" />
       </Button>
     </PageHeader>
-  )
-}
+  );
+};
 
-export default AboutPageHeader
+export default AboutPageHeader;

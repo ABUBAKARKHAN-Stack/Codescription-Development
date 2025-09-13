@@ -8,8 +8,6 @@ import ShootingStars from "../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
 
-
-
 import { Button } from "../ui/button";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {
@@ -23,10 +21,7 @@ const Hero = () => {
   const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
 
   return (
-    <section
-      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900"
-
-    >
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <ContainerLayout>
         {/* Animated background particles */}
         <div className="absolute inset-0">
@@ -79,7 +74,7 @@ const Hero = () => {
 
               {/* Subtext */}
               <p className="max-w-lg text-center text-sm leading-relaxed text-white min-[350px]:text-base md:text-lg lg:text-left xl:text-xl">
-                From the smallest atom to the vast universe — <br /> we craft
+                From the smallest atom to the vast universe, <br /> we craft
                 limitless solutions.
               </p>
 

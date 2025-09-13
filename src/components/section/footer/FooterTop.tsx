@@ -69,11 +69,11 @@ const FooterTop = () => {
         className="flex max-w-sm flex-col gap-y-4"
         aria-labelledby="newsletter-heading"
       >
-        <div className="flex gap-2 space-y-1">
+        <div className="flex items-center gap-2 space-y-1">
           <Image
             src="/assets/cs-fav.svg"
             alt={`${brandName} - Favicon`}
-            className="size-[45px] object-contain min-[380px]:size-[25px]"
+            className="size-[45px] object-contain min-[420px]:size-[25px]"
             width={45}
             height={45}
           />

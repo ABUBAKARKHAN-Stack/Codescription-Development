@@ -8,8 +8,6 @@ import { TechStackTabs } from "@/types/main.types";
 import { TechStackCards } from "@/components/cards";
 import StarButton from "@/components/ui/star-button";
 
-
-
 const TechStackSection = () => {
   const [activeTab, setActiveTab] = useState<TechStackTabs>(
     TechStackTabs.FRONTEND,

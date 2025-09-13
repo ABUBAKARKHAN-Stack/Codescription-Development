@@ -1,3 +1,4 @@
+import { brandName } from "@/constants/brandname.constants";
 import Link from "next/link";
 
 const FooterCopyRight = () => {
@@ -6,8 +7,8 @@ const FooterCopyRight = () => {
     <section className="space-y-4" aria-label="copyright">
       <p className="text-muted-foreground text-center text-sm">
         © {date.getFullYear()}{" "}
-        <span className="text-brand font-semibold">Tetracode</span>. All rights
-        reserved.
+        <span className="text-brand font-semibold">{brandName}</span>. All
+        rights reserved.
       </p>
     </section>
   );

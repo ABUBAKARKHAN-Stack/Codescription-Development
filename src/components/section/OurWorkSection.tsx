@@ -5,8 +5,6 @@ import { SectionHeader } from "@/components/reusable";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { OurWorkCards } from "@/components/cards";
 
-
-
 const OurWorkSection = () => {
   return (
     <section
