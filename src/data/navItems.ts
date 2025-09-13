@@ -6,7 +6,7 @@ const navLinks = [
   { name: "Services", href: "/services", icon: Cog }, //* Software services
   { name: "Portfolio", href: "/portfolio", icon: Layers }, //* Projects showcase
   { name: "Blog", href: "/blog", icon: BookOpen }, //* Articles, case studies
-  { name: "Contact Us", href: "/contactus", icon: Phone }, //* Business inquiries
+  { name: "Contact Us", href: "/contact", icon: Phone }, //* Business inquiries
 ];
 
 export { navLinks };
