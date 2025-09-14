@@ -37,36 +37,32 @@ const ShootingStars = () => {
 
       const newStars: Star[] = [];
       for (let i = 0; i < 3; i++) {
-        // Reduced from 5 to 3
-        // Create realistic diagonal shooting trajectory
-        const angle = 25 + Math.random() * 20; // 25-45 degree angle
-        const startX = -50 - Math.random() * 100; // Start from off-screen left
-        const startY = Math.random() * (dimensions.height * 0.6); // Top 60% of screen
+        const angle = 25 + Math.random() * 20;
+        const startX = -50 - Math.random() * 100;
+        const startY = Math.random() * (dimensions.height * 0.6);
 
-        // Calculate travel distance for realistic arc
         const travelDistance = dimensions.width + 300;
         const endX = startX + travelDistance;
         const endY =
           startY + travelDistance * Math.tan((angle * Math.PI) / 180);
 
         newStars.push({
-          id: Date.now() + i, // Unique ID based on timestamp
+          id: Date.now() + i,
           startX,
           startY,
           endX,
           endY,
-          delay: i * 3 + Math.random() * 2, // Staggered delays: 0-2s, 3-5s, 6-8s
-          duration: 1.5 + Math.random() * 1, // More consistent speed
-          size: 2 + Math.random() * 1.5, // Consistent size range
+          delay: i * 3 + Math.random() * 2,
+          duration: 1.5 + Math.random() * 1,
+          size: 2 + Math.random() * 1.5,
           angle,
         });
       }
       setStars(newStars);
     };
 
-    // Initial generation with slight delay to ensure dimensions are set
     const initialTimeout = setTimeout(() => generateStars(), 100);
-    const interval = setInterval(generateStars, 12000); // Regenerate every 12s
+    const interval = setInterval(generateStars, 12000);
 
     return () => {
       clearTimeout(initialTimeout);
@@ -98,12 +94,12 @@ const ShootingStars = () => {
             duration: star.duration,
             delay: star.delay,
             repeat: Infinity,
-            repeatDelay: 9, // Reduced repeat delay
-            ease: [0.25, 0.46, 0.45, 0.94], // Realistic easing
-            times: [0, 0.1, 0.5, 0.9, 1], // Better opacity timing
+            repeatDelay: 9,
+            ease: [0.25, 0.46, 0.45, 0.94],
+            times: [0, 0.1, 0.5, 0.9, 1],
           }}
         >
-          {/* Optimized glowing core */}
+          {/* Glowing core */}
           <div
             className="rounded-full bg-white will-change-transform"
             style={{
@@ -113,7 +109,7 @@ const ShootingStars = () => {
             }}
           />
 
-          {/* Optimized trail */}
+          {/* Trail */}
           <div
             className="absolute top-1/2 origin-right will-change-transform"
             style={{

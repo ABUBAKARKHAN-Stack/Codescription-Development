@@ -1,4 +1,4 @@
-import { WhyChooseTetraCodeSection } from "@/components/section";
+import { WhyChooseTetraCodeSection } from "@/components/section/landing";
 import {
   AboutHeroSection,
   OurStorySection,

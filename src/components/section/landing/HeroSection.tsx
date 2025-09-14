@@ -1,14 +1,14 @@
 "use client";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { ChevronDown } from "lucide-react";
-import ContainerLayout from "../layout/ContainerLayout";
+import ContainerLayout from "../../layout/ContainerLayout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
-import ShootingStars from "../ui/shootingStars";
+import ShootingStars from "../../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
-import { Button } from "../ui/button";
-import Particles from "../ui/particles";
+import { Button } from "../../ui/button";
+import Particles from "../../ui/particles";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {
   ssr: false,
