@@ -7,7 +7,7 @@ const OurStorySection = () => {
   return (
     <section className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
       <ContainerLayout>
-        <SectionHeader mainHeading="Our Story" />
+        <SectionHeader mainHeading="Our Cosmic Story" />
 
         <div className="mt-10 max-w-4xl space-y-10 text-center md:text-left">
           {storyItems.map(({ title, content }, idx) => (
