@@ -24,7 +24,7 @@ const Logo: FC<Props> = ({
           width={width}
           height={height}
           alt={`${brandName} - Logo`}
-          className={`${className} drop-shadow-md drop-shadow-black`}
+          className={`${className} drop-shadow-md drop-shadow-black/25`}
         />
       )}
       {clickable && (

@@ -1,6 +1,6 @@
 import { brandName } from "@/constants/brandname.constants";
-import { Handshake, Lightbulb, Users } from 'lucide-react';
-import { PiRocket } from 'react-icons/pi';
+import { Handshake, Lightbulb, Users } from "lucide-react";
+import { PiRocket } from "react-icons/pi";
 
 const aboutUsSectionHeader = {
   mainHeading: "About Us",
@@ -82,13 +82,17 @@ const storyItems = [
 
 const values = [
   {
-    icon: <Lightbulb className="size-8 text-purple-300 group-hover:text-white" />,
+    icon: (
+      <Lightbulb className="size-8 text-purple-300 group-hover:text-white" />
+    ),
     title: "Innovation",
     description:
       "We believe in pushing boundaries and exploring new ideas to craft solutions that are future-ready.",
   },
   {
-    icon: <Handshake className="size-8 text-purple-300 group-hover:text-white" />,
+    icon: (
+      <Handshake className="size-8 text-purple-300 group-hover:text-white" />
+    ),
     title: "Trust & Transparency",
     description:
       "Honesty and openness are at the core of every interaction. We build relationships, not just projects.",
@@ -100,16 +104,13 @@ const values = [
       "Great things happen when we work together. Teamwork and communication guide every step we take.",
   },
   {
-    icon: <PiRocket className="size-8 text-purple-300 group-hover:text-white" />,
+    icon: (
+      <PiRocket className="size-8 text-purple-300 group-hover:text-white" />
+    ),
     title: "Excellence",
     description:
       "We are committed to delivering high-quality results that inspire confidence and long-term growth.",
   },
 ];
 
-export {
-  aboutUsSectionHeader,
-  ourStats,
-  storyItems,
-  values
-};
+export { aboutUsSectionHeader, ourStats, storyItems, values };

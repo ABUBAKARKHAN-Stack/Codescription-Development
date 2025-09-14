@@ -3,8 +3,9 @@ import {
   GithubIcon,
   InstagramIcon,
   LinkedinIcon,
-  TwitterIcon,
 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+
 import Link from "next/link";
 import React from "react";
 
@@ -21,7 +22,7 @@ const FooterSocial = () => {
       label: "GitHub",
     },
     {
-      icon: <TwitterIcon className="text-foreground size-5" />,
+      icon: <FaXTwitter className="text-foreground size-5" />,
       link: "#",
       label: "Twitter",
     },
