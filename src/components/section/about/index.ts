@@ -1,10 +1,10 @@
-import AboutPageHeader from "./AboutPageHeader";
+import AboutHeroSection from "./AboutHeroSecton";
 import OurStorySection from "./OurStorySection";
 import OurPrinciplesSection from "./OurPrinciplesSection";
 import TeamSection from "./TeamSection";
 
 export {
-  AboutPageHeader,
+  AboutHeroSection,
   OurStorySection,
   OurPrinciplesSection,
   TeamSection,

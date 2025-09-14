@@ -3,6 +3,7 @@ import { Highlighter } from "@/components/magicui/highlighter";
 import React, { FC, JSX, ReactNode, use, useEffect, useState } from "react";
 import { ContainerLayout } from "../layout";
 import { cn } from "@/lib/utils";
+import Particles from "../ui/particles";
 
 type Props = {
   pageHeading: string;
@@ -38,11 +39,23 @@ const PageHeader: FC<Props> = ({
     <header
       style={{ height: headerHeight }}
       className={cn(
-        "bg-gradient-to-b from-[#2a0347] via-purple-900 to-[#2a0347]",
+        "bg-gradient-to-b z-10 from-[#2a0347] via-purple-900 to-[#2a0347]",
         "pt-20",
-        "w-full",
+        "w-full relative",
       )}
     >
+
+      <div
+        className="inset-0 absolute -z-20 opacity-25"
+        style={{ backgroundImage: "url('/assets/bg-pattern.svg')" }}
+      />
+      <Particles
+        particlesCount={40}
+        particlesStyles="opacity-0"
+        className="-z-10"
+      />
+
+
       <ContainerLayout className="h-full">
         <section className="flex size-full flex-col items-center justify-center gap-y-8">
           <Highlighter

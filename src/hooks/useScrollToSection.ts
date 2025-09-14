@@ -15,14 +15,8 @@ export const useScrollToSection = () => {
   const lenis = useLenis();
 
   const scrollToSection = useCallback(
-    (selector: string, options: ScrollOptions = {}) => {
-      const {
-        offset = 0,
-        duration = 1.5,
-        easing = (t) => 1 - Math.pow(1 - t, 3),
-        onComplete,
-        onStart,
-      } = options;
+    (selector: string,) => {
+
 
       let target: HTMLElement | null = null;
 
@@ -36,24 +30,11 @@ export const useScrollToSection = () => {
         target = document.getElementById(selector);
       }
 
-      console.log(
-        "Scrolling to:",
-        selector,
-        "Found element:",
-        target,
-        "Lenis:",
-        lenis,
-      );
 
-      if (target && lenis) {
-        onStart?.();
 
-        lenis.scrollTo(target, {
-          offset,
-          duration,
-          easing,
-          onComplete,
-        });
+      if (target) {
+
+        target.scrollIntoView({ behavior: "smooth" });
       } else {
         console.warn(`Element not found for selector: ${selector}`);
       }

@@ -1,10 +1,13 @@
+"use client"
 import { Logo } from "@/components/reusable";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
 import { navLinks } from "@/data/navItems";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 import { TbMenu4 } from "react-icons/tb";
 
@@ -13,6 +16,18 @@ type Props = {
 };
 
 const DesktopNav: FC<Props> = ({ pathname }) => {
+  const {
+    scrollToSection
+  } = useScrollToSection()
+  const router = useRouter();
+
+  const handleCTA = () => {
+    if (pathname === "/") {
+      scrollToSection("#get-in-touch-section")
+      return;
+    }
+    router.push("/contact")
+  }
   return (
     <div className="flex h-full items-center justify-between">
       {/* Logo Section */}
@@ -53,6 +68,7 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
       <Button
         className="group hidden cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)] duration-300 hover:scale-110 lg:inline-flex"
         size={"lg"}
+        onClick={handleCTA}
       >
         Get in Touch
         <ChevronRight className="size-5 scale-90 stroke-[2.5px] transition-all duration-200 ease-in-out group-hover:scale-100 group-hover:rotate-180" />

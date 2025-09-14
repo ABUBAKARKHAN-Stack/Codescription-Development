@@ -5,11 +5,12 @@ import React from "react";
 
 const OurStorySection = () => {
   return (
-    <section className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
+    <section
+      id="about-our-story-section"
+      className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
       <ContainerLayout>
         <SectionHeader mainHeading="Our Cosmic Story" />
-
-        <div className="mt-10 max-w-4xl space-y-10 text-center md:text-left">
+        <section className="mt-10 max-w-4xl space-y-10 text-center md:text-left">
           {storyItems.map(({ title, content }, idx) => (
             <div key={idx} className="relative space-y-4">
               <div className="space-y-2">
@@ -21,7 +22,7 @@ const OurStorySection = () => {
               <p className="text-base leading-relaxed md:text-lg">{content}</p>
             </div>
           ))}
-        </div>
+        </section>
       </ContainerLayout>
     </section>
   );

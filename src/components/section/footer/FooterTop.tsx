@@ -104,6 +104,7 @@ const FooterTop = () => {
                           placeholder="Enter your email"
                           aria-label="Enter your email for newsletter"
                           onBlur={() => form.clearErrors("news-letter")}
+                          className="border-primary/50"
                         />
                       </FormControl>
                       <Button

@@ -10,9 +10,11 @@ import { Button } from "@/components/ui/button";
 import { PiRocket } from "react-icons/pi";
 import { brandName } from "@/constants/brandname.constants";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AboutUsSection() {
   const aboutRef = useRef(null);
+  const router = useRouter()
 
   const inView = useInView(aboutRef, {
     margin: "-100px",
@@ -22,6 +24,7 @@ export default function AboutUsSection() {
   return (
     <section
       ref={aboutRef}
+      id="about-us-section"
       className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-950 via-slate-900 to-purple-900 py-16 md:py-24"
     >
       <ContainerLayout>
@@ -83,9 +86,10 @@ export default function AboutUsSection() {
 
             <Button
               size={"lg"}
+              onClick={() => router.push('/about')}
               className="group overflow-hidden rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
             >
-              Let's Build Together
+              Learn More About Us
               <div className="relative">
                 <PiRocket className="size-5 -translate-y-0 opacity-100 transition-all duration-300 ease-in-out group-hover:-translate-y-20 group-hover:scale-0 group-hover:opacity-0" />
                 <PiRocket className="absolute inset-0 size-5 translate-y-20 scale-0 opacity-0 transition-all duration-300 ease-in-out group-hover:-translate-y-0 group-hover:scale-105 group-hover:opacity-100" />

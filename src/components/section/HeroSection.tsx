@@ -8,6 +8,7 @@ import ShootingStars from "../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
+import Particles from "../ui/particles";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {
   ssr: false,
@@ -22,24 +23,12 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <ContainerLayout>
-        {/* Animated background particles */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(158,104,254,0.1),transparent_50%)]"></div>
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute h-1 w-1 animate-pulse rounded-full bg-purple-400"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
-        </div>
-        <ShootingStars />
 
+        {/* Animated background particles */}
+        <Particles />
+
+        {/* Shooting Starts */}
+        <ShootingStars />
         {/* Main content */}
         <div className="relative z-10 flex min-h-screen items-center">
           <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">

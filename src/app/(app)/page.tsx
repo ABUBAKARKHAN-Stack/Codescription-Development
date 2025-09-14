@@ -5,10 +5,10 @@ import {
   HeroSection,
   WhatWeDoSection,
   WhyChooseTetraCodeSection,
+  AboutUsSection,
+  OurWorkSection,
   TestimonialSection,
   TechStackSection,
-  OurWorkSection,
-  AboutUsSection,
   ContactSection,
 } from "@/components/section";
 import { SpaceSeparator } from "@/components/ui/space-theme-separator";
@@ -17,9 +17,9 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <AboutUsSection />
       <WhatWeDoSection />
       <WhyChooseTetraCodeSection />
+      <AboutUsSection />
       <OurWorkSection />
       <TestimonialSection />
       <TechStackSection />

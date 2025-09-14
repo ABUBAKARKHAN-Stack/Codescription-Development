@@ -1,6 +1,6 @@
 import { WhyChooseTetraCodeSection } from "@/components/section";
 import {
-  AboutPageHeader,
+  AboutHeroSection,
   OurStorySection,
   OurPrinciplesSection,
   TeamSection,
@@ -10,7 +10,7 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <AboutPageHeader />
+      <AboutHeroSection />
       <OurStorySection />
       <WhyChooseTetraCodeSection />
       <OurPrinciplesSection />
