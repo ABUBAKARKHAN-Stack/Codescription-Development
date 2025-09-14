@@ -25,19 +25,17 @@ const ContactSection = () => {
   } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
-
     try {
-       await fetch("/api/send",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(data)
-    })
-    reset();
-    alert("Message sent!")
+      await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      reset();
+      alert("Message sent!");
     } catch (error) {
-      alert("Something went wrong!")
+      alert("Something went wrong!");
     }
-   
   };
 
   return (

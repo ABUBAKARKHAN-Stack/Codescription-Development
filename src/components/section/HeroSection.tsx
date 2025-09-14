@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import ShootingStars from "../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
-
 import { Button } from "../ui/button";
 
 const Globe = dynamic(() => import("@/components/magicui/globe"), {

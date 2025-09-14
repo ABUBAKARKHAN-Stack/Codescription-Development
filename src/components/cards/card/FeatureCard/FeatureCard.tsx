@@ -94,13 +94,6 @@ const FeatureCard: FC<FeatureCardProps> = ({
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-br from-[oklch(0.65_0.22_295)]/40 via-[oklch(0.75_0.1_280)]/20 to-[oklch(0.8_0.08_300)]/30"
-              // animate={{
-              //   background: [
-              //     "radial-gradient(circle at 20% 50%, oklch(0.65 0.22 295 / 0.4), oklch(0.75 0.1 280 / 0.2), oklch(0.8 0.08 300 / 0.3))",
-              //     "radial-gradient(circle at 80% 50%, oklch(0.75 0.1 280 / 0.5), oklch(0.8 0.08 300 / 0.2), oklch(0.65 0.22 295 / 0.3))",
-              //     "radial-gradient(circle at 20% 50%, oklch(0.65 0.22 295 / 0.4), oklch(0.75 0.1 280 / 0.2), oklch(0.8 0.08 300 / 0.3))",
-              //   ],
-              // }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             />
 
