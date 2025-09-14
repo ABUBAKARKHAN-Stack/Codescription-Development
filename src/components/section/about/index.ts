@@ -1,4 +1,4 @@
-import AboutHeroSection from "./AboutHeroSecton";
+import AboutHeroSection from "./AboutHeroSection";
 import OurStorySection from "./OurStorySection";
 import OurPrinciplesSection from "./OurPrinciplesSection";
 import TeamSection from "./TeamSection";
