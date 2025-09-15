@@ -9,7 +9,7 @@ import { WhatWeDoCards } from "@/components/cards";
 const WhatWeDoSection = () => {
   return (
     <section
-      id="what-we-do"
+      id="what-we-do-section"
       className="h-full w-full overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
     >
       <ContainerLayout>

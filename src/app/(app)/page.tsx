@@ -17,9 +17,9 @@ const Home = () => {
   return (
     <>
       <HeroSection />
+      <AboutUsSection />
       <WhatWeDoSection />
       <WhyChooseTetraCodeSection />
-      <AboutUsSection />
       <OurWorkSection />
       <TestimonialSection />
       <TechStackSection />
