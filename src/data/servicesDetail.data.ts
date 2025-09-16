@@ -14,25 +14,24 @@ export const serviceDetails = {
     icon: LayoutTemplate,
     shortDescription:
       "Build fast, responsive, and SEO-friendly websites tailored to your brand and goals.",
-    fullContent: `
-We specialize in modern web development using Next.js, React, and scalable backends.
-
-Our approach ensures your website isn't just beautiful but also **high-performing and secure**. From small business websites to enterprise-level platforms, we build digital experiences that convert visitors into customers.
-
-### What you get:
-- Responsive & SEO-friendly websites
-- Optimized for speed and performance
-- Secure and scalable architecture
-- CMS integrations (WordPress, Sanity, Strapi, etc.)
-
-### Technologies we use:
-Next.js, React, TailwindCSS, Node.js, TypeScript, Vercel/Netlify.
-    `,
+    fullContent: [
+      "We create modern, high-performing websites that combine clean design with reliable technology.",
+      "Whether you need a corporate site, a portfolio, or a large-scale platform, our focus is on delivering websites that load quickly, rank well on search engines, and provide a seamless experience across all devices.",
+    ],
     features: [
-      "Responsive Design",
-      "SEO Optimization",
-      "Fast Loading",
-      "CMS Integration",
+      {
+        title: "What’s Included",
+        items: [
+          "Fully responsive, mobile-first layouts",
+          "Optimized for SEO and speed",
+          "Scalable and secure architecture",
+          "CMS integrations (Sanity, WordPress, Strapi, etc.)",
+        ],
+      },
+      {
+        title: "Technologies",
+        items: ["Next.js", "React", "TailwindCSS", "Node.js", "TypeScript"],
+      },
     ],
   },
 
@@ -41,21 +40,25 @@ Next.js, React, TailwindCSS, Node.js, TypeScript, Vercel/Netlify.
     icon: Smartphone,
     shortDescription:
       "Create high-performance mobile apps designed for seamless use on iOS and Android devices.",
-    fullContent: `
-Our team builds robust cross-platform mobile apps with a focus on **scalability and great user experience**.
-
-We work closely with you from ideation to launch, ensuring your app meets user needs while staying technically future-proof.
-
-### Highlights:
-- Native-like performance
-- Modern UI/UX
-- Smooth deployment & app store publishing
-- Offline support and push notifications
-
-### Technologies we use:
-React Native, Flutter, Swift, Kotlin, Firebase, Expo.
-    `,
-    features: ["iOS & Android", "React Native", "Push Notifications"],
+    fullContent: [
+      "We build mobile apps that are fast, intuitive, and designed to grow with your business.",
+      "From strategy and design to deployment, we ensure your app delivers value to users while being reliable and scalable.",
+    ],
+    features: [
+      {
+        title: "Highlights",
+        items: [
+          "Native-like performance on iOS & Android",
+          "Clean and modern UI/UX design",
+          "App Store & Play Store publishing support",
+          "Offline support and push notifications",
+        ],
+      },
+      {
+        title: "Technologies",
+        items: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Expo"],
+      },
+    ],
   },
 
   "full-stack-development": {
@@ -63,21 +66,34 @@ React Native, Flutter, Swift, Kotlin, Firebase, Expo.
     icon: Layers3,
     shortDescription:
       "Deliver complete applications with robust backends and intuitive frontend experiences.",
-    fullContent: `
-We provide **end-to-end full stack solutions** that combine powerful backends with seamless frontends.
-
-Our developers cover everything from database design to frontend interaction, ensuring your product is efficient, secure, and user-friendly.
-
-### Services include:
-- REST & GraphQL APIs
-- Cloud hosting & deployments
-- Authentication & authorization
-- Real-time features (chat, live updates)
-
-### Technologies we use:
-Node.js, Express, Next.js, MongoDB, PostgreSQL, GraphQL, Docker, AWS.
-    `,
-    features: ["Frontend + Backend", "Cloud Hosting", "CI/CD Pipelines"],
+    fullContent: [
+      "We provide end-to-end development — covering everything from databases to user-facing interfaces.",
+      "Our full stack solutions ensure your product is secure, scalable, and user-friendly, all built with modern tools and best practices.",
+    ],
+    features: [
+      {
+        title: "Services",
+        items: [
+          "REST & GraphQL API development",
+          "Authentication & authorization",
+          "Cloud hosting and deployment pipelines",
+          "Real-time features like chat and live updates",
+        ],
+      },
+      {
+        title: "Technologies",
+        items: [
+          "Node.js",
+          "Express",
+          "Next.js",
+          "MongoDB",
+          "PostgreSQL",
+          "GraphQL",
+          "Docker",
+          "AWS",
+        ],
+      },
+    ],
   },
 
   "e-commerce": {
@@ -85,21 +101,32 @@ Node.js, Express, Next.js, MongoDB, PostgreSQL, GraphQL, Docker, AWS.
     icon: ShoppingCart,
     shortDescription:
       "Develop secure, scalable online stores with smooth checkout and payment integration.",
-    fullContent: `
-We build **e-commerce experiences** that are fast, secure, and designed to increase sales.
-
-From product catalogues to complex integrations with payment gateways and logistics, we deliver online stores that help your business scale globally.
-
-### What you get:
-- Custom storefronts with intuitive UI
-- Secure checkout & payment gateways
-- Inventory management and order tracking
-- Marketing integrations (email, analytics, recommendations)
-
-### Platforms & Tech:
-Shopify, WooCommerce, Next.js Commerce, Stripe, PayPal, Headless CMS.
-    `,
-    features: ["Shopping Cart", "Payment Integration", "Analytics Dashboard"],
+    fullContent: [
+      "We design and develop secure, conversion-focused online stores tailored to your business needs.",
+      "From product catalogs to payment gateways and logistics integrations, we deliver complete e-commerce solutions that help your business scale globally.",
+    ],
+    features: [
+      {
+        title: "What You Get",
+        items: [
+          "Custom storefronts with intuitive shopping flows",
+          "Secure checkout & multiple payment options",
+          "Inventory management and order tracking",
+          "Marketing integrations (email, analytics, recommendations)",
+        ],
+      },
+      {
+        title: "Platforms & Tech",
+        items: [
+          "Shopify",
+          "WooCommerce",
+          "Next.js Commerce",
+          "Stripe",
+          "PayPal",
+          "Headless CMS",
+        ],
+      },
+    ],
   },
 
   "ui-ux-design": {
@@ -107,21 +134,25 @@ Shopify, WooCommerce, Next.js Commerce, Stripe, PayPal, Headless CMS.
     icon: Paintbrush,
     shortDescription:
       "Design visually engaging and user-friendly interfaces that boost interaction and retention.",
-    fullContent: `
-We craft **beautiful and functional digital interfaces** that prioritize usability and aesthetics.
-
-Our process includes user research, wireframing, prototyping, and usability testing, ensuring your product looks great and feels intuitive.
-
-### Deliverables:
-- Wireframes & interactive prototypes
-- Design systems & style guides
-- User testing and iteration
-- Accessibility-first design
-
-### Tools we use:
-Figma, Sketch, Adobe XD, Framer.
-    `,
-    features: ["Wireframes", "Prototypes", "Design Systems"],
+    fullContent: [
+      "We design interfaces that are both beautiful and functional, ensuring every interaction feels natural and effortless.",
+      "Our design process blends research, creativity, and usability testing to create products that people love using.",
+    ],
+    features: [
+      {
+        title: "Deliverables",
+        items: [
+          "Wireframes & interactive prototypes",
+          "Complete design systems & style guides",
+          "User testing and iterative improvements",
+          "Accessibility-first approach",
+        ],
+      },
+      {
+        title: "Tools",
+        items: ["Figma", "Sketch", "Adobe XD", "Framer"],
+      },
+    ],
   },
 
   "devops-automation": {
@@ -129,18 +160,33 @@ Figma, Sketch, Adobe XD, Framer.
     icon: ServerCog,
     shortDescription:
       "Automate deployment and monitoring with CI/CD pipelines and modern cloud infrastructure.",
-    fullContent: `
-Our DevOps team ensures your systems are **resilient, scalable, and easy to maintain**. We automate deployments and monitoring, so you can ship faster with fewer errors.
-
-### Services:
-- CI/CD pipelines for rapid deployment
-- Infrastructure as Code (IaC)
-- Cloud migration & scaling
-- Monitoring, logging & alerting
-
-### Technologies we use:
-Docker, Kubernetes, AWS, Azure, GCP, GitHub Actions, Jenkins, Terraform.
-    `,
-    features: ["CI/CD", "Cloud Infrastructure", "Monitoring"],
+    fullContent: [
+      "We help teams deliver faster and safer with automation, monitoring, and cloud-native infrastructure.",
+      "Our DevOps services reduce downtime, speed up deployments, and make scaling simple.",
+    ],
+    features: [
+      {
+        title: "Services",
+        items: [
+          "Automated CI/CD pipelines",
+          "Infrastructure as Code (IaC)",
+          "Cloud migration & scaling",
+          "Monitoring, logging & alerting",
+        ],
+      },
+      {
+        title: "Technologies",
+        items: [
+          "Docker",
+          "Kubernetes",
+          "AWS",
+          "Azure",
+          "GCP",
+          "GitHub Actions",
+          "Jenkins",
+          "Terraform",
+        ],
+      },
+    ],
   },
 };

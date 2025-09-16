@@ -21,7 +21,7 @@ const Hero = () => {
   const isLg = useMediaQuery("((min-width:1024px) and (max-width:1280px))");
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
+    <section className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-900 to-slate-900">
       <ContainerLayout>
         {/* Animated background particles */}
         <Particles />
