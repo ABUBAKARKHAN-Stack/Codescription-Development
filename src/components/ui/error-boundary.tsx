@@ -259,7 +259,7 @@ export default function ErrorBoundary({
     setIsRetrying(true);
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      router.refresh();
+      window.location.reload();
     } catch (err) {
       console.error("Retry failed:", err);
     } finally {

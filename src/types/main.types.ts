@@ -10,6 +10,17 @@ type Position = {
   color: string;
 };
 
+interface IAuthor {
+  name: string;
+  source: string;
+  role: string;
+}
+
+interface IMainImage {
+  source: string;
+  alt: string;
+}
+
 enum TechStackTabs {
   FRONTEND = "frontend",
   BACKEND = "backend",
@@ -22,17 +33,9 @@ interface IBlog {
   title: string;
   slug: string;
   publishedAt: Date;
-  mainImage: {
-    source: string;
-    alt: string;
-  };
+  mainImage: IMainImage;
   body: PortableTextChild[];
-  author: {
-    bio: TypedObject[];
-    name: string;
-    slug: string;
-    source: string;
-  };
+  author: IAuthor;
 }
 
 type PortableTextBlock = {
@@ -49,9 +52,11 @@ type ErrorProps = {
 };
 
 export {
-  type Position,
   TechStackTabs,
+  type Position,
   type IBlog,
   type PortableTextBlock,
+  type IAuthor,
+  type IMainImage,
   type ErrorProps,
 };

@@ -34,8 +34,8 @@ const BlogPostsSection = async () => {
 
   return (
     <section className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {posts.map((post) => (
-        <BlogCard key={post.slug} post={post} />
+      {posts.map((post, i) => (
+        <BlogCard priority={i === 0} key={post.slug} post={post} />
       ))}
     </section>
   );

@@ -1,4 +1,4 @@
-import { brandName } from "@/constants/brandname.constants";
+import { brandName } from "@/constants/constants";
 import Link from "next/link";
 
 const FooterCopyRight = () => {

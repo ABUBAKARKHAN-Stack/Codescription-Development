@@ -4,7 +4,7 @@ import {
   MissionLeaderIllustration,
   VisionInnovationIllustration,
 } from "@/components/ui/illustrations";
-import { brandName } from "@/constants/brandname.constants";
+import { brandName } from "@/constants/constants";
 import {
   Handshake,
   Lightbulb,

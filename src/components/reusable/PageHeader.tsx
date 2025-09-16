@@ -10,7 +10,7 @@ type Props = {
   subText?: string;
   iconElement?: JSX.Element;
   children?: ReactNode;
-  className?:string
+  className?: string;
 };
 
 const PageHeader: FC<Props> = ({
@@ -18,7 +18,7 @@ const PageHeader: FC<Props> = ({
   subText,
   iconElement,
   children,
-  className
+  className,
 }) => {
   const [headerHeight, setHeaderHeight] = useState("");
 
@@ -44,7 +44,7 @@ const PageHeader: FC<Props> = ({
         "z-10 bg-gradient-to-b from-[#2a0347] via-purple-900 to-[#2a0347]",
         "pt-20",
         "relative w-full",
-        className
+        className,
       )}
     >
       <div

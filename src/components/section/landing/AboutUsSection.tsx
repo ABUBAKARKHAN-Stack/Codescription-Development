@@ -8,7 +8,7 @@ import { SectionHeader } from "@/components/reusable";
 import planet from "public/assets/imgs/planet.webp";
 import { Button } from "@/components/ui/button";
 import { PiRocket } from "react-icons/pi";
-import { brandName } from "@/constants/brandname.constants";
+import { brandName } from "@/constants/constants";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 

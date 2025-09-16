@@ -13,8 +13,7 @@ const blogFilterFields = `{
     author->{
     name,
     "source": image.asset._ref,
-    "slug": slug.current,
-    bio
+    role,
     },
     body
     }`;

@@ -1,5 +1,5 @@
 import { UserIcon } from "@sanity/icons";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export const authorType = defineType({
   name: "author",
@@ -10,13 +10,13 @@ export const authorType = defineType({
     defineField({
       name: "name",
       type: "string",
-    }),
-    defineField({
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "name",
-      },
+      validation: (Rule) =>
+        Rule.required()
+          .error("Author name is Required")
+          .min(5)
+          .error("Author name must be at least 5 characters long")
+          .max(50)
+          .error("Author name must not exceed 50 characters"),
     }),
     defineField({
       name: "image",
@@ -24,17 +24,18 @@ export const authorType = defineType({
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required().error("Author image is required"),
     }),
     defineField({
-      name: "bio",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "block",
-          styles: [{ title: "Normal", value: "normal" }],
-          lists: [],
-        }),
-      ],
+      name: "role",
+      type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .error("Role must be Required")
+          .min(2)
+          .error("Role must be at least 2 characters long")
+          .max(30)
+          .error("Role must not exceed 30 characters"),
     }),
   ],
   preview: {

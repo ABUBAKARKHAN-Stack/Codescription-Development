@@ -18,7 +18,7 @@ import { z } from "zod";
 import React from "react";
 import Image from "next/image";
 import { footerData } from "@/data/footer.data";
-import { brandName } from "@/constants/brandname.constants";
+import { brandName } from "@/constants/constants";
 
 const RenderFooterLinks = ({
   heading,

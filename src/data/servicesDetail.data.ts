@@ -56,7 +56,14 @@ export const serviceDetails = {
       },
       {
         title: "Technologies",
-        items: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "Expo"],
+        items: [
+          "React Native",
+          "Flutter",
+          "Swift",
+          "Kotlin",
+          "Firebase",
+          "Expo",
+        ],
       },
     ],
   },

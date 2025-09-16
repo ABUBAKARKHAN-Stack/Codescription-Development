@@ -6,13 +6,13 @@ import { brandName } from "@/constants/constants";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Sparkles } from "lucide-react";
 
-const AboutHeroSection = () => {
+const ContactHeroSection = () => {
   const { scrollToSection } = useScrollToSection();
 
   return (
     <PageHeader
-      pageHeading={`About ${brandName}`}
-      subText="Our journey is just one small step, into a bigger universe of possibilities."
+      pageHeading={` Contact ${brandName}`}
+      subText="Reach out today and let’s build something amazing together."
     >
       <ShootingStars />
       <Button
@@ -26,4 +26,4 @@ const AboutHeroSection = () => {
   );
 };
 
-export default AboutHeroSection;
+export default ContactHeroSection;

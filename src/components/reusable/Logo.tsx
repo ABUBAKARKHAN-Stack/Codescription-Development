@@ -1,4 +1,4 @@
-import { brandName } from "@/constants/brandname.constants";
+import { brandName } from "@/constants/constants";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";

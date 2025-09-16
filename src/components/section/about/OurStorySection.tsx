@@ -4,12 +4,9 @@ import { SectionHeader } from "@/components/reusable";
 import Particles from "@/components/ui/particles";
 import { storyItems } from "@/data/about.data";
 import { cn } from "@/lib/utils";
-import {
-  motion
-} from 'motion/react'
+import { motion } from "motion/react";
 
 const OurStorySection = () => {
-
   return (
     <section
       id="about-our-story-section"
@@ -20,15 +17,24 @@ const OurStorySection = () => {
         <section className="mt-10 w-full space-y-10">
           {storyItems.map(
             ({ title, content, icon: Icon, illustration }, idx) => {
-
               const isEven = idx % 2 == 0 ? true : false;
               const { key, svg: SVG } = illustration;
 
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 60, scale: 0.95, filter: "blur(8px)" }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  initial={{
+                    opacity: 0,
+                    y: 60,
+                    scale: 0.95,
+                    filter: "blur(8px)",
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    filter: "blur(0px)",
+                  }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{
                     delay: idx * 0.08,
@@ -44,10 +50,9 @@ const OurStorySection = () => {
                   <div className="relative z-10 mb-12">
                     <div className="mb-4 flex items-center justify-center gap-4 md:justify-start">
                       <div className="relative">
-
                         {/* Icon */}
-                        <span className="flex items-center justify-center rounded-xl bg-white/10 p-2 xsm:p-3 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
-                          <Icon className="size-5.5 xsm:size-7 text-white/90" />
+                        <span className="xsm:p-3 flex items-center justify-center rounded-xl bg-white/10 p-2 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                          <Icon className="xsm:size-7 size-5.5 text-white/90" />
                         </span>
 
                         {/* Animated ring */}
@@ -55,10 +60,10 @@ const OurStorySection = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <h3 className="text-2xl xsm:text-3xl font-bold tracking-tight text-white md:text-4xl xl:text-5xl">
+                        <h3 className="xsm:text-3xl text-2xl font-bold tracking-tight text-white md:text-4xl xl:text-5xl">
                           {title}
                         </h3>
-                        <div className="h-0.5 xsm:h-1 w-14 xsm:w-20 origin-left transform rounded-full bg-gradient-to-r from-white via-neutral-400 to-white transition-transform duration-500 group-hover:scale-x-125" />
+                        <div className="xsm:h-1 xsm:w-20 h-0.5 w-14 origin-left transform rounded-full bg-gradient-to-r from-white via-neutral-400 to-white transition-transform duration-500 group-hover:scale-x-125" />
                       </div>
                     </div>
                   </div>
@@ -72,7 +77,7 @@ const OurStorySection = () => {
                     )}
                   >
                     <div className="flex-1 space-y-6">
-                      <p className="text-sm xsm:text-lg leading-relaxed font-light tracking-wide text-white/90 md:text-xl xl:text-2xl">
+                      <p className="xsm:text-lg text-sm leading-relaxed font-light tracking-wide text-white/90 md:text-xl xl:text-2xl">
                         {content}
                       </p>
                     </div>
@@ -85,7 +90,7 @@ const OurStorySection = () => {
                           : "bg-transparent",
                       )}
                     >
-                      <div className="relative size-full min-[300px]:size-72 xsm:size-80 md:size-96 lg:size-[400px]">
+                      <div className="xsm:size-80 relative size-full min-[300px]:size-72 md:size-96 lg:size-[400px]">
                         <div className="relative z-10 transform transition-all duration-500 group-hover:scale-105">
                           <SVG className="size-full drop-shadow-2xl" />
                         </div>

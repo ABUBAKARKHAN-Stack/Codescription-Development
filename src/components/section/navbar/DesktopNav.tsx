@@ -20,10 +20,10 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
   const router = useRouter();
 
   const handleCTA = () => {
-    if (pathname === "/") {
-      scrollToSection("#get-in-touch-section");
-      return;
-    }
+    // if (pathname === "/") {
+    //   scrollToSection("#get-in-touch-section")
+    //   return;
+    // }
     router.push("/contact");
   };
   return (

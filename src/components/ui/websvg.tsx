@@ -3,7 +3,7 @@ const WebSvg = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 800 619"
     role="img"
-    className="w-[200px] sm:w-[300px] md:w-[350px] lg:w-[380px] xl:w-[500px] 2xl:w-[550px] h-auto"
+    className="h-auto w-[200px] sm:w-[300px] md:w-[350px] lg:w-[380px] xl:w-[500px] 2xl:w-[550px]"
   >
     <g transform="translate(-560 -231)">
       {/* Base shadow line */}
