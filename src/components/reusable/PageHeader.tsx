@@ -39,14 +39,13 @@ const PageHeader: FC<Props> = ({
     <header
       style={{ height: headerHeight }}
       className={cn(
-        "bg-gradient-to-b z-10 from-[#2a0347] via-purple-900 to-[#2a0347]",
+        "z-10 bg-gradient-to-b from-[#2a0347] via-purple-900 to-[#2a0347]",
         "pt-20",
-        "w-full relative",
+        "relative w-full",
       )}
     >
-
       <div
-        className="inset-0 absolute -z-20 opacity-25"
+        className="absolute inset-0 -z-20 opacity-25"
         style={{ backgroundImage: "url('/assets/bg-pattern.svg')" }}
       />
       <Particles
@@ -54,7 +53,6 @@ const PageHeader: FC<Props> = ({
         particlesStyles="opacity-0"
         className="-z-10"
       />
-
 
       <ContainerLayout className="h-full">
         <section className="flex size-full flex-col items-center justify-center gap-y-8">

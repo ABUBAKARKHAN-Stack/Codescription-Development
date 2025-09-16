@@ -40,8 +40,9 @@ const ContactSection = () => {
 
   return (
     <section
-    id="get-in-touch-section"
-    className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white">
+      id="get-in-touch-section"
+      className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white"
+    >
       <ContainerLayout>
         <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
           {/* Left content */}

@@ -3,10 +3,10 @@ const WebSvg = () => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 800 619"
     role="img"
-    className="w-full max-w-[650px] h-auto"
+    className="h-auto w-full max-w-[650px]"
   >
     <g transform="translate(-560 -231)">
-       {/* Base shadow line */}
+      {/* Base shadow line */}
       <path
         d="M15.18,488.765a1.456,1.456,0,0,0,1.308,1.575H668.472a1.6,1.6,0,0,0,0-3.15H16.488a1.456,1.456,0,0,0-1.308,1.575Z"
         transform="translate(621.678 359.527)"
@@ -17,10 +17,10 @@ const WebSvg = () => (
       <path
         d="M353.105,370.945a27.478,27.478,0,0,1-54.387,0H229.146V524.776H422.677V370.945H353.105Z"
         transform="translate(634.09 321.941)"
-        fill="#a78bfa"  // Purple shade (Tailwind purple-400)
+        fill="#a78bfa"
         opacity="0.7"
       />
-    
+
       {/* Outer Frame */}
       <path
         d="M789.214,487.736H10.789A10.8,10.8,0,0,1,0,476.947V32.7A10.8,10.8,0,0,1,10.789,21.911H789.214A10.8,10.8,0,0,1,800,32.7V476.947a10.8,10.8,0,0,1-10.789,10.789Z"
