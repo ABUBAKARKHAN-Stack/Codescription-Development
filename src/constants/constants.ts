@@ -1,5 +1,5 @@
 const brandName = "Codescription";
-const baseUrl = "http://localhost:3000/"
+const baseUrl = "codescription-development.vercel.app/"
 
 const toastBaseStyling = {
     borderRadius: "0.5rem",
