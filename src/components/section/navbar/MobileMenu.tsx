@@ -1,4 +1,5 @@
 import { Logo } from "@/components/reusable";
+import { Button } from "@/components/ui/button";
 import {
   SheetContent,
   SheetDescription,
@@ -7,7 +8,9 @@ import {
 } from "@/components/ui/sheet";
 import { navLinks } from "@/data/navItems";
 import { cn } from "@/lib/utils";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { Dispatch, FC, SetStateAction } from "react";
 
 type Props = {
@@ -15,7 +18,19 @@ type Props = {
   pathname: string;
 };
 
+
 const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
+
+  const router =useRouter()
+
+  const handleCTA = () => {
+    // if (pathname === "/") {
+    //   scrollToSection("#get-in-touch-section")
+    //   return;
+    // }
+    router.push("/contact")
+  }
+  
   return (
     <SheetContent
       side="left"
@@ -47,6 +62,14 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
           );
         })}
       </ul>
+      <Button
+        className="group cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)]  "
+        size={"lg"}
+        onClick={handleCTA}
+      >
+        Get in Touch
+        <ChevronRight className="size-5 scale-90 stroke-[2.5px] transition-all duration-200 ease-in-out group-hover:scale-100 group-hover:rotate-180" />
+      </Button>
     </SheetContent>
   );
 };
