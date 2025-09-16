@@ -15,9 +15,7 @@ export const useScrollToSection = () => {
   const lenis = useLenis();
 
   const scrollToSection = useCallback(
-    (selector: string,) => {
-
-
+    (selector: string) => {
       let target: HTMLElement | null = null;
 
       if (
@@ -30,10 +28,7 @@ export const useScrollToSection = () => {
         target = document.getElementById(selector);
       }
 
-
-
       if (target) {
-
         target.scrollIntoView({ behavior: "smooth" });
       } else {
         console.warn(`Element not found for selector: ${selector}`);

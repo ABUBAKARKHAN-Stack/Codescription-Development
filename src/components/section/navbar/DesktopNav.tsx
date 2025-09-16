@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Logo } from "@/components/reusable";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger } from "@/components/ui/sheet";
@@ -16,9 +16,7 @@ type Props = {
 };
 
 const DesktopNav: FC<Props> = ({ pathname }) => {
-  const {
-    scrollToSection
-  } = useScrollToSection()
+  const { scrollToSection } = useScrollToSection();
   const router = useRouter();
 
   const handleCTA = () => {

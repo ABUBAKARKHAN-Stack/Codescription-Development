@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 
 export default function AboutUsSection() {
   const aboutRef = useRef(null);
-  const router = useRouter()
+  const router = useRouter();
 
   const inView = useInView(aboutRef, {
     margin: "-100px",
@@ -86,7 +86,7 @@ export default function AboutUsSection() {
 
             <Button
               size={"lg"}
-              onClick={() => router.push('/about')}
+              onClick={() => router.push("/about")}
               className="group overflow-hidden rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
             >
               Learn More About Us

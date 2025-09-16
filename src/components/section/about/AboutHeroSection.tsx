@@ -18,7 +18,7 @@ const AboutHeroSection = () => {
       <Button
         size={"lg"}
         onClick={() => scrollToSection("#about-our-story-section")}
-        className="font-orbitron rounded-full bg-primary/10 !p-6 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25"
+        className="font-orbitron bg-primary/10 rounded-full !p-6 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25"
       >
         Explore Who We Are <Sparkles className="size-5" />
       </Button>

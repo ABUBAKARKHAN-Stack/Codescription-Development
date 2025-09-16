@@ -1,5 +1,18 @@
+import {
+  BeyondDreamsIllustration,
+  DeepThinkerIllustration,
+  MissionLeaderIllustration,
+  VisionInnovationIllustration,
+} from "@/components/ui/illustrations";
 import { brandName } from "@/constants/brandname.constants";
-import { Handshake, Lightbulb, Users } from "lucide-react";
+import {
+  Handshake,
+  Lightbulb,
+  Users,
+  Target,
+  WandSparkles,
+  Globe2,
+} from "lucide-react";
 import { PiRocket } from "react-icons/pi";
 
 const aboutUsSectionHeader = {
@@ -15,6 +28,11 @@ const ourStats = [
 const storyItems = [
   {
     title: "How It All Began",
+    illustration: {
+      key: "DeepThinkerIllustration",
+      svg: DeepThinkerIllustration,
+    },
+    icon: WandSparkles,
     content: (
       <>
         <span className="relative inline-block px-1 font-semibold">
@@ -31,6 +49,12 @@ const storyItems = [
   },
   {
     title: "Our Mission",
+    icon: Target,
+    illustration: {
+      key: "MissionLeaderIllustration",
+      svg: MissionLeaderIllustration,
+    },
+
     content: (
       <>
         At{" "}
@@ -47,6 +71,11 @@ const storyItems = [
   },
   {
     title: "Our Vision",
+    icon: Globe2,
+    illustration: {
+      key: "VisionInnovationIllustration",
+      svg: VisionInnovationIllustration,
+    },
     content: (
       <>
         At{" "}
@@ -64,6 +93,11 @@ const storyItems = [
   },
   {
     title: "Today & Beyond",
+    icon: PiRocket,
+    illustration: {
+      key: "BeyondDreamsIllustration",
+      svg: BeyondDreamsIllustration,
+    },
     content: (
       <>
         Today, we continue to move forward with the same passion and energy that
