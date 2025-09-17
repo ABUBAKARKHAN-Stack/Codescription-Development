@@ -33,20 +33,32 @@ const BlogDetailsPage: FC<Props> = async ({ params }) => {
     <>
       <Head>
         <title>{post.title}</title>
+
+        {/* Open Graph */}
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={"Read this article"} />
+        <meta property="og:description" content="Read this article" />
         <meta
           property="og:image"
-          content={urlFor(post.mainImage.source).width(1200).height(630).url()}
+          content={urlFor(post.mainImage.source)
+            .width(1200)
+            .height(630)
+            .format("jpg")
+            .url()}
         />
         <meta property="og:url" content={`${baseUrl}/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
+
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={"Read this article"} />
+        <meta name="twitter:description" content="Read this article" />
         <meta
           name="twitter:image"
-          content={urlFor(post.mainImage.source).width(1200).height(630).url()}
+          content={urlFor(post.mainImage.source)
+            .width(1200)
+            .height(630)
+            .format("jpg")
+            .url()}
         />
       </Head>
 
