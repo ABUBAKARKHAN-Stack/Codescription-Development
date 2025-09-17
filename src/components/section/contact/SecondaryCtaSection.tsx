@@ -7,6 +7,7 @@ import choose from "../../../../public/assets/imgs/choose.svg";
 import { ContainerLayout } from "@/components/layout";
 import Image from "next/image";
 import ContactCardServices from "../services/ContactCardServices";
+import { ChooseIllustration } from "@/components/ui/illustrations";
 
 function SecondaryCtaSection() {
   return (
@@ -62,7 +63,9 @@ function SecondaryCtaSection() {
             </div>
           </div>
           <div className="hidden max-w-[500px] scale-x-[-1] lg:block">
-            <Image className="" src={choose} alt="image" />
+            <ChooseIllustration
+              className="size-full"
+            />
           </div>
         </motion.div>
       </ContainerLayout>

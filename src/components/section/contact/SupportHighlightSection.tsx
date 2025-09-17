@@ -2,11 +2,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Handshake, Users } from "lucide-react";
-import Link from "next/link";
-import support from "../../../../public/assets/imgs/support.svg";
 import { SectionHeader } from "@/components/reusable";
 import { ContainerLayout } from "@/components/layout";
-import Image from "next/image";
+import { SupportIllustration } from "@/components/ui/illustrations";
 
 function SupportHighlightSection() {
   return (
@@ -35,7 +33,9 @@ function SupportHighlightSection() {
             </div>
           </div>
           <div className="hidden max-w-[500px] lg:block">
-            <Image className="" src={support} alt="support" />
+            <SupportIllustration
+              className="size-full"
+            />
           </div>
         </motion.div>
       </ContainerLayout>

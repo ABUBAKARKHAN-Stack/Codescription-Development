@@ -71,7 +71,7 @@ const FooterTop = () => {
       >
         <div className="flex items-center gap-2 space-y-1">
           <Image
-            src="/assets/cs-fav.svg"
+            src="/assets/cs-favicon.svg"
             alt={`${brandName} - Favicon`}
             className="size-[45px] object-contain min-[420px]:size-[25px]"
             width={45}

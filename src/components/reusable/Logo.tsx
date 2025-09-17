@@ -20,21 +20,23 @@ const Logo: FC<Props> = ({
     <>
       {!clickable && (
         <Image
-          src={"/assets/cs-logo.png"}
+          src={"/assets/cs-logo-1.svg"}
           width={width}
           height={height}
           alt={`${brandName} - Logo`}
           className={`${className} drop-shadow-md drop-shadow-black/75`}
+          priority
         />
       )}
       {clickable && (
         <Link href={"/"}>
           <Image
-            src={"/assets/cs-logo.png"}
+            src={"/assets/cs-logo.svg"}
             width={width}
             height={height}
             alt={`${brandName} - Logo`}
             className={`${className} drop-shadow-md drop-shadow-black/75`}
+            priority
           />
         </Link>
       )}

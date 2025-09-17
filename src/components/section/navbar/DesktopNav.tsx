@@ -29,7 +29,7 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
   return (
     <div className="flex h-full items-center justify-between">
       {/* Logo Section */}
-      <Logo className="xsm:h-10 h-9 w-auto lg:h-12.5" clickable />
+      <Logo className="xsm:h-10 h-9 w-auto lg:h-16" clickable />
 
       {/* Mobile Menu Toggle */}
 
