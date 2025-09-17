@@ -63,9 +63,7 @@ function SecondaryCtaSection() {
             </div>
           </div>
           <div className="hidden max-w-[500px] scale-x-[-1] lg:block">
-            <ChooseIllustration
-              className="size-full"
-            />
+            <ChooseIllustration className="size-full" />
           </div>
         </motion.div>
       </ContainerLayout>

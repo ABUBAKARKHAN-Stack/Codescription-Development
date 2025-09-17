@@ -20,7 +20,7 @@ const Logo: FC<Props> = ({
     <>
       {!clickable && (
         <Image
-          src={"/assets/cs-logo-1.svg"}
+          src={"/assets/cs-logo.svg"}
           width={width}
           height={height}
           alt={`${brandName} - Logo`}

@@ -69,11 +69,10 @@ const FooterTop = () => {
         className="flex max-w-sm flex-col gap-y-4"
         aria-labelledby="newsletter-heading"
       >
-        <div className="flex items-center gap-2 space-y-1">
           <Image
-            src="/assets/cs-favicon.svg"
-            alt={`${brandName} - Favicon`}
-            className="size-[45px] object-contain min-[420px]:size-[25px]"
+            src="/assets/cs-logo-2.svg"
+            alt={`${brandName} - Logo 2`}
+            className="size-20 object-contain"
             width={45}
             height={45}
           />
@@ -84,7 +83,6 @@ const FooterTop = () => {
             Stay Updated with{" "}
             <span className="font-extrabold">{brandName}</span>
           </h2>
-        </div>
         <div className="flex flex-col gap-y-2">
           <p className="text-muted-foreground text-sm">
             Get the latest tech insights, industry news, and exclusive updates

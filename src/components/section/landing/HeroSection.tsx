@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import ContainerLayout from "../../layout/ContainerLayout";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion } from "framer-motion";
-import ShootingStars from "../../ui/shootingStars";
 import { PiPlanet } from "react-icons/pi";
 import dynamic from "next/dynamic";
 import { Button } from "../../ui/button";
@@ -26,8 +25,6 @@ const Hero = () => {
         {/* Animated background particles */}
         <Particles />
 
-        {/* Shooting Starts */}
-        <ShootingStars />
         {/* Main content */}
         <div className="relative z-10 flex min-h-screen items-center">
           <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
@@ -68,7 +65,7 @@ const Hero = () => {
               {/* CTA Button */}
               <Button
                 size={"lg"}
-                onClick={() => scrollToSection("#what-we-do")}
+                onClick={() => scrollToSection("#about-us-section")}
                 className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-purple-500/25 md:text-lg"
               >
                 Explore Our Universe <PiPlanet className="size-5" />
@@ -113,18 +110,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <button
-          onClick={() => scrollToSection("#what-we-do")}
-          className="group absolute bottom-8 left-1/2 z-20 -translate-x-1/2 transform cursor-pointer"
-        >
-          <div className="flex flex-col items-center text-purple-300 transition-colors duration-300 hover:text-white">
-            <span className="mb-2 text-sm opacity-75 group-hover:opacity-100">
-              Scroll to explore
-            </span>
-            <ChevronDown className="h-6 w-6 animate-bounce" />
-          </div>
-        </button>
       </ContainerLayout>
     </section>
   );

@@ -18,18 +18,17 @@ type Props = {
 const DesktopNav: FC<Props> = ({ pathname }) => {
   const { scrollToSection } = useScrollToSection();
   const router = useRouter();
+  const isContactActive = pathname === "/contact";
+
+
 
   const handleCTA = () => {
-    // if (pathname === "/") {
-    //   scrollToSection("#get-in-touch-section")
-    //   return;
-    // }
     router.push("/contact");
   };
   return (
     <div className="flex h-full items-center justify-between">
       {/* Logo Section */}
-      <Logo className="xsm:h-10 h-9 w-auto lg:h-16" clickable />
+      <Logo className="h-11 w-auto lg:h-16" clickable />
 
       {/* Mobile Menu Toggle */}
 
@@ -64,12 +63,20 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
         })}
       </ul>
       <Button
-        className="group hidden cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)] duration-300 hover:scale-110 lg:inline-flex"
+        className={cn(
+          "group hidden cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)] duration-300 hover:scale-110 lg:inline-flex",
+          isContactActive && "scale-110 bg-purple-700/90"
+        )}
         size={"lg"}
         onClick={handleCTA}
       >
         Get in Touch
-        <ChevronRight className="size-5 scale-90 stroke-[2.5px] transition-all duration-200 ease-in-out group-hover:scale-100 group-hover:rotate-180" />
+        <ChevronRight className={cn(
+          "size-5 scale-90 stroke-[2.5px]",
+          "transition-all duration-200 ease-in-out",
+          "group-hover:scale-100 group-hover:rotate-180",
+          isContactActive && "scale-100 rotate-180"
+        )} />
       </Button>
     </div>
   );

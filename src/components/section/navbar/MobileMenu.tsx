@@ -22,12 +22,10 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
   const router = useRouter();
 
   const handleCTA = () => {
-    // if (pathname === "/") {
-    //   scrollToSection("#get-in-touch-section")
-    //   return;
-    // }
     router.push("/contact");
   };
+
+  const isContactActive = pathname === "/contact"
 
   return (
     <SheetContent
@@ -36,7 +34,7 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
     >
       <SheetHeader>
         <SheetTitle className="mt-5 flex items-center">
-          <Logo className="xsm:h-10 h-9 w-auto lg:h-12.5" />
+          <Logo className="w-auto h-20 -ml-5" />
         </SheetTitle>
         <SheetDescription />
       </SheetHeader>
@@ -61,12 +59,20 @@ const MobileMenu: FC<Props> = ({ pathname, setOpen }) => {
         })}
       </ul>
       <Button
-        className="group cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)]"
+        className={cn(
+          "group cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)]",
+          isContactActive && "bg-purple-700/90"
+        )}
         size={"lg"}
         onClick={handleCTA}
       >
         Get in Touch
-        <ChevronRight className="size-5 scale-90 stroke-[2.5px] transition-all duration-200 ease-in-out group-hover:scale-100 group-hover:rotate-180" />
+        <ChevronRight className={cn(
+          "size-5 scale-90 stroke-[2.5px]",
+          "group-hover:scale-100 group-hover:rotate-180",
+          "transition-all duration-200 ease-in-out",
+          isContactActive && "scale-100 rotate-180"
+        )} />
       </Button>
     </SheetContent>
   );

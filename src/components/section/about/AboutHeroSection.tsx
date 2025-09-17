@@ -1,7 +1,6 @@
 "use client";
 import { PageHeader } from "@/components/reusable";
 import { Button } from "@/components/ui/button";
-import ShootingStars from "@/components/ui/shootingStars";
 import { brandName } from "@/constants/constants";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Sparkles } from "lucide-react";
@@ -14,7 +13,6 @@ const AboutHeroSection = () => {
       pageHeading={`About ${brandName}`}
       subText="Our journey is just one small step, into a bigger universe of possibilities."
     >
-      <ShootingStars />
       <Button
         size={"lg"}
         onClick={() => scrollToSection("#about-our-story-section")}

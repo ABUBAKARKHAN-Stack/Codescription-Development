@@ -1,8 +1,6 @@
 "use client";
 import { PageHeader } from "@/components/reusable";
 import { Button } from "@/components/ui/button";
-import ShootingStars from "@/components/ui/shootingStars";
-import { brandName } from "@/constants/constants";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 import { Sparkles } from "lucide-react";
 
@@ -14,7 +12,6 @@ const ServicesHero = () => {
       pageHeading={`Codescription Services`}
       subText="Where ideas find their shape."
     >
-      <ShootingStars />
       <Button
         size={"lg"}
         onClick={() => scrollToSection("#what-we-do-section")}

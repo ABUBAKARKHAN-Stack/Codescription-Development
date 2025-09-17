@@ -80,14 +80,14 @@ const ContactSection = () => {
           <div>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6 rounded-2xl p-8 shadow-2xl backdrop-blur-3xl lg:w-[500px]"
+              className="space-y-6 rounded-2xl border border-white/5 bg-white/2.5 p-8 shadow-2xl backdrop-blur-3xl lg:w-[500px]"
             >
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
                   placeholder="Your Name"
-                  className="border-brand/50 border-2"
+                  className="border-2 border-purple-500"
                   {...register("name", { required: "Name is required" })}
                 />
                 {errors.name && (
@@ -100,7 +100,7 @@ const ContactSection = () => {
                 <Input
                   id="email"
                   placeholder="Your Email"
-                  className="border-brand/50 border-2"
+                  className="border-2 border-purple-500"
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -120,7 +120,7 @@ const ContactSection = () => {
                   id="message"
                   rows={4}
                   placeholder="Write your message..."
-                  className="border-brand/50 border-2"
+                  className="border-2 border-purple-500"
                   {...register("message", { required: "Message is required" })}
                 />
                 {errors.message && (

@@ -103,7 +103,6 @@ const BlogDetailsPage: FC<Props> = async ({ params }) => {
                 </div>
               </div>
             </div>
-
           </section>
         </ContainerLayout>
       </div>

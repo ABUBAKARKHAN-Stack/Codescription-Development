@@ -33,9 +33,7 @@ function SupportHighlightSection() {
             </div>
           </div>
           <div className="hidden max-w-[500px] lg:block">
-            <SupportIllustration
-              className="size-full"
-            />
+            <SupportIllustration className="size-full" />
           </div>
         </motion.div>
       </ContainerLayout>

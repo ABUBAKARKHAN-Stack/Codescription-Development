@@ -35,7 +35,7 @@ export const blockContentType = defineType({
       ],
       lists: [
         { title: "Bullet", value: "bullet" },
-        { title: "Numbers", value: "number" }
+        { title: "Numbers", value: "number" },
       ],
       // Marks let you mark up inline text in the Portable Text Editor
       marks: {
