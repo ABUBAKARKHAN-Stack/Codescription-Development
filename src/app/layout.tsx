@@ -4,7 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { brandName } from "@/constants/constants";
-import { Toaster } from 'sonner'
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -44,10 +44,7 @@ export default function RootLayout({
       >
         {/* <LenisProvider> */}
         {children}
-        <Toaster
-          position='top-center'
-          duration={2000}
-        />
+        <Toaster position="top-center" duration={2000} />
 
         <Analytics />
         <SpeedInsights />
