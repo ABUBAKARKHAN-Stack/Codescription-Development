@@ -37,27 +37,7 @@ export async function generateMetadata({
     alternates: {
       canonical: `${baseUrl}services/${slug}`,
     },
-    openGraph: {
-      title: `${service.title} | ${brandName}`,
-      description: service.shortDescription,
-      url: `${baseUrl}services/${slug}`,
-      siteName: brandName,
-      type: "article",
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: `${service.title} preview`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${service.title} | ${brandName}`,
-      description: service.shortDescription,
-      images: [ogImageUrl],
-    },
+   
   };
 }
 
