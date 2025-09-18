@@ -3,6 +3,8 @@ import { serviceDetails } from "@/data/servicesDetail.data";
 import { PageHeader } from "@/components/reusable";
 import { ContainerLayout } from "@/components/layout";
 import ContactCardServices from "@/components/section/services/ContactCardServices";
+import { Metadata } from "next";
+import { baseUrl, brandName } from "@/constants/constants";
 
 export async function generateStaticParams() {
   return Object.keys(serviceDetails).map((slug) => ({
@@ -10,27 +12,53 @@ export async function generateStaticParams() {
   }));
 }
 
+
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
-}) {
-  const service  = serviceDetails[params.slug as keyof typeof serviceDetails ]
+  params: { slug: string };
+}): Promise<Metadata> {
+  const service = serviceDetails[params.slug as keyof typeof serviceDetails];
 
-   if (!service) {
+  if (!service) {
     return {
-      title: "Service Not Found",
+      title: "Service Not Found | " + brandName,
       description: "The requested service does not exist.",
+      robots: { index: false },
     };
   }
+
+  const ogImageUrl = `${baseUrl}services/${params.slug}/opengraph-image`;
 
   return {
     title: service.title,
     description: service.shortDescription,
-    
-  }
+    alternates: {
+      canonical: `${baseUrl}services/${params.slug}`,
+    },
+    openGraph: {
+      title: `${service.title} | ${brandName}`,
+      description: service.shortDescription,
+      url: `${baseUrl}services/${params.slug}`,
+      siteName: brandName,
+      type: "article",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${service.title} preview`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | ${brandName}`,
+      description: service.shortDescription,
+      images: [ogImageUrl],
+    },
+  };
 }
- 
 
 type ParamType = {
   params: Promise<{ slug: string }>;

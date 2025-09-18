@@ -1,5 +1,3 @@
-// (app)/services/[slug]/opengraph-image.tsx
-
 import { ImageResponse } from 'next/og';
 import { serviceDetails } from '@/data/servicesDetail.data';
 
@@ -30,6 +28,6 @@ export default async function Image({ params }: { params: { slug: string } }) {
         {service.title}
       </div>
     ),
-    { width: size.width, height: size.height }
-  );
+    { width: size.width, height: size.height }
+  );
 }
