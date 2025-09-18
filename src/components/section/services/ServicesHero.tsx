@@ -10,7 +10,7 @@ const ServicesHero = () => {
   return (
     <PageHeader
       pageHeading={`Codescription Services`}
-      subText="Where ideas find their shape."
+      subText="Each service is a spark, igniting new horizons in the universe of possibilities."
     >
       <Button
         size={"lg"}

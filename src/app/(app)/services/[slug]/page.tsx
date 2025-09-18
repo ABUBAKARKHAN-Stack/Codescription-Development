@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
 import { serviceDetails } from "@/data/servicesDetail.data";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/reusable";
-import ReactMarkDown from "react-markdown";
 import { ContainerLayout } from "@/components/layout";
 import ContactCardServices from "@/components/section/services/ContactCardServices";
 
@@ -12,6 +9,28 @@ export async function generateStaticParams() {
     slug,
   }));
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const service  = serviceDetails[params.slug as keyof typeof serviceDetails ]
+
+   if (!service) {
+    return {
+      title: "Service Not Found",
+      description: "The requested service does not exist.",
+    };
+  }
+
+  return {
+    title: service.title,
+    description: service.shortDescription,
+    
+  }
+}
+ 
 
 type ParamType = {
   params: Promise<{ slug: string }>;
