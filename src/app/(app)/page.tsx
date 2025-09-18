@@ -6,7 +6,7 @@ import {
   WhatWeDoSection,
   WhyChooseTetraCodeSection,
   AboutUsSection,
-  OurWorkSection,
+  // OurWorkSection,
   TestimonialSection,
   TechStackSection,
   ContactSection,
@@ -20,7 +20,7 @@ const Home = () => {
       <AboutUsSection />
       <WhatWeDoSection />
       <WhyChooseTetraCodeSection />
-      <OurWorkSection />
+      {/* <OurWorkSection /> */}
       <TestimonialSection />
       <TechStackSection />
       <ContactSection />

@@ -11,7 +11,7 @@ const BlogPostsSection = async () => {
 
   if (!posts || posts.length === 0) {
     return (
-      <section className="flex flex-col items-center justify-center text-center">
+      <section className="flex flex-col items-center justify-center py-12 text-center">
         <div className="mx-auto max-w-lg px-6">
           <div className="rounded-2xl border border-white/5 bg-white/5 p-8 shadow-xl backdrop-blur-sm">
             <FileIcon className="mx-auto mb-6 size-20 text-white/40" />

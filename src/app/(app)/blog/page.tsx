@@ -1,6 +1,5 @@
 import { ContainerLayout } from "@/components/layout";
 import { PageHeader } from "@/components/reusable";
-
 import React from "react";
 import { SanityLive } from "@/sanity/lib/live";
 import { BlogPostsSection } from "@/components/section/blog";
