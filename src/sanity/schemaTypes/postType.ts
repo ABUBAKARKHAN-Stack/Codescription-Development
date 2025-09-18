@@ -20,6 +20,18 @@ export const postType = defineType({
           .error("Title must not exceed 100 characters"),
     }),
     defineField({
+      name: "description",
+      title: "Description",
+      type: "string",
+      validation: (Rule) =>
+        Rule.required()
+          .error("Post description is required")
+          .min(50)
+          .error("Description must be at least 50 characters long")
+          .max(200)
+          .error("Description must not exceed 200 characters"),
+    }),
+    defineField({
       name: "slug",
       title: "Slug",
       type: "slug",

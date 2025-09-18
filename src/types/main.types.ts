@@ -31,6 +31,7 @@ enum TechStackTabs {
 
 interface IBlog {
   title: string;
+  description: string;
   slug: string;
   publishedAt: Date;
   mainImage: IMainImage;

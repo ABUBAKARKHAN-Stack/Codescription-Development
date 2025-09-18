@@ -4,6 +4,7 @@ import { draftMode } from "next/headers";
 
 const blogFilterFields = `{
     title,
+    description,
     "slug":slug.current,
     mainImage{
     "source":asset._ref,
@@ -43,7 +44,7 @@ async function getPost(slug: string, preview = false) {
       params: { slug },
       perspective: isDraft ? "drafts" : "published",
     });
-
+    
     if (!data) return null;
 
     return data as IBlog;

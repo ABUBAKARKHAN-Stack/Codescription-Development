@@ -1,11 +1,14 @@
-import Link from "next/link";
+import NotFound from '@/components/ui/not-found';
+import { brandName } from '@/constants/constants';
+import { Metadata } from 'next';
 
-export default function NotFound() {
-  return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link href="/">Return Home</Link>
-    </div>
-  );
+
+export const metadata: Metadata = {
+  title: `Page not found | ${brandName}`,
+  description: `Oops! This page doesn’t exist. Return to the homepage to continue exploring ${brandName}.`,
+  robots: { index: false }
+}
+
+export default function GlobalNotFoundPage() {
+  return <NotFound />
 }
