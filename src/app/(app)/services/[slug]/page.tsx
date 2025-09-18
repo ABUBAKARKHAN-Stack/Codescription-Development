@@ -16,9 +16,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const service = serviceDetails[params.slug as keyof typeof serviceDetails];
+  const { slug } = await params
+  const service = serviceDetails[slug as keyof typeof serviceDetails];
 
   if (!service) {
     return {
@@ -28,18 +29,18 @@ export async function generateMetadata({
     };
   }
 
-  const ogImageUrl = `${baseUrl}services/${params.slug}/opengraph-image`;
+  const ogImageUrl = `${baseUrl}services/${slug}/opengraph-image`;
 
   return {
     title: service.title,
     description: service.shortDescription,
     alternates: {
-      canonical: `${baseUrl}services/${params.slug}`,
+      canonical: `${baseUrl}services/${slug}`,
     },
     openGraph: {
       title: `${service.title} | ${brandName}`,
       description: service.shortDescription,
-      url: `${baseUrl}services/${params.slug}`,
+      url: `${baseUrl}services/${slug}`,
       siteName: brandName,
       type: "article",
       images: [
