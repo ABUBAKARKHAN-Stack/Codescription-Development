@@ -9,8 +9,8 @@ import { brandName } from "@/constants/constants";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: `Read expert insights, tutorials, and updates on software development, web technologies, and IT trends from ${brandName}`
-}
+  description: `Read expert insights, tutorials, and updates on software development, web technologies, and IT trends from ${brandName}`,
+};
 
 const Blog = async () => {
   return (

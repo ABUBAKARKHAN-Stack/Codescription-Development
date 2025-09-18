@@ -16,7 +16,8 @@ type Props = {
 };
 
 const BlogCard: FC<Props> = ({ post, priority = false }) => {
-  const { author, body, mainImage, publishedAt, slug, title } = post;
+  const { author, body, mainImage, publishedAt, slug, title, description } =
+    post;
 
   const getTextPreview = (
     portableTextContent: PortableTextBlock[] = [],
@@ -78,7 +79,9 @@ const BlogCard: FC<Props> = ({ post, priority = false }) => {
           </h2>
 
           <p className="text-accent-foreground line-clamp-2 text-xs leading-[1.6] transition-colors duration-300 sm:text-base sm:leading-[1.7]">
-            {body ? getTextPreview(body) : "Click to read the full article..."}
+            {description
+              ? description
+              : "Click Read Article to read the full article..."}
           </p>
         </div>
 

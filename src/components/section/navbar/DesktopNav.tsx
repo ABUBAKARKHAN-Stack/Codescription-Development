@@ -20,8 +20,6 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
   const router = useRouter();
   const isContactActive = pathname === "/contact";
 
-
-
   const handleCTA = () => {
     router.push("/contact");
   };
@@ -65,18 +63,20 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
       <Button
         className={cn(
           "group hidden cursor-pointer text-base shadow-[0px_0px_10px_rgba(0,0,0,0.2)] duration-300 hover:scale-110 lg:inline-flex",
-          isContactActive && "scale-110 bg-purple-700/90"
+          isContactActive && "scale-110 bg-purple-700/90",
         )}
         size={"lg"}
         onClick={handleCTA}
       >
         Get in Touch
-        <ChevronRight className={cn(
-          "size-5 scale-90 stroke-[2.5px]",
-          "transition-all duration-200 ease-in-out",
-          "group-hover:scale-100 group-hover:rotate-180",
-          isContactActive && "scale-100 rotate-180"
-        )} />
+        <ChevronRight
+          className={cn(
+            "size-5 scale-90 stroke-[2.5px]",
+            "transition-all duration-200 ease-in-out",
+            "group-hover:scale-100 group-hover:rotate-180",
+            isContactActive && "scale-100 rotate-180",
+          )}
+        />
       </Button>
     </div>
   );

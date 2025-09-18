@@ -10,8 +10,7 @@ import {
 } from "@/components/section/blog";
 import { urlFor } from "@/sanity/lib/image";
 import { baseUrl, brandName } from "@/constants/constants";
-import type { Metadata, ResolvingMetadata } from 'next'
-
+import type { Metadata, ResolvingMetadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -24,10 +23,9 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-
 export async function generateMetadata(
   { params }: Props,
-  _parent: ResolvingMetadata
+  _parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
 
@@ -37,13 +35,12 @@ export async function generateMetadata(
     return {
       title: `Blog not found | ${brandName}`,
       description: "Sorry, this blog post does not exist.",
-      robots: { index: false }
-    }
+      robots: { index: false },
+    };
   }
 
   const title = post.title;
-  const description =
-    post.description || `Read ${post.title} on ${brandName}`;
+  const description = post.description || `Read ${post.title} on ${brandName}`;
   const imageUrl = urlFor(post.mainImage.source)
     .quality(85)
     .width(1200)
@@ -65,7 +62,7 @@ export async function generateMetadata(
           width: 1200,
           height: 630,
           alt: post.mainImage.alt || title,
-        }
+        },
       ],
       type: "article",
       siteName: brandName,
@@ -74,9 +71,11 @@ export async function generateMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [{ url: imageUrl, alt: post.mainImage.alt, height: 630, width: 1200 }],
+      images: [
+        { url: imageUrl, alt: post.mainImage.alt, height: 630, width: 1200 },
+      ],
       creator: authorName,
-      site: baseUrl
+      site: baseUrl,
     },
     alternates: {
       canonical: `${baseUrl}/blog/${post.slug}`,
@@ -105,8 +104,8 @@ export async function generateMetadata(
           name: brandName,
         },
       }),
-    }
-  }
+    },
+  };
 }
 
 const BlogDetailsPage: FC<Props> = async ({ params }) => {
@@ -116,7 +115,6 @@ const BlogDetailsPage: FC<Props> = async ({ params }) => {
   if (!post) notFound();
 
   return (
-
     <div className="relative h-full min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900">
       <SanityLive />
 
@@ -129,7 +127,6 @@ const BlogDetailsPage: FC<Props> = async ({ params }) => {
 
       <ContainerLayout>
         <section className="mt-10 w-full">
-
           {/* Post Main Image */}
           <BlogMainImageSection
             mainImage={post.mainImage}
@@ -159,7 +156,6 @@ const BlogDetailsPage: FC<Props> = async ({ params }) => {
               </div>
             </div>
           </div>
-
         </section>
       </ContainerLayout>
     </div>

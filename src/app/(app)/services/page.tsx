@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 };
 
 const ServicePage = () => {
-
   return (
     <div>
       <ServicesHero />

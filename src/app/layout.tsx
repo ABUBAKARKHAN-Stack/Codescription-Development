@@ -28,9 +28,10 @@ const orbitron = Orbitron({
 export const metadata: Metadata = {
   title: {
     default: `${brandName} | Software Development Company`,
-    template: `%s | ${brandName}`
+    template: `%s | ${brandName}`,
   },
-  description: "We are a forward-thinking tech startup helping businesses build modern, scalable, and user-friendly digital solutions. From custom web applications to innovative software products, we combine creativity, technology, and strategy to drive growth and success.",
+  description:
+    "We are a forward-thinking tech startup helping businesses build modern, scalable, and user-friendly digital solutions. From custom web applications to innovative software products, we combine creativity, technology, and strategy to drive growth and success.",
   icons: {
     icon: "/assets/cs-favicon.svg",
   },
@@ -42,37 +43,18 @@ export const metadata: Metadata = {
     "modern digital solutions",
     "scalable web apps",
   ],
-  authors: [{ name: "Awais", url: "" }, { name: "Abubakar", url: "" }],
+  authors: [
+    { name: "Awais", url: "" },
+    { name: "Abubakar", url: "" },
+  ],
   creator: brandName,
   publisher: brandName,
   robots: "index, follow",
-
-  openGraph: {
-    title: brandName,
-    description: "We are a forward-thinking tech startup helping businesses build modern, scalable, and user-friendly digital solutions.",
-    url: baseUrl,
-    siteName: brandName,
-    images: {
-      url: "",
-      width: 1200,
-      height: 630,
-      alt: `${brandName}`
-    },
-    locale: "en_US",
-    type: "website"
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${brandName}`,
-    description: "We are a forward-thinking tech startup helping businesses build modern, scalable, and user-friendly digital solutions.",
-    creator: "",
-    images: [""],
-  },
   category: "technology",
   alternates: {
     canonical: baseUrl,
-  }
-}
+  },
+};
 
 export default function RootLayout({
   children,

@@ -12,13 +12,12 @@ export async function generateStaticParams() {
   }));
 }
 
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params
+  const { slug } = await params;
   const service = serviceDetails[slug as keyof typeof serviceDetails];
 
   if (!service) {
@@ -29,22 +28,18 @@ export async function generateMetadata({
     };
   }
 
-  const ogImageUrl = `${baseUrl}services/${slug}/opengraph-image`;
-
   return {
     title: service.title,
     description: service.shortDescription,
     alternates: {
-      canonical: `${baseUrl}services/${slug}`,
+      canonical: `${baseUrl}/services/${slug}`,
     },
-   
   };
 }
 
 type ParamType = {
   params: Promise<{ slug: string }>;
 };
-
 
 export default async function ServiceDetailPage({ params }: ParamType) {
   const { slug } = await params;

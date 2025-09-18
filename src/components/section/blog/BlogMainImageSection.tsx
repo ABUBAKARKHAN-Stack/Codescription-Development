@@ -7,8 +7,12 @@ import { urlFor } from "@/sanity/lib/image";
 import { IMainImage } from "@/types/main.types";
 import Image from "next/image";
 import React, { FC } from "react";
-import { FaCopy, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
-import { toast } from "sonner";
+import {
+  FaCopy,
+  FaFacebook,
+  FaLinkedin,
+  FaSquareXTwitter,
+} from "react-icons/fa6";
 
 type Props = {
   mainImage: IMainImage;
@@ -17,7 +21,7 @@ type Props = {
 };
 
 const BlogMainImageSection: FC<Props> = ({ mainImage, title, slug }) => {
-  const baseShareUrl = `${baseUrl}blog/${slug}`;
+  const baseShareUrl = `${baseUrl}/blog/${slug}`;
 
   const shareBlogItems = [
     {
@@ -31,6 +35,10 @@ const BlogMainImageSection: FC<Props> = ({ mainImage, title, slug }) => {
       shareUrl: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
         baseShareUrl,
       )}`,
+    },
+    {
+      icon: FaFacebook,
+      shareUrl: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(baseShareUrl)}`,
     },
     {
       icon: FaCopy,

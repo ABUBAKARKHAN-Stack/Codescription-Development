@@ -44,7 +44,7 @@ async function getPost(slug: string, preview = false) {
       params: { slug },
       perspective: isDraft ? "drafts" : "published",
     });
-    
+
     if (!data) return null;
 
     return data as IBlog;

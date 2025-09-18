@@ -1,5 +1,5 @@
-"use client"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+"use client";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Particles from "@/components/ui/particles";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,11 @@ const NotFound = () => {
   const router = useRouter();
 
   return (
-    <main className="h-full min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex justify-center items-center relative">
+    <main className="relative flex h-full min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Main content */}
-      <div className="relative z-10 pt-20 flex flex-col lg:flex-row items-center justify-center gap-12 p-6 max-w-6xl mx-auto">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-center gap-12 p-6 pt-20 lg:flex-row">
         {/* Animation container */}
-        <div className="flex-shrink-0 max-w-md">
+        <div className="max-w-md flex-shrink-0">
           <DotLottieReact
             src="/assets/animations/not-found-2.json"
             loop
@@ -23,23 +23,21 @@ const NotFound = () => {
         </div>
 
         {/* Content section */}
-        <div className="text-center lg:text-left space-y-8 flex-1">
+        <div className="flex-1 space-y-8 text-center lg:text-left">
           {/* Error message */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-6xl font-bold text-white">
-              Oops!
-            </h1>
-            <p className="text-xl md:text-2xl text-neutral-200 font-medium">
+            <h1 className="text-4xl font-bold text-white md:text-6xl">Oops!</h1>
+            <p className="text-xl font-medium text-neutral-200 md:text-2xl">
               Could not find requested resource
             </p>
-            <p className="text-neutral-300 text-lg max-w-md mx-auto lg:mx-0">
-              The page you're looking for seems to have vanished into the digital void.
+            <p className="mx-auto max-w-md text-lg text-neutral-300 lg:mx-0">
+              The page you're looking for seems to have vanished into the
+              digital void.
             </p>
           </div>
 
           {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
-
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row lg:justify-start">
             <Button
               size={"lg"}
               onClick={() => router.push("/")}
@@ -55,18 +53,16 @@ const NotFound = () => {
             <Button
               variant={"outline"}
               onClick={() => router.back()}
-              className="rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-input/85 md:text-lg"
+              className="hover:shadow-input/85 rounded-full !p-7 text-base font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:cursor-pointer md:text-lg"
             >
-              <ArrowLeftCircle
-                className="size-5 scale-105"
-              /> Go Back
+              <ArrowLeftCircle className="size-5 scale-105" /> Go Back
             </Button>
           </div>
         </div>
       </div>
       <Particles />
     </main>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

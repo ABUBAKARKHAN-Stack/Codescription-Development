@@ -80,8 +80,7 @@ const FooterTop = () => {
           id="newsletter-heading"
           className="text-foreground text-xl font-semibold"
         >
-          Stay Updated with{" "}
-          <span className="font-extrabold">{brandName}</span>
+          Stay Updated with <span className="font-extrabold">{brandName}</span>
         </h2>
         <div className="flex flex-col gap-y-2">
           <p className="text-muted-foreground text-sm">

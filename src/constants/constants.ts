@@ -1,5 +1,5 @@
 const brandName = "Codescription";
-const baseUrl = "https://codescription-development.vercel.app/";
+const baseUrl = "https://codescription-development.vercel.app";
 
 const toastBaseStyling = {
   borderRadius: "0.5rem",
@@ -12,4 +12,17 @@ const toastBaseStyling = {
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 };
 
-export { brandName, baseUrl, toastBaseStyling };
+const foundersSocials = {
+  abubakar: {
+    linkedin: "https://www.linkedin.com/in/abubakar-aijaz-dev/",
+    github: "https://github.com/ABUBAKARKHAN-Stack",
+    x: "https://x.com/abubakar_stacky",
+  },
+  awais: {
+    linkedin: "https://www.linkedin.com/in/awais-tahir-6a2898333",
+    github: "https://github.com/iawais-dev",
+    x: "",
+  },
+};
+
+export { brandName, baseUrl, toastBaseStyling, foundersSocials };
