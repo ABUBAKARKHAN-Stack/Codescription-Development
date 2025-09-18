@@ -8,7 +8,6 @@ import {
   BlogHeroSection,
   BlogMainImageSection,
 } from "@/components/section/blog";
-import Head from "next/head";
 import { urlFor } from "@/sanity/lib/image";
 import { baseUrl, brandName } from "@/constants/constants";
 import type { Metadata, ResolvingMetadata } from 'next'
@@ -47,14 +46,14 @@ export async function generateMetadata(
     post.description || `Read ${post.title} on ${brandName}`;
   const imageUrl = urlFor(post.mainImage.source)
     .quality(85)
-    .width(800)
-    .height(600)
+    .width(1200)
+    .height(630)
     .format("jpg")
     .url();
   const authorName = post.author.name;
 
   return {
-    title: `${title} | ${brandName}`,
+    title,
     description: description,
     openGraph: {
       title: title,
@@ -63,20 +62,19 @@ export async function generateMetadata(
       images: [
         {
           url: imageUrl,
-          width: 800,
-          height: 600,
+          width: 1200,
+          height: 630,
           alt: post.mainImage.alt || title,
         }
       ],
       type: "article",
       siteName: brandName,
-    
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [{ url: imageUrl, alt: post.mainImage.alt }],
+      images: [{ url: imageUrl, alt: post.mainImage.alt, height: 630, width: 1200 }],
       creator: authorName,
       site: baseUrl
     },
@@ -108,7 +106,6 @@ export async function generateMetadata(
         },
       }),
     }
-
   }
 }
 

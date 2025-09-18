@@ -1,9 +1,6 @@
 import { notFound } from "next/navigation";
 import { serviceDetails } from "@/data/servicesDetail.data";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/reusable";
-import ReactMarkDown from "react-markdown";
 import { ContainerLayout } from "@/components/layout";
 import ContactCardServices from "@/components/section/services/ContactCardServices";
 
@@ -16,11 +13,8 @@ export async function generateStaticParams() {
 type ParamType = {
   params: Promise<{ slug: string }>;
 };
-//  <div className="prose prose-lg dark:prose-invert text-white">
-//           <ReactMarkDown>
-//             {service.fullContent}
-//           </ReactMarkDown>
-//         </div>
+
+
 export default async function ServiceDetailPage({ params }: ParamType) {
   const { slug } = await params;
   const service = serviceDetails[slug as keyof typeof serviceDetails];
