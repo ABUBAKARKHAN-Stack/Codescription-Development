@@ -4,6 +4,13 @@ import { PageHeader } from "@/components/reusable";
 import React from "react";
 import { SanityLive } from "@/sanity/lib/live";
 import { BlogPostsSection } from "@/components/section/blog";
+import { Metadata } from "next";
+import { brandName } from "@/constants/constants";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: `Read expert insights, tutorials, and updates on software development, web technologies, and IT trends from ${brandName}`
+}
 
 const Blog = async () => {
   return (

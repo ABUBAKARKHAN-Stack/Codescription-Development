@@ -35,11 +35,8 @@ export async function generateMetadata({
 type ParamType = {
   params: Promise<{ slug: string }>;
 };
-//  <div className="prose prose-lg dark:prose-invert text-white">
-//           <ReactMarkDown>
-//             {service.fullContent}
-//           </ReactMarkDown>
-//         </div>
+
+
 export default async function ServiceDetailPage({ params }: ParamType) {
   const { slug } = await params;
   const service = serviceDetails[slug as keyof typeof serviceDetails];
