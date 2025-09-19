@@ -35,7 +35,7 @@ const DesktopNav: FC<Props> = ({ pathname }) => {
       </SheetTrigger>
 
       {/* Desktop Navigation */}
-      <ul className="hidden h-full items-center font-normal text-neutral-50 lg:flex space-x-6.5">
+      <ul className="hidden h-full items-center space-x-6.5 font-normal text-neutral-50 lg:flex">
         {navLinks.map(({ href, icon, name }) => {
           const isActive = pathname === href || pathname.startsWith(href + "/");
 

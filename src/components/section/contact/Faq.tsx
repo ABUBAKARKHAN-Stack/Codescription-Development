@@ -13,30 +13,35 @@ const faqs = [
   },
   {
     question: "Do you offer custom solutions?",
-    answer: "Yes! Every project is tailored to meet your specific business needs.",
+    answer:
+      "Yes! Every project is tailored to meet your specific business needs.",
   },
   {
     question: "Can we schedule a call?",
-    answer: "Absolutely! Just reach out via the form, and we'll arrange a meeting at your convenience.",
+    answer:
+      "Absolutely! Just reach out via the form, and we'll arrange a meeting at your convenience.",
   },
   {
     question: "What services do you provide?",
-    answer: "We specialize in full-stack web development, mobile app development, UI/UX design, e-commerce solutions, DevOps, and custom software tailored to your needs.",
+    answer:
+      "We specialize in full-stack web development, mobile app development, UI/UX design, e-commerce solutions, DevOps, and custom software tailored to your needs.",
   },
   {
     question: "How do you ensure project quality?",
-    answer: "We follow industry best practices, agile methodologies, and conduct thorough testing before delivery.",
+    answer:
+      "We follow industry best practices, agile methodologies, and conduct thorough testing before delivery.",
   },
   {
     question: "Do you provide ongoing support after project delivery?",
-    answer: "Yes, we offer maintenance and support packages to ensure your software runs smoothly long after launch.",
+    answer:
+      "Yes, we offer maintenance and support packages to ensure your software runs smoothly long after launch.",
   },
   {
     question: "Can you integrate with our existing systems?",
-    answer: "Of course! We build scalable solutions that integrate seamlessly with your current tools and infrastructure.",
+    answer:
+      "Of course! We build scalable solutions that integrate seamlessly with your current tools and infrastructure.",
   },
 ];
-
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

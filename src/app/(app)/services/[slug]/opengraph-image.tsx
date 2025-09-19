@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { serviceDetails } from "@/data/servicesDetail.data";
+import { serviceDetails } from "@/data/services.data";
 
 export const size = {
   width: 1200,

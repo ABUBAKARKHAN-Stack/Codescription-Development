@@ -3,7 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -119,7 +118,7 @@
   --accent: oklch(0.75 0.1 280);
   --accent-foreground: oklch(0.95 0.01 0);
 
-  --destructive: oklch(0.7 0.22 25);
+  --destructive: var(--color-red-500);
   --border: oklch(0.25 0.01 280);
   --input: oklch(0.2 0.015 280);
   --ring: var(--brand);

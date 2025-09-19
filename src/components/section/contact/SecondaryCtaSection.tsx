@@ -32,11 +32,7 @@ function SecondaryCtaSection() {
                 Services and see how we can help when you’re ready.
               </p>
               <Link href="/services">
-
-
-                <InteractiveHoverButton
-                  className="border-none float-end transform overflow-hidden rounded-2xl bg-gradient-to-r from-purple-50 via-purple-100 to-purple-50 text-primary py-4 font-semibold ext-white transition-all duration-300 focus:ring-4 focus:ring-purple-500/40 focus:outline-none active:scale-95 w-fit"
-                >
+                <InteractiveHoverButton className="text-primary ext-white float-end w-fit transform overflow-hidden rounded-2xl border-none bg-gradient-to-r from-purple-50 via-purple-100 to-purple-50 py-4 font-semibold transition-all duration-300 focus:ring-4 focus:ring-purple-500/40 focus:outline-none active:scale-95">
                   View Our Services
                 </InteractiveHoverButton>
               </Link>

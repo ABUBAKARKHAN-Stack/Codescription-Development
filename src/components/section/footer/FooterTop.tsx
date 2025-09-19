@@ -9,7 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { newsLetterSchema } from "@/schema/news-letterSchema";
+import { newsLetterSchema } from "@/schema/news-letter.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SendHorizonalIcon } from "lucide-react";
 import Link from "next/link";
@@ -57,8 +57,8 @@ const FooterTop = () => {
   });
 
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
-    successToast("You have subscribe our news letter")
-    form.reset()
+    successToast("You have subscribe our news letter");
+    form.reset();
     console.log(data);
   };
 

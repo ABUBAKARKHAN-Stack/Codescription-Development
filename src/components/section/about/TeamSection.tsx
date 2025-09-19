@@ -35,8 +35,9 @@ const teamMembers = [
 const TeamSection = () => {
   return (
     <section
-    id="team"
-    className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16">
+      id="team"
+      className="h-full w-full bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-16"
+    >
       <ContainerLayout>
         <SectionHeader mainHeading="Meet the Founders" />
 
