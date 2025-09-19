@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { serviceDetails } from "@/data/servicesDetail.data";
+import { serviceDetails } from "@/data/services.data";
 import { PageHeader } from "@/components/reusable";
 import { ContainerLayout } from "@/components/layout";
 import ContactCardServices from "@/components/section/services/ContactCardServices";

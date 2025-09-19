@@ -27,7 +27,7 @@ const footerData = {
   ],
   companyLinks: [
     { name: "About Us", link: "/about" },
-    { name: "Our Team", link: "/team" },
+    { name: "Our Team", link: "/about#team" },
     { name: "Services", link: "/services" },
     { name: "Portfolio", link: "/portfolio" },
     { name: "Blog", link: "/blog" },

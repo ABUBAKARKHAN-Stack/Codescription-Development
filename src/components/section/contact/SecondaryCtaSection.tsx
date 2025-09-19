@@ -8,10 +8,11 @@ import { ContainerLayout } from "@/components/layout";
 import Image from "next/image";
 import ContactCardServices from "../services/ContactCardServices";
 import { ChooseIllustration } from "@/components/ui/illustrations";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 function SecondaryCtaSection() {
   return (
-    <section className="w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-20">
+    <section className="w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16">
       <ContainerLayout>
         {/* Team / Support Highlight */}
         <motion.div
@@ -31,34 +32,9 @@ function SecondaryCtaSection() {
                 Services and see how we can help when you’re ready.
               </p>
               <Link href="/services">
-                {/* <button className=" w-[200px] text-[14px] md:text-base  px-6 py-3 rounded-xl border border-purple-600 text-purple-600 font-medium hover:bg-purple-600 hover:text-white transition-colors">
-          View Our Services
-            </button> */}
-                <div className="relative lg:w-[250px]">
-                  {/* Glow background */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 opacity-70 blur-md transition duration-300 hover:opacity-100"></div>
-
-                  {/* Button core */}
-                  <button className="group relative w-full transform overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 px-6 py-4 font-semibold text-white transition-all duration-300 focus:ring-4 focus:ring-purple-500/40 focus:outline-none active:scale-95">
-                    {/* Text + Icon */}
-                    <span className="relative z-10 flex items-center justify-center gap-2 text-[14px]">
-                      View Our Services
-                      <svg
-                        className="h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-40"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </div>
+                <InteractiveHoverButton className="text-primary ext-white float-end w-fit transform overflow-hidden rounded-2xl border-none bg-gradient-to-r from-purple-50 via-purple-100 to-purple-50 py-4 font-semibold transition-all duration-300 focus:ring-4 focus:ring-purple-500/40 focus:outline-none active:scale-95">
+                  View Our Services
+                </InteractiveHoverButton>
               </Link>
             </div>
           </div>

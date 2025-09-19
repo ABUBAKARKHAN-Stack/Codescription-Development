@@ -20,4 +20,13 @@ const foundersSocials = {
   },
 };
 
-export { brandName, baseUrl, toastBaseStyling, foundersSocials };
+const brandSocials = {
+  upwork:
+    "https://www.upwork.com/freelancers/~012cf1f5ceb37cd2b9?mp_source=share",
+  instagram: "https://www.instagram.com/codescription",
+  facebook: "https://www.facebook.com/profile.php?id=61581297981686",
+  linkedin: "https://www.linkedin.com/in/codescription-real",
+  x: "https://x.com/codescripion",
+};
+
+export { brandName, baseUrl, toastBaseStyling, foundersSocials, brandSocials };

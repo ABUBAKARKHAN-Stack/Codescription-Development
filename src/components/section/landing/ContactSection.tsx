@@ -2,39 +2,82 @@
 
 import { useForm } from "react-hook-form";
 import { ContactSectionHeader } from "@/data/contact.data";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2, Send } from "lucide-react";
 import { SectionHeader } from "@/components/reusable";
 import ContainerLayout from "@/components/layout/ContainerLayout";
-import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { errorToast, successToast } from "@/helpers/toasts.helper";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { contactSchema, servicesContactSchema } from "@/schema/contact.schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useState } from "react";
+import { SupportIllustration } from "@/components/ui/illustrations";
 
-type ContactFormData = {
-  name: string;
-  email: string;
-  message: string;
-};
+const ContactSection = ({ forServices = false }) => {
+  const schema = forServices ? servicesContactSchema : contactSchema;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-const ContactSection = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<ContactFormData>();
+  const servicesItems = [
+    "Web Development",
+    "App Development",
+    "Full Stack Development",
+    "E-Commerce Solutions",
+    "UI/UX Design",
+    "DevOps & Automation",
+  ];
 
-  const onSubmit = async (data: ContactFormData) => {
+  const subjects = [
+    "Buy Ready-Made Project",
+    "Request Custom Project",
+    "Project Consultation",
+    "Technical Support",
+    "Partnership / Collaboration",
+    "Career / Jobs",
+    "Other",
+  ];
+
+  const form = useForm({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+      message: "",
+      name: "",
+      service: "",
+      subject: "",
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof schema>) => {
+    setIsSubmitting(true);
     try {
-      await fetch("/api/send", {
+      const res = await fetch("/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      reset();
-      alert("Message sent!");
+      form.reset();
+      successToast("Your message has been sent successfully!");
     } catch (error) {
-      alert("Something went wrong!");
+      errorToast("Unable to send your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -44,101 +87,175 @@ const ContactSection = () => {
       className="h-full w-full bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 text-white"
     >
       <ContainerLayout>
-        <div className="mx-auto grid grid-cols-1 items-center gap-12 lg:flex lg:grid-cols-2 lg:justify-between">
-          {/* Left content */}
-          <div>
-            <SectionHeader mainHeading={ContactSectionHeader.mainHeading} />
-            <p className="mx-auto my-8 max-w-[400px] text-center text-slate-300 lg:text-left">
-              We’d love to hear from you. Whether you have a question, feedback,
-              or just want to say hello, feel free to reach out.
-            </p>
+        <SectionHeader
+          mainHeading={
+            forServices ? "Request a Service" : ContactSectionHeader.mainHeading
+          }
+        />
+        <div className="mt-10 flex flex-col items-start justify-between gap-12 lg:flex-row">
+          {/* Left text block */}
 
-            {/* <div className="flex flex-col items-center space-y-4 lg:items-baseline">
-              <div className="flex items-center gap-3">
-                <Mail className="h-6 w-6 text-purple-400" />
-                <a
-                  href="mailto:contact@yourstartup.com"
-                  className="hover:underline"
-                >
-                  contact@yourstartup.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="h-6 w-6 text-purple-400" />
-                <a href="tel:+1234567890" className="hover:underline">
-                  +1 (234) 567-890
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="h-6 w-6 text-purple-400" />
-                <span>123 Space Street, Galaxy City</span>
-              </div>
-            </div> */}
+          <div className="space-y-4 text-center lg:max-w-sm lg:text-left">
+            <h3 className="text-3xl font-semibold">
+              {forServices
+                ? "Let’s Build Something Great"
+                : "We’d Love to Hear From You"}
+            </h3>
+            <p className="leading-relaxed text-gray-300">
+              {forServices
+                ? "Select a service and tell us more about your project. Our team will get back to you with tailored solutions."
+                : "Whether you have a question, feedback, or just want to say hello, drop us a message and we’ll respond shortly."}
+            </p>
           </div>
 
-          {/* Right content: Contact Form */}
-          <div>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6 rounded-2xl border border-white/5 bg-white/2.5 p-8 shadow-2xl backdrop-blur-3xl lg:w-[500px]"
-            >
-              <div className="space-y-2">
-                <Label htmlFor="name">Name</Label>
-                <Input
-                  id="name"
-                  placeholder="Your Name"
-                  className="border-2 border-purple-500"
-                  {...register("name", { required: "Name is required" })}
-                />
-                {errors.name && (
-                  <p className="text-sm text-red-400">{errors.name.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  placeholder="Your Email"
-                  className="border-2 border-purple-500"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Enter a valid email",
-                    },
-                  })}
-                />
-                {errors.email && (
-                  <p className="text-sm text-red-400">{errors.email.message}</p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Write your message..."
-                  className="border-2 border-purple-500"
-                  {...register("message", { required: "Message is required" })}
-                />
-                {errors.message && (
-                  <p className="text-sm text-red-400">
-                    {errors.message.message}
-                  </p>
-                )}
-              </div>
-
-              <Button
-                type="submit"
-                size={"lg"}
-                className="w-full text-base"
-                disabled={isSubmitting}
+          {/* Right form  */}
+          <div className="w-full rounded-2xl border border-white/5 bg-purple-500/5 p-8 shadow-2xl backdrop-blur-3xl lg:max-w-2xl">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
+                {/* Name Field */}
+                <div className="space-y-2">
+                  <FormField
+                    name="name"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input
+                            id="name"
+                            placeholder="Your Name"
+                            className="border-2 border-purple-500"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div className="space-y-2">
+                  <FormField
+                    name="email"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            id="email"
+                            placeholder="Your Email"
+                            className="border-2 border-purple-500"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Subject / Service Field */}
+                <div className="w-full space-y-2">
+                  <FormField
+                    name={forServices ? "service" : "subject"}
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>
+                          {forServices ? "Service" : "Subject"}
+                        </FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="w-full border-2 border-purple-500">
+                              <SelectValue
+                                placeholder={
+                                  forServices
+                                    ? "Select a Service"
+                                    : "Select a Subject"
+                                }
+                              />
+                            </SelectTrigger>
+                          </FormControl>
+
+                          <SelectContent>
+                            {forServices
+                              ? servicesItems.map((service, i) => (
+                                <SelectItem key={i} value={service}>
+                                  {service}
+                                </SelectItem>
+                              ))
+                              : subjects.map((subject, i) => (
+                                <SelectItem
+
+                                  key={i}
+                                  value={subject}
+                                  disabled={
+                                    subject === "Career / Jobs" ||
+                                    subject === "Buy Ready-Made Project"
+                                  }
+                                >
+                                  {subject}
+                                </SelectItem>
+                              ))}
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div className="space-y-2">
+                  <FormField
+                    name="message"
+                    control={form.control}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Message</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            id="message"
+                            placeholder="Write Your Message..."
+                            className="resize-none border-2 border-purple-500"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full hover:shadow-lg hover:shadow-purple-500/25 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <div className="flex items-center gap-2">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>Sending...</span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <Send className="h-4 w-4" />
+                      <span>Send Message</span>
+                    </div>
+                  )}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
       </ContainerLayout>

@@ -1,15 +1,5 @@
 import { PortableTextChild, TypedObject } from "sanity";
 
-type Position = {
-  order: number;
-  startLat: number;
-  startLng: number;
-  endLat: number;
-  endLng: number;
-  arcAlt: number;
-  color: string;
-};
-
 interface IAuthor {
   name: string;
   source: string;
@@ -39,22 +29,26 @@ interface IBlog {
   author: IAuthor;
 }
 
-type PortableTextBlock = {
+interface PortableTextBlock {
   _key: string;
   _type: "block" | string;
   children?: PortableTextChild[];
   markDefs?: { _key: string; _type: string }[];
   style?: string;
-};
+}
 
-type ErrorProps = {
+interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
-};
+}
+
+interface ContactFormType {
+  name: string;
+  email: string;
+}
 
 export {
   TechStackTabs,
-  type Position,
   type IBlog,
   type PortableTextBlock,
   type IAuthor,

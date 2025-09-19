@@ -18,10 +18,9 @@ const ServicePage = () => {
   return (
     <div>
       <ServicesHero />
-      {/* <OurWorkSection /> */}
       <WhatWeDoSection />
       <FeaturedServiceSection />
-      <ContactSection />
+      <ContactSection forServices />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { Poppins, Audiowide, Orbitron } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { baseUrl, brandName } from "@/constants/constants";
+import { baseUrl, brandName, foundersSocials } from "@/constants/constants";
 import { Toaster } from "sonner";
 import ShootingStars from "@/components/ui/shootingStars";
 
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     "scalable web apps",
   ],
   authors: [
-    { name: "Awais", url: "" },
-    { name: "Abubakar", url: "" },
+    { name: "Awais", url: foundersSocials.abubakar.linkedin },
+    { name: "Abubakar", url: foundersSocials.awais.linkedin },
   ],
   creator: brandName,
   publisher: brandName,
