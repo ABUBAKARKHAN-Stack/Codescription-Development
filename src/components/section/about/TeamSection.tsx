@@ -7,19 +7,9 @@ import { foundersSocials } from "@/constants/constants";
 import Particles from "@/components/ui/particles";
 import { cn } from "@/lib/utils";
 
-const { abubakar, awais } = foundersSocials;
+const { abubakar } = foundersSocials;
 
 const teamMembers = [
-  {
-    name: "Awais Tahir",
-    role: "Co-Founder & CEO",
-    image: "/assets/cs-favicon.svg",
-    socials: {
-      linkedin: awais.linkedin,
-      x: awais.x,
-      github: awais.github,
-    },
-  },
   {
     name: "Abubakar Aijaz",
     role: "Co-Founder & CTO",

@@ -18,11 +18,6 @@ const foundersSocials = {
     github: "https://github.com/ABUBAKARKHAN-Stack",
     x: "https://x.com/abubakar_stacky",
   },
-  awais: {
-    linkedin: "https://www.linkedin.com/in/awais-tahir-6a2898333",
-    github: "https://github.com/iawais-dev",
-    x: "",
-  },
 };
 
 export { brandName, baseUrl, toastBaseStyling, foundersSocials };
