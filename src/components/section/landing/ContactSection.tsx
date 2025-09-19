@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { errorToast, successToast } from "@/helpers/toasts.helper";
 
 type ContactFormData = {
   name: string;
@@ -32,9 +33,9 @@ const ContactSection = () => {
         body: JSON.stringify(data),
       });
       reset();
-      alert("Message sent!");
+      successToast('Your message has been sent successfully!')
     } catch (error) {
-      alert("Something went wrong!");
+      errorToast("Unable to send your message. Please try again later.")
     }
   };
 

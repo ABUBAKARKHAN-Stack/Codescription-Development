@@ -25,7 +25,7 @@ export default function AboutUsSection() {
     <section
       ref={aboutRef}
       id="about-us-section"
-      className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16 md:py-24"
+      className="h-full w-full overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-purple-900 py-16"
     >
       <ContainerLayout>
         <div className="mx-auto flex items-center gap-12 lg:grid lg:grid-cols-2">

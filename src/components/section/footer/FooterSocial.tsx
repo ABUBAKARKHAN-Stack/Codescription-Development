@@ -4,37 +4,45 @@ import {
   InstagramIcon,
   LinkedinIcon,
 } from "lucide-react";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaUpwork, FaXTwitter } from "react-icons/fa6";
 
 import Link from "next/link";
 import React from "react";
+import { brandSocials } from "@/constants/constants";
 
 const FooterSocial = () => {
+  const {
+    instagram,
+    facebook,
+    upwork,
+    x,
+    linkedin
+  } = brandSocials
   const socialLinks = [
     {
       icon: <LinkedinIcon className="text-foreground size-5" />,
-      link: "#",
+      link: linkedin,
       label: "LinkedIn",
     },
     {
-      icon: <GithubIcon className="text-foreground size-5" />,
-      link: "#",
-      label: "GitHub",
-    },
-    {
       icon: <FaXTwitter className="text-foreground size-5" />,
-      link: "#",
+      link: x,
       label: "Twitter",
     },
     {
       icon: <FacebookIcon className="text-foreground size-5" />,
-      link: "#",
+      link: facebook,
       label: "Facebook",
     },
     {
       icon: <InstagramIcon className="text-foreground size-5" />,
-      link: "#",
+      link: instagram,
       label: "Instagram",
+    },
+    {
+      icon: <FaUpwork className="text-foreground size-5" />,
+      link: upwork,
+      label: "UpWork"
     },
   ];
 
@@ -51,6 +59,7 @@ const FooterSocial = () => {
           <Link
             href={link}
             key={i}
+            target="_blank"
             aria-label={`${label} profile`}
             className="border-border hover: hover:shadow-primary/25 rounded-full border bg-gradient-to-r from-purple-600 to-purple-700 p-3 transition-all duration-200 ease-linear hover:-translate-y-1.5 hover:scale-120 hover:from-purple-500 hover:to-purple-600 hover:shadow-lg"
           >

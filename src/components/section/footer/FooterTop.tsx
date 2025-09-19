@@ -19,6 +19,7 @@ import React from "react";
 import Image from "next/image";
 import { footerData } from "@/data/footer.data";
 import { brandName } from "@/constants/constants";
+import { successToast } from "@/helpers/toasts.helper";
 
 const RenderFooterLinks = ({
   heading,
@@ -56,6 +57,8 @@ const FooterTop = () => {
   });
 
   const onSubmit = (data: z.infer<typeof newsLetterSchema>) => {
+    successToast("You have subscribe our news letter")
+    form.reset()
     console.log(data);
   };
 
