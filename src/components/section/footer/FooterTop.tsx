@@ -128,7 +128,7 @@ const FooterTop = () => {
       <RenderFooterLinks heading="Company" links={footerData.companyLinks} />
 
       {/* === Support Links === */}
-      <RenderFooterLinks heading="Contact" links={footerData.contactLink} />
+      {/* <RenderFooterLinks heading="Contact" links={footerData.contactLink} /> */}
     </section>
   );
 };

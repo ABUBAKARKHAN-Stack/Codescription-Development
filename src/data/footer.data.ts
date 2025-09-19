@@ -34,9 +34,9 @@ const footerData = {
   ],
 
   contactLink: [
-    { name: "Contact Us", link: "/contact" },
-    { name: "tetracode@gmail.com", link: "mailto:tetracode@gmail.com" },
-    { name: "+92 3123456789", link: "tel:+923123456789" },
+    // { name: "Contact Us", link: "/contact" },
+    // { name: "tetracode@gmail.com", link: "mailto:tetracode@gmail.com" },
+    // { name: "00000000000", link: "tel:0000000000" },
   ],
 };
 

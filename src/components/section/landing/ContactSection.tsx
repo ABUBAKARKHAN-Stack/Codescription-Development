@@ -53,7 +53,7 @@ const ContactSection = () => {
               or just want to say hello, feel free to reach out.
             </p>
 
-            <div className="flex flex-col items-center space-y-4 lg:items-baseline">
+            {/* <div className="flex flex-col items-center space-y-4 lg:items-baseline">
               <div className="flex items-center gap-3">
                 <Mail className="h-6 w-6 text-purple-400" />
                 <a
@@ -73,7 +73,7 @@ const ContactSection = () => {
                 <MapPin className="h-6 w-6 text-purple-400" />
                 <span>123 Space Street, Galaxy City</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right content: Contact Form */}
