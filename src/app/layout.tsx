@@ -44,8 +44,7 @@ export const metadata: Metadata = {
     "scalable web apps",
   ],
   authors: [
-    { name: "Awais", url: foundersSocials.abubakar.linkedin },
-    { name: "Abubakar", url: foundersSocials.awais.linkedin },
+    { name: "Abubakar", url: foundersSocials.abubakar.linkedin },
   ],
   creator: brandName,
   publisher: brandName,
